@@ -1,0 +1,1 @@
+plink.exe -D 7890 -pw tipadmin -N root@tipl01.swg.usma.ibm.com
