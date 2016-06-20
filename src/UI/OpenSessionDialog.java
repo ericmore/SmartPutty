@@ -1,7 +1,9 @@
 package UI;
 
+import Control.InvokeProgram;
+import Dao.DBManager;
+import Model.ConfigSession;
 import java.util.ArrayList;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
@@ -15,10 +17,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-
-import Control.InvokeProgram;
-import Dao.DBManager;
-import Model.ConfigSession;
 
 public class OpenSessionDialog  implements SelectionListener, MouseListener{
 	private MainFrame mainFrame = null;
@@ -56,7 +54,6 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		//锟斤拷锟絪essions锟斤拷锟�
 		loadTable();
 		
-		
 		//锟揭硷拷锟捷菜碉拷
 		Menu popupmenu = new Menu(dialog, SWT.POP_UP);
 		MenuItem addPopItem = new MenuItem(popupmenu, SWT.PUSH);
@@ -72,7 +69,6 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		deletePopItem.setImage(MImage.deleteImage);
 		deletePopItem.addSelectionListener(this);
 		table.setMenu(popupmenu);
-		
 		
 		//button
 		addButton = new Button(dialog, SWT.LEFT);
@@ -105,10 +101,10 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		connectButton.setImage(MImage.connectImage);
 		connectButton.addSelectionListener(this);
 		
-		
 		dialog.pack();
 		dialog.open();
 	}
+
 	//锟斤拷锟窖★拷锟斤拷锟斤拷蚍祷氐锟揭伙拷锟�
 	public ConfigSession getCurrentSelectSession(){
 		if(table.getSelection().length > 0){
@@ -116,29 +112,39 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		}else{
 			return null;
 		}
-		 
 	}
+
 	public void loadTable(){
 		table.removeAll();
 		ArrayList<ConfigSession> sessions = (ArrayList<ConfigSession>) dbm.getAllCSessions();		
 		for(ConfigSession session : sessions){
 			TableItem tableItem = new TableItem(table, SWT.NONE);
 			tableItem.setData("session",session);
-			tableItem.setText(new String[] {session.getHost(), session.getUser(), session.getProtocol()});
+			tableItem.setText(new String[] {session.getHost(), session.getUser(), session.getProtocol().getName()});
 		}
-		
 	}
+
+	/**
+	 * Open all selected sessions in tabs.
+	 */
 	private void OpenSelectedSessions(){
 		TableItem[] tableItems = table.getSelection();
 		ArrayList<ConfigSession> sessions = new ArrayList<ConfigSession>();
-		for(TableItem tabItem:tableItems){
-			ConfigSession csession = dbm.queryCSessionBySession((ConfigSession) tabItem.getData("session"));
+		for (TableItem tableItem:tableItems){
+			ConfigSession csession = dbm.queryCSessionBySession((ConfigSession) tableItem.getData("session"));
 			sessions.add(csession);
+			System.out.println("OpenSelectedSessions() " + csession); //DEBUG
 		}
 		dialog.dispose();
-		for(ConfigSession session : sessions)this.mainFrame.addSession(null, session);
+
+		for (ConfigSession session : sessions){
+			this.mainFrame.addSession(null, session);
+		}
 	}
-	
+
+	/**
+	 * Open a Putty session in a window outside program.
+	 */
 	private void OpenPutty(){
 		TableItem[] tableItems = table.getSelection();
 		if(tableItems!=null){
@@ -151,7 +157,6 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 	
 	public void widgetDefaultSelected(SelectionEvent arg0) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	public void widgetSelected(SelectionEvent e) {
@@ -201,12 +206,9 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 	
 	public void mouseDown(MouseEvent mouseevent) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	public void mouseUp(MouseEvent mouseevent) {
 		// TODO Auto-generated method stub
-		
 	}
-
 }

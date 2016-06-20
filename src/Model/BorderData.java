@@ -2,8 +2,12 @@ package Model;
 
 import org.eclipse.swt.SWT;
 
+/**
+ * Indicates the region that a control belongs to.
+ */
 public final class BorderData {
-public int region = SWT.CENTER; // 默认为中间
+	public int region = SWT.CENTER;
+
 	public BorderData() {
 	}
 	public BorderData(int region) {
