@@ -16,7 +16,9 @@ public class RegistryUtils {
 	 * Create "Putty" keys.
 	 */
 	public static void createPuttyKeys(){
+		try{Registry.HKEY_CURRENT_USER.deleteSubKey("Software\\SimonTatham\\PuTTY\\Sessions\\Default%20Settings");}catch(Exception e){};
 		try {
+			
 			RegistryKey subkey = Registry.HKEY_CURRENT_USER.createSubKey(
 				"Software\\SimonTatham\\PuTTY\\Sessions\\Default%20Settings", "");
 			subkey.setValue(new RegDWordValue(subkey, "WarnOnClose", RegistryValue.REG_DWORD, 0));
@@ -46,6 +48,22 @@ public class RegistryUtils {
 		}
 
 		return sessions;
+	}
+	
+	/**
+	 * Get Prop like HostName,UserName 
+	 * @param key
+	 */
+	public static String ReadSessionProp(String sessionName, String key){
+		String value = "";
+		try {
+			RegistryKey subkey = Registry.HKEY_CURRENT_USER.openSubKey("Software\\SimonTatham\\PuTTY\\Sessions\\"+sessionName);
+			value = ((RegStringValue)subkey.getValue(key)).getData();
+		} catch (Exception e){
+			System.out.println(e.getMessage());
+//			e.printStackTrace();
+		}
+		return value;
 	}
 
 

@@ -73,7 +73,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
 		comboProtocol.add(protocol.getName());
 	}
     comboProtocol.setBounds(x / 3, 2 * y / 6, 2 * x / 3, y / 6);
-    comboProtocol.setText(ConstantValue.defaultProtocol);
+    comboProtocol.setText(Protocol.SSH2.getName());
     comboProtocol.addSelectionListener(this);
 
     lable = new Label(dialog, SWT.NONE);
@@ -185,7 +185,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
       // String protocol = comboProtocol.getText();
 	  Protocol protocol = Protocol.values()[comboProtocol.getSelectionIndex()];
       String file = textkey.getText().trim();
-      ConfigSession session = new ConfigSession(host, "22", user, protocol,file, password, "Default%20Settings"); //TODO: enable port and session!
+      ConfigSession session = new ConfigSession(host, "22", user, protocol,file, password, ""); //TODO: enable port and session!
 
       if (!host.trim().equals("") && !user.trim().equals("") && !protocol.equals("")) {
         dialog.dispose();

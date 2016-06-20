@@ -9,8 +9,11 @@ import Model.ConfigSession;
 import Model.ConstantValue;
 import Model.Protocol;
 import Utils.RegistryUtils;
+
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Enumeration;
+
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -41,11 +44,13 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
-public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseListener, ShellListener {
+public class MainFrame implements SelectionListener, CTabFolder2Listener,
+		MouseListener, ShellListener {
 	public static Display display = null;
 	public static PrintStream out = System.out;
 	public static PrintStream err = System.err;
@@ -53,18 +58,22 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	public static Shell shell;
 	public static Configuration configuration;
 	private MenuItem openItem, newItem, bsoItem, proxyItem, captureItem,
-			remoteDesktopItem, exitItem, updateItem, connectionBarMenuItem, utilitiesBarMenuItem,
-			webcomeMenuItem, reloadPopItem,
-			clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, vncPopItem, openPuttyItem;
+			remoteDesktopItem, exitItem, updateItem, connectionBarMenuItem,
+			utilitiesBarMenuItem, webcomeMenuItem, reloadPopItem, clonePopItem,
+			transferPopItem, scpMenuItem, ftpMenuItem, vncPopItem,
+			openPuttyItem;
 	private Menu popupmenu;
 	private ToolItem itemNew, itemOpen, itemProxy, itemRemoteDesk, itemBSO,
-		itemCapture, itemCalculator, itemVNC, itemNotePad,itemKenGen, itemHelp;
+			itemCapture, itemCalculator, itemVNC, itemNotePad, itemKenGen,
+			itemHelp;
 	private CTabFolder folder;
 	private CTabItem welcomeItem;
 	private ToolBar utilitiesToolbar;
 	private Group connectGroup;
+	private Combo sessionCombo;
+	private Text hostnameItem, usernameItem;
 
-	public MainFrame(){
+	public MainFrame() {
 		display = new Display();
 		shell = new Shell(display);
 
@@ -99,7 +108,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		shell.open();
 
-		while (!shell.isDisposed()){
+		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch())
 				display.sleep();
 		}
@@ -110,7 +119,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	/**
 	 * Main menu.
 	 */
-	private void createMainMenu(){
+	private void createMainMenu() {
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
 
@@ -156,7 +165,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		remoteDesktopItem.setAccelerator(SWT.CTRL + 'R');
 		remoteDesktopItem.addSelectionListener(this);
 
-		//  Separator:
+		// Separator:
 		new MenuItem(filemenu, SWT.SEPARATOR);
 
 		exitItem = new MenuItem(filemenu, SWT.PUSH);
@@ -199,15 +208,15 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	/**
 	 * Create bottom connection bar.
 	 */
-	private void createConnectionBar(){
+	private void createConnectionBar() {
 		connectGroup = new Group(shell, SWT.NONE);
 
 		RowLayout layout = new RowLayout();
-        layout.marginTop = 3;
-        layout.marginBottom = 3;
-        layout.marginLeft = 1;
-        layout.marginRight = 1;
-        layout.spacing = 5;
+		layout.marginTop = 3;
+		layout.marginBottom = 3;
+		layout.marginLeft = 1;
+		layout.marginRight = 1;
+		layout.spacing = 5;
 		layout.wrap = false;
 		layout.center = true;
 
@@ -217,9 +226,10 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Protocol:
 		new Label(connectGroup, SWT.RIGHT).setText("Protocol");
-		final Combo protocolCombo = new Combo(connectGroup, SWT.LEFT | SWT.READ_ONLY);
+		final Combo protocolCombo = new Combo(connectGroup, SWT.LEFT
+				| SWT.READ_ONLY);
 		// Get all protocols and add:
-		for (Protocol protocol : Protocol.values()){
+		for (Protocol protocol : Protocol.values()) {
 			protocolCombo.add(protocol.getName());
 		}
 		protocolCombo.select(0); // Set default value.
@@ -228,8 +238,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Hostname:
 		new Label(connectGroup, SWT.RIGHT).setText("Hostname");
-		final Text hostnameItem = new Text(connectGroup, SWT.BORDER);
-		hostnameItem.setLayoutData(new RowData(80, 14));
+		hostnameItem = new Text(connectGroup, SWT.BORDER);
+		hostnameItem.setLayoutData(new RowData(180, 14));
 
 		// Port:
 		new Label(connectGroup, SWT.RIGHT).setText("Port");
@@ -239,48 +249,66 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Username:
 		new Label(connectGroup, SWT.RIGHT).setText("Username");
-		final Text usernameItem = new Text(connectGroup, SWT.BORDER);
+		usernameItem = new Text(connectGroup, SWT.BORDER);
 		usernameItem.setLayoutData(new RowData(60, 14));
 
 		// Password
 		new Label(connectGroup, SWT.RIGHT).setText("Password");
-		final Text passwordItem = new Text(connectGroup, SWT.PASSWORD | SWT.BORDER);
+		final Text passwordItem = new Text(connectGroup, SWT.PASSWORD
+				| SWT.BORDER);
 		passwordItem.setLayoutData(new RowData(60, 14));
 
 		// Session:
 		new Label(connectGroup, SWT.RIGHT).setText("Session");
-		final Combo sessionCombo = new Combo(connectGroup, SWT.READ_ONLY);
+		sessionCombo = new Combo(connectGroup, SWT.READ_ONLY);
 		sessionCombo.setLayoutData(new RowData(80, 14));
 		sessionCombo.setToolTipText("Session to use");
-		sessionCombo.add(""); // Empty entry to use none.
+		sessionCombo.addSelectionListener(this);
+		// Here we want to use default settings which contains important
+		// settings where swt can search hwnd
+		// sessionCombo.add(""); // Empty entry to use none.
 		// Get all "Putty" sessions:
 		Enumeration sessions = RegistryUtils.getAllPuttySessions();
-		while (sessions.hasMoreElements()){
+		while (sessions.hasMoreElements()) {
 			// Add "Putty" session replacing spaces by codes:
-			sessionCombo.add(sessions.nextElement().toString().replaceAll("%20", " "));
+			//we do not want default settings to be added to combo.Because -load "Default%20Settings"  will make WarnOnClose to be true,
+			//which will lead memory leak if user close tab but later press cancel for Putty's Native Confirm Dialog
+			String regEntry = sessions.nextElement().toString();
+			if (regEntry.toString().equals("Default%20Settings"))
+				continue;
+
+			sessionCombo.add(regEntry.replaceAll("%20", " "));
 		}
+		sessionCombo.select(0);
+		LoadSessionFromReg();
 
 		// Connect button:
 		Button connectButton = new Button(connectGroup, SWT.PUSH);
 		connectButton.setText("Connect");
 		connectButton.setLayoutData(new RowData());
 		connectButton.setToolTipText("Connect to defined host");
-		connectButton.addSelectionListener(new SelectionListener(){
+		connectButton.addSelectionListener(new SelectionListener() {
 			@Override
-			public void widgetSelected(SelectionEvent se){
-				// String protocol = protocolCombo.getText().toLowerCase(); // Putty wants lower case!
-				Protocol protocol = Protocol.values()[protocolCombo.getSelectionIndex()];
+			public void widgetSelected(SelectionEvent se) {
+				// String protocol = protocolCombo.getText().toLowerCase(); //
+				// Putty wants lower case!
+				Protocol protocol = Protocol.values()[protocolCombo
+						.getSelectionIndex()];
 				String host = hostnameItem.getText();
 				String port = portItem.getText();
 				String user = usernameItem.getText();
 				String password = passwordItem.getText();
 				String session = sessionCombo.getText();
-				// System.out.println("protocol: " + protocol + ", host: " + host + ", port: " + port + ", user: " + user + ", password: " + password + ", session: " + session); //DEBUG
-				ConfigSession configSession = new ConfigSession(host, port, user, protocol, "", password, session);
+				System.out.println("protocol: " + protocol + ", host: " + host
+						+ ", port: " + port + ", user: " + user
+						+ ", password: " + password + ", session: " + session); // DEBUG
+				ConfigSession configSession = new ConfigSession(host, port,
+						user, protocol, "", password, session);
 				addSession(null, configSession);
 			}
+
 			@Override
-			public void widgetDefaultSelected(SelectionEvent se){
+			public void widgetDefaultSelected(SelectionEvent se) {
 			}
 		});
 
@@ -289,9 +317,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		clearButton.setText("Clear");
 		clearButton.setLayoutData(new RowData());
 		clearButton.setToolTipText("Clear all fields");
-		clearButton.addSelectionListener(new SelectionListener(){
+		clearButton.addSelectionListener(new SelectionListener() {
 			@Override
-			public void widgetSelected(SelectionEvent se){
+			public void widgetSelected(SelectionEvent se) {
 				protocolCombo.select(0);
 				hostnameItem.setText("");
 				portItem.setText("22");
@@ -299,24 +327,28 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 				passwordItem.setText("");
 				passwordItem.setEnabled(true);
 				sessionCombo.select(0);
+				LoadSessionFromReg();
 			}
+
 			@Override
-			public void widgetDefaultSelected(SelectionEvent se){
+			public void widgetDefaultSelected(SelectionEvent se) {
 			}
 		});
 
-		// Due only "SSH1" and "SSH2" protocols allows password I must restrict it:
-		protocolCombo.addSelectionListener(new SelectionListener(){
+		// Due only "SSH1" and "SSH2" protocols allows password I must restrict
+		// it:
+		protocolCombo.addSelectionListener(new SelectionListener() {
 			@Override
-			public void widgetSelected(SelectionEvent se){
-				if (protocolCombo.getSelectionIndex() > 1){
+			public void widgetSelected(SelectionEvent se) {
+				if (protocolCombo.getSelectionIndex() > 1) {
 					passwordItem.setEnabled(false);
 				} else {
 					passwordItem.setEnabled(true);
 				}
 			}
+
 			@Override
-			public void widgetDefaultSelected(SelectionEvent se){
+			public void widgetDefaultSelected(SelectionEvent se) {
 			}
 		});
 
@@ -326,7 +358,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	/**
 	 * Create utilities toolbar.
 	 */
-	private void createUtilitiesToolbar(){
+	private void createUtilitiesToolbar() {
 		// utilitiesToolbar = new ToolBar(shell, SWT.NULL);
 		utilitiesToolbar = new ToolBar(shell, SWT.VERTICAL);
 		// utilitiesToolbar.setLayoutData(new BorderData(SWT.TOP));
@@ -344,11 +376,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		itemOpen.setImage(MImage.openImage);
 		itemOpen.addSelectionListener(this);
 
-//		itemProxy = new ToolItem(bar, SWT.PUSH);
-//		itemProxy.setText("Enable Proxy");
-//		itemProxy.setToolTipText("open tunnel and enable system proxy for browser");
-//		itemProxy.setImage(MImage.enableProxyImage);
-//		itemProxy.addSelectionListener(this);
+		// itemProxy = new ToolItem(bar, SWT.PUSH);
+		// itemProxy.setText("Enable Proxy");
+		// itemProxy.setToolTipText("open tunnel and enable system proxy for browser");
+		// itemProxy.setImage(MImage.enableProxyImage);
+		// itemProxy.addSelectionListener(this);
 
 		itemRemoteDesk = new ToolItem(utilitiesToolbar, SWT.PUSH);
 		itemRemoteDesk.setText("RemoteDesk");
@@ -356,11 +388,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		itemRemoteDesk.setImage(MImage.RemoteDeskImage);
 		itemRemoteDesk.addSelectionListener(this);
 
-//		itemBSO = new ToolItem(bar, SWT.PUSH);
-//		itemBSO.setText("IBM BSO");
-//		itemBSO.setToolTipText("Pass IBM BSO");
-//		itemBSO.setImage(MImage.bsoImage);
-//		itemBSO.addSelectionListener(this);
+		// itemBSO = new ToolItem(bar, SWT.PUSH);
+		// itemBSO.setText("IBM BSO");
+		// itemBSO.setToolTipText("Pass IBM BSO");
+		// itemBSO.setImage(MImage.bsoImage);
+		// itemBSO.addSelectionListener(this);
 
 		itemCapture = new ToolItem(utilitiesToolbar, SWT.PUSH);
 		itemCapture.setText("Capture");
@@ -404,7 +436,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	/**
 	 * Create tabs zone.
 	 */
-	private void createTabs(){
+	private void createTabs() {
 		folder = new CTabFolder(shell, SWT.BORDER);
 
 		folder.setLayoutData(new BorderData());
@@ -418,7 +450,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	/**
 	 * Tab popup menu.
 	 */
-	private void createTabPopupMenu(){
+	private void createTabPopupMenu() {
 		popupmenu = new Menu(shell, SWT.POP_UP);
 		reloadPopItem = new MenuItem(popupmenu, SWT.PUSH);
 		reloadPopItem.setText("reload session");
@@ -456,13 +488,13 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		vncPopItem.addSelectionListener(this);
 	}
 
-	private void checkConf(){
+	private void checkConf() {
 		InvokeProgram.killPuttyWarningsAndErrs();
 		configuration = Configuration.getInstance();
 	}
 
-	private void setWebcomeTab(){
-		if (welcomeItem == null || welcomeItem.isDisposed()){
+	private void setWebcomeTab() {
+		if (welcomeItem == null || welcomeItem.isDisposed()) {
 			welcomeItem = new CTabItem(folder, SWT.CLOSE);
 			Browser browser = new Browser(folder, SWT.NONE);
 			browser.setUrl(ConstantValue.HOME_URL);
@@ -474,10 +506,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 	/**
 	 * Open a new session in a new tab.
+	 * 
 	 * @param item
-	 * @param session 
+	 * @param session
 	 */
-	public void addSession(CTabItem item, ConfigSession session){
+	public void addSession(CTabItem item, ConfigSession session) {
 		if (item == null)
 			item = new CTabItem(folder, SWT.CLOSE);
 
@@ -491,51 +524,53 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		t.start();
 	}
 
-	private void reloadSession(){
+	private void reloadSession() {
 		CTabItem tabItem = folder.getSelection();
 		int hwnd = Integer.parseInt(String.valueOf(tabItem.getData("hwnd")));
 		InvokeProgram.killProcess(hwnd);
 		addSession(tabItem, (ConfigSession) tabItem.getData("session"));
 	}
 
-	private void cloneSession(){
+	private void cloneSession() {
 		CTabItem tabItem = folder.getSelection();
 		ConfigSession session = (ConfigSession) tabItem.getData("session");
 		addSession(null, session);
 	}
 
-	private void openWinscp(String protocol){
-		ConfigSession session = (ConfigSession) folder.getSelection().getData("session");
+	private void openWinscp(String protocol) {
+		ConfigSession session = (ConfigSession) folder.getSelection().getData(
+				"session");
 		String arg = protocol + "://" + session.getUser() + ":"
 				+ session.getPassword() + "@" + session.getHost();
 		InvokeProgram.invokeWinscp(arg);
 	}
-	
-	private void OpenPutty(){
+
+	private void OpenPutty() {
 		CTabItem tabItem = folder.getSelection();
 		ConfigSession session = (ConfigSession) tabItem.getData("session");
 		InvokeProgram.invokeSinglePutty(session);
 	}
 
-	private void openVNCSession(){
+	private void openVNCSession() {
 		CTabItem item = folder.getSelection();
 		ConfigSession session = (ConfigSession) item.getData("session");
-		if (session != null){
+		if (session != null) {
 			String host = session.getHost();
 			InputDialog inputDialog = new InputDialog(shell,
 					"Input VNC Server Host",
 					"Example:    xx.swg.usma.ibm.com:1", host + ":1", null);
-			if (InputDialog.OK == inputDialog.open()){
+			if (InputDialog.OK == inputDialog.open()) {
 				InvokeProgram.invokeVNC(inputDialog.getValue());
 			}
 		}
 	}
 
-	public void disposeApp(){
+	public void disposeApp() {
 		CTabItem[] items = folder.getItems();
-		for (CTabItem item : items){
-			if (item.getData("hwnd") != null){
-				int hwnd = Integer.parseInt(String.valueOf(item.getData("hwnd")));
+		for (CTabItem item : items) {
+			if (item.getData("hwnd") != null) {
+				int hwnd = Integer
+						.parseInt(String.valueOf(item.getData("hwnd")));
 				InvokeProgram.killProcess(hwnd);
 			}
 
@@ -546,11 +581,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 	/**
 	 * Show or hide a group of components.
-	 * @param visible 
+	 * 
+	 * @param visible
 	 */
-	private void setCompositeVisible(Composite composite, boolean visible){
+	private void setCompositeVisible(Composite composite, boolean visible) {
 		// Show/Hide all composite children:
-		for (Control control : composite.getChildren()){
+		for (Control control : composite.getChildren()) {
 			control.setVisible(visible);
 			control.setBounds(composite.getClientArea());
 			control.getParent().layout();
@@ -564,95 +600,119 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		shell.layout(true, true);
 	}
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		RegistryUtils.createPuttyKeys();
 
 		new MainFrame();
 	}
 
 	@Override
-	public void widgetDefaultSelected(SelectionEvent e){
+	public void widgetDefaultSelected(SelectionEvent e) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void widgetSelected(SelectionEvent e){
+	public void widgetSelected(SelectionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getSource() == newItem || e.getSource() == itemNew){
+		if (e.getSource() == newItem || e.getSource() == itemNew) {
 			new NewSessionDialog(this, null, "add");
-		} else if (e.getSource() == itemBSO || e.getSource() == bsoItem){
+		} else if (e.getSource() == itemBSO || e.getSource() == bsoItem) {
 			new BSODialog(shell);
-		} else if (e.getSource() == itemOpen || e.getSource() == openItem){
+		} else if (e.getSource() == itemOpen || e.getSource() == openItem) {
 			new OpenSessionDialog(this, shell);
-		} else if (e.getSource() == itemProxy || e.getSource() == proxyItem){
+		} else if (e.getSource() == itemProxy || e.getSource() == proxyItem) {
 			InvokeProgram.invokeProxy(configuration.getProxyHost(),
 					configuration.getProxyUser(),
 					configuration.getProxyPassword(),
 					configuration.getProxyPort());
 		} else if (e.getSource() == itemRemoteDesk
-				|| e.getSource() == remoteDesktopItem){
+				|| e.getSource() == remoteDesktopItem) {
 			InvokeProgram.invokeRemoteDesk();
-		} else if (e.getSource() == exitItem){
+		} else if (e.getSource() == exitItem) {
 			disposeApp();
 			System.exit(0);
-		} else if (e.getSource() == itemCapture || e.getSource() == captureItem){
+		} else if (e.getSource() == itemCapture || e.getSource() == captureItem) {
 			InvokeProgram.invokeCapture();
 			shell.setMinimized(true);
-		} else if (e.getSource() == itemCalculator){
+		} else if (e.getSource() == itemCalculator) {
 			InvokeProgram.invokeCalculator();
-		} else if (e.getSource() == itemVNC){
+		} else if (e.getSource() == itemVNC) {
 			InvokeProgram.invokeVNC("");
-		} else if (e.getSource() == itemNotePad){
+		} else if (e.getSource() == itemNotePad) {
 			InvokeProgram.invokeNotePad();
-		} else if (e.getSource() == itemKenGen){
-		  InvokeProgram.invokeGenKey();
-		} else if (e.getSource() == itemHelp || e.getSource() == webcomeMenuItem){
+		} else if (e.getSource() == itemKenGen) {
+			InvokeProgram.invokeGenKey();
+		} else if (e.getSource() == itemHelp
+				|| e.getSource() == webcomeMenuItem) {
 			setWebcomeTab();
-		} else if (e.getSource() == updateItem){
-			MessageDialog.openInformation(shell, "Update tool", "remaining function");
-		} else if (e.getSource() == utilitiesBarMenuItem){
-			setCompositeVisible(utilitiesToolbar, utilitiesBarMenuItem.getSelection());
-		} else if (e.getSource() == connectionBarMenuItem){
-			setCompositeVisible(connectGroup, connectionBarMenuItem.getSelection());
+		} else if (e.getSource() == updateItem) {
+			MessageDialog.openInformation(shell, "Update tool",
+					"remaining function");
+		} else if (e.getSource() == utilitiesBarMenuItem) {
+			setCompositeVisible(utilitiesToolbar,
+					utilitiesBarMenuItem.getSelection());
+		} else if (e.getSource() == connectionBarMenuItem) {
+			setCompositeVisible(connectGroup,
+					connectionBarMenuItem.getSelection());
 		}
-		// menuItem 
-		else if (e.getSource() == reloadPopItem){
+		// menuItem
+		else if (e.getSource() == reloadPopItem) {
 			reloadSession();
-		}else if (e.getSource() == openPuttyItem){
+		} else if (e.getSource() == openPuttyItem) {
 			OpenPutty();
-		} else if (e.getSource() == clonePopItem){
+		} else if (e.getSource() == clonePopItem) {
 			cloneSession();
-		} else if (e.getSource() == scpMenuItem){
+		} else if (e.getSource() == scpMenuItem) {
 			openWinscp("scp");
-		} else if (e.getSource() == ftpMenuItem){
+		} else if (e.getSource() == ftpMenuItem) {
 			openWinscp("ftp");
-		} else if (e.getSource() == vncPopItem){
+		} else if (e.getSource() == vncPopItem) {
 			openVNCSession();
 		}
 		// folder
-		else if (e.getSource() == folder){
-			if (folder.getSelection().getData("hwnd") != null){
+		else if (e.getSource() == folder) {
+			if (folder.getSelection().getData("hwnd") != null) {
 				int hwnd = (Integer) folder.getSelection().getData("hwnd");
 				InvokeProgram.setWindowFocus(hwnd);
 			}
 
 		}
+
+		else if (e.getSource() == sessionCombo) {
+			LoadSessionFromReg();
+		}
+	}
+	
+	private void LoadSessionFromReg(){
+		String sessionName = sessionCombo.getText();
+		String hostname = RegistryUtils.ReadSessionProp(sessionName,
+				"HostName");
+		String username = RegistryUtils.ReadSessionProp(sessionName,
+				"UserName");
+		System.out.println(String.format(
+				"Read settings from session, hostname:%s  username:%s",
+				hostname, username));
+		// even if no hostname,username existing in session,we will clear UI
+		// fields so that won't make mixed when switch selecting among
+		// different sessions
+		this.hostnameItem.setText(hostname);
+		this.usernameItem.setText(username);
 	}
 
 	@Override
-	public void close(CTabFolderEvent e){
+	public void close(CTabFolderEvent e) {
 		// TODO Auto-generated method stub
-		if (welcomeItem == folder.getSelection() && e.item == welcomeItem){
+		if (welcomeItem == folder.getSelection() && e.item == welcomeItem) {
 			e.item.dispose();
 			e.doit = true;
 			shell.setFocus();
-		} else if (e.item == folder.getSelection()){
+		} else if (e.item == folder.getSelection()) {
 			MessageBox messagebox = new MessageBox(shell, SWT.ICON_QUESTION
 					| SWT.YES | SWT.NO);
 			messagebox.setText("Confirm Exit");
 			messagebox.setMessage("Are you sure to exit session: "
 					+ ((ConfigSession) e.item.getData("session")).getHost());
-			if (messagebox.open() == SWT.YES){
+			if (messagebox.open() == SWT.YES) {
 				int hwnd = Integer.parseInt(String.valueOf(e.item
 						.getData("hwnd")));
 				InvokeProgram.killProcess(hwnd);
@@ -665,41 +725,41 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	}
 
 	@Override
-	public void maximize(CTabFolderEvent ctabfolderevent){
+	public void maximize(CTabFolderEvent ctabfolderevent) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void minimize(CTabFolderEvent ctabfolderevent){
+	public void minimize(CTabFolderEvent ctabfolderevent) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void restore(CTabFolderEvent ctabfolderevent){
+	public void restore(CTabFolderEvent ctabfolderevent) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void showList(CTabFolderEvent ctabfolderevent){
+	public void showList(CTabFolderEvent ctabfolderevent) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void mouseDoubleClick(MouseEvent mouseevent){
+	public void mouseDoubleClick(MouseEvent mouseevent) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void mouseDown(MouseEvent e){
+	public void mouseDown(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if (e.button == 3){
+		if (e.button == 3) {
 			CTabItem selectItem = folder.getItem(new Point(e.x, e.y));
-			if (selectItem != null&& welcomeItem != folder.getSelection()){
+			if (selectItem != null && welcomeItem != folder.getSelection()) {
 				folder.setSelection(selectItem);
 				popupmenu.setVisible(true);
 			} else {
@@ -709,14 +769,14 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	}
 
 	@Override
-	public void mouseUp(MouseEvent mouseevent){
+	public void mouseUp(MouseEvent mouseevent) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void shellActivated(ShellEvent e){
+	public void shellActivated(ShellEvent e) {
 		// TODO Auto-generated method stub
-		if (folder.getSelection() != null){
+		if (folder.getSelection() != null) {
 			Object objhwnd = folder.getSelection().getData("hwnd");
 			if (objhwnd != null)
 				InvokeProgram.setWindowFocus(Integer.parseInt(objhwnd
@@ -725,32 +785,32 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	}
 
 	@Override
-	public void shellClosed(ShellEvent e){
+	public void shellClosed(ShellEvent e) {
 		// TODO Auto-generated method stub
 		// disableProxy();
 		disposeApp();
 	}
 
 	@Override
-	public void shellDeactivated(ShellEvent arg0){
+	public void shellDeactivated(ShellEvent arg0) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void shellDeiconified(ShellEvent arg0){
+	public void shellDeiconified(ShellEvent arg0) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void shellIconified(ShellEvent arg0){
+	public void shellIconified(ShellEvent arg0) {
 		// TODO Auto-generated method stub
 	}
 
-	public void keyPressed(KeyEvent e){
+	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 	}
 
-	public void keyReleased(KeyEvent arg0){
+	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 	}
 }

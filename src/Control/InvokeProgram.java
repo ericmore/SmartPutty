@@ -179,7 +179,7 @@ public class InvokeProgram extends Thread {
 			tabItem.setText(hostinfo);
 			tabItem.setData("hwnd", hwnd);
 			tabItem.setData("session", session);
-			//System.out.println("start process: "+hwnd);
+			System.out.println("start process: "+hwnd);
 			setWindowFocus(hwnd);
 		} else {
 			tabItem.dispose();
