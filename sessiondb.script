@@ -5,9 +5,5 @@ CREATE USER SA PASSWORD ""
 GRANT DBA TO SA
 SET WRITE_DELAY 10
 SET SCHEMA PUBLIC
-INSERT INTO CSESSION VALUES('10.58.181.197','root','ssh','','MTIz')
-INSERT INTO CSESSION VALUES('9.123.239.131','root','ssh','','QQ==')
-INSERT INTO CSESSION VALUES('9.123.239.95','root','ssh','C:\Users\gj\Desktop\q.ppk','')
-INSERT INTO CSESSION VALUES('retre','trhth','ssh','D:\workspace\TextWrapper\bin\.project','')
-INSERT INTO CSESSION VALUES('wef','wef','ssh','D:\workspace\TextWrapper\bin\.project','ZGRk')
-INSERT INTO INTRANET VALUES('gujiansh@cn.ibm.com','Y2h1YW55YW5nNjA=','tipl01.swg.usma.ibm.com')
+INSERT INTO CSESSION VALUES('10.58.181.197','root','SSH2','','MTIz')
+INSERT INTO CSESSION VALUES('mo-c7688bcc8.mo.sap.corp','i062893','SSH2','','M2g3cFhHQjJl')

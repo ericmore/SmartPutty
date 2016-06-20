@@ -1,8 +1,11 @@
 package UI;
 
+import Dao.DBManager;
+import Model.ConfigSession;
+import Model.ConstantValue;
+import Model.Protocol;
 import java.util.ArrayList;
 import java.util.HashSet;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseListener;
@@ -15,10 +18,6 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-
-import Dao.DBManager;
-import Model.ConfigSession;
-import Model.ConstantValue;
 
 public class NewSessionDialog implements SelectionListener, MouseListener {
 
@@ -46,7 +45,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
     lable.setText("Host");
     lable.setBounds(0, 0, x / 3, y / 6);
     comboHost = new Combo(dialog, SWT.None);
-    //hashset ≈≈≥˝÷ÿ∏¥host
+    //hashset host
     HashSet<String> hs = new HashSet<String>();
     for (ConfigSession item : sessions) {
       hs.add(item.getHost());
@@ -68,9 +67,13 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
     lable.setText("Protocol");
     lable.setBounds(0, 2 * y / 6, x / 3, y / 6);
     comboProtocol = new Combo(dialog, SWT.READ_ONLY);
-    comboProtocol.setItems(new String[] { "ssh" });
+//    comboProtocol.setItems(new String[] { "ssh" });
+	// Get all protocols and add:
+	for (Protocol protocol : Protocol.values()){
+		comboProtocol.add(protocol.getName());
+	}
     comboProtocol.setBounds(x / 3, 2 * y / 6, 2 * x / 3, y / 6);
-    comboProtocol.setText(ConstantValue.defaultProtocol);
+    comboProtocol.setText(Protocol.SSH2.getName());
     comboProtocol.addSelectionListener(this);
 
     lable = new Label(dialog, SWT.NONE);
@@ -104,7 +107,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
       if (session != null) {
         comboHost.setText(session.getHost());
         comboUser.setText(session.getUser());
-        comboProtocol.setText(session.getProtocol());
+        comboProtocol.setText(session.getProtocol().getName());
         textkey.setText(session.getKey());
         textPassword.setText(session.getPassword());
       }
@@ -132,7 +135,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
         }
         if (sessions.size() == 1) {
           comboUser.setText(sessions.get(0).getUser());
-          comboProtocol.setText(sessions.get(0).getProtocol());
+          comboProtocol.setText(sessions.get(0).getProtocol().getName());
           textPassword.setText(sessions.get(0).getPassword());
         } else {
           comboUser.setText("");
@@ -148,7 +151,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
       if (!host.trim().equals("") && !user.trim().equals("")) {
         ArrayList<ConfigSession> sessions = (ArrayList<ConfigSession>) MainFrame.dbm.queryCSessionByHostUser(host, user);
         if (sessions.size() == 1) {
-          comboProtocol.setText(sessions.get(0).getProtocol());
+          comboProtocol.setText(sessions.get(0).getProtocol().getName());
           textPassword.setText(sessions.get(0).getPassword());
         } else {
           comboProtocol.setText(ConstantValue.defaultProtocol);
@@ -179,9 +182,10 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
       String host = comboHost.getText();
       String user = comboUser.getText();
       String password = textPassword.getText();
-      String protocol = comboProtocol.getText();
+      // String protocol = comboProtocol.getText();
+	  Protocol protocol = Protocol.values()[comboProtocol.getSelectionIndex()];
       String file = textkey.getText().trim();
-      ConfigSession session = new ConfigSession(host, user, protocol,file, password);
+      ConfigSession session = new ConfigSession(host, "22", user, protocol,file, password, ""); //TODO: enable port and session!
 
       if (!host.trim().equals("") && !user.trim().equals("") && !protocol.equals("")) {
         dialog.dispose();
