@@ -3,8 +3,14 @@ package Model;
 import java.awt.Toolkit;
 import java.io.File;
 
+import com.sun.org.apache.xalan.internal.Version;
+
+import Control.SmartPuttyVersion;
+
 public class ConstantValue {
 	public final static String mainWindowTitle = "Smart Putty";
+	public final static String mainWindowVersion = SmartPuttyVersion.getSmartPuttyVersion();
+	
 	public final static String HOME_URL = System.getProperty("user.dir")+File.separator+"doc"+File.separator+"index.htm";
 	public final static String baseUrlBaidu = "http://www.baidu.com/";
 	public final static String baseUrlGoogle = "https://www.google.com/";

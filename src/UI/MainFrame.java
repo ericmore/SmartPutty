@@ -81,7 +81,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener,
 
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
-		shell.setText(ConstantValue.mainWindowTitle);
+		shell.setText(ConstantValue.mainWindowTitle + " [" + ConstantValue.mainWindowVersion + "]");
 		shell.setBounds(ConstantValue.screenWidth / 12,
 				ConstantValue.screenHeight / 12,
 				10 * ConstantValue.screenWidth / 12,
