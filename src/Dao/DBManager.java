@@ -33,7 +33,7 @@ public class DBManager {
 			props.put("jdbc.strict_md", "false");
 			props.put("jdbc.get_column_name", getColumnName);
 			props.put("shutdown", "true");
-			conn = DriverManager.getConnection(protocol + "sessiondb", props);
+			conn = DriverManager.getConnection(protocol + "database\\sessiondb", props);
 
 			Statement state = conn.createStatement();
 			String[] str = {"TABLE"};
