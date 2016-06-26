@@ -82,10 +82,10 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener,
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
 		shell.setText(ConstantValue.mainWindowTitle);
-		shell.setBounds(ConstantValue.screenWidth / 6,
-				ConstantValue.screenHeight / 6,
-				2 * ConstantValue.screenWidth / 3,
-				2 * ConstantValue.screenHeight / 3);
+		shell.setBounds(ConstantValue.screenWidth / 12,
+				ConstantValue.screenHeight / 12,
+				10 * ConstantValue.screenWidth / 12,
+				10 * ConstantValue.screenHeight / 12);
 		shell.addShellListener(this);
 
 		// get dbmanager instance
@@ -371,10 +371,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener,
 		itemNew.addSelectionListener(this);
 
 		itemOpen = new ToolItem(utilitiesToolbar, SWT.PUSH);
-		itemOpen.setText("Open");
+		itemOpen.setText(" Open ");
 		itemOpen.setToolTipText("open existing sessions");
 		itemOpen.setImage(MImage.openImage);
 		itemOpen.addSelectionListener(this);
+
 
 		// itemProxy = new ToolItem(bar, SWT.PUSH);
 		// itemProxy.setText("Enable Proxy");
