@@ -75,30 +75,35 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		addButton.setBounds(354, 5, 80, 27);
 		addButton.setText("Add   ");
 		addButton.setImage(MImage.addImage);
+		addButton.setToolTipText("Add a new connection");
 		addButton.addSelectionListener(this);
 		
 		editButton = new Button(dialog, SWT.LEFT);
 		editButton.setBounds(354, 38, 80, 27);
 		editButton.setText("Edit ");
 		editButton.setImage(MImage.editImage);
+		editButton.setToolTipText("Edit selected connection");
 		editButton.addSelectionListener(this);
 		
 		deleteButton = new Button(dialog, SWT.LEFT);
 		deleteButton.setBounds(354, 70, 80, 27);
 		deleteButton.setText("Delete");
 		deleteButton.setImage(MImage.deleteImage);
+		deleteButton.setToolTipText("Delete selected connection/s");
 		deleteButton.addSelectionListener(this);
 		
 		puttyWindow = new Button(dialog, SWT.LEFT);
 		puttyWindow.setBounds(354, 103, 80, 27);
 		puttyWindow.setText("Putty");
 		puttyWindow.setImage(MImage.puttyImage);
+		puttyWindow.setToolTipText("Open selected connection in a single window");
 		puttyWindow.addSelectionListener(this);
 		
 		connectButton = new Button(dialog, SWT.NONE);
 		connectButton.setBounds(354, 235, 80, 27);
 		connectButton.setText("Connect");
 		connectButton.setImage(MImage.connectImage);
+		connectButton.setToolTipText("Open selected connection/s in a tab");
 		connectButton.addSelectionListener(this);
 		
 		dialog.pack();
@@ -164,14 +169,14 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 	//	System.out.println(e.getSource().toString());
 		if(e.getSource() == addButton){		
 				new NewSessionDialog( null, this, "add");	
-		}else if(e.getSource() == editButton){
-			if(this.table.getSelection().length>0)
+		} else if (e.getSource() == editButton){
+			if (table.getSelection().length == 1) // Only one record must be editable.
 				new NewSessionDialog( null, this, "edit");
 			else
 				MessageDialog.openInformation(dialog, "Warning", "Please select one record!");
 		}else if(e.getSource() == deleteButton){
 			if(this.table.getSelection().length == 0){
-				MessageDialog.openInformation(dialog, "Warning", "Please select at least one row");
+				MessageDialog.openInformation(dialog, "Warning", "Please select at least one record!");
 				return;
 			}
 			TableItem[] tableItems = table.getSelection();
