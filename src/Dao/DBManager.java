@@ -4,6 +4,7 @@ import Model.ConfigSession;
 import Model.Intranet;
 import Model.Protocol;
 import UI.MainFrame;
+import Utils.RegistryUtils;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -15,9 +16,11 @@ import java.util.Properties;
 import org.eclipse.jface.dialogs.MessageDialog;
 
 public class DBManager {
-	public boolean existCSessionTable = false, existIntranetTable = false;
+	private final static String DATABASE_PATH = "database\\sessiondb";
 	private static DBManager manager = null;
 	private Connection conn = null;
+
+	public boolean existCSessionTable = false, existIntranetTable = false;
 
 	private DBManager(){
 		try {
@@ -33,7 +36,7 @@ public class DBManager {
 			props.put("jdbc.strict_md", "false");
 			props.put("jdbc.get_column_name", getColumnName);
 			props.put("shutdown", "true");
-			conn = DriverManager.getConnection(protocol + "database\\sessiondb", props);
+			conn = DriverManager.getConnection(protocol + DATABASE_PATH, props);
 
 			Statement state = conn.createStatement();
 			String[] str = {"TABLE"};
@@ -148,7 +151,7 @@ public class DBManager {
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
 					Base64Util.decodeBASE64(rs.getString("Password")),
-					"");
+					RegistryUtils.SMARTPUTTY_SESSION);
 				result.add(confSession);
 			}
 
@@ -177,7 +180,7 @@ public class DBManager {
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
 					Base64Util.decodeBASE64(rs.getString("Password")),
-					"");
+					RegistryUtils.SMARTPUTTY_SESSION);
 				result.add(confSession);
 			}
 			rs.close();
@@ -205,7 +208,7 @@ public class DBManager {
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
 					Base64Util.decodeBASE64(rs.getString("Password")),
-					"");
+					RegistryUtils.SMARTPUTTY_SESSION);
 				result.add(confSession);
 			}
 			rs.close();
@@ -235,7 +238,7 @@ public class DBManager {
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
 					Base64Util.decodeBASE64(rs.getString("Password")),
-					"");
+					RegistryUtils.SMARTPUTTY_SESSION);
 				result = confSession;
 			}
 			rs.close();
@@ -270,7 +273,7 @@ public class DBManager {
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
 					Base64Util.decodeBASE64(rs.getString("Password")),
-					"");
+					RegistryUtils.SMARTPUTTY_SESSION);
 				result = confSession;
 			}
 			rs.close();

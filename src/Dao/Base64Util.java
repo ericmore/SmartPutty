@@ -10,7 +10,7 @@ public class Base64Util {
 		return (new sun.misc.BASE64Encoder()).encode(s.getBytes());
 	}
 
-	// 将 BASE64 编码的字符串 s 进行解码
+	// BASE64 
 	public static String decodeBASE64(String s) {
 		if (s == null)
 			return null;

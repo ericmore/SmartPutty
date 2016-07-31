@@ -10,6 +10,7 @@ public final class BorderData {
 
 	public BorderData() {
 	}
+
 	public BorderData(int region) {
 	   this.region = region;
 	}

@@ -4,6 +4,7 @@ import Dao.DBManager;
 import Model.ConfigSession;
 import Model.ConstantValue;
 import Model.Protocol;
+import Utils.RegistryUtils;
 import java.util.ArrayList;
 import java.util.HashSet;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -73,7 +74,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
 		comboProtocol.add(protocol.getName());
 	}
     comboProtocol.setBounds(x / 3, 2 * y / 6, 2 * x / 3, y / 6);
-    comboProtocol.setText(Protocol.SSH2.getName());
+    comboProtocol.setText(ConstantValue.defaultProtocol);
     comboProtocol.addSelectionListener(this);
 
     lable = new Label(dialog, SWT.NONE);
@@ -185,7 +186,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
       // String protocol = comboProtocol.getText();
 	  Protocol protocol = Protocol.values()[comboProtocol.getSelectionIndex()];
       String file = textkey.getText().trim();
-      ConfigSession session = new ConfigSession(host, "22", user, protocol,file, password, ""); //TODO: enable port and session!
+      ConfigSession session = new ConfigSession(host, "22", user, protocol,file, password, RegistryUtils.SMARTPUTTY_SESSION); //TODO: enable port
 
       if (!host.trim().equals("") && !user.trim().equals("") && !protocol.equals("")) {
         dialog.dispose();

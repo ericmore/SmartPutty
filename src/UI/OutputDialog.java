@@ -1,7 +1,9 @@
 package UI;
 
+import Control.MyPrintStream;
+import Control.Telnet;
+import Model.Intranet;
 import java.util.ArrayList;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -9,24 +11,16 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-import Control.Configuration;
-import Control.MyPrintStream;
-import Control.Telnet;
-import Model.Intranet;
-
-
 public class OutputDialog{
-
 	private Text text;
 	private Shell outputDialog = null;
 	/**
 	 * Create the dialog.
-	 * @param parent
-	 * @param style
+	 * @param shell
+	 * @param intranets
 	 */
-	public OutputDialog(Shell shell, ArrayList<Intranet> intranets) {
-		
-		outputDialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM |SWT.APPLICATION_MODAL);
+	public OutputDialog(Shell shell, ArrayList<Intranet> intranets){
+		outputDialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		outputDialog.setSize(500,500);
 		outputDialog.setText("OutputDialog");	
 		text = new Text(outputDialog, SWT.BORDER|SWT.MULTI|SWT.V_SCROLL|SWT.H_SCROLL|SWT.WRAP);
@@ -38,14 +32,16 @@ public class OutputDialog{
 		System.setErr(guiPrintStream);
 		outputDialog.pack();
 		outputDialog.open();
-		long timeout = Long.parseLong(Configuration.getInstance().getTimeout());
+
+		long timeout = Long.parseLong(MainFrame.configuration.getTimeout());
 		for(Intranet intranet : intranets){
 			String host = intranet.getDesthost();
 			String username =  intranet.getIntranetID();
 			String password = intranet.getIntranetPassword();
 			Thread t = new Telnet (host, 23, username, password, timeout);
 			t.start();
-		}	
+		}
+
 		outputDialog.addDisposeListener(new DisposeListener() {
 			public void widgetDisposed(DisposeEvent e) {
 				 System.setOut(MainFrame.out);
@@ -56,5 +52,4 @@ public class OutputDialog{
 		} );
 		
 	}
-
 }

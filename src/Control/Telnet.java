@@ -1,12 +1,11 @@
+//TODO: usefull class?
 package Control;
 
-import java.io.IOException;
+import UI.MainFrame;
+import java.io.IOException;  
 import java.io.InputStream;  
 import java.io.PrintStream;  
-  
-import org.apache.commons.net.telnet.TelnetClient;  
-
-import UI.MainFrame;
+import org.apache.commons.net.telnet.TelnetClient;
 
 public class Telnet  extends  Thread 
 {  
@@ -42,11 +41,11 @@ public class Telnet  extends  Thread
     }
   
     /** 
-     * 登录 
+     *  
      * 
      * @param user 
      * @param password 
-     * @param timeout 单位毫秒
+     * @param timeout 锟斤拷位锟斤拷锟斤拷
      */  
     public void login(String user, String password, long timeout)  
     {  
@@ -72,7 +71,7 @@ public class Telnet  extends  Thread
        
     }  
     /** 
-     * 读取分析结果 
+     * 
      * 
      * @param pattern 
      * @return 
@@ -180,7 +179,7 @@ public class Telnet  extends  Thread
    
   
     /** 
-     * 写操作 
+     * 
      * 
      * @param value 
      */  
@@ -195,7 +194,7 @@ public class Telnet  extends  Thread
     }  
   
     /** 
-     * 向目标发送命令字符串 
+     * 
      * 
      * @param command 
      * @return 
@@ -215,7 +214,7 @@ public class Telnet  extends  Thread
 //    }  
 //  
     /** 
-     * 关闭连接 
+     * 
      */  
     public void disconnect()  
     {  
