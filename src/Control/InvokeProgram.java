@@ -55,7 +55,7 @@ public class InvokeProgram extends Thread {
 	}
 
 	/**
-	 * Helper to mount putty command-line parameters.
+	 * Helper to mount Putty command-line parameters.
 	 * @return 
 	 */
 	private static String setPuttyParameters(ConfigSession session){
@@ -112,7 +112,7 @@ public class InvokeProgram extends Thread {
 		String args = setPuttyParameters(session);
 
 		int hHeap = (int) OS.GetProcessHeap();
-		TCHAR buffer = new TCHAR(0, Program.APP_PUTTY.getPath(), true);
+		TCHAR buffer = new TCHAR(0, MainFrame.configuration.getPuttyExecutable(), true);
 		int byteCount = buffer.length() * TCHAR.sizeof;
 		int lpFile = (int) OS.HeapAlloc(hHeap, OS.HEAP_ZERO_MEMORY, byteCount);
 		TCHAR buffer1 = new TCHAR(0, args, true);
@@ -142,7 +142,8 @@ public class InvokeProgram extends Thread {
 			return;
 		}
 
-		int waitingTime = Integer.parseInt(Configuration.getInstance().getWaitForInitTime());
+		// int waitingTime = Integer.parseInt(Configuration.getInstance().getWaitForInitTime());
+		int waitingTime = Integer.parseInt(MainFrame.configuration.getWaitForInitTime());
 		try {
 			Thread.sleep(waitingTime);
 		} catch (InterruptedException e){
@@ -179,7 +180,7 @@ public class InvokeProgram extends Thread {
 			tabItem.setText(hostinfo);
 			tabItem.setData("hwnd", hwnd);
 			tabItem.setData("session", session);
-			System.out.println("start process: "+hwnd);
+			//System.out.println("start process: "+hwnd);
 			setWindowFocus(hwnd);
 		} else {
 			tabItem.dispose();
@@ -205,28 +206,29 @@ public class InvokeProgram extends Thread {
 			killProcess(hwndError);
 	}
 
-  public static void invokeVNC(String arg) {
-    String cmd = Program.APP_VNC.getPath() + arg;
-    try {
-      Runtime.getRuntime().exec(cmd);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-  }
+	/**
+	 * Execute an utility from left bar.
+	 * @param program
+	 * @param arg 
+	 */
+	public static void invokeProgram(Program program, String arg){
+		String cmd;
 
-  public static void invokeWinscp(String arg) {
-    String cmd = Program.APP_WINSCP.getPath() + arg;
-    try {
-      Runtime.getRuntime().exec(cmd);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-  }
+		if (arg != null){
+			cmd = program.getPath() + arg;
+		} else {
+			cmd = program.getPath();
+		}
+
+		try {
+			Runtime.getRuntime().exec(cmd);
+		} catch (IOException ex){
+			System.err.println(ex.getMessage());
+		}
+	}
 
   public static void invokeProxy(String host, String user, String password, String port) {
-    String cmd = "cmd /c start " + Program.APP_PLINK.getPath() + " -D " + port + " -pw " + password + " -N " + user + "@" + host;
+    String cmd = "cmd /c start " + MainFrame.configuration.getPlinkExecutable() + " -D " + port + " -pw " + password + " -N " + user + "@" + host;
     try {
       Runtime.getRuntime().exec(cmd);
     } catch (Exception e) {
@@ -242,7 +244,7 @@ public class InvokeProgram extends Thread {
 	public static void invokeSinglePutty(ConfigSession session){
 		// Mount command-line Putty parameters:
 		String args = setPuttyParameters(session);
-		String cmd = "cmd /c start " + Program.APP_PUTTY.getPath() + args;
+		String cmd = "cmd /c start " + MainFrame.configuration.getPuttyExecutable() + args;
 
 		try {
 			Runtime.getRuntime().exec(cmd);
@@ -252,57 +254,7 @@ public class InvokeProgram extends Thread {
 		}
 	}
 
-  public static void invokeNotePad() {
-    String cmd = "cmd /c start " + Program.APP_NOTEPAD.getPath();
-    try {
-      Runtime.getRuntime().exec(cmd);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-  }
-  
-  public static void invokeGenKey() {
-    String cmd = "cmd /c start " + Program.APP_GENKEY.getPath();
-    try {
-      Runtime.getRuntime().exec(cmd);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-  }
+	public static void startProxy(String arg){
 
-  public static void invokeCapture() {
-    String cmd = "cmd /c start " + Program.APP_CAPTURE.getPath();
-    try {
-      Runtime.getRuntime().exec(cmd);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-  }
-
-  public static void invokeCalculator() {
-    String cmd = "cmd /c start " + Program.APP_CALCULATOR.getPath();
-    try {
-      Runtime.getRuntime().exec(cmd);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-  }
-
-  public static void invokeRemoteDesk(){
-    String cmd = "cmd /c start " + Program.APP_REMOTE_DESK.getPath();
-    try {
-      Runtime.getRuntime().exec(cmd);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-  }
-
-  public static void startProxy(String arg) {
-
-  }
+	}
 }

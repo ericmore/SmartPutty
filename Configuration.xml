@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-<comment>configuration file</comment>
-<entry key="ProxyHost">tipv07.swg.usma.ibm.com</entry>
-<entry key="Timeout">10000</entry>
+<comment>SmartPutty configuration file</comment>
 <entry key="WaitForInitTime">1500</entry>
-<entry key="ProxyUser">perfadmin</entry>
 <entry key="ProxyPort">7890</entry>
+<entry key="ViewConnectionBar">true</entry>
+<entry key="ProxyUser">perfadmin</entry>
+<entry key="Timeout">10000</entry>
 <entry key="ProxyPassword">tipadmin</entry>
+<entry key="ViewUtilitiesBar">false</entry>
+<entry key="ProxyHost">tipl01.swg.usma.ibm.com</entry>
+<entry key="PuttyExecutable">app\putty\putty.exe</entry>
+<entry key="PlinkExecutable">app\putty\plink.exe</entry>
 </properties>
