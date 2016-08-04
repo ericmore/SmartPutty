@@ -58,7 +58,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private MenuItem openItem, newItem, bsoItem, proxyItem, captureItem,
 		remoteDesktopItem, exitItem, updateItem,
 		webcomeMenuItem, reloadPopItem,
-		clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, vncPopItem, openPuttyItem,
+		clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem, openPuttyItem,
 		configProgramsLocationsItem;
 	private Menu popupmenu;
 	private ToolItem itemNew, itemOpen, itemProxy, itemRemoteDesk, itemBSO,
@@ -447,6 +447,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		openPuttyItem = new MenuItem(popupmenu, SWT.PUSH);
 		openPuttyItem.setText("open in putty");
 		openPuttyItem.setImage(MImage.puttyImage);
+		openPuttyItem.setToolTipText("Opens connection on a single window");
 		openPuttyItem.addSelectionListener(this);
 
 		clonePopItem = new MenuItem(popupmenu, SWT.PUSH);
@@ -459,13 +460,20 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		transferPopItem.setImage(MImage.transferImage);
 
 		Menu subMenu = new Menu(popupmenu);
-		scpMenuItem = new MenuItem(subMenu, SWT.PUSH);
-		scpMenuItem.setText("SCP");
-		scpMenuItem.addSelectionListener(this);
-
 		ftpMenuItem = new MenuItem(subMenu, SWT.PUSH);
 		ftpMenuItem.setText("FTP");
+		ftpMenuItem.setToolTipText("Simple FTP");
 		ftpMenuItem.addSelectionListener(this);
+
+		scpMenuItem = new MenuItem(subMenu, SWT.PUSH);
+		scpMenuItem.setText("SCP");
+		scpMenuItem.setToolTipText("FTP over SSH");
+		scpMenuItem.addSelectionListener(this);
+
+		sftpMenuItem = new MenuItem(subMenu, SWT.PUSH);
+		sftpMenuItem.setText("SFTP");
+		sftpMenuItem.setToolTipText("Secure FTP");
+		sftpMenuItem.addSelectionListener(this);
 
 		transferPopItem.setMenu(subMenu);
 
@@ -538,7 +546,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 	private void openWinscp(String protocol){
 		ConfigSession session = (ConfigSession) folder.getSelection().getData("session");
-		String arg = protocol + "://" + session.getUser() + ":" + session.getPassword() + "@" + session.getHost();
+		String arg = protocol + "://" + session.getUser() + ":" + session.getPassword() + "@" + session.getHost() + ":" + session.getPort();
 		InvokeProgram.invokeProgram(Program.APP_WINSCP, arg);
 	}
 	
@@ -639,7 +647,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		} else if (e.getSource() == itemNotePad){
 			InvokeProgram.invokeProgram(Program.APP_NOTEPAD, null);
 		} else if (e.getSource() == itemKenGen){
-		  InvokeProgram.invokeProgram(Program.APP_GENKEY, null);
+		  InvokeProgram.invokeProgram(configuration.getKeyGeneratorExecutable(), null);
 		} else if (e.getSource() == itemHelp || e.getSource() == webcomeMenuItem){
 			showWelcomeTab();
 		} else if (e.getSource() == updateItem){
@@ -657,10 +665,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			OpenPutty();
 		} else if (e.getSource() == clonePopItem){
 			cloneSession();
-		} else if (e.getSource() == scpMenuItem){
-			openWinscp("scp");
 		} else if (e.getSource() == ftpMenuItem){
 			openWinscp("ftp");
+		} else if (e.getSource() == scpMenuItem){
+			openWinscp("scp");
+		} else if (e.getSource() == sftpMenuItem){
+			openWinscp("sftp");
 		} else if (e.getSource() == vncPopItem){
 			openVNCSession();
 		}
