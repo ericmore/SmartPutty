@@ -98,7 +98,7 @@ public class InvokeProgram extends Thread {
 
 		args += " -loghost " + hostinfo;
 
-		System.out.println("Putty parameters: " + args); //DEBUG
+		// System.out.println("Putty parameters: " + args); //DEBUG
 
 		return args;
 	}
@@ -220,6 +220,31 @@ public class InvokeProgram extends Thread {
 			cmd = program.getPath();
 		}
 
+		// System.out.println("Command line: " + cmd); //DEBUG
+
+		try {
+			Runtime.getRuntime().exec(cmd);
+		} catch (IOException ex){
+			System.err.println(ex.getMessage());
+		}
+	}
+
+	/**
+	 * Execute an utility from left bar.
+	 * @param program
+	 * @param arg 
+	 */
+	public static void invokeProgram(String program, String arg){
+		String cmd;
+
+		if (arg != null){
+			cmd = program + arg;
+		} else {
+			cmd = program;
+		}
+
+		// System.out.println("Command line: " + cmd); //DEBUG
+
 		try {
 			Runtime.getRuntime().exec(cmd);
 		} catch (IOException ex){
@@ -245,6 +270,8 @@ public class InvokeProgram extends Thread {
 		// Mount command-line Putty parameters:
 		String args = setPuttyParameters(session);
 		String cmd = "cmd /c start " + MainFrame.configuration.getPuttyExecutable() + args;
+
+		// System.out.println("Command line: " + cmd); //DEBUG
 
 		try {
 			Runtime.getRuntime().exec(cmd);

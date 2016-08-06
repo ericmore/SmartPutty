@@ -74,7 +74,7 @@ public class Configuration {
 			e.printStackTrace();
 		}
 
-		prop.list(System.out); //DEBUG
+		// prop.list(System.out); //DEBUG
 	}
 
 	// Get methods: ////////////////////////////////////////////////////////
@@ -148,6 +148,21 @@ public class Configuration {
 		return value;
 	}
 
+	/**
+	 * Get key generator executable path.
+	 * @return 
+	 */
+	public String getKeyGeneratorExecutable(){
+		String value = (String) prop.get("KeyGeneratorExecutable");
+
+		if (value == null){
+			showMessageEmptyValue("KeyGeneratorExecutable");
+			value = ""; // Put any value to avoid "NullPointerException" error.
+		}
+
+		return value;
+	}
+
 	// Set methods: ////////////////////////////////////////////////////////
 	/**
 	 * Set Putty/KiTTY executable path.
@@ -163,6 +178,14 @@ public class Configuration {
 	 */
 	public void setPlinkExecutable(String path){
 		prop.setProperty("PlinkExecutable", path);
+	}
+
+	/**
+	 * Set key generator executable path.
+	 * @param path 
+	 */
+	public void setKeyGeneratorExecutable(String path){
+		prop.setProperty("KeyGeneratorExecutable", path);
 	}
 
 	// Other methods: ////////////////////////////////////////////////////////

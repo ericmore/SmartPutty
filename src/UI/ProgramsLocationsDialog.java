@@ -19,8 +19,8 @@ import org.eclipse.swt.widgets.Text;
  */
 public class ProgramsLocationsDialog implements SelectionListener, MouseListener {
 	private Shell dialog = null;
-	final private Button puttyButton, plinkButton, saveButton, cancelButton;
-	final private Text puttyPathItem, plinkPathItem;
+	final private Button puttyButton, plinkButton, keygeneratorButton, saveButton, cancelButton;
+	final private Text puttyPathItem, plinkPathItem, keygeneratorPathItem;
 
 	public ProgramsLocationsDialog(Shell parent){
 		this.dialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
@@ -76,35 +76,57 @@ public class ProgramsLocationsDialog implements SelectionListener, MouseListener
 		plinkButton.addSelectionListener(this);
 		plinkButton.setLayoutData(gd6);
 
+		// Key generator location:
+		GridData gd7 = new GridData(SWT.FILL, SWT.CENTER, true, true);
+		gd7.widthHint = 100;
+		Label keygeneratorLabel = new Label(dialog, SWT.RIGHT);
+		keygeneratorLabel.setText("Key generator");
+		keygeneratorLabel.setLayoutData(gd7);
+
+		GridData gd8 = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gd8.widthHint = 300;
+		keygeneratorPathItem = new Text(dialog, SWT.BORDER);
+		keygeneratorPathItem.setText(MainFrame.configuration.getKeyGeneratorExecutable()); // Get current value.
+		keygeneratorPathItem.setLayoutData(gd8);
+
+		GridData gd9 = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gd9.widthHint = 50;
+		gd9.heightHint = 20;
+		keygeneratorButton = new Button(dialog, SWT.CENTER);
+		keygeneratorButton.setText("Browse");
+		keygeneratorButton.setToolTipText("Search for a key generator executable");
+		keygeneratorButton.addSelectionListener(this);
+		keygeneratorButton.setLayoutData(gd9);
+
 		// Blank space:
-		GridData gd7 = new GridData(SWT.FILL, SWT.FILL, true, true);
-		gd7.heightHint = 20;
-		gd7.horizontalSpan = 3;
+		GridData gd98 = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gd98.heightHint = 20;
+		gd98.horizontalSpan = 3;
 
 		Label empty1 = new Label(dialog, SWT.NONE);
-		empty1.setLayoutData(gd7);
+		empty1.setLayoutData(gd98);
 
 		// Main buttons:
-		GridData gd8 = new GridData(SWT.RIGHT, SWT.RIGHT, true, true);
-		gd8.widthHint = 60;
-		gd8.heightHint = 30;
+		GridData gd99 = new GridData(SWT.RIGHT, SWT.RIGHT, true, true);
+		gd99.widthHint = 60;
+		gd99.heightHint = 30;
 		// gd5.horizontalSpan = 3;
 
 		// Unused phantom item:
 		Label empty2 = new Label(dialog, SWT.NONE);
-		empty2.setLayoutData(gd8);
+		empty2.setLayoutData(gd99);
 
 		saveButton = new Button(dialog, SWT.CENTER);
 		saveButton.setText("Save");
 		saveButton.setToolTipText("Save changes");
 		saveButton.addSelectionListener(this);
-		saveButton.setLayoutData(gd8);
+		saveButton.setLayoutData(gd99);
 
 		cancelButton = new Button(dialog, SWT.CENTER);
 		cancelButton.setText("Cancel");
 		cancelButton.setToolTipText("Cancel changes");
 		cancelButton.addSelectionListener(this);
-		cancelButton.setLayoutData(gd8);
+		cancelButton.setLayoutData(gd99);
 
 		dialog.pack();
 		dialog.open();
@@ -138,12 +160,31 @@ public class ProgramsLocationsDialog implements SelectionListener, MouseListener
 		}
 	}
 
+	/**
+	 * Search for a key generator executable path.
+	 */
+	private void searchKeygenDialog(){
+		FileDialog puttyFileDialog = new FileDialog(dialog, SWT.OPEN);
+		String[] filterExtensions = new String[] {"*.exe", "*"};
+		String[] filterNames = new String[] {"Key generator (*.exe)", "All Files (*)"};
+
+		puttyFileDialog.setFilterExtensions(filterExtensions);
+		puttyFileDialog.setFilterNames(filterNames);
+
+		String path = puttyFileDialog.open();
+		if (path != null){
+			keygeneratorPathItem.setText(path);
+		}
+	}
+
 	@Override
 	public void widgetSelected(SelectionEvent e){
 		if (e.getSource() == puttyButton){
 			searchPuttyDialog("putty");
 		} else if (e.getSource() == plinkButton){
 			searchPuttyDialog("plink");
+		} else if (e.getSource() == keygeneratorButton){
+			searchKeygenDialog();
 		} else if (e.getSource() == saveButton){
 			// Save changes to configuration:
 			MainFrame.configuration.setPuttyExecutable(puttyPathItem.getText());

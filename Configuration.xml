@@ -12,4 +12,5 @@
 <entry key="ProxyHost">tipl01.swg.usma.ibm.com</entry>
 <entry key="PuttyExecutable">app\putty\putty.exe</entry>
 <entry key="PlinkExecutable">app\putty\plink.exe</entry>
+<entry key="KeyGeneratorExecutable">app\putty\puttygen.exe</entry>
 </properties>

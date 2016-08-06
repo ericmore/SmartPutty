@@ -6,7 +6,6 @@ package Model;
 public enum Program {
 	APP_WINSCP ("app\\winscp\\winscp.exe "),
 	APP_VNC ("app\\vnc\\vnc.exe "),
-	APP_GENKEY ("app\\putty\\puttygen.exe"),
 	APP_NOTEPAD ("notepad.exe"),
 	APP_CAPTURE ("app\\capture\\capture.exe"),
 	APP_CALCULATOR ("calc.exe"),
