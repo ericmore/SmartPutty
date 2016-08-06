@@ -99,13 +99,17 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		createTabs();
 		createTabPopupMenu(); // Right button menu
 
-		// Show welcome tab:
-		showWelcomeTab();
-
 		// Show/Hide toolbars based on configuration file values:
 		setVisibleComponents();
 
 		shell.open();
+
+		// Show welcome tab:
+		if (configuration.getWelcomePageVisible()){
+			showWelcomeTab();
+			// Show popup about if "Welcome Page" must be showed on program start:
+			showStartPopup();
+		}
 
 		while (!shell.isDisposed()){
 			if (!display.readAndDispatch())
@@ -719,34 +723,73 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		}
 	}
 
+	/**
+	 * Shows a popup window on program start.
+	 * Usefull to hide definitively "Welcome Page" tab.
+	 */
+	private void showStartPopup(){
+		final Shell dialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+
+		RowLayout rowLayout = new RowLayout(SWT.VERTICAL);
+		rowLayout.marginTop = 10;
+		rowLayout.marginBottom = 10;
+		rowLayout.marginLeft = 5;
+		rowLayout.marginRight = 5;
+		rowLayout.spacing = 20;
+		dialog.setLayout(rowLayout);
+
+		// dialog.setImage(MImage.newImage); // TODO: setup an image?
+		dialog.setSize(400, 160);
+		dialog.setText("Welcome tab");
+
+		final Button checkButton = new Button(dialog, SWT.CHECK | SWT.LEFT);
+		checkButton.setText("Do not show \"Welcome page\" next time");
+		checkButton.setLayoutData(new RowData(250, 20));
+
+		Button buttonClose = new Button(dialog, SWT.CENTER);
+		buttonClose.setText("Close");
+		buttonClose.setLayoutData(new RowData(50, 20));
+		buttonClose.addSelectionListener(new SelectionListener(){
+			@Override
+			public void widgetSelected(SelectionEvent se){
+				if (checkButton.getSelection()){
+					configuration.setWelcomePageVisible("false"); // "Welcome page" no to be shown any more.
+					configuration.saveConfiguration();
+				}
+				dialog.dispose();
+			}
+			@Override
+			public void widgetDefaultSelected(SelectionEvent se){
+			}
+		});
+
+        dialog.pack();
+        dialog.open();
+	}
+
 	@Override
 	public void maximize(CTabFolderEvent ctabfolderevent){
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void minimize(CTabFolderEvent ctabfolderevent){
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void restore(CTabFolderEvent ctabfolderevent){
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void showList(CTabFolderEvent ctabfolderevent){
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void mouseDoubleClick(MouseEvent mouseevent){
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -773,9 +816,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// TODO Auto-generated method stub
 		if (folder.getSelection() != null){
 			Object objhwnd = folder.getSelection().getData("hwnd");
-			if (objhwnd != null)
-				InvokeProgram.setWindowFocus(Integer.parseInt(objhwnd
-						.toString()));
+			if (objhwnd != null){
+				InvokeProgram.setWindowFocus(Integer.parseInt(objhwnd.toString()));
+			}
 		}
 	}
 

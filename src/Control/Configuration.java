@@ -45,8 +45,11 @@ public class Configuration {
 			prop.setProperty("ViewUtilitiesBar", String.valueOf(mainFrame.utilitiesBarMenuItem.getSelection()));
 			prop.setProperty("ViewConnectionBar", String.valueOf(mainFrame.connectionBarMenuItem.getSelection()));
 			// Putty and Plink paths:
-			prop.setProperty("PuttyExecutable", "app\\putty\\putty.exe");
-			prop.setProperty("PlinkExecutable", "app\\putty\\plink.exe");
+			prop.setProperty("PuttyExecutable", getPuttyExecutable());
+			prop.setProperty("PlinkExecutable", getPlinkExecutable());
+			prop.setProperty("KeyGeneratorExecutable", getKeyGeneratorExecutable());
+			// "Welcome Page" when program starts:
+			prop.setProperty("ShowWelcomePage", String.valueOf(getWelcomePageVisible()));
 
 			prop.storeToXML(fos, "SmartPutty configuration file");
 			fos.close();
@@ -163,6 +166,15 @@ public class Configuration {
 		return value;
 	}
 
+	/**
+	 * "Welcome Page" should must be visible on program startup?
+	 * @return 
+	 */
+	public Boolean getWelcomePageVisible(){
+		return Boolean.valueOf((String) prop.get("ShowWelcomePage"));
+	}
+
+
 	// Set methods: ////////////////////////////////////////////////////////
 	/**
 	 * Set Putty/KiTTY executable path.
@@ -187,6 +199,15 @@ public class Configuration {
 	public void setKeyGeneratorExecutable(String path){
 		prop.setProperty("KeyGeneratorExecutable", path);
 	}
+
+	/**
+	 * Set if "Welcome Page" should must be visible on program startup.
+	 * @param visible 
+	 */
+	public void setWelcomePageVisible(String visible){
+		prop.setProperty("ShowWelcomePage", visible);
+	}
+
 
 	// Other methods: ////////////////////////////////////////////////////////
 
