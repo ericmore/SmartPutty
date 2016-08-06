@@ -324,16 +324,27 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 		});
 
-		// Due only "SSH1" and "SSH2" protocols allows password I must restrict it:
 		protocolCombo.addSelectionListener(new SelectionListener(){
+			/**
+			 * To setup other fields upon "Protocol" change.
+			 * @param se 
+			 */
 			@Override
 			public void widgetSelected(SelectionEvent se){
-				if (protocolCombo.getSelectionIndex() > 1){
-					passwordItem.setEnabled(false);
+				if (protocolCombo.getText().equals(Protocol.SSH.getName()) || protocolCombo.getText().equals(Protocol.SSH2.getName())){ // SSH1 or SSH2
+					passwordItem.setEnabled(true); // Automatic password can be used.
+					portItem.setText("22"); // Default port.
+				} else if (protocolCombo.getText().equals(Protocol.TELNET.getName())){ // Telnet
+					passwordItem.setEnabled(false); // Automatic password can not be used.
+					portItem.setText("23"); // Default port.
+				} else if (protocolCombo.getText().equals(Protocol.RLOGIN.getName())){ // Rlogin
+					portItem.setText("513"); // Default port.
 				} else {
-					passwordItem.setEnabled(true);
+					passwordItem.setEnabled(false); // Automatic password can not be used.
+					portItem.setText(""); // Empty non-default port.
 				}
 			}
+	
 			@Override
 			public void widgetDefaultSelected(SelectionEvent se){
 			}
