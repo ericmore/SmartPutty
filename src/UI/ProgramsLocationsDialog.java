@@ -18,19 +18,41 @@ import org.eclipse.swt.widgets.Text;
  * @author Carlos SS
  */
 public class ProgramsLocationsDialog implements SelectionListener, MouseListener {
-	private Shell dialog = null;
-	final private Button puttyButton, plinkButton, keygeneratorButton, saveButton, cancelButton;
-	final private Text puttyPathItem, plinkPathItem, keygeneratorPathItem;
+	final private Shell dialog;
+	private Button puttyButton, plinkButton, keygeneratorButton, saveButton, cancelButton;
+	private Text puttyPathItem, plinkPathItem, keygeneratorPathItem;
 
+	// Constructor:
 	public ProgramsLocationsDialog(Shell parent){
-		this.dialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+		this.dialog = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 
+		init();
+	}
+
+	/**
+	 * Initialize window in a safer way.
+	 * Usefull to avoid "Leaking This In Constructor" warnings.
+	 */
+	private void init(){
 		// Setup a layout:
 		GridLayout layout = new GridLayout(3, false);
 
 		dialog.setImage(MImage.openImage); // TODO: setup a good image!
 		dialog.setText("Configure programs locations");
 		dialog.setLayout(layout);
+
+		// Initial help text:
+		GridData gd00 = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gd00.horizontalSpan = 3;
+		Label textLabel = new Label(dialog, SWT.LEFT);
+		textLabel.setText("Use this window to define which programs to use: \"SmartPutty\" included programs or yours.");
+		textLabel.setLayoutData(gd00);
+
+		// Blank space:
+		GridData gd01 = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gd01.horizontalSpan = 3;
+		Label empty01Label = new Label(dialog, SWT.NONE);
+		empty01Label.setLayoutData(gd01);
 
 		// Putty/KiTTY location:
 		GridData gd1 = new GridData(SWT.FILL, SWT.CENTER, true, true);
@@ -100,17 +122,14 @@ public class ProgramsLocationsDialog implements SelectionListener, MouseListener
 
 		// Blank space:
 		GridData gd98 = new GridData(SWT.FILL, SWT.FILL, true, true);
-		gd98.heightHint = 20;
 		gd98.horizontalSpan = 3;
-
-		Label empty1 = new Label(dialog, SWT.NONE);
-		empty1.setLayoutData(gd98);
+		Label empty98Label = new Label(dialog, SWT.NONE);
+		empty98Label.setLayoutData(gd98);
 
 		// Main buttons:
 		GridData gd99 = new GridData(SWT.RIGHT, SWT.RIGHT, true, true);
 		gd99.widthHint = 60;
 		gd99.heightHint = 30;
-		// gd5.horizontalSpan = 3;
 
 		// Unused phantom item:
 		Label empty2 = new Label(dialog, SWT.NONE);
