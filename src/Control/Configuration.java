@@ -40,10 +40,9 @@ public class Configuration {
 			prop.setProperty("ProxyUser", "perfadmin");
 			prop.setProperty("ProxyPassword", "tipadmin");
 			prop.setProperty("ProxyPort", "7890");
-			// TODO: this can be moved to specific methods!
-			// Main window view toolbars:
-			prop.setProperty("ViewUtilitiesBar", String.valueOf(mainFrame.utilitiesBarMenuItem.getSelection()));
-			prop.setProperty("ViewConnectionBar", String.valueOf(mainFrame.connectionBarMenuItem.getSelection()));
+			// Main window viewable toolbars:
+			prop.setProperty("ViewUtilitiesBar", String.valueOf(getUtilitiesBarVisible()));
+			prop.setProperty("ViewConnectionBar", String.valueOf(getConnectionBarVisible()));
 			// Putty and Plink paths:
 			prop.setProperty("PuttyExecutable", getPuttyExecutable());
 			prop.setProperty("PlinkExecutable", getPlinkExecutable());
@@ -109,7 +108,7 @@ public class Configuration {
 	 * Utilities bar must be visible?
 	 * @return 
 	 */
-	public Boolean getUtilitiesVisible(){
+	public Boolean getUtilitiesBarVisible(){
 		return Boolean.valueOf((String) prop.get("ViewUtilitiesBar"));
 	}
 
@@ -117,7 +116,7 @@ public class Configuration {
 	 * Connection bar must be visible?
 	 * @return 
 	 */
-	public Boolean getConnectionVisible(){
+	public Boolean getConnectionBarVisible(){
 		return Boolean.valueOf((String) prop.get("ViewConnectionBar"));
 	}
 
@@ -176,6 +175,22 @@ public class Configuration {
 
 
 	// Set methods: ////////////////////////////////////////////////////////
+	/**
+	 * Set utilities bar visible status. 
+	 * @param visible
+	 */
+	public void setUtilitiesBarVisible(String visible){
+		prop.setProperty("ViewUtilitiesBar", visible);
+	}
+
+	/**
+	 * Set connection bar visible status.
+	 * @param visible
+	 */
+	public void setConnectionBarVisible(String visible){
+		prop.setProperty("ViewConnectionBar", visible);
+	}
+
 	/**
 	 * Set Putty/KiTTY executable path.
 	 * @param path 

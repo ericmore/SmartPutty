@@ -521,9 +521,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private void setVisibleComponents(){
 		Event event = new Event();
 
-		utilitiesBarMenuItem.setSelection(configuration.getUtilitiesVisible());
+		utilitiesBarMenuItem.setSelection(configuration.getUtilitiesBarVisible());
 		utilitiesBarMenuItem.notifyListeners(SWT.Selection, event);
-		connectionBarMenuItem.setSelection(configuration.getConnectionVisible());
+		connectionBarMenuItem.setSelection(configuration.getConnectionBarVisible());
 		connectionBarMenuItem.notifyListeners(SWT.Selection, event);
 	}
 
@@ -668,9 +668,15 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		} else if (e.getSource() == updateItem){
 			MessageDialog.openInformation(shell, "Update tool", "remaining function");
 		} else if (e.getSource() == utilitiesBarMenuItem){
-			setCompositeVisible(utilitiesToolbar, utilitiesBarMenuItem.getSelection());
+			Boolean visible = utilitiesBarMenuItem.getSelection();
+			setCompositeVisible(utilitiesToolbar, visible);
+			configuration.setUtilitiesBarVisible(String.valueOf(visible));
+			configuration.saveConfiguration();
 		} else if (e.getSource() == connectionBarMenuItem){
-			setCompositeVisible(connectGroup, connectionBarMenuItem.getSelection());
+			Boolean visible = connectionBarMenuItem.getSelection();
+			setCompositeVisible(connectGroup, visible);
+			configuration.setConnectionBarVisible(String.valueOf(visible));
+			configuration.saveConfiguration();	
 		} else if (e.getSource() == configProgramsLocationsItem){
 			new ProgramsLocationsDialog(shell);
 		// menuItem 
