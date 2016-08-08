@@ -25,25 +25,41 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 	private Table table;
 	private DBManager dbm;
 	private Button addButton,editButton,deleteButton,connectButton,puttyWindow;
+	// Helper to deal with positions until a new layout can be made:
+	private static final int X_POS = 404;
 	
 	public OpenSessionDialog(MainFrame mainFrame, Shell parent){
-		dialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM|SWT.APPLICATION_MODAL);
+		this.dialog = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		this.mainFrame = mainFrame;
-		dbm = DBManager.getDBManagerInstance();
+		this.dbm = DBManager.getDBManagerInstance();
+
+		init();
+	}
+
+	/**
+	 * Initialize window in a safer way.
+	 * Usefull to avoid "Leaking This In Constructor" warnings.
+	 */
+	private void init(){
 		dialog.setImage(MImage.openImage);
 		dialog.setText("Open Session Dialog");
-		dialog.setSize(300,300);
+		dialog.setSize(350,300);
 		
 		//锟斤拷始锟斤拷table
-		table = new Table(dialog, SWT.BORDER | SWT.FULL_SELECTION|SWT.MULTI);
-		table.setBounds(0, 0, 348, 257);
+		table = new Table(dialog, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
+		table.setBounds(0, 0, 396, 257);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		table.addMouseListener(this);
+
 		TableColumn tableHostColumn = new TableColumn(table, SWT.NONE);
 		tableHostColumn.setWidth(166);
 		tableHostColumn.setText("Host");
-		
+
+		TableColumn tablePortColumn = new TableColumn(table, SWT.NONE);
+		tablePortColumn.setWidth(50);
+		tablePortColumn.setText("Port");
+
 		TableColumn tableUserColumn = new TableColumn(table, SWT.NONE);
 		tableUserColumn.setWidth(74);
 		tableUserColumn.setText("User");
@@ -51,6 +67,7 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		TableColumn tableTimeColumn = new TableColumn(table, SWT.NONE);
 		tableTimeColumn.setWidth(102);
 		tableTimeColumn.setText("Protocol");
+
 		//锟斤拷锟絪essions锟斤拷锟�
 		loadTable();
 		
@@ -72,35 +89,35 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		
 		//button
 		addButton = new Button(dialog, SWT.LEFT);
-		addButton.setBounds(354, 5, 80, 27);
+		addButton.setBounds(X_POS, 5, 80, 27);
 		addButton.setText("Add   ");
 		addButton.setImage(MImage.addImage);
 		addButton.setToolTipText("Add a new connection");
 		addButton.addSelectionListener(this);
 		
 		editButton = new Button(dialog, SWT.LEFT);
-		editButton.setBounds(354, 38, 80, 27);
+		editButton.setBounds(X_POS, 38, 80, 27);
 		editButton.setText("Edit ");
 		editButton.setImage(MImage.editImage);
 		editButton.setToolTipText("Edit selected connection");
 		editButton.addSelectionListener(this);
 		
 		deleteButton = new Button(dialog, SWT.LEFT);
-		deleteButton.setBounds(354, 70, 80, 27);
+		deleteButton.setBounds(X_POS, 70, 80, 27);
 		deleteButton.setText("Delete");
 		deleteButton.setImage(MImage.deleteImage);
 		deleteButton.setToolTipText("Delete selected connection/s");
 		deleteButton.addSelectionListener(this);
 		
 		puttyWindow = new Button(dialog, SWT.LEFT);
-		puttyWindow.setBounds(354, 103, 80, 27);
+		puttyWindow.setBounds(X_POS, 103, 80, 27);
 		puttyWindow.setText("Putty");
 		puttyWindow.setImage(MImage.puttyImage);
 		puttyWindow.setToolTipText("Open selected connection in a single window");
 		puttyWindow.addSelectionListener(this);
 		
 		connectButton = new Button(dialog, SWT.NONE);
-		connectButton.setBounds(354, 235, 80, 27);
+		connectButton.setBounds(X_POS, 235, 80, 27);
 		connectButton.setText("Connect");
 		connectButton.setImage(MImage.connectImage);
 		connectButton.setToolTipText("Open selected connection/s in a tab");
@@ -125,7 +142,7 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		for(ConfigSession session : sessions){
 			TableItem tableItem = new TableItem(table, SWT.NONE);
 			tableItem.setData("session",session);
-			tableItem.setText(new String[] {session.getHost(), session.getUser(), session.getProtocol().getName()});
+			tableItem.setText(new String[] {session.getHost(), session.getPort(), session.getUser(), session.getProtocol().getName()});
 		}
 	}
 

@@ -29,12 +29,11 @@ public class DBManager {
 			Class.forName(driver).newInstance();
 			String user = "sa";
 			String password = "";
-			String getColumnName = "false";
 			Properties props = new Properties();
 			props.put("user", user);
 			props.put("password", password);
 			props.put("jdbc.strict_md", "false");
-			props.put("jdbc.get_column_name", getColumnName);
+			props.put("jdbc.get_column_name", "false");
 			props.put("shutdown", "true");
 			conn = DriverManager.getConnection(protocol + DATABASE_PATH, props);
 
@@ -52,7 +51,7 @@ public class DBManager {
 			}
 			result.close();
 			if (!existCSessionTable){
-				String sql = "CREATE TABLE CSession(Host varchar(50), User varchar(50),Protocol varchar(10), Key varchar(100), Password varchar(50) , PRIMARY KEY (Host,User,Protocol))";
+				String sql = "CREATE TABLE CSession(Host varchar(50), Port varchar(10), User varchar(50), Protocol varchar(10), Key varchar(100), Password varchar(50), PRIMARY KEY (Host,Port,User,Protocol))";
 				state.execute(sql);
 				// System.out.println(sql);
 			}
@@ -87,12 +86,13 @@ public class DBManager {
 
 	public void insertCSession(ConfigSession csession){
 		String host = csession.getHost();
+		String port = csession.getPort();
 		String user = csession.getUser();
 		String protocol = csession.getProtocol().name();
 		String key = csession.getKey();
 		String password = Base64Util.encodeBASE64(csession.getPassword());
-		if (host.equals("") || user.equals("") || protocol.equals("")){
-			MessageDialog.openWarning(MainFrame.shell, "Warning", "host,user,protocol should not be set to null");
+		if (host.isEmpty() || port.isEmpty() || user.isEmpty() || protocol.isEmpty()){
+			MessageDialog.openWarning(MainFrame.shell, "Warning", "host,port,user,protocol should not be set to null");
 			return;
 		}
 		if (isCSessionExist(csession)){
@@ -101,6 +101,7 @@ public class DBManager {
 
 		String sql = "INSERT INTO CSession VALUES('"
 			+ host + "','"
+			+ port + "','"
 			+ user + "','"
 			+ protocol + "','"
 			+ key + "','"
@@ -123,11 +124,12 @@ public class DBManager {
 
 		try {
 			Statement state = conn.createStatement();
-			String sql = "DELETE FROM CSession WHERE HOST='"
-				+ csession.getHost() + "' AND USER='"
-				+ csession.getUser() + "' AND PROTOCOL='"
+			String sql = "DELETE FROM CSession WHERE host='"
+				+ csession.getHost() + "' AND port='"
+				+ csession.getPort() + "' AND user='"
+				+ csession.getUser() + "' AND protocol='"
 				+ csession.getProtocol() + "'";
-			//System.out.println(sql);
+			// System.out.println(sql); //DEBUG
 			state.execute(sql);
 			state.close();
 		} catch (SQLException e){
@@ -146,7 +148,7 @@ public class DBManager {
 			while (rs.next()){
 				ConfigSession confSession = new ConfigSession(
 					rs.getString("Host"),
-					"22", //TODO: enable port and session!
+					rs.getString("Port"),
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
@@ -166,8 +168,8 @@ public class DBManager {
 
 	public ArrayList<ConfigSession> queryCSessionByHost(String host){
 		ArrayList<ConfigSession> result = new ArrayList<ConfigSession>();
-		String sql = "SELECT *  FROM CSession WHERE HOST='" + host + "'";
-		//	System.out.println(sql);
+		String sql = "SELECT *  FROM CSession WHERE host='" + host + "'";
+		// System.out.println(sql); //DEBUG
 
 		try {
 			Statement state = conn.createStatement();
@@ -175,7 +177,7 @@ public class DBManager {
 			while (rs.next()){
 				ConfigSession confSession = new ConfigSession(
 					rs.getString("Host"),
-					"22", //TODO: enable port and session!
+					rs.getString("Port"),
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
@@ -203,7 +205,7 @@ public class DBManager {
 			while (rs.next()){
 				ConfigSession confSession = new ConfigSession(
 					rs.getString("Host"),
-					"22", //TODO: enable port and session!
+					rs.getString("Port"),
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
@@ -221,11 +223,11 @@ public class DBManager {
 
 	public ConfigSession queryCSessionByHostUserProtocol(String host, String user, String protocol){
 		ConfigSession result = null;
-		String sql = "SELECT *  FROM CSession WHERE HOST='"
-			+ host + "' AND USER='"
-			+ user + "' AND PROTOCOL='"
+		String sql = "SELECT *  FROM CSession WHERE host='"
+			+ host + "' AND user='"
+			+ user + "' AND protocol='"
 			+ protocol + "'";
-		//	System.out.println(sql);
+		// System.out.println(sql); //DEBUG
 
 		try {
 			Statement state = conn.createStatement();
@@ -233,7 +235,7 @@ public class DBManager {
 			while (rs.next()){
 				ConfigSession confSession = new ConfigSession(
 					rs.getString("Host"),
-					"22", //TODO: enable port and session!
+					rs.getString("Port"),
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
@@ -255,9 +257,9 @@ public class DBManager {
 		String protocol = session.getProtocol().name();
 //		String password = Base64Util.encodeBASE64(session.getPassword());
 		ConfigSession result = null;
-		String sql = "SELECT *  FROM CSession WHERE HOST='"
-			+ host + "' AND USER='"
-			+ user + "' AND PROTOCOL='"
+		String sql = "SELECT *  FROM CSession WHERE host='"
+			+ host + "' AND user='"
+			+ user + "' AND protocol='"
 			+ protocol + "'";
 		// System.out.println("queryCSessionBySession() " + sql); //DEBUG
 
@@ -268,7 +270,7 @@ public class DBManager {
 				// System.out.println("queryCSessionBySession() " + rs.getString("Host")); //DEBUG
 				ConfigSession confSession = new ConfigSession(
 					rs.getString("Host"),
-					"22", //TODO: enable port and session!
+					rs.getString("Port"),
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
@@ -287,11 +289,12 @@ public class DBManager {
 
 	private boolean isCSessionExist(ConfigSession csession){
 		boolean isExist = false;
-		String sql = "SELECT * FROM CSession WHERE HOST='"
-			+ csession.getHost() + "' AND USER='"
-			+ csession.getUser() + "' AND PROTOCOL='"
+		String sql = "SELECT * FROM CSession WHERE host='"
+			+ csession.getHost() + "' AND port='"
+			+ csession.getPort() + "' AND user='"
+			+ csession.getUser() + "' AND protocol='"
 			+ csession.getProtocol() + "'";
-		//System.out.println(sql);
+		// System.out.println(sql); //DEBUG
 
 		try {
 			Statement state = conn.createStatement();
