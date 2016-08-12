@@ -1,5 +1,6 @@
 package Control;
 
+import Model.ConstantValue;
 import UI.MainFrame;
 import static UI.MainFrame.shell;
 import java.io.FileInputStream;
@@ -9,19 +10,14 @@ import java.io.IOException;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.MessageBox;
 
 public class Configuration {
-	// XML configuration file to use:
-	private static final String CONFIG_FILE = "Configuration.xml";
-
 	private final Properties prop;
-	private final MainFrame mainFrame;
 
 	// Constructor:
-	public Configuration(MainFrame mainFrame){
-		this.mainFrame = mainFrame;
-
+	public Configuration(){
 		prop = new Properties();
 		loadConfiguration();
 	}
@@ -31,7 +27,7 @@ public class Configuration {
 	 */
 	public void saveConfiguration(){
 		try {
-			FileOutputStream fos = new FileOutputStream(CONFIG_FILE);
+			FileOutputStream fos = new FileOutputStream(ConstantValue.CONFIG_FILE);
 
 			// Proxy settings:
 			prop.setProperty("Timeout", "10000");
@@ -49,6 +45,8 @@ public class Configuration {
 			prop.setProperty("KeyGeneratorExecutable", getKeyGeneratorExecutable());
 			// "Welcome Page" when program starts:
 			prop.setProperty("ShowWelcomePage", String.valueOf(getWelcomePageVisible()));
+			// Main windows position and size:
+			prop.setProperty("WindowPositionSize", getWindowPositionSizeString());
 
 			prop.storeToXML(fos, "SmartPutty configuration file");
 			fos.close();
@@ -66,7 +64,7 @@ public class Configuration {
 	 */
 	private void loadConfiguration(){
 		try {
-			FileInputStream fis = new FileInputStream(CONFIG_FILE);
+			FileInputStream fis = new FileInputStream(ConstantValue.CONFIG_FILE);
 			prop.loadFromXML(fis);
 		} catch (InvalidPropertiesFormatException e){
 			// TODO Auto-generated catch block
@@ -173,6 +171,42 @@ public class Configuration {
 		return Boolean.valueOf((String) prop.get("ShowWelcomePage"));
 	}
 
+	/**
+	 * Get main mindow position and size.
+	 * @return 
+	 */
+	public Rectangle getWindowPositionSize(){
+		// Split comma-separated values by x, y, width, height:
+		String[] array = ((String)prop.get("WindowPositionSize")).split(",");
+
+		// If there aren't enough pieces of information...
+		if (array.length < 4){
+			array = new String[4];
+
+			// Set default safety values:
+			array[0] = String.valueOf(ConstantValue.screenWidth / 6);
+			array[1] = String.valueOf(ConstantValue.screenHeight / 6);
+			array[2] = String.valueOf(2 * ConstantValue.screenWidth / 3);
+			array[3] = String.valueOf(2 * ConstantValue.screenHeight / 3);
+		}
+
+		return new Rectangle(Integer.parseInt(array[0]), Integer.parseInt(array[1]), 
+			Integer.parseInt(array[2]), Integer.parseInt(array[3]));
+	}
+
+	/**
+	 * Get main mindow position and size in String format.
+	 * @return 
+	 */
+	public String getWindowPositionSizeString(){
+		String x = String.valueOf(MainFrame.shell.getBounds().x);
+		String y = String.valueOf(MainFrame.shell.getBounds().y);
+		String width = String.valueOf(MainFrame.shell.getBounds().width);
+		String height = String.valueOf(MainFrame.shell.getBounds().height);
+
+		return x + "," + y + "," + width + "," + height;
+	}
+
 
 	// Set methods: ////////////////////////////////////////////////////////
 	/**
@@ -223,7 +257,18 @@ public class Configuration {
 		prop.setProperty("ShowWelcomePage", visible);
 	}
 
+	/**
+	 * Set main mindow position and size. 
+	 */
+/*	public void setWindowPositionSize(){
+		String x = String.valueOf(MainFrame.shell.getBounds().x);
+		String y = String.valueOf(MainFrame.shell.getBounds().y);
+		String width = String.valueOf(MainFrame.shell.getBounds().width);
+		String height = String.valueOf(MainFrame.shell.getBounds().height);
 
+		prop.setProperty("ShowWelcomePage", x + "," + y + "," + width + "," + height);
+	}
+*/
 	// Other methods: ////////////////////////////////////////////////////////
 
 	/**

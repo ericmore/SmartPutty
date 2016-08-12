@@ -72,15 +72,18 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		display = new Display();
 		shell = new Shell(display);
 
+		// Load configuration:
 		checkConf();
 
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
 		shell.setText(ConstantValue.mainWindowTitle + " [" + ConstantValue.mainWindowVersion + "]");
-		shell.setBounds(ConstantValue.screenWidth / 6,
+		// Set main window size and position:
+		/*shell.setBounds(ConstantValue.screenWidth / 6,
 				ConstantValue.screenHeight / 6,
 				2 * ConstantValue.screenWidth / 3,
-				2 * ConstantValue.screenHeight / 3);
+				2 * ConstantValue.screenHeight / 3);*/
+		shell.setBounds(configuration.getWindowPositionSize());
 		shell.addShellListener(this);
 
 		// Get dbmanager instance:
@@ -500,8 +503,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 	private void checkConf(){
 		InvokeProgram.killPuttyWarningsAndErrs();
-		// configuration = Configuration.getInstance();
-		configuration = new Configuration(this);
+		configuration = new Configuration();
 	}
 
 	private void showWelcomeTab(){
@@ -595,11 +597,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		}
 
+		// Close in-memory database:
 		dbm.closeDB();
 
-		// Disabled because isn't usefull here!
 		// Save configuration:
-		// configuration.saveConfiguration();
+		configuration.saveConfiguration();
 	}
 
 	/**
@@ -671,12 +673,10 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			Boolean visible = utilitiesBarMenuItem.getSelection();
 			setCompositeVisible(utilitiesToolbar, visible);
 			configuration.setUtilitiesBarVisible(String.valueOf(visible));
-			configuration.saveConfiguration();
 		} else if (e.getSource() == connectionBarMenuItem){
 			Boolean visible = connectionBarMenuItem.getSelection();
 			setCompositeVisible(connectGroup, visible);
 			configuration.setConnectionBarVisible(String.valueOf(visible));
-			configuration.saveConfiguration();	
 		} else if (e.getSource() == configProgramsLocationsItem){
 			new ProgramsLocationsDialog(shell);
 		// menuItem 

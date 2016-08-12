@@ -2,7 +2,6 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>SmartPutty configuration file</comment>
-<entry key="KeyGeneratorExecutable">app\putty\puttygen.exe</entry>
 <entry key="WaitForInitTime">1500</entry>
 <entry key="ProxyPort">7890</entry>
 <entry key="ViewConnectionBar">true</entry>
@@ -14,4 +13,6 @@
 <entry key="ProxyHost">tipl01.swg.usma.ibm.com</entry>
 <entry key="PuttyExecutable">app\putty\putty.exe</entry>
 <entry key="PlinkExecutable">app\putty\plink.exe</entry>
+<entry key="KeyGeneratorExecutable">app\putty\puttygen.exe</entry>
+<entry key="WindowPositionSize"></entry>
 </properties>

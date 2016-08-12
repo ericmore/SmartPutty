@@ -1,11 +1,8 @@
 package Model;
 
+import Control.SmartPuttyVersion;
 import java.awt.Toolkit;
 import java.io.File;
-
-import com.sun.org.apache.xalan.internal.Version;
-
-import Control.SmartPuttyVersion;
 
 public class ConstantValue {
 	public final static String mainWindowTitle = "Smart Putty";
@@ -15,7 +12,9 @@ public class ConstantValue {
 	public final static String baseUrlBaidu = "http://www.baidu.com/";
 	public final static String baseUrlGoogle = "https://www.google.com/";
 	public final static String defaultProtocol = "ssh";
-	
+	// Screen sizes:
 	public final static int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height; 
 	public final static int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+	// XML configuration file to use:
+	public final static String CONFIG_FILE = "Configuration.xml";
 }
