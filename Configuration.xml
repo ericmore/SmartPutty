@@ -4,15 +4,15 @@
 <comment>SmartPutty configuration file</comment>
 <entry key="WaitForInitTime">1500</entry>
 <entry key="ProxyPort">7890</entry>
-<entry key="ViewConnectionBar">true</entry>
 <entry key="ProxyUser">perfadmin</entry>
 <entry key="Timeout">10000</entry>
 <entry key="ProxyPassword">tipadmin</entry>
-<entry key="ShowWelcomePage">true</entry>
-<entry key="ViewUtilitiesBar">true</entry>
 <entry key="ProxyHost">tipl01.swg.usma.ibm.com</entry>
-<entry key="PuttyExecutable">app\putty\putty.exe</entry>
-<entry key="PlinkExecutable">app\putty\plink.exe</entry>
-<entry key="KeyGeneratorExecutable">app\putty\puttygen.exe</entry>
+<entry key="ViewUtilitiesBar"></entry>
+<entry key="ViewConnectionBar"></entry>
+<entry key="PuttyExecutable"></entry>
+<entry key="PlinkExecutable"></entry>
+<entry key="KeyGeneratorExecutable"></entry>
+<entry key="ShowWelcomePage"></entry>
 <entry key="WindowPositionSize"></entry>
 </properties>

@@ -155,7 +155,7 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		for (TableItem tableItem:tableItems){
 			ConfigSession csession = dbm.queryCSessionBySession((ConfigSession) tableItem.getData("session"));
 			sessions.add(csession);
-			System.out.println("OpenSelectedSessions() " + csession); //DEBUG
+			// System.out.println("OpenSelectedSessions() " + csession); //DEBUG
 		}
 		dialog.dispose();
 
@@ -223,7 +223,6 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		if(e.getSource().equals(table)){
 			OpenSelectedSessions();
 		}
-		
 	}
 	
 	public void mouseDown(MouseEvent mouseevent) {

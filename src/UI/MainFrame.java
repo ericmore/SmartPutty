@@ -78,11 +78,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
 		shell.setText(ConstantValue.mainWindowTitle + " [" + ConstantValue.mainWindowVersion + "]");
-		// Set main window size and position:
-		/*shell.setBounds(ConstantValue.screenWidth / 6,
-				ConstantValue.screenHeight / 6,
-				2 * ConstantValue.screenWidth / 3,
-				2 * ConstantValue.screenHeight / 3);*/
 		shell.setBounds(configuration.getWindowPositionSize());
 		shell.addShellListener(this);
 

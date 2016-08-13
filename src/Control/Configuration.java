@@ -1,17 +1,15 @@
 package Control;
 
 import Model.ConstantValue;
+import Model.Program;
 import UI.MainFrame;
-import static UI.MainFrame.shell;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.MessageBox;
 
 public class Configuration {
 	private final Properties prop;
@@ -107,7 +105,13 @@ public class Configuration {
 	 * @return 
 	 */
 	public Boolean getUtilitiesBarVisible(){
-		return Boolean.valueOf((String) prop.get("ViewUtilitiesBar"));
+		String value = (String) prop.get("ViewUtilitiesBar");
+
+		if (value == null || value.isEmpty()){
+			value = "true";
+		}
+
+		return Boolean.valueOf(value);
 	}
 
 	/**
@@ -115,7 +119,13 @@ public class Configuration {
 	 * @return 
 	 */
 	public Boolean getConnectionBarVisible(){
-		return Boolean.valueOf((String) prop.get("ViewConnectionBar"));
+		String value = (String) prop.get("ViewConnectionBar");
+
+		if (value == null || value.isEmpty()){
+			value = "true";
+		}
+
+		return Boolean.valueOf(value);
 	}
 
 	/**
@@ -125,9 +135,8 @@ public class Configuration {
 	public String getPuttyExecutable(){
 		String value = (String) prop.get("PuttyExecutable");
 
-		if (value == null){
-			showMessageEmptyValue("PuttyExecutable");
-			value = ""; // Put any value to avoid "NullPointerException" error.
+		if (value == null || value.isEmpty()){
+			value = Program.DEFAULT_APP_PUTTY.getPath();
 		}
 
 		return value;
@@ -140,9 +149,8 @@ public class Configuration {
 	public String getPlinkExecutable(){
 		String value = (String) prop.get("PlinkExecutable");
 
-		if (value == null){
-			showMessageEmptyValue("PlinkExecutable");
-			value = ""; // Put any value to avoid "NullPointerException" error.
+		if (value == null || value.isEmpty()){
+			value = Program.DEFAULT_APP_PLINK.getPath();
 		}
 
 		return value;
@@ -155,9 +163,8 @@ public class Configuration {
 	public String getKeyGeneratorExecutable(){
 		String value = (String) prop.get("KeyGeneratorExecutable");
 
-		if (value == null){
-			showMessageEmptyValue("KeyGeneratorExecutable");
-			value = ""; // Put any value to avoid "NullPointerException" error.
+		if (value == null || value.isEmpty()){
+			value = Program.DEFAULT_APP_KEYGEN.getPath();
 		}
 
 		return value;
@@ -168,7 +175,13 @@ public class Configuration {
 	 * @return 
 	 */
 	public Boolean getWelcomePageVisible(){
-		return Boolean.valueOf((String) prop.get("ShowWelcomePage"));
+		String value = (String) prop.get("ShowWelcomePage");
+
+		if (value == null || value.isEmpty()){
+			value = "true";
+		}
+
+		return Boolean.valueOf(value);
 	}
 
 	/**
@@ -260,26 +273,12 @@ public class Configuration {
 	/**
 	 * Set main mindow position and size. 
 	 */
-/*	public void setWindowPositionSize(){
+	public void setWindowPositionSize(){
 		String x = String.valueOf(MainFrame.shell.getBounds().x);
 		String y = String.valueOf(MainFrame.shell.getBounds().y);
 		String width = String.valueOf(MainFrame.shell.getBounds().width);
 		String height = String.valueOf(MainFrame.shell.getBounds().height);
 
 		prop.setProperty("ShowWelcomePage", x + "," + y + "," + width + "," + height);
-	}
-*/
-	// Other methods: ////////////////////////////////////////////////////////
-
-	/**
-	 * Shows an error message if a vital parameter is null.
-	 * Usefull to avoid avoid "NullPointerException" errors which can close main program.
-	 */
-	private void showMessageEmptyValue(String parameter){
-		MessageBox messagebox = new MessageBox(shell, SWT.ICON_ERROR | SWT.OK);
-		messagebox.setText("Configuration error");
-		messagebox.setMessage("Seems \"" + parameter + "\" property isn't defined!\nPlease, check configuration file.");
-		messagebox.open();
-		System.err.println("Error - Missing configuration property: " + parameter);
 	}
 }
