@@ -3,6 +3,7 @@ package Control;
 import Model.ConfigSession;
 import Model.ConstantValue;
 import Model.Program;
+import Model.Protocol;
 import UI.MImage;
 import UI.MainFrame;
 import java.io.IOException;
@@ -69,7 +70,7 @@ public class InvokeProgram extends Thread {
 		String args = "";
 
 		if (!puttySession.isEmpty()){
-			// Note: Putty session must the very first parameter to work well.
+			// Putty session must the very first parameter to work well.
 			args = " -load \"" + puttySession + "\"";
 		}
 
@@ -92,11 +93,16 @@ public class InvokeProgram extends Thread {
 			args += " -i " + file;
 		}
 
-		if (!port.isEmpty()){
+		if (!port.isEmpty() && !protocol.equals(Protocol.SERIAL.getParameter())){
 			args += " -P " + port;
+		} else {
+			args += " " + port; // For serial connections.
 		}
 
-		args += " -loghost " + hostinfo;
+		if (!hostinfo.isEmpty()){
+			args += " -loghost " + hostinfo;
+			// Serial connections doesn't allow name it.
+		}
 
 		// System.out.println("Putty parameters: " + args); //DEBUG
 

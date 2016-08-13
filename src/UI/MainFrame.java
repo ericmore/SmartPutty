@@ -54,12 +54,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	public static DBManager dbm;
 	public static Shell shell;
 	public static Configuration configuration;
-	public MenuItem utilitiesBarMenuItem, connectionBarMenuItem;
 	private MenuItem openItem, newItem, bsoItem, proxyItem, captureItem,
 		remoteDesktopItem, exitItem, updateItem,
 		webcomeMenuItem, reloadPopItem,
 		clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem, openPuttyItem,
-		configProgramsLocationsItem;
+		configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem;
 	private Menu popupmenu;
 	private ToolItem itemNew, itemOpen, itemProxy, itemRemoteDesk, itemBSO,
 		itemCapture, itemCalculator, itemVNC, itemNotePad,itemKenGen, itemHelp;
@@ -199,7 +198,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		configProgramsLocationsItem = new MenuItem(optionsMenu, SWT.PUSH);
 		configProgramsLocationsItem.setText("Programs locations");
 		configProgramsLocationsItem.setImage(MImage.RemoteDeskImage);
-		// TODO: setup and enable! configProgramsItem.setAccelerator(SWT.CTRL + 'R');
+		// configProgramsItem.setAccelerator(SWT.CTRL + 'R'); // TODO: setup a key and enable!
 		configProgramsLocationsItem.addSelectionListener(this);
 
 		// Menu: About
@@ -341,6 +340,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 					portItem.setText("23"); // Default port.
 				} else if (protocolCombo.getText().equals(Protocol.RLOGIN.getName())){ // Rlogin
 					portItem.setText("513"); // Default port.
+				} else if (protocolCombo.getText().equals(Protocol.SERIAL.getName())){ // Serial
+					portItem.setText("COM1"); // A port.
 				} else {
 					passwordItem.setEnabled(false); // Automatic password can not be used.
 					portItem.setText(""); // Empty non-default port.
@@ -359,9 +360,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	 * Create utilities toolbar.
 	 */
 	private void createUtilitiesToolbar(){
-		// utilitiesToolbar = new ToolBar(shell, SWT.NULL);
 		utilitiesToolbar = new ToolBar(shell, SWT.VERTICAL);
-		// utilitiesToolbar.setLayoutData(new BorderData(SWT.TOP));
 		utilitiesToolbar.setLayoutData(new BorderData(SWT.LEFT));
 
 		itemNew = new ToolItem(utilitiesToolbar, SWT.PUSH);
@@ -530,8 +529,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	 * @param session 
 	 */
 	public void addSession(CTabItem item, ConfigSession session){
-		if (item == null)
+		if (item == null){
 			item = new CTabItem(folder, SWT.CLOSE);
+		}
 
 		Composite composite = new Composite(folder, SWT.EMBEDDED);
 		composite.setBackground(new Color(display, 0, 0, 0));
@@ -589,7 +589,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 				int hwnd = Integer.parseInt(String.valueOf(item.getData("hwnd")));
 				InvokeProgram.killProcess(hwnd);
 			}
-
 		}
 
 		// Close in-memory database:
@@ -689,27 +688,23 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			openWinscp("sftp");
 		} else if (e.getSource() == vncPopItem){
 			openVNCSession();
-		}
 		// folder
-		else if (e.getSource() == folder){
+		} else if (e.getSource() == folder){
 			if (folder.getSelection().getData("hwnd") != null){
 				int hwnd = (Integer) folder.getSelection().getData("hwnd");
 				InvokeProgram.setWindowFocus(hwnd);
 			}
-
 		}
 	}
 
 	@Override
 	public void close(CTabFolderEvent e){
-		// TODO Auto-generated method stub
 		if (welcomeItem == folder.getSelection() && e.item == welcomeItem){
 			e.item.dispose();
 			e.doit = true;
 			shell.setFocus();
 		} else if (e.item == folder.getSelection()){
-			MessageBox messagebox = new MessageBox(shell, SWT.ICON_QUESTION
-					| SWT.YES | SWT.NO);
+			MessageBox messagebox = new MessageBox(shell, SWT.ICON_QUESTION | SWT.YES | SWT.NO);
 			messagebox.setText("Confirm Exit");
 			messagebox.setMessage("Are you sure to exit session: "
 					+ ((ConfigSession) e.item.getData("session")).getHost());
