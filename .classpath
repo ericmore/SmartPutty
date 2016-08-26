@@ -5,15 +5,14 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="SWTSSH/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/SmartPutty"/>
 	<classpathentry kind="lib" path="lib/commons-net-1.2.2.jar"/>
 	<classpathentry kind="lib" path="lib/hsqldb-1.8.0.7.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.core.commands_3.6.1.v20120521-2329.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.equinox.common_3.6.100.v20120522-1841.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.jface_3.8.0.v20120521-2329.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.ui.forms_3.5.200.v20120521-2329.jar"/>
-	<classpathentry kind="lib" path="lib/registry.jar"/>
-	<classpathentry kind="lib" path="lib/swt_x86.jar"/>
 	<classpathentry kind="lib" path="lib/SWTResourceManager.jar"/>
+	<classpathentry kind="lib" path="lib/swt.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

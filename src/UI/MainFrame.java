@@ -12,6 +12,8 @@ import Model.Protocol;
 import Utils.RegistryUtils;
 import java.io.PrintStream;
 import java.util.Enumeration;
+import java.util.List;
+
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -274,11 +276,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		sessionCombo.setToolTipText("Session to use");
 		sessionCombo.add(""); // Empty entry to use none.
 		// Get all "Putty" sessions:
-		Enumeration sessions = RegistryUtils.getAllPuttySessions();
-		while (sessions.hasMoreElements()){
-			// Add "Putty" session replacing spaces by codes:
-			sessionCombo.add(sessions.nextElement().toString().replaceAll("%20", " "));
+		List<String> sessions = RegistryUtils.getAllPuttySessions();
+		for(String session : sessions){
+			sessionCombo.add(session);
 		}
+
 
 		// Connect button:
 		Button connectButton = new Button(connectGroup, SWT.PUSH);
@@ -459,7 +461,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		openPuttyItem = new MenuItem(popupmenu, SWT.PUSH);
 		openPuttyItem.setText("open in putty");
 		openPuttyItem.setImage(MImage.puttyImage);
-		openPuttyItem.setToolTipText("Opens connection on a single window");
+//		openPuttyItem.setToolTipText("Opens connection on a single window");
 		openPuttyItem.addSelectionListener(this);
 
 		clonePopItem = new MenuItem(popupmenu, SWT.PUSH);
@@ -474,17 +476,17 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		Menu subMenu = new Menu(popupmenu);
 		ftpMenuItem = new MenuItem(subMenu, SWT.PUSH);
 		ftpMenuItem.setText("FTP");
-		ftpMenuItem.setToolTipText("Simple FTP");
+//		ftpMenuItem.setToolTipText("Simple FTP");
 		ftpMenuItem.addSelectionListener(this);
 
 		scpMenuItem = new MenuItem(subMenu, SWT.PUSH);
 		scpMenuItem.setText("SCP");
-		scpMenuItem.setToolTipText("FTP over SSH");
+//		scpMenuItem.setToolTipText("FTP over SSH");
 		scpMenuItem.addSelectionListener(this);
 
 		sftpMenuItem = new MenuItem(subMenu, SWT.PUSH);
 		sftpMenuItem.setText("SFTP");
-		sftpMenuItem.setToolTipText("Secure FTP");
+//		sftpMenuItem.setToolTipText("Secure FTP");
 		sftpMenuItem.addSelectionListener(this);
 
 		transferPopItem.setMenu(subMenu);
