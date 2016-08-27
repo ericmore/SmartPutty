@@ -1,23 +1,30 @@
 package Control;
 
-import Model.ConstantValue;
-import Model.Program;
-import UI.MainFrame;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.InvalidPropertiesFormatException;
+import java.util.List;
 import java.util.Properties;
+
 import org.eclipse.swt.graphics.Rectangle;
+
+import Model.ConstantValue;
+import Model.Program;
+import UI.MainFrame;
+import Utils.ReadXMLFile;
 
 public class Configuration {
 	private final Properties prop;
+	private final List<HashMap<String, String>> batchConfigListMap;
 
 	// Constructor:
 	public Configuration(){
-		prop = new Properties();
+		this.prop = new Properties();
 		loadConfiguration();
+		this.batchConfigListMap = ReadXMLFile.parse(ConstantValue.CONFIG_BATCH_FILE);
 	}
 
 	/**
@@ -69,9 +76,9 @@ public class Configuration {
 		// prop.list(System.out); //DEBUG
 	}
 
-	// Get methods: ////////////////////////////////////////////////////////
-	public String getTimeout(){
-		return (String) prop.get("Timeout");
+	// Get methods: 
+	public List<HashMap<String, String>> getBatchConfig(){
+		return this.batchConfigListMap;
 	}
 
 	public String getWaitForInitTime(){

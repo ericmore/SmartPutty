@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<batches>
+	<batch id="1">
+		<path>notepad.exe</path>
+		<argument></argument>
+		<desciption>notepad</desciption>
+	</batch>
+	<batch id="2">
+		<path>yong1</path>
+		<argument>mkyong1</argument>
+		<desciption>mook kim1</desciption>
+	</batch>
+</batches>

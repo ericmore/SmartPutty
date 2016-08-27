@@ -1,12 +1,8 @@
 package UI;
 
-import Dao.DBManager;
-import Model.ConfigSession;
-import Model.ConstantValue;
-import Model.Protocol;
-import Utils.RegistryUtils;
 import java.util.ArrayList;
 import java.util.HashSet;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseListener;
@@ -19,6 +15,11 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+
+import Dao.DBManager;
+import Model.ConfigSession;
+import Model.ConstantValue;
+import Model.Protocol;
 
 public class NewSessionDialog implements SelectionListener, MouseListener {
 

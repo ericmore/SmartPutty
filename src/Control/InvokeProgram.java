@@ -1,13 +1,7 @@
 package Control;
 
-import Model.ConfigSession;
-import Model.ConfigSessionTypeEnum;
-import Model.ConstantValue;
-import Model.Program;
-import Model.Protocol;
-import UI.MImage;
-import UI.MainFrame;
 import java.io.IOException;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.internal.win32.OS;
@@ -15,12 +9,16 @@ import org.eclipse.swt.internal.win32.SHELLEXECUTEINFO;
 import org.eclipse.swt.internal.win32.TCHAR;
 import org.eclipse.swt.widgets.Composite;
 
+import Model.ConfigSession;
+import Model.ConstantValue;
+import Model.Program;
+import UI.MImage;
+import UI.MainFrame;
+
 public class InvokeProgram extends Thread {
 	private Composite composite = null;
 	private ConfigSession session = null;
 	private CTabItem tabItem = null;
-
-	private static String hostinfo;
 
 	// Constructor:
 	public InvokeProgram(Composite composite, CTabItem tabItem, ConfigSession session){
@@ -72,7 +70,7 @@ public class InvokeProgram extends Thread {
 		String puttySession = session.getSession();
 		
 
-		if (session.getConfigSessionType() == ConfigSessionTypeEnum.PURE_PUTTY_SESSION){
+		if (session.getConfigSessionType() == ConstantValue.ConfigSessionTypeEnum.PURE_PUTTY_SESSION){
 			// Putty session must the very first parameter to work well.
 			args = " -load \"" + puttySession + "\"";
 			if(!user.isEmpty()) args += String.format(" -l \"%s\"", user);
@@ -102,7 +100,7 @@ public class InvokeProgram extends Thread {
 	public void invokePutty(ConfigSession session){
 		// Mount command-line Putty parameters:
 		String tabDisplayName = "session";
-		if (session.getConfigSessionType() == ConfigSessionTypeEnum.PURE_PUTTY_SESSION){
+		if (session.getConfigSessionType() == ConstantValue.ConfigSessionTypeEnum.PURE_PUTTY_SESSION){
 			tabDisplayName = session.getSession();
 		}else{
 			tabDisplayName = session.getHost();
@@ -219,7 +217,7 @@ public class InvokeProgram extends Thread {
 	 * @param program
 	 * @param arg 
 	 */
-	public static void invokeProgram(Program program, String arg){
+	public static void runProgram(Program program, String arg){
 		String cmd;
 
 		if (arg != null){
@@ -242,11 +240,11 @@ public class InvokeProgram extends Thread {
 	 * @param program
 	 * @param arg 
 	 */
-	public static void invokeProgram(String program, String arg){
+	public static void runCMD(String program, String arg){
 		String cmd;
 
 		if (arg != null){
-			cmd = program + arg;
+			cmd = program + " " +  arg;
 		} else {
 			cmd = program;
 		}

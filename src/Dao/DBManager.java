@@ -1,10 +1,5 @@
 package Dao;
 
-import Model.ConfigSession;
-import Model.Intranet;
-import Model.Protocol;
-import UI.MainFrame;
-import Utils.RegistryUtils;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -13,7 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
+
 import org.eclipse.jface.dialogs.MessageDialog;
+
+import Model.ConfigSession;
+import Model.Intranet;
+import Model.Protocol;
+import UI.MainFrame;
 
 public class DBManager {
 	private final static String DATABASE_PATH = "database\\sessiondb";

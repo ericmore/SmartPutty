@@ -1,13 +1,13 @@
 package Model;
 
+import Model.ConstantValue.ConfigSessionTypeEnum;
+
 /**
  * Session variables to establish a communication with a SSH client.
  * @author SS
  */
 public class ConfigSession {
 	private ConfigSessionTypeEnum ConfigSessionType = ConfigSessionTypeEnum.SMART_PUTTY_SESSION;
-	
-
 	private String host = "";
 	private String port = ""; // Can be a number or a device name (COM1, COM2, ...).
 	private String user = "";
@@ -21,7 +21,7 @@ public class ConfigSession {
 		this.password = password;
 		this.port = port;
 		this.puttySession = puttySession;
-		ConfigSessionType = ConfigSessionTypeEnum.PURE_PUTTY_SESSION;
+		this.ConfigSessionType = ConfigSessionTypeEnum.PURE_PUTTY_SESSION;
 	}
 
 	/**
