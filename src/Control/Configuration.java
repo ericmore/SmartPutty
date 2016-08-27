@@ -27,13 +27,7 @@ public class Configuration {
 		try {
 			FileOutputStream fos = new FileOutputStream(ConstantValue.CONFIG_FILE);
 
-			// Proxy settings:
-			prop.setProperty("Timeout", "10000");
-			prop.setProperty("WaitForInitTime", "1500");
-			prop.setProperty("ProxyHost", "tipl01.swg.usma.ibm.com");
-			prop.setProperty("ProxyUser", "perfadmin");
-			prop.setProperty("ProxyPassword", "tipadmin");
-			prop.setProperty("ProxyPort", "7890");
+			prop.setProperty("WaitForInitTime", prop.getProperty("WaitForInitTime"));
 			// Main window viewable toolbars:
 			prop.setProperty("ViewUtilitiesBar", String.valueOf(getUtilitiesBarVisible()));
 			prop.setProperty("ViewConnectionBar", String.valueOf(getConnectionBarVisible()));
@@ -84,21 +78,6 @@ public class Configuration {
 		return (String) prop.get("WaitForInitTime");
 	}
 
-	public String getProxyHost(){
-		return (String) prop.get("ProxyHost");
-	}
-
-	public String getProxyUser(){
-		return (String) prop.get("ProxyUser");
-	}
-
-	public String getProxyPort(){
-		return (String) prop.get("ProxyPort");
-	}
-
-	public String getProxyPassword(){
-		return (String) prop.get("ProxyPassword");
-	}
 
 	/**
 	 * Utilities bar must be visible?

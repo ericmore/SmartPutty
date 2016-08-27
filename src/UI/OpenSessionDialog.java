@@ -45,7 +45,6 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		dialog.setText("Open Session Dialog");
 		dialog.setSize(350,300);
 		
-		//锟斤拷始锟斤拷table
 		table = new Table(dialog, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
 		table.setBounds(0, 0, 396, 257);
 		table.setHeaderVisible(true);
@@ -68,10 +67,8 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		tableTimeColumn.setWidth(102);
 		tableTimeColumn.setText("Protocol");
 
-		//锟斤拷锟絪essions锟斤拷锟�
 		loadTable();
 		
-		//锟揭硷拷锟捷菜碉拷
 		Menu popupmenu = new Menu(dialog, SWT.POP_UP);
 		MenuItem addPopItem = new MenuItem(popupmenu, SWT.PUSH);
 		addPopItem.setText("add session");
@@ -127,7 +124,6 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		dialog.open();
 	}
 
-	//锟斤拷锟窖★拷锟斤拷锟斤拷蚍祷氐锟揭伙拷锟�
 	public ConfigSession getCurrentSelectSession(){
 		if(table.getSelection().length > 0){
 			return (ConfigSession)(table.getSelection()[0].getData("session"));

@@ -6,8 +6,8 @@ package Model;
  */
 public enum Protocol {
 	// Following order is also used on lists to be showed:
-	SSH ("SSH", "-ssh -1"),
 	SSH2 ("SSH2", "-ssh -2"),
+	SSH ("SSH", "-ssh -1"),
 	TELNET ("Telnet", "-telnet"),
 	RLOGIN ("Rlogin", "-rlogin"),
 	RAW ("Raw", "-raw"),

@@ -1,6 +1,7 @@
 package Control;
 
 import Model.ConfigSession;
+import Model.ConfigSessionTypeEnum;
 import Model.ConstantValue;
 import Model.Program;
 import Model.Protocol;
@@ -60,51 +61,36 @@ public class InvokeProgram extends Thread {
 	 * @return 
 	 */
 	private static String setPuttyParameters(ConfigSession session){
+		String args = "";
+		
 		String host = session.getHost();
 		String port = session.getPort();
 		String user = session.getUser();
 		String password = session.getPassword();
 		String file = session.getKey();
-		String protocol = session.getProtocol().getParameter();
+		String protocol = session.getProtocol() ==null? "-ssh -2" : session.getProtocol().getParameter();
 		String puttySession = session.getSession();
-		String args = "";
+		
 
-		if (!puttySession.isEmpty()){
+		if (session.getConfigSessionType() == ConfigSessionTypeEnum.PURE_PUTTY_SESSION){
 			// Putty session must the very first parameter to work well.
 			args = " -load \"" + puttySession + "\"";
+			if(!user.isEmpty()) args += String.format(" -l \"%s\"", user);
+			if(!password.isEmpty()) args += String.format(" -pw \"%s\"", password);
+			if(!port.isEmpty()) args += String.format(" -P %s ", port);
+		}else{
+			args = String.format(" %s %s -l %s " , protocol, host, user);
+			
+			if (!password.isEmpty()){args += String.format(" -pw \"%s\"", password);}
+			//private key
+			if (!file.isEmpty())String.format(" -i \"%s\"", file);
+			if(!port.isEmpty()) args += String.format(" -P %s ", port);
+			
 		}
 
-		args += " " + protocol;
+		
 
-		if (user.isEmpty()){
-			hostinfo = host;
-		} else {
-			hostinfo = user + "@" + host;
-		}
-
-		args += " " + hostinfo;
-
-		if (!password.isEmpty()){
-			// Note: password must be enclosed in double quotes to allow spaces.
-			args += " -pw \"" + password + "\"";
-		}
-
-		if (!file.isEmpty()){
-			args += " -i " + file;
-		}
-
-		if (!port.isEmpty() && !protocol.equals(Protocol.SERIAL.getParameter())){
-			args += " -P " + port;
-		} else {
-			args += " " + port; // For serial connections.
-		}
-
-		if (!hostinfo.isEmpty()){
-			args += " -loghost " + hostinfo;
-			// Serial connections doesn't allow name it.
-		}
-
-		// System.out.println("Putty parameters: " + args); //DEBUG
+		 System.out.println("Putty parameters: " + args); //DEBUG
 
 		return args;
 	}
@@ -115,6 +101,14 @@ public class InvokeProgram extends Thread {
 	 */
 	public void invokePutty(ConfigSession session){
 		// Mount command-line Putty parameters:
+		String tabDisplayName = "session";
+		if (session.getConfigSessionType() == ConfigSessionTypeEnum.PURE_PUTTY_SESSION){
+			tabDisplayName = session.getSession();
+		}else{
+			tabDisplayName = session.getHost();
+		}
+		
+		
 		String args = setPuttyParameters(session);
 
 		int hHeap = (int) OS.GetProcessHeap();
@@ -144,17 +138,12 @@ public class InvokeProgram extends Thread {
 			OS.HeapFree(hHeap, 0, lpParameters);
 
 		if (result == false){
-			MessageDialog.openInformation(MainFrame.shell, "OPEN PUTTY ERROR", "can not open session: " + hostinfo);
+			MessageDialog.openInformation(MainFrame.shell, "OPEN PUTTY ERROR", String.format("Failed cmd: %s %s",MainFrame.configuration.getPuttyExecutable(), args));
 			return;
 		}
 
-		// int waitingTime = Integer.parseInt(Configuration.getInstance().getWaitForInitTime());
-		int waitingTime = Integer.parseInt(MainFrame.configuration.getWaitForInitTime());
-		try {
-			Thread.sleep(waitingTime);
-		} catch (InterruptedException e){
-			e.printStackTrace();
-		}
+		
+		
 
 		int hwndalert = (int) OS.FindWindow(null, new TCHAR(0, "PuTTY Security Alert", true));
 
@@ -174,7 +163,20 @@ public class InvokeProgram extends Thread {
 			}
 		}
 
-		int hwnd = (int) OS.FindWindow(new TCHAR(0, "PuTTY", true), new TCHAR(0, hostinfo + " - PuTTY", true));
+		int count = 3;
+		int hwnd = 0;
+		while(count>0 &&(hwnd = (int) OS.FindWindow(new TCHAR(0, "PuTTY", true), null)) == 0){
+			int waitingTime = Integer.parseInt(MainFrame.configuration.getWaitForInitTime());
+			try {
+				Thread.sleep(waitingTime);
+			} catch (InterruptedException e){
+				e.printStackTrace();
+			}
+			count--;
+		}
+		if(count == 0){
+			MessageDialog.openError(MainFrame.shell, "OPEN PUTTY ERROR", String.format("Failed cmd: %s %s",MainFrame.configuration.getPuttyExecutable(), args));
+		}
 		int oldStyle = OS.GetWindowLong(hwnd, OS.GWL_STYLE);
 		OS.SetWindowLong(hwnd, OS.GWL_STYLE, oldStyle & ~OS.WS_BORDER);
 
@@ -183,7 +185,7 @@ public class InvokeProgram extends Thread {
 
 		if (hwnd != 0){
 			tabItem.setImage(MImage.getGreenImage());
-			tabItem.setText(hostinfo);
+			tabItem.setText(tabDisplayName);
 			tabItem.setData("hwnd", hwnd);
 			tabItem.setData("session", session);
 			//System.out.println("start process: "+hwnd);

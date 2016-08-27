@@ -73,6 +73,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
 	for (Protocol protocol : Protocol.values()){
 		comboProtocol.add(protocol.getName());
 	}
+	comboProtocol.select(0);
     comboProtocol.setBounds(x / 3, 2 * y / 6, 2 * x / 3, y / 6);
     comboProtocol.setText(ConstantValue.defaultProtocol);
     comboProtocol.addSelectionListener(this);
@@ -186,7 +187,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
       // String protocol = comboProtocol.getText();
 	  Protocol protocol = Protocol.values()[comboProtocol.getSelectionIndex()];
       String file = textkey.getText().trim();
-      ConfigSession session = new ConfigSession(host, "22", user, protocol,file, password, RegistryUtils.SMARTPUTTY_SESSION); //TODO: enable port
+      ConfigSession session = new ConfigSession(host, "22", user, protocol,file, password);
 
       if (!host.trim().equals("") && !user.trim().equals("") && !protocol.equals("")) {
         dialog.dispose();

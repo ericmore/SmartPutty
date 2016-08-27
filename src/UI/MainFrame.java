@@ -62,7 +62,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem, openPuttyItem,
 		configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem;
 	private Menu popupmenu;
-	private ToolItem itemNew, itemOpen, itemProxy, itemRemoteDesk, itemBSO,
+	private ToolItem itemNew, itemOpen, itemRemoteDesk,
 		itemCapture, itemCalculator, itemVNC, itemNotePad,itemKenGen, itemHelp;
 	private CTabFolder folder;
 	private CTabItem welcomeItem;
@@ -104,11 +104,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		shell.open();
 
 		// Show welcome tab:
-		if (configuration.getWelcomePageVisible()){
-			showWelcomeTab();
-			// Show popup about if "Welcome Page" must be showed on program start:
-			showStartPopup();
-		}
+//		if (configuration.getWelcomePageVisible()){
+//			showWelcomeTab();
+//			// Show popup about if "Welcome Page" must be showed on program start:
+//			showStartPopup();
+//		}
 
 		while (!shell.isDisposed()){
 			if (!display.readAndDispatch())
@@ -238,26 +238,22 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		connectGroup.setText("Quick Connect");
 
 		// Protocol:
-		new Label(connectGroup, SWT.RIGHT).setText("Protocol");
-		final Combo protocolCombo = new Combo(connectGroup, SWT.LEFT | SWT.READ_ONLY);
-		// Get all protocols and add:
-		for (Protocol protocol : Protocol.values()){
-			protocolCombo.add(protocol.getName());
-		}
-		protocolCombo.select(0); // Set default value.
-		protocolCombo.setToolTipText("Protocol to use");
-		protocolCombo.setLayoutData(new RowData(30, 14));
+//		new Label(connectGroup, SWT.RIGHT).setText("Protocol");
+//		final Combo protocolCombo = new Combo(connectGroup, SWT.LEFT | SWT.READ_ONLY);
+//		// Get all protocols and add:
+//		for (Protocol protocol : Protocol.values()){
+//			protocolCombo.add(protocol.getName());
+//		}
+//		protocolCombo.select(0); // Set default value.
+//		protocolCombo.setToolTipText("Protocol to use");
+//		protocolCombo.setLayoutData(new RowData(30, 14));
 
 		// Hostname:
-		new Label(connectGroup, SWT.RIGHT).setText("Hostname");
-		final Text hostnameItem = new Text(connectGroup, SWT.BORDER);
-		hostnameItem.setLayoutData(new RowData(80, 14));
+//		new Label(connectGroup, SWT.RIGHT).setText("Hostname");
+//		final Text hostnameItem = new Text(connectGroup, SWT.BORDER);
+//		hostnameItem.setLayoutData(new RowData(80, 14));
 
-		// Port:
-		new Label(connectGroup, SWT.RIGHT).setText("Port");
-		final Text portItem = new Text(connectGroup, SWT.BORDER);
-		portItem.setText("22");
-		portItem.setLayoutData(new RowData(30, 14));
+		
 
 		// Username:
 		new Label(connectGroup, SWT.RIGHT).setText("Username");
@@ -268,6 +264,13 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		new Label(connectGroup, SWT.RIGHT).setText("Password");
 		final Text passwordItem = new Text(connectGroup, SWT.PASSWORD | SWT.BORDER);
 		passwordItem.setLayoutData(new RowData(60, 14));
+		
+		
+		// Port:
+		new Label(connectGroup, SWT.RIGHT).setText("Port");
+		final Text portItem = new Text(connectGroup, SWT.BORDER);
+		portItem.setText("22");
+		portItem.setLayoutData(new RowData(30, 14));
 
 		// Session:
 		new Label(connectGroup, SWT.RIGHT).setText("Session");
@@ -291,14 +294,15 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			@Override
 			public void widgetSelected(SelectionEvent se){
 				// String protocol = protocolCombo.getText().toLowerCase(); // Putty wants lower case!
-				Protocol protocol = Protocol.values()[protocolCombo.getSelectionIndex()];
-				String host = hostnameItem.getText();
 				String port = portItem.getText();
 				String user = usernameItem.getText();
 				String password = passwordItem.getText();
 				String session = sessionCombo.getText();
-				// System.out.println("protocol: " + protocol + ", host: " + host + ", port: " + port + ", user: " + user + ", password: " + password + ", session: " + session); //DEBUG
-				ConfigSession configSession = new ConfigSession(host, port, user, protocol, "", password, session);
+				if(session.trim().isEmpty()){
+					MessageDialog.openInformation(MainFrame.shell, "Infomation", "please select a putty sesion first!");
+					return;
+				}
+				ConfigSession configSession = new ConfigSession(user, password,port, session);
 				addSession(null, configSession);
 			}
 			@Override
@@ -306,54 +310,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 		});
 
-		// Clear all fields button (aka, set default values):
-		Button clearButton = new Button(connectGroup, SWT.PUSH);
-		clearButton.setText("Clear");
-		clearButton.setLayoutData(new RowData());
-		clearButton.setToolTipText("Clear all fields");
-		clearButton.addSelectionListener(new SelectionListener(){
-			@Override
-			public void widgetSelected(SelectionEvent se){
-				protocolCombo.select(0);
-				hostnameItem.setText("");
-				portItem.setText("22");
-				usernameItem.setText("");
-				passwordItem.setText("");
-				passwordItem.setEnabled(true);
-				sessionCombo.select(0);
-			}
-			@Override
-			public void widgetDefaultSelected(SelectionEvent se){
-			}
-		});
 
-		protocolCombo.addSelectionListener(new SelectionListener(){
-			/**
-			 * To setup other fields upon "Protocol" change.
-			 * @param se 
-			 */
-			@Override
-			public void widgetSelected(SelectionEvent se){
-				if (protocolCombo.getText().equals(Protocol.SSH.getName()) || protocolCombo.getText().equals(Protocol.SSH2.getName())){ // SSH1 or SSH2
-					passwordItem.setEnabled(true); // Automatic password can be used.
-					portItem.setText("22"); // Default port.
-				} else if (protocolCombo.getText().equals(Protocol.TELNET.getName())){ // Telnet
-					passwordItem.setEnabled(false); // Automatic password can not be used.
-					portItem.setText("23"); // Default port.
-				} else if (protocolCombo.getText().equals(Protocol.RLOGIN.getName())){ // Rlogin
-					portItem.setText("513"); // Default port.
-				} else if (protocolCombo.getText().equals(Protocol.SERIAL.getName())){ // Serial
-					portItem.setText("COM1"); // A port.
-				} else {
-					passwordItem.setEnabled(false); // Automatic password can not be used.
-					portItem.setText(""); // Empty non-default port.
-				}
-			}
-	
-			@Override
-			public void widgetDefaultSelected(SelectionEvent se){
-			}
-		});
 
 		connectGroup.pack();
 	}
@@ -366,22 +323,17 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		utilitiesToolbar.setLayoutData(new BorderData(SWT.LEFT));
 
 		itemNew = new ToolItem(utilitiesToolbar, SWT.PUSH);
-		itemNew.setText("New");
+		itemNew.setText("New  ");
 		itemNew.setToolTipText("create a new session");
 		itemNew.setImage(MImage.newImage);
 		itemNew.addSelectionListener(this);
 
 		itemOpen = new ToolItem(utilitiesToolbar, SWT.PUSH);
-		itemOpen.setText("Open");
+		itemOpen.setText("Open  ");
 		itemOpen.setToolTipText("open existing sessions");
 		itemOpen.setImage(MImage.openImage);
 		itemOpen.addSelectionListener(this);
 
-//		itemProxy = new ToolItem(bar, SWT.PUSH);
-//		itemProxy.setText("Enable Proxy");
-//		itemProxy.setToolTipText("open tunnel and enable system proxy for browser");
-//		itemProxy.setImage(MImage.enableProxyImage);
-//		itemProxy.addSelectionListener(this);
 
 		itemRemoteDesk = new ToolItem(utilitiesToolbar, SWT.PUSH);
 		itemRemoteDesk.setText("RemoteDesk");
@@ -389,11 +341,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		itemRemoteDesk.setImage(MImage.RemoteDeskImage);
 		itemRemoteDesk.addSelectionListener(this);
 
-//		itemBSO = new ToolItem(bar, SWT.PUSH);
-//		itemBSO.setText("IBM BSO");
-//		itemBSO.setToolTipText("Pass IBM BSO");
-//		itemBSO.setImage(MImage.bsoImage);
-//		itemBSO.addSelectionListener(this);
 
 		itemCapture = new ToolItem(utilitiesToolbar, SWT.PUSH);
 		itemCapture.setText("Capture");
@@ -546,7 +493,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	}
 
 	private void reloadSession(){
+		
 		CTabItem tabItem = folder.getSelection();
+		if(tabItem.getData("hwnd") == null) return;
 		int hwnd = Integer.parseInt(String.valueOf(tabItem.getData("hwnd")));
 		InvokeProgram.killProcess(hwnd);
 		addSession(tabItem, (ConfigSession) tabItem.getData("session"));
@@ -554,11 +503,13 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 	private void cloneSession(){
 		CTabItem tabItem = folder.getSelection();
+		if(tabItem.getData("session") == null) return;
 		ConfigSession session = (ConfigSession) tabItem.getData("session");
 		addSession(null, session);
 	}
 
 	private void openWinscp(String protocol){
+		if(folder.getSelection().getData("session") == null) return;
 		ConfigSession session = (ConfigSession) folder.getSelection().getData("session");
 		String arg = protocol + "://" + session.getUser() + ":" + session.getPassword() + "@" + session.getHost() + ":" + session.getPort();
 		InvokeProgram.invokeProgram(Program.APP_WINSCP, arg);
@@ -566,12 +517,14 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	
 	private void OpenPutty(){
 		CTabItem tabItem = folder.getSelection();
+		if(tabItem.getData("session") == null) return;
 		ConfigSession session = (ConfigSession) tabItem.getData("session");
 		InvokeProgram.invokeSinglePutty(session);
 	}
 
 	private void openVNCSession(){
 		CTabItem item = folder.getSelection();
+		if(item.getData("session") == null) return;
 		ConfigSession session = (ConfigSession) item.getData("session");
 		if (session != null){
 			String host = session.getHost();
@@ -636,15 +589,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// TODO Auto-generated method stub
 		if (e.getSource() == newItem || e.getSource() == itemNew){
 			new NewSessionDialog(this, null, "add");
-		} else if (e.getSource() == itemBSO || e.getSource() == bsoItem){
-			new BSODialog(shell);
 		} else if (e.getSource() == itemOpen || e.getSource() == openItem){
 			new OpenSessionDialog(this, shell);
-		} else if (e.getSource() == itemProxy || e.getSource() == proxyItem){
-			InvokeProgram.invokeProxy(configuration.getProxyHost(),
-					configuration.getProxyUser(),
-					configuration.getProxyPassword(),
-					configuration.getProxyPort());
 		} else if (e.getSource() == itemRemoteDesk || e.getSource() == remoteDesktopItem){
 			InvokeProgram.invokeProgram(Program.APP_REMOTE_DESK, null);
 		} else if (e.getSource() == exitItem){
@@ -706,18 +652,21 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			e.doit = true;
 			shell.setFocus();
 		} else if (e.item == folder.getSelection()){
-			MessageBox messagebox = new MessageBox(shell, SWT.ICON_QUESTION | SWT.YES | SWT.NO);
-			messagebox.setText("Confirm Exit");
-			messagebox.setMessage("Are you sure to exit session: "
-					+ ((ConfigSession) e.item.getData("session")).getHost());
-			if (messagebox.open() == SWT.YES){
-				int hwnd = Integer.parseInt(String.valueOf(e.item.getData("hwnd")));
-				InvokeProgram.killProcess(hwnd);
+			if((ConfigSession) e.item.getData("session") != null){
+				MessageBox messagebox = new MessageBox(shell, SWT.ICON_QUESTION | SWT.YES | SWT.NO);
+				messagebox.setText("Confirm Exit");
+				messagebox.setMessage("Are you sure to exit session: "
+						+ ((ConfigSession) e.item.getData("session")).getHost());
+				if (messagebox.open() == SWT.YES){
+					int hwnd = Integer.parseInt(String.valueOf(e.item.getData("hwnd")));
+					InvokeProgram.killProcess(hwnd);
 
-				e.item.dispose();
-				e.doit = true;
-			} else
-				e.doit = false;
+					e.item.dispose();
+					e.doit = true;
+				} else
+					e.doit = false;
+			}
+			
 		}
 	}
 
@@ -725,45 +674,45 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	 * Shows a popup window on program start.
 	 * Usefull to hide definitively "Welcome Page" tab.
 	 */
-	private void showStartPopup(){
-		final Shell dialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
-
-		RowLayout rowLayout = new RowLayout(SWT.VERTICAL);
-		rowLayout.marginTop = 10;
-		rowLayout.marginBottom = 10;
-		rowLayout.marginLeft = 5;
-		rowLayout.marginRight = 5;
-		rowLayout.spacing = 20;
-		dialog.setLayout(rowLayout);
-
-		// dialog.setImage(MImage.newImage); // TODO: setup an image?
-		dialog.setSize(400, 160);
-		dialog.setText("Welcome tab");
-
-		final Button checkButton = new Button(dialog, SWT.CHECK | SWT.LEFT);
-		checkButton.setText("Do not show \"Welcome page\" next time");
-		checkButton.setLayoutData(new RowData(250, 20));
-
-		Button buttonClose = new Button(dialog, SWT.CENTER);
-		buttonClose.setText("Close");
-		buttonClose.setLayoutData(new RowData(50, 20));
-		buttonClose.addSelectionListener(new SelectionListener(){
-			@Override
-			public void widgetSelected(SelectionEvent se){
-				if (checkButton.getSelection()){
-					configuration.setWelcomePageVisible("false"); // "Welcome page" no to be shown any more.
-					configuration.saveConfiguration();
-				}
-				dialog.dispose();
-			}
-			@Override
-			public void widgetDefaultSelected(SelectionEvent se){
-			}
-		});
-
-        dialog.pack();
-        dialog.open();
-	}
+//	private void showStartPopup(){
+//		final Shell dialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+//
+//		RowLayout rowLayout = new RowLayout(SWT.VERTICAL);
+//		rowLayout.marginTop = 10;
+//		rowLayout.marginBottom = 10;
+//		rowLayout.marginLeft = 5;
+//		rowLayout.marginRight = 5;
+//		rowLayout.spacing = 20;
+//		dialog.setLayout(rowLayout);
+//
+//		// dialog.setImage(MImage.newImage); // TODO: setup an image?
+//		dialog.setSize(400, 160);
+//		dialog.setText("Welcome tab");
+//
+//		final Button checkButton = new Button(dialog, SWT.CHECK | SWT.LEFT);
+//		checkButton.setText("Do not show \"Welcome page\" next time");
+//		checkButton.setLayoutData(new RowData(250, 20));
+//
+//		Button buttonClose = new Button(dialog, SWT.CENTER);
+//		buttonClose.setText("Close");
+//		buttonClose.setLayoutData(new RowData(50, 20));
+//		buttonClose.addSelectionListener(new SelectionListener(){
+//			@Override
+//			public void widgetSelected(SelectionEvent se){
+//				if (checkButton.getSelection()){
+//					configuration.setWelcomePageVisible("false"); // "Welcome page" no to be shown any more.
+//					configuration.saveConfiguration();
+//				}
+//				dialog.dispose();
+//			}
+//			@Override
+//			public void widgetDefaultSelected(SelectionEvent se){
+//			}
+//		});
+//
+//        dialog.pack();
+//        dialog.open();
+//	}
 
 	@Override
 	public void maximize(CTabFolderEvent ctabfolderevent){

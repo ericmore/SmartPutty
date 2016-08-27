@@ -5,24 +5,48 @@ package Model;
  * @author SS
  */
 public class ConfigSession {
+	private ConfigSessionTypeEnum ConfigSessionType = ConfigSessionTypeEnum.SMART_PUTTY_SESSION;
+	
+
 	private String host = "";
 	private String port = ""; // Can be a number or a device name (COM1, COM2, ...).
 	private String user = "";
 	private Protocol protocol;
 	private String file = "";
 	private String password = "";
-	private String session = "";
+	private String puttySession = "";
+	
+	public ConfigSession(String user,String password, String port,String puttySession){
+		this.user = user;
+		this.password = password;
+		this.port = port;
+		this.puttySession = puttySession;
+		ConfigSessionType = ConfigSessionTypeEnum.PURE_PUTTY_SESSION;
+	}
 
-	public ConfigSession(String host, String port, String user, Protocol protocol, String file, String password, String session){
+	/**
+	 * SmartPutty Session constructor
+	 * @param host
+	 * @param port
+	 * @param user
+	 * @param protocol
+	 * @param file
+	 * @param password
+	 */
+	public ConfigSession(String host, String port, String user, Protocol protocol, String file, String password){
 		this.host = host;
 		this.port = port;
 		this.user = user;
 		this.protocol = protocol;
 		this.file = file;
 		this.password = password;
-		this.session = session;
-
+		ConfigSessionType = ConfigSessionTypeEnum.SMART_PUTTY_SESSION;
 		// System.out.println("host: " + host + ", port: " + port + ", user: " + user + ", protocol: " + protocol.name() + ", file: " + file + ", password: " + password + ", session: " + session); //DEBUG
+	}
+	
+	
+	public ConfigSessionTypeEnum getConfigSessionType() {
+		return ConfigSessionType;
 	}
 
 	public String getHost(){
@@ -74,10 +98,10 @@ public class ConfigSession {
 	}
 
 	public String getSession(){
-		return session;
+		return puttySession;
 	}
 
 	public void setSession(String session){
-		this.session = session;
+		this.puttySession = session;
 	}
 }

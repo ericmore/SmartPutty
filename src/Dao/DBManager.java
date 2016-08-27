@@ -152,8 +152,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")),
-					RegistryUtils.SMARTPUTTY_SESSION);
+					Base64Util.decodeBASE64(rs.getString("Password")));
 				result.add(confSession);
 			}
 
@@ -181,8 +180,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")),
-					RegistryUtils.SMARTPUTTY_SESSION);
+					Base64Util.decodeBASE64(rs.getString("Password")));
 				result.add(confSession);
 			}
 			rs.close();
@@ -209,8 +207,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")),
-					RegistryUtils.SMARTPUTTY_SESSION);
+					Base64Util.decodeBASE64(rs.getString("Password")));
 				result.add(confSession);
 			}
 			rs.close();
@@ -239,8 +236,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")),
-					RegistryUtils.SMARTPUTTY_SESSION);
+					Base64Util.decodeBASE64(rs.getString("Password")));
 				result = confSession;
 			}
 			rs.close();
@@ -257,10 +253,8 @@ public class DBManager {
 		String protocol = session.getProtocol().name();
 //		String password = Base64Util.encodeBASE64(session.getPassword());
 		ConfigSession result = null;
-		String sql = "SELECT *  FROM CSession WHERE host='"
-			+ host + "' AND user='"
-			+ user + "' AND protocol='"
-			+ protocol + "'";
+		String sql = String.format("SELECT * FROM CSession WHERE host='%s' AND user='%s' AND protocol='%s'", host, user, protocol);
+		
 		// System.out.println("queryCSessionBySession() " + sql); //DEBUG
 
 		try {
@@ -274,8 +268,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")),
-					RegistryUtils.SMARTPUTTY_SESSION);
+					Base64Util.decodeBASE64(rs.getString("Password")));
 				result = confSession;
 			}
 			rs.close();
