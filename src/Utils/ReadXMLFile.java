@@ -25,9 +25,9 @@ public class ReadXMLFile {
 			Document doc = dBuilder.parse(file);
 
 			doc.getDocumentElement().normalize();
-//
-//			 System.out.println("Root element :" +
-//			 doc.getDocumentElement().getNodeName());
+			//
+			// System.out.println("Root element :" +
+			// doc.getDocumentElement().getNodeName());
 
 			NodeList nList = doc.getElementsByTagName("batch");
 
@@ -41,9 +41,13 @@ public class ReadXMLFile {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
 					HashMap<String, String> hm = new HashMap<String, String>();
-					hm.put("path", eElement.getElementsByTagName("path").item(0).getTextContent());
-					hm.put("argument", eElement.getElementsByTagName("argument").item(0).getTextContent());
-					hm.put("description", eElement.getElementsByTagName("desciption").item(0).getTextContent());
+					hm.put("type", eElement.getAttribute("type"));
+					try {
+						hm.put("path", eElement.getElementsByTagName("path").item(0).getTextContent());
+						hm.put("argument", eElement.getElementsByTagName("argument").item(0).getTextContent());
+						hm.put("description", eElement.getElementsByTagName("desciption").item(0).getTextContent());
+					} catch (Exception e) {
+					}
 					ret.add(hm);
 				}
 			}
