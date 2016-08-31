@@ -141,18 +141,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		openItem.setAccelerator(SWT.CTRL + 'O');
 		openItem.addSelectionListener(this);
 
-		bsoItem = new MenuItem(filemenu, SWT.PUSH);
-		bsoItem.setText("BSO\tCtrl+B");
-		bsoItem.setImage(MImage.bsoImage);
-		bsoItem.setAccelerator(SWT.CTRL + 'B');
-		bsoItem.addSelectionListener(this);
-
-		proxyItem = new MenuItem(filemenu, SWT.PUSH);
-		proxyItem.setText("Proxy\tCtrl+P");
-		proxyItem.setImage(MImage.enableProxyImage);
-		proxyItem.setAccelerator(SWT.CTRL + 'P');
-		proxyItem.addSelectionListener(this);
-
 		captureItem = new MenuItem(filemenu, SWT.PUSH);
 		captureItem.setText("Capture\tCtrl+C");
 		captureItem.setImage(MImage.captureImage);
@@ -210,6 +198,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		application.setMenu(applicationMenu);
 		List<HashMap<String, String>> listMenuItems = configuration.getBatchConfig();
 		for (HashMap<String, String> menuHashMap : listMenuItems) {
+			String type = menuHashMap.get("type");
+			if (type == null || type.equals("seperator")) {
+				new MenuItem(applicationMenu, SWT.SEPARATOR);
+				continue;
+			}
 			String path = menuHashMap.get("path") == null ? "N/A" : menuHashMap.get("path");
 			String argument = menuHashMap.get("argument") == null ? "N/A" : menuHashMap.get("argument");
 			String description = menuHashMap.get("description") == null ? "N/A" : menuHashMap.get("description");
@@ -219,7 +212,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			menuItem.setData("path", path);
 			menuItem.setData("argument", argument);
 			menuItem.setData("description", description);
-			menuItem.setData("type","dynamicApplication");
+			menuItem.setData("type", "dynamicApplication");
 			menuItem.addSelectionListener(this);
 		}
 
@@ -664,9 +657,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 				int hwnd = (Integer) folder.getSelection().getData("hwnd");
 				InvokeProgram.setWindowFocus(hwnd);
 			}
-		} else if (((MenuItem)e.getSource()).getData("type").equals("dynamicApplication")){
-			String path = ((MenuItem)e.getSource()).getData("path" ).toString();
-			String argument = ((MenuItem)e.getSource()).getData("argument").toString();
+		} else if (((MenuItem) e.getSource()).getData("type").equals("dynamicApplication")) {
+			String path = ((MenuItem) e.getSource()).getData("path").toString();
+			String argument = ((MenuItem) e.getSource()).getData("argument").toString();
 			InvokeProgram.runCMD(path, argument);
 		}
 	}
