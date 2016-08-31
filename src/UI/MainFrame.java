@@ -1,6 +1,10 @@
 package UI;
 
 import java.io.PrintStream;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 
@@ -525,6 +529,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		ConfigSession session = (ConfigSession) folder.getSelection().getData("session");
 		String arg = protocol + "://" + session.getUser() + ":" + session.getPassword() + "@" + session.getHost() + ":"
 				+ session.getPort();
+
 		InvokeProgram.runProgram(Program.APP_WINSCP, arg);
 	}
 

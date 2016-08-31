@@ -2,9 +2,9 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>SmartPutty configuration file</comment>
-<entry key="WindowPositionSize">49,132,1280,720</entry>
+<entry key="WindowPositionSize">526,214,1280,720</entry>
 <entry key="ViewUtilitiesBar">true</entry>
-<entry key="PuttyExecutable">app\putty\putty.exe</entry>
+<entry key="PuttyExecutable">app\putty\putty.cmd</entry>
 <entry key="WaitForInitTime">500</entry>
 <entry key="PlinkExecutable">app\putty\plink.exe</entry>
 <entry key="ViewConnectionBar">true</entry>

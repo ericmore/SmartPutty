@@ -5,11 +5,11 @@ package Model;
  * Some of them can replaceable by another (Putty/KiTTY, Plink/Klink,...), but another not.
  */
 public enum Program {
-	DEFAULT_APP_PUTTY("app\\putty\\putty.exe"),
+	DEFAULT_APP_PUTTY("app\\putty\\putty.cmd"),
 	DEFAULT_APP_PLINK("app\\putty\\plink.exe"),
 	DEFAULT_APP_KEYGEN("app\\putty\\puttygen.exe"),
-	APP_WINSCP ("app\\winscp\\winscp.exe "),
-	APP_VNC ("app\\vnc\\vnc.exe "),
+	APP_WINSCP ("app\\winscp\\winscp.exe"),
+	APP_VNC ("app\\vnc\\vnc.exe"),
 	APP_NOTEPAD ("notepad.exe"),
 	APP_CAPTURE ("snippingtool.exe"),
 	APP_CALCULATOR ("calc.exe"),
