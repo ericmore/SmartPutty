@@ -326,6 +326,49 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 		});
 
+		// Path:
+		new Label(connectGroup, SWT.RIGHT).setText("Path");
+		final Text pathItem = new Text(connectGroup, SWT.BORDER);
+		pathItem.setText("");
+		pathItem.setLayoutData(new RowData(180, 14));
+
+		Button win2UnixButton = new Button(connectGroup, SWT.PUSH);
+		win2UnixButton.setText("->Linux");
+		win2UnixButton.setLayoutData(new RowData());
+		win2UnixButton.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(SelectionEvent se) {
+				String path = pathItem.getText().trim();
+				path = path.replaceAll("\\+", "/");
+				pathItem.setText(path);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+		Button unix2WinButton = new Button(connectGroup, SWT.PUSH);
+		unix2WinButton.setText("->Windows");
+		unix2WinButton.setLayoutData(new RowData());
+		unix2WinButton.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(SelectionEvent se) {
+				String path = pathItem.getText().trim();
+				path = "\\" + path.replaceAll("/+", "\\");
+				pathItem.setText(path);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+
 		connectGroup.pack();
 	}
 
