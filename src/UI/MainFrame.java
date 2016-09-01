@@ -339,8 +339,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			@Override
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
-				path = path.replace("\\\\", "/");
-				path = path.replace("\\\\\\\\", "/");
+				
+				path = path.replace("\\\\", "\\");
+				path = path.replace("\\", "/");
 				pathItem.setText(path);
 			}
 
