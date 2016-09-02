@@ -19,6 +19,9 @@ public class MImage {
 	public final static Image calculator = new Image(MainFrame.display, "icon\\calculator.png");
 	public final static Image notepad = new Image(MainFrame.display, "icon\\notepad.png");
 	public final static Image key = new Image(MainFrame.display, "icon\\key.png");
+	public final static Image windows = new Image(MainFrame.display, "icon\\windows.png");
+	public final static Image linux = new Image(MainFrame.display, "icon\\linux.png");
+	public final static Image folder = new Image(MainFrame.display, "icon\\folder.png");
 	
 	public final static Image cloneImage = new Image(MainFrame.display, "icon\\clone.png");
 	public final static Image transferImage = new Image(MainFrame.display, "icon\\transfer.png");

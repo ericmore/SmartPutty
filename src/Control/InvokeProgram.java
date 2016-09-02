@@ -1,5 +1,7 @@
 package Control;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -270,6 +272,24 @@ public class InvokeProgram extends Thread {
 		try {
 			Runtime.getRuntime().exec(cmd);
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * open path in windows explorer
+	 * @param path
+	 */
+	public static void openFolder(String path) {
+		Desktop desktop = Desktop.getDesktop();
+		File dirToOpen = null;
+		try {
+			dirToOpen = new File(path);
+			desktop.open(dirToOpen);
+		} catch (IllegalArgumentException iae) {
+			System.out.println("File Not Found");
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
