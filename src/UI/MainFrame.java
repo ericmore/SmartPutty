@@ -148,7 +148,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		captureItem = new MenuItem(filemenu, SWT.PUSH);
 		captureItem.setText("Capture\tCtrl+C");
 		captureItem.setImage(MImage.captureImage);
-		captureItem.setAccelerator(SWT.CTRL + 'C');
 		captureItem.addSelectionListener(this);
 
 		remoteDesktopItem = new MenuItem(filemenu, SWT.PUSH);
