@@ -106,12 +106,12 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		deleteButton.setToolTipText("Delete selected connection/s");
 		deleteButton.addSelectionListener(this);
 		
-		puttyWindow = new Button(dialog, SWT.LEFT);
-		puttyWindow.setBounds(X_POS, 103, 80, 27);
-		puttyWindow.setText("Putty");
-		puttyWindow.setImage(MImage.puttyImage);
-		puttyWindow.setToolTipText("Open selected connection in a single window");
-		puttyWindow.addSelectionListener(this);
+//		puttyWindow = new Button(dialog, SWT.LEFT);
+//		puttyWindow.setBounds(X_POS, 103, 80, 27);
+//		puttyWindow.setText("Putty");
+//		puttyWindow.setImage(MImage.puttyImage);
+//		puttyWindow.setToolTipText("Open selected connection in a single window");
+//		puttyWindow.addSelectionListener(this);
 		
 		connectButton = new Button(dialog, SWT.NONE);
 		connectButton.setBounds(X_POS, 235, 80, 27);

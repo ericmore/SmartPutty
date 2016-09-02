@@ -281,18 +281,18 @@ public class InvokeProgram extends Thread {
 	 * open path in windows explorer
 	 * @param path
 	 */
-	public static void openFolder(String path) {
+	public static boolean openFolder(String path) {
 		Desktop desktop = Desktop.getDesktop();
 		File dirToOpen = null;
 		try {
 			dirToOpen = new File(path);
 			desktop.open(dirToOpen);
-		} catch (IllegalArgumentException iae) {
-			System.out.println("File Not Found");
-		} catch (IOException e) {
+		}  catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 
 	/**

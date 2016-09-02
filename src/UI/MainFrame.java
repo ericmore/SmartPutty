@@ -402,7 +402,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 					return;
 				}
 				path = "\\" + path.replace("/", "\\");
-				InvokeProgram.openFolder(path);
+				if(!InvokeProgram.openFolder(path)){
+					MessageDialog.openError(shell, "Error", "Path not exist!");
+				}
 			}
 
 			@Override
@@ -505,11 +507,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		reloadPopItem.setImage(MImage.reloadImage);
 		reloadPopItem.addSelectionListener(this);
 
-		openPuttyItem = new MenuItem(popupmenu, SWT.PUSH);
-		openPuttyItem.setText("open in putty");
-		openPuttyItem.setImage(MImage.puttyImage);
-		// openPuttyItem.setToolTipText("Opens connection on a single window");
-		openPuttyItem.addSelectionListener(this);
+//		openPuttyItem = new MenuItem(popupmenu, SWT.PUSH);
+//		openPuttyItem.setText("open in putty");
+//		openPuttyItem.setImage(MImage.puttyImage);
+//		// openPuttyItem.setToolTipText("Opens connection on a single window");
+//		openPuttyItem.addSelectionListener(this);
 
 		clonePopItem = new MenuItem(popupmenu, SWT.PUSH);
 		clonePopItem.setText("clone session");
