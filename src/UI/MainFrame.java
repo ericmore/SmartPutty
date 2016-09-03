@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -55,15 +56,16 @@ import Model.Program;
 import Utils.RegistryUtils;
 
 public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseListener, ShellListener {
+	final static Logger logger = Logger.getLogger(MainFrame.class);
 	public static Display display = null;
 	public static PrintStream out = System.out;
 	public static PrintStream err = System.err;
 	public static DBManager dbm;
 	public static Shell shell;
 	public static Configuration configuration;
-	private MenuItem openItem, newItem, bsoItem, proxyItem, captureItem, remoteDesktopItem, exitItem, updateItem,
-			webcomeMenuItem, reloadPopItem, clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem,
-			vncPopItem, openPuttyItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem;
+	private MenuItem openItem, newItem, captureItem, remoteDesktopItem, exitItem, updateItem, webcomeMenuItem,
+			reloadPopItem, clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem,
+			openPuttyItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem;
 	private Menu popupmenu;
 	private ToolItem itemNew, itemOpen, itemRemoteDesk, itemCapture, itemCalculator, itemVNC, itemNotePad, itemKenGen,
 			itemHelp;
@@ -342,7 +344,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			@Override
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
-				if(path.equals("")){
+				if (path.equals("")) {
 					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 					return;
 				}
@@ -367,11 +369,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			@Override
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
-				if(path.equals("")){
+				if (path.equals("")) {
 					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 					return;
 				}
-				if(path.isEmpty() || path.startsWith("\\\\")){
+				if (path.isEmpty() || path.startsWith("\\\\")) {
 					return;
 				}
 				path = "\\" + path.replace("/", "\\");
@@ -385,7 +387,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 
 		});
-		
+
 		Button openPathButton = new Button(connectGroup, SWT.PUSH);
 		openPathButton.setText("Open with explorer");
 		openPathButton.setImage(MImage.folder);
@@ -394,15 +396,15 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			@Override
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
-				if(path.equals("")){
+				if (path.equals("")) {
 					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 					return;
 				}
-				if(path.isEmpty() || path.startsWith("\\\\")){
+				if (path.isEmpty() || path.startsWith("\\\\")) {
 					return;
 				}
 				path = "\\" + path.replace("/", "\\");
-				if(!InvokeProgram.openFolder(path)){
+				if (!InvokeProgram.openFolder(path)) {
 					MessageDialog.openError(shell, "Error", "Path not exist!");
 				}
 			}
@@ -414,7 +416,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 
 		});
-		
 
 		connectGroup.pack();
 	}
@@ -507,11 +508,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		reloadPopItem.setImage(MImage.reloadImage);
 		reloadPopItem.addSelectionListener(this);
 
-//		openPuttyItem = new MenuItem(popupmenu, SWT.PUSH);
-//		openPuttyItem.setText("open in putty");
-//		openPuttyItem.setImage(MImage.puttyImage);
-//		// openPuttyItem.setToolTipText("Opens connection on a single window");
-//		openPuttyItem.addSelectionListener(this);
+		// openPuttyItem = new MenuItem(popupmenu, SWT.PUSH);
+		// openPuttyItem.setText("open in putty");
+		// openPuttyItem.setImage(MImage.puttyImage);
+		// // openPuttyItem.setToolTipText("Opens connection on a single
+		// window");
+		// openPuttyItem.addSelectionListener(this);
 
 		clonePopItem = new MenuItem(popupmenu, SWT.PUSH);
 		clonePopItem.setText("clone session");
