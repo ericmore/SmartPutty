@@ -105,16 +105,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Show/Hide toolbars based on configuration file values:
 		setVisibleComponents();
-
+		showWelcomeTab();
 		shell.open();
 
-		// Show welcome tab:
-		// if (configuration.getWelcomePageVisible()){
-		// showWelcomeTab();
-		// // Show popup about if "Welcome Page" must be showed on program
-		// start:
-		// showStartPopup();
-		// }
 
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch())
