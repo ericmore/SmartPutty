@@ -9,6 +9,8 @@ import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.swt.graphics.Rectangle;
 
 import Model.ConstantValue;
@@ -21,7 +23,7 @@ public class Configuration {
 	private final List<HashMap<String, String>> batchConfigListMap;
 
 	// Constructor:
-	public Configuration(){
+	public Configuration() {
 		this.prop = new Properties();
 		loadConfiguration();
 		this.batchConfigListMap = ReadXMLFile.parse(ConstantValue.CONFIG_BATCH_FILE);
@@ -30,7 +32,7 @@ public class Configuration {
 	/**
 	 * Save program configuration.
 	 */
-	public void saveConfiguration(){
+	public void saveConfiguration() {
 		try {
 			FileOutputStream fos = new FileOutputStream(ConstantValue.CONFIG_FILE);
 
@@ -42,17 +44,15 @@ public class Configuration {
 			prop.setProperty("PuttyExecutable", getPuttyExecutable());
 			prop.setProperty("PlinkExecutable", getPlinkExecutable());
 			prop.setProperty("KeyGeneratorExecutable", getKeyGeneratorExecutable());
-			// "Welcome Page" when program starts:
-			prop.setProperty("ShowWelcomePage", String.valueOf(getWelcomePageVisible()));
 			// Main windows position and size:
 			prop.setProperty("WindowPositionSize", getWindowPositionSizeString());
 
 			prop.storeToXML(fos, "SmartPutty configuration file");
 			fos.close();
-		} catch (FileNotFoundException e){
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e){
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -61,14 +61,14 @@ public class Configuration {
 	/**
 	 * Load program configuration.
 	 */
-	private void loadConfiguration(){
+	private void loadConfiguration() {
 		try {
 			FileInputStream fis = new FileInputStream(ConstantValue.CONFIG_FILE);
 			prop.loadFromXML(fis);
-		} catch (InvalidPropertiesFormatException e){
+		} catch (InvalidPropertiesFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e){
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -76,110 +76,77 @@ public class Configuration {
 		// prop.list(System.out); //DEBUG
 	}
 
-	// Get methods: 
-	public List<HashMap<String, String>> getBatchConfig(){
+	// Get methods:
+	public List<HashMap<String, String>> getBatchConfig() {
 		return this.batchConfigListMap;
 	}
 
-	public String getWaitForInitTime(){
+	public String getWaitForInitTime() {
 		return (String) prop.get("WaitForInitTime");
 	}
 
-
 	/**
 	 * Utilities bar must be visible?
-	 * @return 
+	 * 
+	 * @return
 	 */
-	public Boolean getUtilitiesBarVisible(){
+	public Boolean getUtilitiesBarVisible() {
 		String value = (String) prop.get("ViewUtilitiesBar");
-
-		if (value == null || value.isEmpty()){
-			value = "true";
-		}
-
-		return Boolean.valueOf(value);
+		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
 	}
 
 	/**
 	 * Connection bar must be visible?
-	 * @return 
+	 * 
+	 * @return
 	 */
-	public Boolean getConnectionBarVisible(){
+	public Boolean getConnectionBarVisible() {
 		String value = (String) prop.get("ViewConnectionBar");
-
-		if (value == null || value.isEmpty()){
-			value = "true";
-		}
-
-		return Boolean.valueOf(value);
+		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
 	}
 
 	/**
 	 * Get Putty/KiTTY executable path.
-	 * @return 
+	 * 
+	 * @return
 	 */
-	public String getPuttyExecutable(){
+	public String getPuttyExecutable() {
 		String value = (String) prop.get("PuttyExecutable");
-
-		if (value == null || value.isEmpty()){
-			value = Program.DEFAULT_APP_PUTTY.getPath();
-		}
-
-		return value;
+		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_PUTTY.getPath() : value;
 	}
 
 	/**
 	 * Get Plink/Klink executable path.
-	 * @return 
+	 * 
+	 * @return
 	 */
-	public String getPlinkExecutable(){
+	public String getPlinkExecutable() {
 		String value = (String) prop.get("PlinkExecutable");
-
-		if (value == null || value.isEmpty()){
-			value = Program.DEFAULT_APP_PLINK.getPath();
-		}
-
-		return value;
+		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_PLINK.getPath() : value;
 	}
 
 	/**
 	 * Get key generator executable path.
-	 * @return 
+	 * 
+	 * @return
 	 */
-	public String getKeyGeneratorExecutable(){
+	public String getKeyGeneratorExecutable() {
 		String value = (String) prop.get("KeyGeneratorExecutable");
-
-		if (value == null || value.isEmpty()){
-			value = Program.DEFAULT_APP_KEYGEN.getPath();
-		}
-
-		return value;
+		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_KEYGEN.getPath() : value;
 	}
 
-	/**
-	 * "Welcome Page" should must be visible on program startup?
-	 * @return 
-	 */
-	public Boolean getWelcomePageVisible(){
-		String value = (String) prop.get("ShowWelcomePage");
-
-		if (value == null || value.isEmpty()){
-			value = "true";
-		}
-
-		return Boolean.valueOf(value);
-	}
 
 	/**
 	 * Get main mindow position and size.
-	 * @return 
+	 * 
+	 * @return
 	 */
-	public Rectangle getWindowPositionSize(){
+	public Rectangle getWindowPositionSize() {
 		// Split comma-separated values by x, y, width, height:
-		String[] array = ((String)prop.get("WindowPositionSize")).split(",");
+		String[] array = ((String) prop.get("WindowPositionSize")).split(",");
 
 		// If there aren't enough pieces of information...
-		if (array.length < 4){
+		if (array.length < 4) {
 			array = new String[4];
 
 			// Set default safety values:
@@ -189,15 +156,16 @@ public class Configuration {
 			array[3] = String.valueOf(2 * ConstantValue.screenHeight / 3);
 		}
 
-		return new Rectangle(Integer.parseInt(array[0]), Integer.parseInt(array[1]), 
-			Integer.parseInt(array[2]), Integer.parseInt(array[3]));
+		return new Rectangle(Integer.parseInt(array[0]), Integer.parseInt(array[1]), Integer.parseInt(array[2]),
+				Integer.parseInt(array[3]));
 	}
 
 	/**
 	 * Get main mindow position and size in String format.
-	 * @return 
+	 * 
+	 * @return
 	 */
-	public String getWindowPositionSizeString(){
+	public String getWindowPositionSizeString() {
 		String x = String.valueOf(MainFrame.shell.getBounds().x);
 		String y = String.valueOf(MainFrame.shell.getBounds().y);
 		String width = String.valueOf(MainFrame.shell.getBounds().width);
@@ -206,65 +174,57 @@ public class Configuration {
 		return x + "," + y + "," + width + "," + height;
 	}
 
-
-	// Set methods: ////////////////////////////////////////////////////////
 	/**
-	 * Set utilities bar visible status. 
+	 * Set utilities bar visible status.
+	 * 
 	 * @param visible
 	 */
-	public void setUtilitiesBarVisible(String visible){
+	public void setUtilitiesBarVisible(String visible) {
 		prop.setProperty("ViewUtilitiesBar", visible);
 	}
 
 	/**
 	 * Set connection bar visible status.
+	 * 
 	 * @param visible
 	 */
-	public void setConnectionBarVisible(String visible){
+	public void setConnectionBarVisible(String visible) {
 		prop.setProperty("ViewConnectionBar", visible);
 	}
 
 	/**
 	 * Set Putty/KiTTY executable path.
-	 * @param path 
+	 * 
+	 * @param path
 	 */
-	public void setPuttyExecutable(String path){
+	public void setPuttyExecutable(String path) {
 		prop.setProperty("PuttyExecutable", path);
 	}
 
 	/**
 	 * Set Plink/Klink executable path.
-	 * @param path 
+	 * 
+	 * @param path
 	 */
-	public void setPlinkExecutable(String path){
+	public void setPlinkExecutable(String path) {
 		prop.setProperty("PlinkExecutable", path);
 	}
 
 	/**
 	 * Set key generator executable path.
-	 * @param path 
+	 * 
+	 * @param path
 	 */
-	public void setKeyGeneratorExecutable(String path){
+	public void setKeyGeneratorExecutable(String path) {
 		prop.setProperty("KeyGeneratorExecutable", path);
 	}
 
 	/**
 	 * Set if "Welcome Page" should must be visible on program startup.
-	 * @param visible 
+	 * 
+	 * @param visible
 	 */
-	public void setWelcomePageVisible(String visible){
+	public void setWelcomePageVisible(String visible) {
 		prop.setProperty("ShowWelcomePage", visible);
-	}
-
-	/**
-	 * Set main mindow position and size. 
-	 */
-	public void setWindowPositionSize(){
-		String x = String.valueOf(MainFrame.shell.getBounds().x);
-		String y = String.valueOf(MainFrame.shell.getBounds().y);
-		String width = String.valueOf(MainFrame.shell.getBounds().width);
-		String height = String.valueOf(MainFrame.shell.getBounds().height);
-
-		prop.setProperty("ShowWelcomePage", x + "," + y + "," + width + "," + height);
 	}
 }

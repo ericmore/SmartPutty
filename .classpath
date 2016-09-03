@@ -10,6 +10,7 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.equinox.common_3.6.100.v20120522-1841.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.ui.forms_3.5.200.v20120521-2329.jar"/>
 	<classpathentry kind="lib" path="lib/swt.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.jface_3.8.0.v20120521-2329.jar"/>
 	<classpathentry kind="lib" path="lib/commons-net-1.2.2.jar"/>
