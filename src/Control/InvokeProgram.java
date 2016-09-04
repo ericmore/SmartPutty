@@ -4,6 +4,8 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.internal.win32.OS;
@@ -18,6 +20,7 @@ import UI.MImage;
 import UI.MainFrame;
 
 public class InvokeProgram extends Thread {
+	final static Logger logger = Logger.getLogger(InvokeProgram.class);
 	private Composite composite = null;
 	private ConfigSession session = null;
 	private CTabItem tabItem = null;
@@ -289,7 +292,7 @@ public class InvokeProgram extends Thread {
 			desktop.open(dirToOpen);
 		}  catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(ExceptionUtils.getStackTrace(e));
 			return false;
 		}
 		return true;

@@ -1,13 +1,10 @@
 package UI;
 
-import java.io.PrintStream;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.LinkOption;
-import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -25,7 +22,6 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.events.ShellListener;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
@@ -58,8 +54,6 @@ import Utils.RegistryUtils;
 public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseListener, ShellListener {
 	final static Logger logger = Logger.getLogger(MainFrame.class);
 	public static Display display = null;
-	public static PrintStream out = System.out;
-	public static PrintStream err = System.err;
 	public static DBManager dbm;
 	public static Shell shell;
 	public static Configuration configuration;
@@ -107,7 +101,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		setVisibleComponents();
 		showWelcomeTab();
 		shell.open();
-
 
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch())
@@ -249,23 +242,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		connectGroup.setLayoutData(new BorderData(SWT.TOP));
 		connectGroup.setText("Quick Connect");
 
-		// Protocol:
-		// new Label(connectGroup, SWT.RIGHT).setText("Protocol");
-		// final Combo protocolCombo = new Combo(connectGroup, SWT.LEFT |
-		// SWT.READ_ONLY);
-		// // Get all protocols and add:
-		// for (Protocol protocol : Protocol.values()){
-		// protocolCombo.add(protocol.getName());
-		// }
-		// protocolCombo.select(0); // Set default value.
-		// protocolCombo.setToolTipText("Protocol to use");
-		// protocolCombo.setLayoutData(new RowData(30, 14));
-
-		// Hostname:
-		// new Label(connectGroup, SWT.RIGHT).setText("Hostname");
-		// final Text hostnameItem = new Text(connectGroup, SWT.BORDER);
-		// hostnameItem.setLayoutData(new RowData(80, 14));
-
 		// Username:
 		new Label(connectGroup, SWT.RIGHT).setText("Username");
 		final Text usernameItem = new Text(connectGroup, SWT.BORDER);
@@ -337,13 +313,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			@Override
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
-				if (path.equals("")) {
+				if (StringUtils.isBlank(path)) {
 					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 					return;
 				}
 				path = path.replace("\\\\", "\\");
-				path = path.replace("\\", "/");
-				pathItem.setText(path);
+				pathItem.setText(FilenameUtils.separatorsToUnix(path));
 			}
 
 			@Override
@@ -362,15 +337,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			@Override
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
-				if (path.equals("")) {
+				if (StringUtils.isBlank(path)) {
 					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 					return;
 				}
-				if (path.isEmpty() || path.startsWith("\\\\")) {
-					return;
-				}
-				path = "\\" + path.replace("/", "\\");
-				pathItem.setText(path);
+				path = StringUtils.stripStart(path, "\\/");
+				pathItem.setText("\\\\" + FilenameUtils.separatorsToWindows(path));
 			}
 
 			@Override
@@ -389,14 +361,13 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			@Override
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
-				if (path.equals("")) {
+				if (StringUtils.isBlank(path)) {
 					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 					return;
 				}
-				if (path.isEmpty() || path.startsWith("\\\\")) {
-					return;
-				}
-				path = "\\" + path.replace("/", "\\");
+				path = StringUtils.stripStart(path, "\\/");
+				path = "\\\\" + FilenameUtils.separatorsToWindows(path);
+				pathItem.setText(path);
 				if (!InvokeProgram.openFolder(path)) {
 					MessageDialog.openError(shell, "Error", "Path not exist!");
 				}

@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.MessageDialog;
 
 import Model.ConfigSession;
@@ -17,6 +19,7 @@ import Model.Protocol;
 import UI.MainFrame;
 
 public class DBManager {
+	private final static Logger logger = Logger.getLogger(DBManager.class);
 	private final static String DATABASE_PATH = "database\\sessiondb";
 	private static DBManager manager = null;
 	private Connection conn = null;
@@ -66,17 +69,11 @@ public class DBManager {
 			state.close();
 
 		} catch (Exception e){
-			e.printStackTrace();
+			logger.error(ExceptionUtils.getStackTrace(e));
+			System.exit(-1);
 		}
 	}
 
-	public void exportDB(){
-		// TODO
-	}
-
-	public void importDB(){
-		// TODO
-	}
 
 	public static DBManager getDBManagerInstance(){
 		if (manager == null){

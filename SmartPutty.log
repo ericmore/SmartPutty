@@ -1,1 +1,89 @@
 2016-09-03 19:55:47 DEBUG MainFrame:83 - +++++++++++debug-
+2016-09-04 14:52:25 ERROR DBManager:71 - [Ljava.lang.StackTraceElement;@3cb5cdba
+2016-09-04 14:52:39 ERROR DBManager:71 - [Ljava.lang.StackTraceElement;@3cb5cdba
+2016-09-04 14:54:29 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:87)
+	at UI.MainFrame.<init>(MainFrame.java:83)
+	at UI.MainFrame.main(MainFrame.java:678)
+
+2016-09-04 14:55:15 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:87)
+	at UI.MainFrame.<init>(MainFrame.java:83)
+	at UI.MainFrame.main(MainFrame.java:678)
+
+2016-09-04 14:55:22 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:87)
+	at UI.MainFrame.<init>(MainFrame.java:83)
+	at UI.MainFrame.main(MainFrame.java:678)
+
+2016-09-04 14:57:06 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:87)
+	at UI.MainFrame.<init>(MainFrame.java:83)
+	at UI.MainFrame.main(MainFrame.java:678)
+
+2016-09-04 14:58:28 ERROR DBManager:73 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:88)
+	at UI.MainFrame.<init>(MainFrame.java:83)
+	at UI.MainFrame.main(MainFrame.java:678)
+
+2016-09-04 15:01:07 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:81)
+	at UI.MainFrame.<init>(MainFrame.java:83)
+	at UI.MainFrame.main(MainFrame.java:675)
+
+2016-09-04 15:42:55 ERROR InvokeProgram:295 - java.lang.IllegalArgumentException: The file: \\fe doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:292)
+	at UI.MainFrame$4.widgetSelected(MainFrame.java:371)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.<init>(MainFrame.java:106)
+	at UI.MainFrame.main(MainFrame.java:655)
+

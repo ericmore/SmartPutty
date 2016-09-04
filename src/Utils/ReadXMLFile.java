@@ -13,8 +13,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import Model.ConstantValue;
-
 public class ReadXMLFile {
 
 	public static List<HashMap<String, String>> parse(File file) {
@@ -59,8 +57,8 @@ public class ReadXMLFile {
 		return ret;
 	}
 
-	public static void main(String argv[]) {
-		parse(ConstantValue.CONFIG_BATCH_FILE);
-	}
+//	public static void main(String argv[]) {
+//		parse(ConstantValue.CONFIG_BATCH_FILE);
+//	}
 
 }
