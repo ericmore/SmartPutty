@@ -87,3 +87,15 @@
 	at UI.MainFrame.<init>(MainFrame.java:106)
 	at UI.MainFrame.main(MainFrame.java:655)
 
+2016-09-04 15:45:48 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at UI.MainFrame.<init>(MainFrame.java:85)
+	at UI.MainFrame.main(MainFrame.java:655)
+

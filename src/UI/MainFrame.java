@@ -317,8 +317,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 					return;
 				}
-				path = path.replace("\\\\", "\\");
-				pathItem.setText(FilenameUtils.separatorsToUnix(path));
+				path = StringUtils.stripStart(path, "\\/");
+				pathItem.setText("/" + FilenameUtils.separatorsToUnix(path));
 			}
 
 			@Override
@@ -880,4 +880,5 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 	}
+	
 }
