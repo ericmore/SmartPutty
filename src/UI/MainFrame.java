@@ -569,6 +569,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			welcomeItem.setControl(browser);
 			folder.setSelection(welcomeItem);
 			welcomeItem.setText("Welcome Page");
+		}else{
+			folder.setSelection(welcomeItem);
 		}
 	}
 
