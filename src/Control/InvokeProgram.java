@@ -167,7 +167,7 @@ public class InvokeProgram extends Thread {
 			}
 		}
 
-		int count = 3;
+		int count = 15;
 		int hwnd = 0;
 		while (count > 0 && (hwnd = (int) OS.FindWindow(new TCHAR(0, "PuTTY", true), null)) == 0) {
 			int waitingTime = Integer.parseInt(MainFrame.configuration.getWaitForInitTime());
