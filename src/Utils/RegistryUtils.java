@@ -9,12 +9,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
+import UI.MainFrame;
+
 /**
  * Utilities to deal with Windows registry.
  * 
  * @author Carlos SS
  */
 public class RegistryUtils {
+	final static Logger logger = Logger.getLogger(RegistryUtils.class);
 	// Putty session to be used on SmartPutty:
 	public static String SMARTPUTTY_SESSION = "SmartPutty_Session";
 
@@ -46,12 +51,12 @@ public class RegistryUtils {
 	 */
 	public static void createPuttyKeys() {
 		try {
-			 initPuttyDefaultSettings();
-			 for(Map.Entry<String, Object> e : readPuttyDefaultSettings().entrySet()){
-				 System.out.println(e.getKey() + " : " + e.getValue());
-			 }
+			initPuttyDefaultSettings();
+			for (Map.Entry<String, Object> e : readPuttyDefaultSettings().entrySet()) {
+				logger.debug(e.getKey() + " : " + e.getValue());
+			}
 		} catch (Exception ex) {
-			System.err.println(ex.getMessage());
+			logger.error(ex.getMessage());
 		}
 	}
 
@@ -110,6 +115,7 @@ public class RegistryUtils {
 		Object obj = null;
 		try {
 			String cmd = String.format("reg query %s /v %s", location, key);
+			logger.debug(cmd);
 			Process process = Runtime.getRuntime().exec(cmd);
 			StreamReader reader = new StreamReader(process.getInputStream());
 			reader.start();
@@ -117,8 +123,6 @@ public class RegistryUtils {
 			reader.join();
 			String output = reader.getResult();
 			String[] parsed = output.trim().split("\\s+");
-
-			
 
 			if (parsed.length == 4) {
 				switch (parsed[2]) {
@@ -131,11 +135,11 @@ public class RegistryUtils {
 				}
 			} else if (parsed.length == 3) {
 				obj = "";
-			} else {
-				System.out.println("Error occur parsing registry: " + cmd);
-				System.out.println(Arrays.deepToString(parsed));
+			} 
+			else {
+				logger.debug("query result: " + Arrays.deepToString(parsed));
 			}
-			
+
 			return obj;
 		} catch (IOException e) {
 			e.printStackTrace();

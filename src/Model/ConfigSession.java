@@ -41,7 +41,6 @@ public class ConfigSession {
 		this.file = file;
 		this.password = password;
 		ConfigSessionType = ConfigSessionTypeEnum.SMART_PUTTY_SESSION;
-		// System.out.println("host: " + host + ", port: " + port + ", user: " + user + ", protocol: " + protocol.name() + ", file: " + file + ", password: " + password + ", session: " + session); //DEBUG
 	}
 	
 	

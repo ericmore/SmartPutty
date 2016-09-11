@@ -43,7 +43,6 @@ public class InvokeProgram extends Thread {
 	}
 
 	public static void setWindowFocus(int hwnd) {
-		// System.out.println("set window focus "+hwnd);
 		// OS.SendMessage(hwnd, OS.WM_SETFOCUS, 0, 0);
 		// OS.SetCapture(hwnd);
 		OS.SetForegroundWindow(hwnd);
@@ -97,8 +96,7 @@ public class InvokeProgram extends Thread {
 				args += String.format(" -P %s ", port);
 
 		}
-
-		System.out.println("Putty parameters: " + args); // DEBUG
+		logger.debug("Putty parameters: " + args);
 
 		return args;
 	}
@@ -194,7 +192,6 @@ public class InvokeProgram extends Thread {
 			tabItem.setText(tabDisplayName);
 			tabItem.setData("hwnd", hwnd);
 			tabItem.setData("session", session);
-			// System.out.println("start process: "+hwnd);
 			setWindowFocus(hwnd);
 		} else {
 			tabItem.dispose();
@@ -203,7 +200,6 @@ public class InvokeProgram extends Thread {
 
 	public static void killProcess(int hwnd) {
 		OS.SendMessage(hwnd, OS.WM_CLOSE, null, 0);
-		// System.out.println("kill process: "+hwnd);
 	}
 
 	public static void killPuttyWarningsAndErrs() {
@@ -235,12 +231,11 @@ public class InvokeProgram extends Thread {
 			} else {
 				cmd = program.getPath();
 			}
-
-			System.out.println("Command line: " + cmd); // DEBUG
+			logger.debug("Command line: " + cmd);
 
 			Runtime.getRuntime().exec(cmd);
 		} catch (IOException ex) {
-			System.err.println(ex.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(ex));
 		}
 	}
 
@@ -259,12 +254,11 @@ public class InvokeProgram extends Thread {
 			cmd = program;
 		}
 
-		// System.out.println("Command line: " + cmd); //DEBUG
 
 		try {
 			Runtime.getRuntime().exec(cmd);
 		} catch (IOException ex) {
-			System.err.println(ex.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(ex));
 		}
 	}
 
@@ -307,7 +301,6 @@ public class InvokeProgram extends Thread {
 		String args = setPuttyParameters(session);
 		String cmd = MainFrame.configuration.getPuttyExecutable() + args;
 
-		// System.out.println("Command line: " + cmd); //DEBUG
 
 		try {
 			Runtime.getRuntime().exec(cmd);

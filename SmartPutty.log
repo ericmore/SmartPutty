@@ -317,3 +317,261 @@
 	at UI.MainFrame.<init>(MainFrame.java:86)
 	at UI.MainFrame.main(MainFrame.java:716)
 
+2016-09-11 15:19:02 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at UI.MainFrame.<init>(MainFrame.java:89)
+	at UI.MainFrame.main(MainFrame.java:739)
+
+2016-09-11 15:19:05 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at UI.MainFrame.<init>(MainFrame.java:89)
+	at UI.MainFrame.main(MainFrame.java:739)
+
+2016-09-11 15:28:08 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-11 15:28:08 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-11 15:28:08 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-11 15:28:08 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-11 15:28:08 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-11 15:28:08 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-11 15:28:08 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:89)
+	at UI.MainFrame.main(MainFrame.java:739)
+
+2016-09-11 15:30:32 ERROR RegistryUtils:140 - Error occur parsing registry: reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-11 15:30:32 DEBUG RegistryUtils:141 - []
+2016-09-11 15:30:32 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-11 15:30:32 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-11 15:30:32 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-11 15:30:32 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-11 15:30:32 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-11 15:30:32 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-11 15:30:32 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:89)
+	at UI.MainFrame.main(MainFrame.java:739)
+
+2016-09-11 15:35:04 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-11 15:35:04 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-11 15:35:04 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-11 15:35:04 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-11 15:35:04 DEBUG RegistryUtils:140 - []
+2016-09-11 15:35:04 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-11 15:35:04 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-11 15:35:04 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-11 15:35:04 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-11 15:35:04 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-11 15:35:04 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-11 15:35:04 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-11 15:35:04 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-11 15:35:04 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:89)
+	at UI.MainFrame.main(MainFrame.java:739)
+
+2016-09-11 15:36:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-11 15:36:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-11 15:36:24 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-11 15:36:24 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-11 15:36:24 DEBUG RegistryUtils:140 - query result: []
+2016-09-11 15:36:24 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-11 15:36:24 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-11 15:36:24 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-11 15:36:24 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-11 15:36:24 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-11 15:36:24 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-11 15:36:24 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-11 15:36:24 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-11 15:36:24 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: 另一个程序已锁定文件的一部分，进程无法访问。 : D:\code\SmartPutty\database\sessiondb.lck
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:89)
+	at UI.MainFrame.main(MainFrame.java:739)
+
+2016-09-11 15:36:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-11 15:36:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-11 15:36:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-11 15:36:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-11 15:36:34 DEBUG RegistryUtils:140 - query result: []
+2016-09-11 15:36:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-11 15:36:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-11 15:36:34 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-11 15:36:34 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-11 15:36:34 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-11 15:36:34 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-11 15:36:34 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-11 15:36:34 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-11 15:36:36 ERROR InvokeProgram:261 - java.io.IOException: Cannot run program "app\putty\puttygen.exe": CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at java.lang.Runtime.exec(Runtime.java:450)
+	at java.lang.Runtime.exec(Runtime.java:347)
+	at Control.InvokeProgram.runCMD(InvokeProgram.java:259)
+	at UI.MainFrame.widgetSelected(MainFrame.java:769)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.<init>(MainFrame.java:111)
+	at UI.MainFrame.main(MainFrame.java:739)
+Caused by: java.io.IOException: CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 13 more
+
+2016-09-11 15:36:48 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-11 15:36:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-11 15:36:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-11 15:36:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-11 15:36:49 DEBUG RegistryUtils:140 - query result: []
+2016-09-11 15:36:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-11 15:36:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-11 15:36:49 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-11 15:36:49 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-11 15:36:49 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-11 15:36:49 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-11 15:36:49 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-11 15:36:49 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-11 15:36:49 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:89)
+	at UI.MainFrame.main(MainFrame.java:739)
+
+2016-09-11 15:36:52 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-11 15:36:52 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-11 15:36:52 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-11 15:36:52 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-11 15:36:52 DEBUG RegistryUtils:140 - query result: []
+2016-09-11 15:36:52 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-11 15:36:52 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-11 15:36:52 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-11 15:36:52 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-11 15:36:52 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-11 15:36:52 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-11 15:36:52 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-11 15:36:52 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-11 15:36:52 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:89)
+	at UI.MainFrame.main(MainFrame.java:739)
+
+2016-09-11 15:37:12 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-11 15:37:12 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-11 15:37:12 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-11 15:37:12 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-11 15:37:12 DEBUG RegistryUtils:140 - query result: []
+2016-09-11 15:37:12 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-11 15:37:12 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-11 15:37:12 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-11 15:37:12 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-11 15:37:12 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-11 15:37:12 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-11 15:37:12 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-11 15:37:12 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-11 15:37:18 DEBUG InvokeProgram:234 - Command line: app\vnc\vnc.exe
+2016-09-11 15:37:18 ERROR InvokeProgram:238 - java.io.IOException: Cannot run program "app\vnc\vnc.exe": CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at java.lang.Runtime.exec(Runtime.java:450)
+	at java.lang.Runtime.exec(Runtime.java:347)
+	at Control.InvokeProgram.runProgram(InvokeProgram.java:236)
+	at UI.MainFrame.widgetSelected(MainFrame.java:765)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.<init>(MainFrame.java:111)
+	at UI.MainFrame.main(MainFrame.java:739)
+Caused by: java.io.IOException: CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 13 more
+
+2016-09-11 15:37:19 DEBUG InvokeProgram:234 - Command line: app\vnc\vnc.exe
+2016-09-11 15:37:19 ERROR InvokeProgram:238 - java.io.IOException: Cannot run program "app\vnc\vnc.exe": CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at java.lang.Runtime.exec(Runtime.java:450)
+	at java.lang.Runtime.exec(Runtime.java:347)
+	at Control.InvokeProgram.runProgram(InvokeProgram.java:236)
+	at UI.MainFrame.widgetSelected(MainFrame.java:765)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.<init>(MainFrame.java:111)
+	at UI.MainFrame.main(MainFrame.java:739)
+Caused by: java.io.IOException: CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 13 more
+
+2016-09-11 15:37:21 DEBUG InvokeProgram:99 - Putty parameters:  -ssh -2 121.40.73.82 -l root  -pw "1234QWERasdfZXCV" -P 22 
+2016-09-11 15:37:26 DEBUG DBManager:396 - Committed transaction and closed connection

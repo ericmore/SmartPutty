@@ -57,11 +57,9 @@ public class DBManager {
 			if (!existCSessionTable){
 				String sql = "CREATE TABLE CSession(Host varchar(50), Port varchar(10), User varchar(50), Protocol varchar(10), Key varchar(100), Password varchar(50), PRIMARY KEY (Host,Port,User,Protocol))";
 				state.execute(sql);
-				// System.out.println(sql);
 			}
 			if (!existIntranetTable){
 				String sql = "CREATE TABLE Intranet(ID varchar(50),Password varchar(50), Desthost varchar(50), PRIMARY KEY (ID,Desthost))";
-				//System.out.println(sql);
 				state.execute(sql);
 
 			}
@@ -107,7 +105,6 @@ public class DBManager {
 
 		try {
 			Statement state = conn.createStatement();
-			System.out.println("insertCSession() " + sql); //DEBUG
 			state.execute(sql);
 			state.close();
 		} catch (SQLException e){
@@ -127,7 +124,6 @@ public class DBManager {
 				+ csession.getPort() + "' AND user='"
 				+ csession.getUser() + "' AND protocol='"
 				+ csession.getProtocol() + "'";
-			// System.out.println(sql); //DEBUG
 			state.execute(sql);
 			state.close();
 		} catch (SQLException e){
@@ -138,7 +134,6 @@ public class DBManager {
 	public ArrayList<ConfigSession> getAllCSessions(){
 		ArrayList<ConfigSession> result = new ArrayList<ConfigSession>();
 		String sql = "SELECT *  FROM CSession";
-		//	System.out.println(sql);
 
 		try {
 			Statement state = conn.createStatement();
@@ -166,7 +161,6 @@ public class DBManager {
 	public ArrayList<ConfigSession> queryCSessionByHost(String host){
 		ArrayList<ConfigSession> result = new ArrayList<ConfigSession>();
 		String sql = "SELECT *  FROM CSession WHERE host='" + host + "'";
-		// System.out.println(sql); //DEBUG
 
 		try {
 			Statement state = conn.createStatement();
@@ -193,7 +187,6 @@ public class DBManager {
 	public ArrayList<ConfigSession> queryCSessionByHostUser(String host, String user){
 		ArrayList<ConfigSession> result = new ArrayList<ConfigSession>();
 		String sql = "SELECT *  FROM CSession WHERE HOST='" + host + "' AND USER='" + user + "'";
-		// System.out.println(sql);
 
 		try {
 			Statement state = conn.createStatement();
@@ -222,7 +215,6 @@ public class DBManager {
 			+ host + "' AND user='"
 			+ user + "' AND protocol='"
 			+ protocol + "'";
-		// System.out.println(sql); //DEBUG
 
 		try {
 			Statement state = conn.createStatement();
@@ -253,13 +245,11 @@ public class DBManager {
 		ConfigSession result = null;
 		String sql = String.format("SELECT * FROM CSession WHERE host='%s' AND user='%s' AND protocol='%s'", host, user, protocol);
 		
-		// System.out.println("queryCSessionBySession() " + sql); //DEBUG
 
 		try {
 			Statement state = conn.createStatement();
 			ResultSet rs = state.executeQuery(sql);
 			while (rs.next()){
-				// System.out.println("queryCSessionBySession() " + rs.getString("Host")); //DEBUG
 				ConfigSession confSession = new ConfigSession(
 					rs.getString("Host"),
 					rs.getString("Port"),
@@ -285,7 +275,6 @@ public class DBManager {
 			+ csession.getPort() + "' AND user='"
 			+ csession.getUser() + "' AND protocol='"
 			+ csession.getProtocol() + "'";
-		// System.out.println(sql); //DEBUG
 
 		try {
 			Statement state = conn.createStatement();
@@ -305,7 +294,6 @@ public class DBManager {
 	public ArrayList<Intranet> getAllIntranets(){
 		ArrayList<Intranet> result = new ArrayList<Intranet>();
 		String sql = "SELECT *  FROM Intranet";
-		//	System.out.println(sql);
 
 		try {
 			Statement state = conn.createStatement();
@@ -327,7 +315,6 @@ public class DBManager {
 	public Intranet queryIntranet(Intranet intranet){
 		try {
 			String sql = "SELECT *  FROM Intranet WHERE ID='" + intranet.getIntranetID() + "' AND DestHost='" + intranet.getDesthost() + "'";
-			//	System.out.println(sql);
 			Statement state = conn.createStatement();
 			ResultSet rs = state.executeQuery(sql);
 			while (rs.next()){
@@ -359,7 +346,6 @@ public class DBManager {
 		String sql = "INSERT INTO Intranet VALUES('" + intranetID + "','"
 			+ intranetPassword + "','"
 			+ desthost + "')";
-		//	System.out.println(sql);
 
 		try {
 			Statement state = conn.createStatement();
@@ -379,7 +365,6 @@ public class DBManager {
 			String sql = "DELETE FROM Intranet WHERE ID='"
 				+ intranet.getIntranetID() + "' AND Desthost='"
 				+ intranet.getDesthost() + "'";
-			//System.out.println(sql);
 			state.execute(sql);
 			state.close();
 		} catch (SQLException e){
@@ -391,7 +376,6 @@ public class DBManager {
 		boolean ret = false;
 		try {
 			String sql = "SELECT *  FROM Intranet WHERE ID='" + intranet.getIntranetID() + "' AND Desthost='" + intranet.getDesthost() + "'";
-			//	System.out.println(sql);
 			Statement state = conn.createStatement();
 			ResultSet rs = state.executeQuery(sql);
 			while (rs.next()){
@@ -409,9 +393,9 @@ public class DBManager {
 	public void closeDB(){
 		try {
 			conn.close();
-			System.out.println("Committed transaction and closed connection");
+			logger.debug("Committed transaction and closed connection");
 		} catch (SQLException e){
-			e.printStackTrace();
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 
 	}

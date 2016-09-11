@@ -2,6 +2,7 @@ package UI;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -72,9 +73,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	public MainFrame() {
 		display = new Display();
 		shell = new Shell(display);
-
+		RegistryUtils.createPuttyKeys();
 		// Load configuration:
-		checkConf();
+		loadConfiguration();
+		
+		
 
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
@@ -101,6 +104,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// Show/Hide toolbars based on configuration file values:
 		setVisibleComponents();
 		showWelcomeTab(ConstantValue.HOME_URL);
+		applyFeatureToggle();
 		shell.open();
 
 		while (!shell.isDisposed()) {
@@ -556,7 +560,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		vncPopItem.addSelectionListener(this);
 	}
 
-	private void checkConf() {
+	private void loadConfiguration() {
 		InvokeProgram.killPuttyWarningsAndErrs();
 		configuration = new Configuration();
 	}
@@ -711,9 +715,26 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		composite.layout(true, true);
 		shell.layout(true, true);
 	}
+	
+	/**
+	 * check the feature toggle, dispose the features who equals to "false"
+	 */
+	private void applyFeatureToggle(){
+		Properties props = configuration.getFeatureToggleProps();
+		boolean bVnc = "true".equalsIgnoreCase(props.getProperty("vnc", "true"));
+		if(!bVnc){
+			this.vncPopItem.dispose();
+			this.itemVNC.dispose();
+		}
+		
+		boolean bTransfer = "true".equalsIgnoreCase(props.getProperty("transfer", "true"));
+		if(!bTransfer){
+			this.transferPopItem.dispose();
+		}
+	}
 
 	public static void main(String[] args) {
-		RegistryUtils.createPuttyKeys();
+		
 
 		new MainFrame();
 	}
@@ -813,51 +834,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		}
 	}
 
-	/**
-	 * Shows a popup window on program start. Usefull to hide definitively
-	 * "Welcome Page" tab.
-	 */
-	// private void showStartPopup(){
-	// final Shell dialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM |
-	// SWT.APPLICATION_MODAL);
-	//
-	// RowLayout rowLayout = new RowLayout(SWT.VERTICAL);
-	// rowLayout.marginTop = 10;
-	// rowLayout.marginBottom = 10;
-	// rowLayout.marginLeft = 5;
-	// rowLayout.marginRight = 5;
-	// rowLayout.spacing = 20;
-	// dialog.setLayout(rowLayout);
-	//
-	// // dialog.setImage(MImage.newImage); // TODO: setup an image?
-	// dialog.setSize(400, 160);
-	// dialog.setText("Welcome tab");
-	//
-	// final Button checkButton = new Button(dialog, SWT.CHECK | SWT.LEFT);
-	// checkButton.setText("Do not show \"Welcome page\" next time");
-	// checkButton.setLayoutData(new RowData(250, 20));
-	//
-	// Button buttonClose = new Button(dialog, SWT.CENTER);
-	// buttonClose.setText("Close");
-	// buttonClose.setLayoutData(new RowData(50, 20));
-	// buttonClose.addSelectionListener(new SelectionListener(){
-	// @Override
-	// public void widgetSelected(SelectionEvent se){
-	// if (checkButton.getSelection()){
-	// configuration.setWelcomePageVisible("false"); // "Welcome page" no to be
-	// shown any more.
-	// configuration.saveConfiguration();
-	// }
-	// dialog.dispose();
-	// }
-	// @Override
-	// public void widgetDefaultSelected(SelectionEvent se){
-	// }
-	// });
-	//
-	// dialog.pack();
-	// dialog.open();
-	// }
+	
 
 	@Override
 	public void maximize(CTabFolderEvent ctabfolderevent) {

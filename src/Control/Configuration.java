@@ -1,5 +1,6 @@
 package Control;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -20,13 +21,29 @@ import Utils.ReadXMLFile;
 
 public class Configuration {
 	private final Properties prop;
+	private final Properties featureToggleProps;
+	
+
 	private final List<HashMap<String, String>> batchConfigListMap;
 
 	// Constructor:
 	public Configuration() {
+
 		this.prop = new Properties();
+		this.featureToggleProps = new Properties();
 		loadConfiguration();
-		this.batchConfigListMap = ReadXMLFile.parse(ConstantValue.CONFIG_BATCH_FILE);
+		loadFeatureToggle();
+		this.batchConfigListMap = ReadXMLFile.parse(new File(ConstantValue.CONFIG_BATCH_FILE));
+
+	}
+
+	public void loadFeatureToggle() {
+		try {
+			featureToggleProps.load(new FileInputStream(ConstantValue.CONFIG_FEATURE_TOGGLE_FILE));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -135,7 +152,6 @@ public class Configuration {
 		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_KEYGEN.getPath() : value;
 	}
 
-
 	/**
 	 * Get main mindow position and size.
 	 * 
@@ -226,5 +242,13 @@ public class Configuration {
 	 */
 	public void setWelcomePageVisible(String visible) {
 		prop.setProperty("ShowWelcomePage", visible);
+	}
+	
+	/**
+	 * get feature toggle config, we can config to enable/disable features by editing config/FeatureToggle.properties
+	 * @return
+	 */
+	public Properties getFeatureToggleProps() {
+		return featureToggleProps;
 	}
 }

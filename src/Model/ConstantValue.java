@@ -18,7 +18,8 @@ public class ConstantValue {
 	public final static int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
 	// XML configuration file to use:
 	public final static String CONFIG_FILE = Paths.get("config" ,"Configuration.xml").toString();
-	public final static File CONFIG_BATCH_FILE = Paths.get("config" ,"BatchConfig.xml").toFile();
+	public final static String CONFIG_BATCH_FILE = Paths.get("config" ,"BatchConfig.xml").toString();
+	public final static String CONFIG_FEATURE_TOGGLE_FILE = Paths.get("config" ,"FeatureToggle.properties").toString();
 	
 	public static enum ConfigSessionTypeEnum {
 		SMART_PUTTY_SESSION,
