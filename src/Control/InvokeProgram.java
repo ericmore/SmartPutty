@@ -191,7 +191,6 @@ public class InvokeProgram extends Thread {
 		OS.SendMessage(hwnd, OS.WM_SYSCOMMAND, OS.SC_MAXIMIZE, 0);
 
 		if (hwnd != 0) {
-			tabItem.setImage(MImage.getGreenImage());
 			tabItem.setText(tabDisplayName);
 			tabItem.setData("hwnd", hwnd);
 			tabItem.setData("session", session);

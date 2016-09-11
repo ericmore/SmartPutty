@@ -31,29 +31,6 @@ public class MImage {
 	public final static Image deleteImage = new Image(MainFrame.display, "icon\\delete.png");
 	public final static Image connectImage = new Image(MainFrame.display, "icon\\connect_ssh.png");
 	public final static Image puttyImage = new Image(MainFrame.display, "icon\\putty.png");
+	public final static Image dictImage = new Image(MainFrame.display, "icon\\dict.png");
 	
-	public static Image getGreenImage(){
-		Image image = new Image(MainFrame.display, 10, 10);
-		GC gc = new GC(image);
-		gc.setBackground(MainFrame.display.getSystemColor(SWT.COLOR_GREEN));
-		gc.fillRectangle(0, 0, 10, 10);
-		gc.dispose();
-		return image;
-	}
-	public static Image getYellowImage(){
-		Image image = new Image(MainFrame.display, 10, 10);
-		GC gc = new GC(image);
-		gc.setBackground(MainFrame.display.getSystemColor(SWT.COLOR_YELLOW));
-		gc.fillRectangle(0, 0, 10, 10);
-		gc.dispose();
-		return image;
-	}
-	public static Image getRedImage(){
-		Image image = new Image(MainFrame.display, 10, 10);
-		GC gc = new GC(image);
-		gc.setBackground(MainFrame.display.getSystemColor(SWT.COLOR_RED));
-		gc.fillRectangle(0, 0, 10, 10);
-		gc.dispose();
-		return image;
-	}
 }

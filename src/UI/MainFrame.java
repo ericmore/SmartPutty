@@ -33,6 +33,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.MessageBox;
@@ -64,7 +65,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private ToolItem itemNew, itemOpen, itemRemoteDesk, itemCapture, itemCalculator, itemVNC, itemNotePad, itemKenGen,
 			itemHelp;
 	private CTabFolder folder;
-	private CTabItem welcomeItem;
+	private CTabItem welcomeItem, dictItem;
 	private ToolBar utilitiesToolbar;
 	private Group connectGroup;
 
@@ -99,7 +100,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Show/Hide toolbars based on configuration file values:
 		setVisibleComponents();
-		showWelcomeTab();
+		showWelcomeTab(ConstantValue.HOME_URL);
 		shell.open();
 
 		while (!shell.isDisposed()) {
@@ -298,14 +299,25 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 		});
 
+		Group toolGroup = new Group(shell, SWT.BAR);
+		RowLayout layout1 = new RowLayout();
+		layout1.marginTop = 3;
+		layout1.marginBottom = 3;
+		layout1.marginLeft = 1;
+		layout1.marginRight = 1;
+		layout1.spacing = 5;
+		layout1.wrap = false;
+		layout1.center = true;
+		toolGroup.setLayout(layout);
+		toolGroup.setLayoutData(new BorderData(SWT.BOTTOM));
 		// Path:
-		new Label(connectGroup, SWT.RIGHT).setText("Path");
-		final Text pathItem = new Text(connectGroup, SWT.BORDER);
+		new Label(toolGroup, SWT.RIGHT).setText("Path");
+		final Text pathItem = new Text(toolGroup, SWT.BORDER);
 		pathItem.setText("");
 		pathItem.setLayoutData(new RowData(250, 20));
 
-		Button win2UnixButton = new Button(connectGroup, SWT.PUSH);
-		win2UnixButton.setText("->Linux");
+		Button win2UnixButton = new Button(toolGroup, SWT.PUSH);
+		 win2UnixButton.setText("->Linux");
 		win2UnixButton.setImage(MImage.linux);
 		win2UnixButton.setToolTipText("Convert Windows Path to Linux");
 		win2UnixButton.setLayoutData(new RowData());
@@ -328,8 +340,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 
 		});
-		Button unix2WinButton = new Button(connectGroup, SWT.PUSH);
-		unix2WinButton.setText("->Windows");
+		Button unix2WinButton = new Button(toolGroup, SWT.PUSH);
+		 unix2WinButton.setText("->Windows");
 		unix2WinButton.setToolTipText("Convert Linux path to Windows");
 		unix2WinButton.setImage(MImage.windows);
 		unix2WinButton.setLayoutData(new RowData());
@@ -353,8 +365,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		});
 
-		Button openPathButton = new Button(connectGroup, SWT.PUSH);
-		openPathButton.setText("Open with explorer");
+		Button openPathButton = new Button(toolGroup, SWT.PUSH);
+		openPathButton.setText("Open");
 		openPathButton.setImage(MImage.folder);
 		openPathButton.setToolTipText("Open directory/file");
 		openPathButton.addSelectionListener(new SelectionListener() {
@@ -380,7 +392,39 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 
 		});
+		
+		//Dictionary
+		new Label(toolGroup, SWT.RIGHT).setText("Dictionary");
+		final Text dictText = new Text(toolGroup, SWT.BORDER);
+		dictText.setLayoutData(new RowData(100, 20));
+		dictText.addListener(SWT.Traverse, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				if (event.detail == SWT.TRAVERSE_RETURN) {
+					String keyword = dictText.getText().trim();
+					OpenDictTab(keyword);
+				}
+			}
+		});
 
+		Button dictButton = new Button(toolGroup, SWT.PUSH);
+		dictButton.setText("Search");
+		dictButton.setToolTipText("Search Keywork in Dictionary");
+		dictButton.setImage(MImage.dictImage);
+		dictButton.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(SelectionEvent se) {
+				String keyword = dictText.getText().trim();
+				OpenDictTab(keyword);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
 		connectGroup.pack();
 	}
 
@@ -517,15 +561,31 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		configuration = new Configuration();
 	}
 
-	private void showWelcomeTab() {
+	private void showWelcomeTab(String url) {
 		if (welcomeItem == null || welcomeItem.isDisposed()) {
 			welcomeItem = new CTabItem(folder, SWT.CLOSE);
 			Browser browser = new Browser(folder, SWT.NONE);
-			browser.setUrl(ConstantValue.HOME_URL);
+			browser.setUrl(url);
 			welcomeItem.setControl(browser);
 			folder.setSelection(welcomeItem);
 			welcomeItem.setText("Welcome Page");
 		}
+	}
+
+	private void OpenDictTab(String keyword) {
+		if (dictItem == null || dictItem.isDisposed()) {
+			dictItem = new CTabItem(folder, SWT.CLOSE);
+			dictItem.setImage(MImage.dictImage);
+			Browser browser = new Browser(folder, SWT.NONE);
+			browser.setUrl(ConstantValue.DICT_URL_BASE + keyword);
+			dictItem.setControl(browser);
+			folder.setSelection(dictItem);
+			dictItem.setText("Dictionary");
+		} else {
+			folder.setSelection(dictItem);
+			((Browser) dictItem.getControl()).setUrl(ConstantValue.DICT_URL_BASE + keyword);
+		}
+
 	}
 
 	/**
@@ -554,9 +614,10 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		Composite composite = new Composite(folder, SWT.EMBEDDED);
 		composite.setBackground(new Color(display, 0, 0, 0));
 		item.setControl(composite);
+		item.setData("TYPE", "session");
 		folder.setSelection(item);
 		item.setText("connecting");
-		item.setImage(MImage.getRedImage());
+		item.setImage(MImage.puttyImage);
 		Thread t = new InvokeProgram(composite, item, session);
 		t.start();
 	}
@@ -684,7 +745,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		} else if (e.getSource() == itemKenGen) {
 			InvokeProgram.runCMD(configuration.getKeyGeneratorExecutable(), null);
 		} else if (e.getSource() == itemHelp || e.getSource() == webcomeMenuItem) {
-			showWelcomeTab();
+			showWelcomeTab(ConstantValue.HOME_URL);
 		} else if (e.getSource() == updateItem) {
 			MessageDialog.openInformation(shell, "Update tool", "remaining function");
 		} else if (e.getSource() == utilitiesBarMenuItem) {
@@ -727,11 +788,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 	@Override
 	public void close(CTabFolderEvent e) {
-		if (welcomeItem == folder.getSelection() && e.item == welcomeItem) {
-			e.item.dispose();
-			e.doit = true;
-			shell.setFocus();
-		} else if (e.item == folder.getSelection()) {
+		if (e.item == folder.getSelection()) {
 			if ((ConfigSession) e.item.getData("session") != null) {
 				MessageBox messagebox = new MessageBox(shell, SWT.ICON_QUESTION | SWT.YES | SWT.NO);
 				messagebox.setText("Confirm Exit");
@@ -747,6 +804,10 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 					e.doit = false;
 			}
 
+		} else {
+			e.item.dispose();
+			e.doit = true;
+			shell.setFocus();
 		}
 	}
 
@@ -826,7 +887,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// TODO Auto-generated method stub
 		if (e.button == 3) {
 			CTabItem selectItem = folder.getItem(new Point(e.x, e.y));
-			if (selectItem != null && welcomeItem != folder.getSelection()) {
+			if (selectItem != null
+					&& StringUtils.equalsIgnoreCase(String.valueOf(folder.getSelection().getData("TYPE")), "session")) {
 				folder.setSelection(selectItem);
 				popupmenu.setVisible(true);
 			} else {
@@ -880,5 +942,5 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 	}
-	
+
 }
