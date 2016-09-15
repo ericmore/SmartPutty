@@ -251,6 +251,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// Username:
 		new Label(connectGroup, SWT.RIGHT).setText("Username");
 		final Text usernameItem = new Text(connectGroup, SWT.BORDER);
+		usernameItem.setText(configuration.getDefaultPuttyUsername());
 		usernameItem.setLayoutData(new RowData(100, 20));
 
 		// Password
@@ -588,13 +589,13 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			dictItem = new CTabItem(folder, SWT.CLOSE);
 			dictItem.setImage(MImage.dictImage);
 			Browser browser = new Browser(folder, SWT.NONE);
-			browser.setUrl(ConstantValue.DICT_URL_BASE + keyword);
+			browser.setUrl(configuration.getDictionaryBaseUrl() + keyword);
 			dictItem.setControl(browser);
 			folder.setSelection(dictItem);
 			dictItem.setText("Dictionary");
 		} else {
 			folder.setSelection(dictItem);
-			((Browser) dictItem.getControl()).setUrl(ConstantValue.DICT_URL_BASE + keyword);
+			((Browser) dictItem.getControl()).setUrl(configuration.getDictionaryBaseUrl() + keyword);
 		}
 
 	}

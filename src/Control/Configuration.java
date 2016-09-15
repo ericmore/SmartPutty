@@ -151,6 +151,24 @@ public class Configuration {
 		String value = (String) prop.get("KeyGeneratorExecutable");
 		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_KEYGEN.getPath() : value;
 	}
+	
+	/**
+	 * Get dictionary baseUrl, I put dict.youdao.com as a chines-english dictionary. User can customize it as to his own dict url
+	 * @return
+	 */
+	public String getDictionaryBaseUrl(){
+		String value = (String) prop.get("Dictionary");
+		return StringUtils.isEmpty(value) ? "http://dict.youdao.com/w/eng/" : value;
+	}
+	
+	/**
+	 * user can customize his username, in most case user may using his own username to login multiple linux, so provide a centralized username entry for user
+	 * @return
+	 */
+	public String getDefaultPuttyUsername(){
+		String value = (String) prop.get("DefaultPuttyUsername");
+		return StringUtils.isEmpty(value) ? "" : value;
+	}
 
 	/**
 	 * Get main mindow position and size.
@@ -251,4 +269,7 @@ public class Configuration {
 	public Properties getFeatureToggleProps() {
 		return featureToggleProps;
 	}
+	
+	
+	
 }

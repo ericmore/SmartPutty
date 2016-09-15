@@ -12,7 +12,7 @@ public class ConstantValue {
 	
 	public final static String HOME_URL = System.getProperty("user.dir")+File.separator+"doc"+File.separator+"index.htm";
 	public final static String defaultProtocol = "ssh";
-	public final static String DICT_URL_BASE = "http://m.iciba.com/";
+//	public final static String DICT_URL_BASE = "http://m.iciba.com/";
 	// Screen sizes:
 	public final static int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height; 
 	public final static int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
