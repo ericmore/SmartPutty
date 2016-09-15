@@ -4,10 +4,10 @@
 <comment>SmartPutty configuration file</comment>
 <entry key="WindowPositionSize">-8,0,1932,1056</entry>
 <entry key="ViewUtilitiesBar">true</entry>
-<entry key="PuttyExecutable">app\putty\putty.cmd</entry>
 <entry key="WaitForInitTime">200</entry>
-<entry key="PlinkExecutable">app\putty\plink.exe</entry>
-<entry key="ViewConnectionBar">true</entry>
+<entry key="PuttyExecutable">app\putty\putty.cmd</entry>
 <entry key="KeyGeneratorExecutable">app\putty\puttygen.exe</entry>
+<entry key="ViewConnectionBar">true</entry>
+<entry key="PlinkExecutable">app\putty\plink.exe</entry>
 <entry key="ShowWelcomePage">true</entry>
 </properties>

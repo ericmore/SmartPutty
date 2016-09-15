@@ -24,6 +24,10 @@ import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.events.ShellListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
@@ -38,6 +42,7 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolBar;
@@ -55,9 +60,9 @@ import Utils.RegistryUtils;
 
 public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseListener, ShellListener {
 	final static Logger logger = Logger.getLogger(MainFrame.class);
-	public static Display display = null;
+	public static Display display = new Display();
 	public static DBManager dbm;
-	public static Shell shell;
+	final public static Shell shell = new Shell(display);
 	public static Configuration configuration;
 	private MenuItem openItem, newItem, captureItem, remoteDesktopItem, exitItem, updateItem, webcomeMenuItem,
 			reloadPopItem, clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem,
@@ -70,14 +75,13 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private ToolBar utilitiesToolbar;
 	private Group connectGroup;
 
-	public MainFrame() {
-		display = new Display();
-		shell = new Shell(display);
+	public MainFrame(ProgressBar bar) {
+		bar.setSelection(1);
 		RegistryUtils.createPuttyKeys();
+
 		// Load configuration:
+		bar.setSelection(2);
 		loadConfiguration();
-		
-		
 
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
@@ -87,37 +91,34 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Get dbmanager instance:
 		dbm = DBManager.getDBManagerInstance();
-
+		bar.setSelection(3);
 		// Main menu:
-		createMainMenu();
+		createMainMenu(shell);
+		bar.setSelection(4);
 
 		// Create upper connection toolbar:
-		createConnectionBar();
+		createConnectionBar(shell);
 
 		// Create upper utilities toolbar:
-		createUtilitiesToolbar();
+		createUtilitiesToolbar(shell);
 
 		// Create lower tabs zone:
-		createTabs();
-		createTabPopupMenu(); // Right button menu
+		createTabs(shell);
+		createTabPopupMenu(shell); // Right button menu
 
 		// Show/Hide toolbars based on configuration file values:
 		setVisibleComponents();
 		showWelcomeTab(ConstantValue.HOME_URL);
 		applyFeatureToggle();
+		bar.setSelection(5);
 		shell.open();
 
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch())
-				display.sleep();
-		}
-		display.dispose();
 	}
 
 	/**
 	 * Main menu.
 	 */
-	private void createMainMenu() {
+	private void createMainMenu(Shell shell) {
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
 
@@ -231,7 +232,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	/**
 	 * Create bottom connection bar.
 	 */
-	private void createConnectionBar() {
+	private void createConnectionBar(Shell shell) {
 		connectGroup = new Group(shell, SWT.NONE);
 
 		RowLayout layout = new RowLayout();
@@ -321,7 +322,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		pathItem.setLayoutData(new RowData(250, 20));
 
 		Button win2UnixButton = new Button(toolGroup, SWT.PUSH);
-		 win2UnixButton.setText("->Linux");
+		win2UnixButton.setText("->Linux");
 		win2UnixButton.setImage(MImage.linux);
 		win2UnixButton.setToolTipText("Convert Windows Path to Linux");
 		win2UnixButton.setLayoutData(new RowData());
@@ -330,7 +331,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
 				if (StringUtils.isBlank(path)) {
-					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
+					// MessageDialog.openInformation(shell, "Info", "Please
+					// input correct path!");
 					return;
 				}
 				path = StringUtils.stripStart(path, "\\/");
@@ -345,7 +347,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		});
 		Button unix2WinButton = new Button(toolGroup, SWT.PUSH);
-		 unix2WinButton.setText("->Windows");
+		unix2WinButton.setText("->Windows");
 		unix2WinButton.setToolTipText("Convert Linux path to Windows");
 		unix2WinButton.setImage(MImage.windows);
 		unix2WinButton.setLayoutData(new RowData());
@@ -354,7 +356,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
 				if (StringUtils.isBlank(path)) {
-					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
+					// MessageDialog.openInformation(shell, "Info", "Please
+					// input correct path!");
 					return;
 				}
 				path = StringUtils.stripStart(path, "\\/");
@@ -378,14 +381,16 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			public void widgetSelected(SelectionEvent se) {
 				String path = pathItem.getText().trim();
 				if (StringUtils.isBlank(path)) {
-					MessageDialog.openInformation(shell, "Info", "Please input correct path!");
+					// MessageDialog.openInformation(shell, "Info", "Please
+					// input correct path!");
 					return;
 				}
 				path = StringUtils.stripStart(path, "\\/");
 				path = "\\\\" + FilenameUtils.separatorsToWindows(path);
 				pathItem.setText(path);
 				if (!InvokeProgram.openFolder(path)) {
-					MessageDialog.openError(shell, "Error", "Path not exist!");
+					// MessageDialog.openError(shell, "Error", "Path not
+					// exist!");
 				}
 			}
 
@@ -396,8 +401,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 
 		});
-		
-		//Dictionary
+
+		// Dictionary
 		new Label(toolGroup, SWT.RIGHT).setText("Dictionary");
 		final Text dictText = new Text(toolGroup, SWT.BORDER);
 		dictText.setLayoutData(new RowData(100, 20));
@@ -435,7 +440,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	/**
 	 * Create utilities toolbar.
 	 */
-	private void createUtilitiesToolbar() {
+	private void createUtilitiesToolbar(Shell shell) {
 		utilitiesToolbar = new ToolBar(shell, SWT.VERTICAL);
 		utilitiesToolbar.setLayoutData(new BorderData(SWT.LEFT));
 
@@ -499,7 +504,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	/**
 	 * Create tabs zone.
 	 */
-	private void createTabs() {
+	private void createTabs(Shell shell) {
 		folder = new CTabFolder(shell, SWT.BORDER);
 
 		folder.setLayoutData(new BorderData());
@@ -513,7 +518,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	/**
 	 * Tab popup menu.
 	 */
-	private void createTabPopupMenu() {
+	private void createTabPopupMenu(Shell shell) {
 		popupmenu = new Menu(shell, SWT.POP_UP);
 		reloadPopItem = new MenuItem(popupmenu, SWT.PUSH);
 		reloadPopItem.setText("reload session");
@@ -573,7 +578,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			welcomeItem.setControl(browser);
 			folder.setSelection(welcomeItem);
 			welcomeItem.setText("Welcome Page");
-		}else{
+		} else {
 			folder.setSelection(welcomeItem);
 		}
 	}
@@ -700,7 +705,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	 * 
 	 * @param visible
 	 */
-	private void setCompositeVisible(Composite composite, boolean visible) {
+	private void setCompositeVisible(Composite composite, Shell shell, boolean visible) {
 		// Show/Hide all composite children:
 		for (Control control : composite.getChildren()) {
 			control.setVisible(visible);
@@ -715,28 +720,61 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		composite.layout(true, true);
 		shell.layout(true, true);
 	}
-	
+
 	/**
 	 * check the feature toggle, dispose the features who equals to "false"
 	 */
-	private void applyFeatureToggle(){
+	private void applyFeatureToggle() {
 		Properties props = configuration.getFeatureToggleProps();
 		boolean bVnc = "true".equalsIgnoreCase(props.getProperty("vnc", "true"));
-		if(!bVnc){
+		if (!bVnc) {
 			this.vncPopItem.dispose();
 			this.itemVNC.dispose();
 		}
-		
+
 		boolean bTransfer = "true".equalsIgnoreCase(props.getProperty("transfer", "true"));
-		if(!bTransfer){
+		if (!bTransfer) {
 			this.transferPopItem.dispose();
 		}
 	}
 
 	public static void main(String[] args) {
-		
+		final Shell splash = new Shell(SWT.ON_TOP);
+		final ProgressBar bar = new ProgressBar(splash, SWT.NONE);
+		bar.setMaximum(5);
+		Label label = new Label(splash, SWT.NONE);
+		label.setImage(MImage.splashImage);
+		FormLayout layout = new FormLayout();
+		splash.setLayout(layout);
+		FormData labelData = new FormData();
+		labelData.right = new FormAttachment(100, 0);
+		labelData.bottom = new FormAttachment(100, 0);
+		label.setLayoutData(labelData);
+		FormData progressData = new FormData();
+		progressData.left = new FormAttachment(0, 5);
+		progressData.right = new FormAttachment(100, -5);
+		progressData.bottom = new FormAttachment(100, -5);
+		bar.setLayoutData(progressData);
+		splash.pack();
+		Rectangle splashRect = splash.getBounds();
+		Rectangle displayRect = display.getBounds();
+		int x = (displayRect.width - splashRect.width) / 2;
+		int y = (displayRect.height - splashRect.height) / 2;
+		splash.setLocation(x, y);
+		splash.open();
+		display.asyncExec(new Runnable() {
+			public void run() {
+				new MainFrame(bar);
+				splash.close();
+				MImage.splashImage.dispose();
 
-		new MainFrame();
+			}
+		});
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch())
+				display.sleep();
+		}
+		display.dispose();
 	}
 
 	@Override
@@ -773,11 +811,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			MessageDialog.openInformation(shell, "Update tool", "remaining function");
 		} else if (e.getSource() == utilitiesBarMenuItem) {
 			Boolean visible = utilitiesBarMenuItem.getSelection();
-			setCompositeVisible(utilitiesToolbar, visible);
+			setCompositeVisible(utilitiesToolbar, shell, visible);
 			configuration.setUtilitiesBarVisible(String.valueOf(visible));
 		} else if (e.getSource() == connectionBarMenuItem) {
 			Boolean visible = connectionBarMenuItem.getSelection();
-			setCompositeVisible(connectGroup, visible);
+			setCompositeVisible(connectGroup, shell, visible);
 			configuration.setConnectionBarVisible(String.valueOf(visible));
 		} else if (e.getSource() == configProgramsLocationsItem) {
 			new ProgramsLocationsDialog(shell);
@@ -833,8 +871,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			shell.setFocus();
 		}
 	}
-
-	
 
 	@Override
 	public void maximize(CTabFolderEvent ctabfolderevent) {
