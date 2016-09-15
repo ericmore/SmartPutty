@@ -75,6 +75,18 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private ToolBar utilitiesToolbar;
 	private Group connectGroup;
 
+	// for class check purpose
+	private MenuItem menuItemInstance;
+
+	// connect bar components
+	private Button connectButton;
+	private Text usernameItem, passwordItem, portItem;
+	private Combo sessionCombo;
+
+	// bottom util bar components
+	private Text pathItem, dictText;
+	private Button win2UnixButton, unix2WinButton, openPathButton, dictButton;
+
 	public MainFrame(ProgressBar bar) {
 		bar.setSelection(1);
 		RegistryUtils.createPuttyKeys();
@@ -101,6 +113,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Create upper utilities toolbar:
 		createUtilitiesToolbar(shell);
+
+		// Create bottom utilities toolbar:
+		createBottomUtilitiesToolBar(shell);
 
 		// Create lower tabs zone:
 		createTabs(shell);
@@ -250,24 +265,24 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Username:
 		new Label(connectGroup, SWT.RIGHT).setText("Username");
-		final Text usernameItem = new Text(connectGroup, SWT.BORDER);
+		usernameItem = new Text(connectGroup, SWT.BORDER);
 		usernameItem.setText(configuration.getDefaultPuttyUsername());
 		usernameItem.setLayoutData(new RowData(100, 20));
 
 		// Password
 		new Label(connectGroup, SWT.RIGHT).setText("Password");
-		final Text passwordItem = new Text(connectGroup, SWT.PASSWORD | SWT.BORDER);
+		passwordItem = new Text(connectGroup, SWT.PASSWORD | SWT.BORDER);
 		passwordItem.setLayoutData(new RowData(80, 20));
 
 		// Port:
 		new Label(connectGroup, SWT.RIGHT).setText("Port");
-		final Text portItem = new Text(connectGroup, SWT.BORDER);
+		portItem = new Text(connectGroup, SWT.BORDER);
 		portItem.setText("22");
 		portItem.setLayoutData(new RowData(20, 20));
 
 		// Session:
 		new Label(connectGroup, SWT.RIGHT).setText("Session");
-		final Combo sessionCombo = new Combo(connectGroup, SWT.READ_ONLY);
+		sessionCombo = new Combo(connectGroup, SWT.READ_ONLY);
 		sessionCombo.setLayoutData(new RowData());
 		sessionCombo.setToolTipText("Session to use");
 		sessionCombo.add(""); // Empty entry to use none.
@@ -278,33 +293,16 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		}
 
 		// Connect button:
-		Button connectButton = new Button(connectGroup, SWT.PUSH);
+		connectButton = new Button(connectGroup, SWT.PUSH);
 		connectButton.setText("Connect");
 		connectButton.setImage(MImage.puttyImage);
 		connectButton.setLayoutData(new RowData());
 		connectButton.setToolTipText("Connect to host");
-		connectButton.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(SelectionEvent se) {
-				// String protocol = protocolCombo.getText().toLowerCase(); //
-				// Putty wants lower case!
-				String port = portItem.getText();
-				String user = usernameItem.getText();
-				String password = passwordItem.getText();
-				String session = sessionCombo.getText();
-				if (session.trim().isEmpty()) {
-					MessageDialog.openInformation(MainFrame.shell, "Infomation", "please select a putty sesion first!");
-					return;
-				}
-				ConfigSession configSession = new ConfigSession(user, password, port, session);
-				addSession(null, configSession);
-			}
+		connectButton.addSelectionListener(this);
+		connectGroup.pack();
+	}
 
-			@Override
-			public void widgetDefaultSelected(SelectionEvent se) {
-			}
-		});
-
+	private void createBottomUtilitiesToolBar(Shell shell) {
 		Group toolGroup = new Group(shell, SWT.BAR);
 		RowLayout layout1 = new RowLayout();
 		layout1.marginTop = 3;
@@ -314,98 +312,37 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		layout1.spacing = 5;
 		layout1.wrap = false;
 		layout1.center = true;
-		toolGroup.setLayout(layout);
+		toolGroup.setLayout(layout1);
 		toolGroup.setLayoutData(new BorderData(SWT.BOTTOM));
 		// Path:
 		new Label(toolGroup, SWT.RIGHT).setText("Path");
-		final Text pathItem = new Text(toolGroup, SWT.BORDER);
+		pathItem = new Text(toolGroup, SWT.BORDER);
 		pathItem.setText("");
 		pathItem.setLayoutData(new RowData(250, 20));
 
-		Button win2UnixButton = new Button(toolGroup, SWT.PUSH);
+		win2UnixButton = new Button(toolGroup, SWT.PUSH);
 		win2UnixButton.setText("->Linux");
 		win2UnixButton.setImage(MImage.linux);
 		win2UnixButton.setToolTipText("Convert Windows Path to Linux");
 		win2UnixButton.setLayoutData(new RowData());
-		win2UnixButton.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(SelectionEvent se) {
-				String path = pathItem.getText().trim();
-				if (StringUtils.isBlank(path)) {
-					// MessageDialog.openInformation(shell, "Info", "Please
-					// input correct path!");
-					return;
-				}
-				path = StringUtils.stripStart(path, "\\/");
-				pathItem.setText("/" + FilenameUtils.separatorsToUnix(path));
-			}
+		win2UnixButton.addSelectionListener(this);
 
-			@Override
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-		Button unix2WinButton = new Button(toolGroup, SWT.PUSH);
+		unix2WinButton = new Button(toolGroup, SWT.PUSH);
 		unix2WinButton.setText("->Windows");
 		unix2WinButton.setToolTipText("Convert Linux path to Windows");
 		unix2WinButton.setImage(MImage.windows);
 		unix2WinButton.setLayoutData(new RowData());
-		unix2WinButton.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(SelectionEvent se) {
-				String path = pathItem.getText().trim();
-				if (StringUtils.isBlank(path)) {
-					// MessageDialog.openInformation(shell, "Info", "Please
-					// input correct path!");
-					return;
-				}
-				path = StringUtils.stripStart(path, "\\/");
-				pathItem.setText("\\\\" + FilenameUtils.separatorsToWindows(path));
-			}
+		unix2WinButton.addSelectionListener(this);
 
-			@Override
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-
-		Button openPathButton = new Button(toolGroup, SWT.PUSH);
+		openPathButton = new Button(toolGroup, SWT.PUSH);
 		openPathButton.setText("Open");
 		openPathButton.setImage(MImage.folder);
 		openPathButton.setToolTipText("Open directory/file");
-		openPathButton.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(SelectionEvent se) {
-				String path = pathItem.getText().trim();
-				if (StringUtils.isBlank(path)) {
-					// MessageDialog.openInformation(shell, "Info", "Please
-					// input correct path!");
-					return;
-				}
-				path = StringUtils.stripStart(path, "\\/");
-				path = "\\\\" + FilenameUtils.separatorsToWindows(path);
-				pathItem.setText(path);
-				if (!InvokeProgram.openFolder(path)) {
-					// MessageDialog.openError(shell, "Error", "Path not
-					// exist!");
-				}
-			}
-
-			@Override
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
+		openPathButton.addSelectionListener(this);
 
 		// Dictionary
 		new Label(toolGroup, SWT.RIGHT).setText("Dictionary");
-		final Text dictText = new Text(toolGroup, SWT.BORDER);
+		dictText = new Text(toolGroup, SWT.BORDER);
 		dictText.setLayoutData(new RowData(100, 20));
 		dictText.addListener(SWT.Traverse, new Listener() {
 			@Override
@@ -417,25 +354,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 		});
 
-		Button dictButton = new Button(toolGroup, SWT.PUSH);
+		dictButton = new Button(toolGroup, SWT.PUSH);
 		dictButton.setText("Search");
 		dictButton.setToolTipText("Search Keywork in Dictionary");
 		dictButton.setImage(MImage.dictImage);
-		dictButton.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(SelectionEvent se) {
-				String keyword = dictText.getText().trim();
-				OpenDictTab(keyword);
-			}
-
-			@Override
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-		connectGroup.pack();
+		dictButton.addSelectionListener(this);
+		toolGroup.pack();
 	}
 
 	/**
@@ -841,10 +765,55 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 				int hwnd = (Integer) folder.getSelection().getData("hwnd");
 				InvokeProgram.setWindowFocus(hwnd);
 			}
-		} else if (((MenuItem) e.getSource()).getData("type").equals("dynamicApplication")) {
+		} else if (e.getSource().getClass().isInstance(menuItemInstance)
+				&& ((MenuItem) e.getSource()).getData("type").equals("dynamicApplication")) {
 			String path = ((MenuItem) e.getSource()).getData("path").toString();
 			String argument = ((MenuItem) e.getSource()).getData("argument").toString();
 			InvokeProgram.runCMD(path, argument);
+		} else if (e.getSource() == connectButton) {
+			// String protocol = protocolCombo.getText().toLowerCase(); //
+			// Putty wants lower case!
+			String port = portItem.getText();
+			String user = usernameItem.getText();
+			String password = passwordItem.getText();
+			String session = sessionCombo.getText();
+			if (session.trim().isEmpty()) {
+				MessageDialog.openInformation(MainFrame.shell, "Infomation", "please select a putty sesion first!");
+				return;
+			}
+			ConfigSession configSession = new ConfigSession(user, password, port, session);
+			addSession(null, configSession);
+		} else if (e.getSource() == win2UnixButton) {
+			String path = pathItem.getText().trim();
+			if (StringUtils.isBlank(path)) {
+				MessageDialog.openInformation(shell, "Info", "Please input correct path!");
+				return;
+			}
+			path = StringUtils.stripStart(path, "/\\" + configuration.getWinPathBaseDrive());
+			pathItem.setText("/" + FilenameUtils.separatorsToUnix(path));
+		} else if (e.getSource() == unix2WinButton) {
+			String path = pathItem.getText().trim();
+			if (StringUtils.isBlank(path)) {
+				MessageDialog.openInformation(shell, "Info", "Please input correct path!");
+				return;
+			}
+			path = StringUtils.stripStart(path, "/\\" + configuration.getWinPathBaseDrive());
+			pathItem.setText(configuration.getWinPathBaseDrive() + "\\" + FilenameUtils.separatorsToWindows(path));
+		} else if (e.getSource() == openPathButton) {
+			String path = pathItem.getText().trim();
+			if (StringUtils.isBlank(path)) {
+				MessageDialog.openInformation(shell, "Info", "Please input correct path!");
+				return;
+			}
+			path = StringUtils.stripStart(path, "/\\" + configuration.getWinPathBaseDrive());
+			path = configuration.getWinPathBaseDrive() + "\\" + FilenameUtils.separatorsToWindows(path);
+			pathItem.setText(path);
+			if (!InvokeProgram.openFolder(path)) {
+				MessageDialog.openError(shell, "Error", "Path not exist!");
+			}
+		} else if (e.getSource() == dictButton) {
+			String keyword = dictText.getText().trim();
+			OpenDictTab(keyword);
 		}
 	}
 

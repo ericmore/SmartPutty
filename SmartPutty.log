@@ -1438,3 +1438,448 @@ Caused by: java.io.IOException: CreateProcess error=2, 系统找不到指定的文件。
 2016-09-15 10:42:14 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
 2016-09-15 10:42:14 DEBUG RegistryUtils:56 - BlinkCur : 1
 2016-09-15 10:42:16 DEBUG DBManager:396 - Committed transaction and closed connection
+2016-09-15 10:46:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 10:46:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 10:46:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 10:46:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 10:46:57 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 10:46:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 10:46:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 10:46:57 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 10:46:57 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 10:46:57 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 10:46:57 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 10:46:57 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 10:46:57 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 10:47:08 DEBUG InvokeProgram:99 - Putty parameters:  -load "121.40.73.82" -l "root" -pw "1234QWERasdfZXCV" -P 22 
+2016-09-15 10:47:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 10:47:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 10:47:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 10:47:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 10:47:32 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 10:47:32 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 10:47:32 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 10:47:32 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 10:47:32 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 10:47:32 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 10:47:32 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 10:47:32 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 10:47:32 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 10:47:32 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:93)
+	at UI.MainFrame$7.run(MainFrame.java:768)
+	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:775)
+
+2016-09-15 10:47:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 10:47:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 10:47:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 10:47:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 10:47:34 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 10:47:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 10:47:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 10:47:34 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 10:47:34 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 10:47:34 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 10:47:34 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 10:47:34 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 10:47:34 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 10:47:35 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:93)
+	at UI.MainFrame$7.run(MainFrame.java:768)
+	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:775)
+
+2016-09-15 10:47:37 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 10:47:37 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 10:47:37 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 10:47:37 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 10:47:37 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 10:47:37 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 10:47:37 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 10:47:37 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 10:47:37 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 10:47:37 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 10:47:37 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 10:47:37 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 10:47:37 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 10:47:41 DEBUG InvokeProgram:99 - Putty parameters:  -ssh -2 121.40.73.82 -l root  -pw "1234QWERasdfZXCV" -P 22 
+2016-09-15 11:03:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:03:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:03:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:03:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:03:49 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:03:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:03:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:03:49 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:03:49 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:03:49 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:03:49 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:03:49 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:03:49 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:03:54 DEBUG DBManager:396 - Committed transaction and closed connection
+2016-09-15 11:04:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:04:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:04:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:04:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:04:28 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:04:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:04:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:04:28 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:04:28 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:04:28 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:04:28 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:04:28 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:04:28 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:05:06 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:05:06 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:05:06 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:05:06 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:05:06 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:05:06 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:05:06 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:05:06 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:05:06 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:05:06 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:05:06 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:05:06 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:05:06 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:05:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:05:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:05:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:05:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:05:23 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:05:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:05:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:05:23 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:05:23 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:05:23 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:05:23 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:05:23 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:05:23 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:09:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:09:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:09:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:09:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:09:51 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:09:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:09:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:09:52 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:09:52 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:09:52 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:09:52 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:09:52 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:09:52 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:10:09 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\C:\C:\C:\C:\C:\C:\sdfsdf doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:808)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:697)
+
+2016-09-15 11:11:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:11:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:11:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:11:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:11:34 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:11:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:11:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:11:35 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:11:35 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:11:35 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:11:35 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:11:35 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:11:35 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:11:44 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\C:\C:\C:\C:\C:\C:\C:\d doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:11:48 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\d doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:11:53 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\C:\windows doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:13:13 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:13:13 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:13:13 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:13:13 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:13:13 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:13:13 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:13:14 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:13:14 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:13:14 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:13:14 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:13:14 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:13:14 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:13:14 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:13:14 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:105)
+	at UI.MainFrame$2.run(MainFrame.java:692)
+	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:13:16 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:13:16 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:13:16 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:13:16 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:13:17 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:13:17 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:13:17 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:13:17 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:13:17 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:13:17 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:13:17 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:13:17 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:13:17 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:13:19 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\d doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:14:50 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:14:50 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:14:50 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:14:50 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:14:50 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:14:50 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:14:50 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:14:50 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:14:50 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:14:50 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:14:50 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:14:50 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:14:50 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:14:50 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:105)
+	at UI.MainFrame$2.run(MainFrame.java:692)
+	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:14:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:14:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:14:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:14:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:14:53 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:14:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:14:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:14:53 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:14:53 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:14:53 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:14:53 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:14:53 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:14:53 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:14:53 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:105)
+	at UI.MainFrame$2.run(MainFrame.java:692)
+	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:14:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:14:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:14:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:14:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:14:56 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:14:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:14:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:14:56 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:14:56 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:14:56 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:14:56 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:14:56 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:14:56 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:14:56 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
+	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
+	at org.hsqldb.jdbcDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at Dao.DBManager.<init>(DBManager.java:42)
+	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at UI.MainFrame.<init>(MainFrame.java:105)
+	at UI.MainFrame$2.run(MainFrame.java:692)
+	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:15:01 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2016-09-15 11:15:01 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2016-09-15 11:15:01 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2016-09-15 11:15:01 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2016-09-15 11:15:01 DEBUG RegistryUtils:140 - query result: []
+2016-09-15 11:15:01 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2016-09-15 11:15:01 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2016-09-15 11:15:01 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2016-09-15 11:15:01 DEBUG RegistryUtils:56 - WinTitle : null
+2016-09-15 11:15:01 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2016-09-15 11:15:01 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2016-09-15 11:15:01 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2016-09-15 11:15:01 DEBUG RegistryUtils:56 - BlinkCur : 1
+2016-09-15 11:15:13 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:15:16 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:15:26 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:15:31 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:15:37 DEBUG InvokeProgram:99 - Putty parameters:  -load "121.40.73.82" -P 22 
+2016-09-15 11:15:41 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
+	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
+	at java.awt.Desktop.open(Desktop.java:270)
+	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:699)
+
+2016-09-15 11:15:44 DEBUG DBManager:396 - Committed transaction and closed connection

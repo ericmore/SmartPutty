@@ -169,6 +169,24 @@ public class Configuration {
 		String value = (String) prop.get("DefaultPuttyUsername");
 		return StringUtils.isEmpty(value) ? "" : value;
 	}
+	
+
+	/**
+	 * get feature toggle config, we can config to enable/disable features by editing config/FeatureToggle.properties
+	 * @return
+	 */
+	public Properties getFeatureToggleProps() {
+		return featureToggleProps;
+	}
+	
+	/**
+	 * customize win path base prefix when converting path from linux and windows
+	 * @return
+	 */
+	public String getWinPathBaseDrive(){
+		String value = (String) prop.get("WindowsBaseDrive");
+		return StringUtils.isEmpty(value) ? "C:/" : value;
+	}
 
 	/**
 	 * Get main mindow position and size.
@@ -262,13 +280,6 @@ public class Configuration {
 		prop.setProperty("ShowWelcomePage", visible);
 	}
 	
-	/**
-	 * get feature toggle config, we can config to enable/disable features by editing config/FeatureToggle.properties
-	 * @return
-	 */
-	public Properties getFeatureToggleProps() {
-		return featureToggleProps;
-	}
 	
 	
 	
