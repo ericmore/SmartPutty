@@ -765,8 +765,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 				int hwnd = (Integer) folder.getSelection().getData("hwnd");
 				InvokeProgram.setWindowFocus(hwnd);
 			}
-		} else if (e.getSource().getClass().isInstance(menuItemInstance)
-				&& ((MenuItem) e.getSource()).getData("type").equals("dynamicApplication")) {
+		} else if (StringUtils.endsWith(e.getSource().getClass().toString(), "MenuItem")
+				&& "dynamicApplication".equals(((MenuItem) e.getSource()).getData("type"))) {
 			String path = ((MenuItem) e.getSource()).getData("path").toString();
 			String argument = ((MenuItem) e.getSource()).getData("argument").toString();
 			InvokeProgram.runCMD(path, argument);
