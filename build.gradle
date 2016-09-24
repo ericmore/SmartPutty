@@ -18,6 +18,8 @@ dependencies {
     compile group: 'org.eclipse.equinox', name: 'common', version: '3.3.0-v20070426'
     compile group: 'org.mod4j.org.eclipse', name: 'jface', version: '3.5.0'
     compile group: 'org.eclipse.swt', name: 'org.eclipse.swt.win32.win32.x86_64', version: '4.3'
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
+
 
 }
 

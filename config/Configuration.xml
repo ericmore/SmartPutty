@@ -4,7 +4,7 @@
 <comment>SmartPutty configuration file</comment>
 <entry key="KeyGeneratorExecutable">app\putty\puttygen.exe</entry>
 <entry key="WaitForInitTime">200</entry>
-<entry key="WindowPositionSize">122,467,1932,1056</entry>
+<entry key="WindowPositionSize">-243,349,1932,1056</entry>
 <entry key="ViewConnectionBar">true</entry>
 <entry key="ShowWelcomePage">true</entry>
 <entry key="Dictionary">http://dict.youdao.com/w/eng/</entry>

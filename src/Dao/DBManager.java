@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.net.util.Base64;
 import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.MessageDialog;
 
@@ -23,6 +24,7 @@ public class DBManager {
 	private final static String DATABASE_PATH = "database\\sessiondb";
 	private static DBManager manager = null;
 	private Connection conn = null;
+	private Base64 base64 = new Base64();
 
 	public boolean existCSessionTable = false, existIntranetTable = false;
 
@@ -92,7 +94,7 @@ public class DBManager {
 		String user = csession.getUser();
 		String protocol = csession.getProtocol().name();
 		String key = csession.getKey();
-		String password = Base64Util.encodeBASE64(csession.getPassword());
+		String password = new String(base64.encode((csession.getPassword()).getBytes()));
 		if (host.isEmpty() || port.isEmpty() || user.isEmpty() || protocol.isEmpty()){
 			MessageDialog.openWarning(MainFrame.shell, "Warning", "host,port,user,protocol should not be set to null");
 			return;
@@ -151,7 +153,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result.add(confSession);
 			}
 
@@ -178,7 +180,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result.add(confSession);
 			}
 			rs.close();
@@ -204,7 +206,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result.add(confSession);
 			}
 			rs.close();
@@ -232,7 +234,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result = confSession;
 			}
 			rs.close();
@@ -262,7 +264,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result = confSession;
 			}
 			rs.close();
@@ -297,104 +299,10 @@ public class DBManager {
 		return isExist;
 	}
 
-	public ArrayList<Intranet> getAllIntranets(){
-		ArrayList<Intranet> result = new ArrayList<Intranet>();
-		String sql = "SELECT *  FROM Intranet";
+	
 
-		try {
-			Statement state = conn.createStatement();
-			ResultSet rs = state.executeQuery(sql);
-			while (rs.next()){
-				result.add(new Intranet(
-					rs.getString("ID"),
-					Base64Util.decodeBASE64(rs.getString("Password")),
-					rs.getString("Desthost")));
-			}
-			rs.close();
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-		return result;
-	}
-
-	public Intranet queryIntranet(Intranet intranet){
-		try {
-			String sql = "SELECT *  FROM Intranet WHERE ID='" + intranet.getIntranetID() + "' AND DestHost='" + intranet.getDesthost() + "'";
-			Statement state = conn.createStatement();
-			ResultSet rs = state.executeQuery(sql);
-			while (rs.next()){
-				return new Intranet(
-					rs.getString("ID"),
-					Base64Util.decodeBASE64(rs.getString("Password")),
-					rs.getString("DestHost"));
-			}
-			rs.close();
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public void insertIntranet(Intranet intranet){
-		String intranetID = intranet.getIntranetID();
-		String intranetPassword = Base64Util.encodeBASE64(intranet.getIntranetPassword());
-		String desthost = intranet.getDesthost();
-		if (intranetID.equals("") || desthost.equals("")){
-			MessageDialog.openWarning(MainFrame.shell, "warning", "intranetID,DestHost can not be set to null");
-			return;
-		}
-		if (isIntranetExist(intranet)){
-			deleteIntranet(intranet);
-		}
-
-		String sql = "INSERT INTO Intranet VALUES('" + intranetID + "','"
-			+ intranetPassword + "','"
-			+ desthost + "')";
-
-		try {
-			Statement state = conn.createStatement();
-			state.execute(sql);
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-	}
-
-	public void deleteIntranet(Intranet intranet){
-		if (!isIntranetExist(intranet)){
-			return;
-		}
-		try {
-			Statement state = conn.createStatement();
-			String sql = "DELETE FROM Intranet WHERE ID='"
-				+ intranet.getIntranetID() + "' AND Desthost='"
-				+ intranet.getDesthost() + "'";
-			state.execute(sql);
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-	}
-
-	private boolean isIntranetExist(Intranet intranet){
-		boolean ret = false;
-		try {
-			String sql = "SELECT *  FROM Intranet WHERE ID='" + intranet.getIntranetID() + "' AND Desthost='" + intranet.getDesthost() + "'";
-			Statement state = conn.createStatement();
-			ResultSet rs = state.executeQuery(sql);
-			while (rs.next()){
-				ret = true;
-				break;
-			}
-			rs.close();
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-		return ret;
-	}
+	
+	
 
 	public void closeDB(){
 		try {
