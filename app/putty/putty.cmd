@@ -1,1 +1,1 @@
-C:\Users\eric\Desktop\putty.exe %* 
+putty.exe %* 

@@ -40,12 +40,18 @@ public class DBManager {
 			props.put("jdbc.get_column_name", "false");
 			props.put("shutdown", "true");
 			conn = DriverManager.getConnection(protocol + DATABASE_PATH, props);
-
+			logger.debug("Connect to Database");
 			Statement state = conn.createStatement();
 			String[] str = {"TABLE"};
 			DatabaseMetaData meta = conn.getMetaData();
 			ResultSet result = meta.getTables("", null, null, str);
 			while (result.next()){
+				 logger.debug(
+					        "Database Meta:   "+result.getString("TABLE_CAT") 
+					       + ", "+result.getString("TABLE_SCHEM")
+					       + ", "+result.getString("TABLE_NAME")
+					       + ", "+result.getString("TABLE_TYPE")
+					       + ", "+result.getString("REMARKS")); 
 				if (result.getString("TABLE_NAME").equals("CSESSION")){
 					existCSessionTable = true;
 				} else if (result.getString("TABLE_NAME").equals("INTRANET")){
@@ -68,7 +74,7 @@ public class DBManager {
 
 		} catch (Exception e){
 			logger.error(ExceptionUtils.getStackTrace(e));
-			System.exit(-1);
+//			System.exit(-1);
 		}
 	}
 

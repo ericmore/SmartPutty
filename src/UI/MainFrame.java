@@ -221,7 +221,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			String description = menuHashMap.get("description") == null ? "N/A" : menuHashMap.get("description");
 			MenuItem menuItem = new MenuItem(applicationMenu, SWT.PUSH);
 			menuItem.setText(description);
-			menuItem.setToolTipText(path + " " + argument);
+//			menuItem.setToolTipText(path + " " + argument);
 			menuItem.setData("path", path);
 			menuItem.setData("argument", argument);
 			menuItem.setData("description", description);
