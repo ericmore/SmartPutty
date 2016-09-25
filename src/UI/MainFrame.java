@@ -66,7 +66,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	public static Configuration configuration;
 	private MenuItem openItem, newItem, captureItem, remoteDesktopItem, exitItem, updateItem, webcomeMenuItem,
 			reloadPopItem, clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem,
-			openPuttyItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem, bottomQuickBarMenuItem;
+			openPuttyItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem,
+			bottomQuickBarMenuItem;
 	private Menu popupmenu;
 	private ToolItem itemNew, itemOpen, itemRemoteDesk, itemCapture, itemCalculator, itemVNC, itemNotePad, itemKenGen,
 			itemHelp;
@@ -74,7 +75,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private CTabItem welcomeItem, dictItem;
 	private ToolBar utilitiesToolbar;
 	private Group connectGroup, quickBottomGroup;
-
 
 	// connect bar components
 	private Button connectButton;
@@ -121,7 +121,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Show/Hide toolbars based on configuration file values:
 		setVisibleComponents();
-		showWelcomeTab(ConstantValue.HOME_URL);
+		if (configuration.getWelcomePageVisible())
+			showWelcomeTab(ConstantValue.HOME_URL);
 		applyFeatureToggle();
 		bar.setSelection(5);
 		shell.open();
@@ -188,8 +189,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		connectionBarMenuItem.setText("Connection bar");
 		connectionBarMenuItem.setSelection(true);
 		connectionBarMenuItem.addSelectionListener(this);
-		
-		
+
 		bottomQuickBarMenuItem = new MenuItem(viewMenu, SWT.CHECK);
 		bottomQuickBarMenuItem.setText("Bottom Quick bar");
 		bottomQuickBarMenuItem.setSelection(true);
@@ -225,7 +225,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			String description = menuHashMap.get("description") == null ? "N/A" : menuHashMap.get("description");
 			MenuItem menuItem = new MenuItem(applicationMenu, SWT.PUSH);
 			menuItem.setText(description);
-//			menuItem.setToolTipText(path + " " + argument);
+			// menuItem.setToolTipText(path + " " + argument);
 			menuItem.setData("path", path);
 			menuItem.setData("argument", argument);
 			menuItem.setData("description", description);
@@ -540,7 +540,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		connectionBarMenuItem.notifyListeners(SWT.Selection, event);
 		bottomQuickBarMenuItem.setSelection(configuration.getBottomQuickBarVisible());
 		bottomQuickBarMenuItem.notifyListeners(SWT.Selection, event);
-		
+
 	}
 
 	/**
@@ -749,12 +749,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			Boolean visible = connectionBarMenuItem.getSelection();
 			setCompositeVisible(connectGroup, shell, visible);
 			configuration.setConnectionBarVisible(String.valueOf(visible));
-		} else if(e.getSource() == bottomQuickBarMenuItem){
+		} else if (e.getSource() == bottomQuickBarMenuItem) {
 			Boolean visible = bottomQuickBarMenuItem.getSelection();
 			setCompositeVisible(quickBottomGroup, shell, visible);
 			configuration.setBottomQuickBarVisible(String.valueOf(visible));
-		} 
-		
+		}
+
 		else if (e.getSource() == configProgramsLocationsItem) {
 			new ProgramsLocationsDialog(shell);
 			// menuItem

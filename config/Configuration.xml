@@ -7,11 +7,11 @@
 <entry key="WindowPositionSize">-8,-8,1932,1056</entry>
 <entry key="ViewConnectionBar">true</entry>
 <entry key="ViewBottomQuickBar">true</entry>
-<entry key="ShowWelcomePage">true</entry>
+<entry key="ShowWelcomePage">false</entry>
 <entry key="Dictionary">http://dict.youdao.com/w/eng/</entry>
 <entry key="WindowsBaseDrive">C:</entry>
 <entry key="ViewUtilitiesBar">true</entry>
-<entry key="PuttyExecutable">app\putty\putty.exe</entry>
+<entry key="DefaultPuttyUsername">root</entry>
 <entry key="PlinkExecutable">app\putty\plink.exe</entry>
-<entry key="DefaultPuttyUsername"/>
+<entry key="PuttyExecutable">app\putty\putty.exe</entry>
 </properties>

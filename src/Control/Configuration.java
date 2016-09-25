@@ -196,6 +196,15 @@ public class Configuration {
 		String value = (String) prop.get("WindowsBaseDrive");
 		return StringUtils.isEmpty(value) ? "C:/" : value;
 	}
+	
+	/**
+	 * get welcome visible config
+	 * @return
+	 */
+	public Boolean getWelcomePageVisible(){
+		String value = (String) prop.get("ShowWelcomePage");
+		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
+	}
 
 	/**
 	 * Get main mindow position and size.
