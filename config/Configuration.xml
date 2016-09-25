@@ -4,8 +4,9 @@
 <comment>SmartPutty configuration file</comment>
 <entry key="KeyGeneratorExecutable">app\putty\puttygen.exe</entry>
 <entry key="WaitForInitTime">200</entry>
-<entry key="WindowPositionSize">-188,230,1932,1056</entry>
+<entry key="WindowPositionSize">-8,-8,1932,1056</entry>
 <entry key="ViewConnectionBar">true</entry>
+<entry key="ViewBottomQuickBar">true</entry>
 <entry key="ShowWelcomePage">true</entry>
 <entry key="Dictionary">http://dict.youdao.com/w/eng/</entry>
 <entry key="WindowsBaseDrive">C:</entry>

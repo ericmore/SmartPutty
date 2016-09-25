@@ -121,6 +121,15 @@ public class Configuration {
 		String value = (String) prop.get("ViewConnectionBar");
 		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
 	}
+	
+	/**
+	 * Bottom Quick Bar be Visible  ?
+	 * @return
+	 */
+	public Boolean getBottomQuickBarVisible() {
+		String value = (String) prop.get("ViewBottomQuickBar");
+		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
+	}
 
 	/**
 	 * Get Putty/KiTTY executable path.
@@ -242,6 +251,10 @@ public class Configuration {
 	 */
 	public void setConnectionBarVisible(String visible) {
 		prop.setProperty("ViewConnectionBar", visible);
+	}
+	
+	public void setBottomQuickBarVisible(String visible){
+		prop.setProperty("ViewBottomQuickBar", visible);
 	}
 
 	/**

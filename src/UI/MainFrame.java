@@ -66,17 +66,15 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	public static Configuration configuration;
 	private MenuItem openItem, newItem, captureItem, remoteDesktopItem, exitItem, updateItem, webcomeMenuItem,
 			reloadPopItem, clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem,
-			openPuttyItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem;
+			openPuttyItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem, bottomQuickBarMenuItem;
 	private Menu popupmenu;
 	private ToolItem itemNew, itemOpen, itemRemoteDesk, itemCapture, itemCalculator, itemVNC, itemNotePad, itemKenGen,
 			itemHelp;
 	private CTabFolder folder;
 	private CTabItem welcomeItem, dictItem;
 	private ToolBar utilitiesToolbar;
-	private Group connectGroup;
+	private Group connectGroup, quickBottomGroup;
 
-	// for class check purpose
-	private MenuItem menuItemInstance;
 
 	// connect bar components
 	private Button connectButton;
@@ -190,6 +188,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		connectionBarMenuItem.setText("Connection bar");
 		connectionBarMenuItem.setSelection(true);
 		connectionBarMenuItem.addSelectionListener(this);
+		
+		
+		bottomQuickBarMenuItem = new MenuItem(viewMenu, SWT.CHECK);
+		bottomQuickBarMenuItem.setText("Bottom Quick bar");
+		bottomQuickBarMenuItem.setSelection(true);
+		bottomQuickBarMenuItem.addSelectionListener(this);
 
 		// Menu: Options
 		MenuItem configurationMenuItem = new MenuItem(menu, SWT.CASCADE);
@@ -303,7 +307,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	}
 
 	private void createBottomUtilitiesToolBar(Shell shell) {
-		Group toolGroup = new Group(shell, SWT.BAR);
+		quickBottomGroup = new Group(shell, SWT.BAR);
 		RowLayout layout1 = new RowLayout();
 		layout1.marginTop = 3;
 		layout1.marginBottom = 3;
@@ -312,37 +316,37 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		layout1.spacing = 5;
 		layout1.wrap = false;
 		layout1.center = true;
-		toolGroup.setLayout(layout1);
-		toolGroup.setLayoutData(new BorderData(SWT.BOTTOM));
+		quickBottomGroup.setLayout(layout1);
+		quickBottomGroup.setLayoutData(new BorderData(SWT.BOTTOM));
 		// Path:
-		new Label(toolGroup, SWT.RIGHT).setText("Path");
-		pathItem = new Text(toolGroup, SWT.BORDER);
+		new Label(quickBottomGroup, SWT.RIGHT).setText("Path");
+		pathItem = new Text(quickBottomGroup, SWT.BORDER);
 		pathItem.setText("");
 		pathItem.setLayoutData(new RowData(250, 20));
 
-		win2UnixButton = new Button(toolGroup, SWT.PUSH);
+		win2UnixButton = new Button(quickBottomGroup, SWT.PUSH);
 		win2UnixButton.setText("->Linux");
 		win2UnixButton.setImage(MImage.linux);
 		win2UnixButton.setToolTipText("Convert Windows Path to Linux");
 		win2UnixButton.setLayoutData(new RowData());
 		win2UnixButton.addSelectionListener(this);
 
-		unix2WinButton = new Button(toolGroup, SWT.PUSH);
+		unix2WinButton = new Button(quickBottomGroup, SWT.PUSH);
 		unix2WinButton.setText("->Windows");
 		unix2WinButton.setToolTipText("Convert Linux path to Windows");
 		unix2WinButton.setImage(MImage.windows);
 		unix2WinButton.setLayoutData(new RowData());
 		unix2WinButton.addSelectionListener(this);
 
-		openPathButton = new Button(toolGroup, SWT.PUSH);
+		openPathButton = new Button(quickBottomGroup, SWT.PUSH);
 		openPathButton.setText("Open");
 		openPathButton.setImage(MImage.folder);
 		openPathButton.setToolTipText("Open directory/file");
 		openPathButton.addSelectionListener(this);
 
 		// Dictionary
-		new Label(toolGroup, SWT.RIGHT).setText("Dictionary");
-		dictText = new Text(toolGroup, SWT.BORDER);
+		new Label(quickBottomGroup, SWT.RIGHT).setText("Dictionary");
+		dictText = new Text(quickBottomGroup, SWT.BORDER);
 		dictText.setLayoutData(new RowData(100, 20));
 		dictText.addListener(SWT.Traverse, new Listener() {
 			@Override
@@ -354,12 +358,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 		});
 
-		dictButton = new Button(toolGroup, SWT.PUSH);
+		dictButton = new Button(quickBottomGroup, SWT.PUSH);
 		dictButton.setText("Search");
 		dictButton.setToolTipText("Search Keywork in Dictionary");
 		dictButton.setImage(MImage.dictImage);
 		dictButton.addSelectionListener(this);
-		toolGroup.pack();
+		quickBottomGroup.pack();
 	}
 
 	/**
@@ -534,6 +538,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		utilitiesBarMenuItem.notifyListeners(SWT.Selection, event);
 		connectionBarMenuItem.setSelection(configuration.getConnectionBarVisible());
 		connectionBarMenuItem.notifyListeners(SWT.Selection, event);
+		bottomQuickBarMenuItem.setSelection(configuration.getBottomQuickBarVisible());
+		bottomQuickBarMenuItem.notifyListeners(SWT.Selection, event);
+		
 	}
 
 	/**
@@ -742,7 +749,13 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			Boolean visible = connectionBarMenuItem.getSelection();
 			setCompositeVisible(connectGroup, shell, visible);
 			configuration.setConnectionBarVisible(String.valueOf(visible));
-		} else if (e.getSource() == configProgramsLocationsItem) {
+		} else if(e.getSource() == bottomQuickBarMenuItem){
+			Boolean visible = bottomQuickBarMenuItem.getSelection();
+			setCompositeVisible(quickBottomGroup, shell, visible);
+			configuration.setBottomQuickBarVisible(String.valueOf(visible));
+		} 
+		
+		else if (e.getSource() == configProgramsLocationsItem) {
 			new ProgramsLocationsDialog(shell);
 			// menuItem
 		} else if (e.getSource() == reloadPopItem) {
