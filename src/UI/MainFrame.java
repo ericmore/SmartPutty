@@ -1,5 +1,8 @@
 package UI;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
@@ -58,6 +61,8 @@ import Model.ConstantValue;
 import Model.Program;
 import Utils.RegistryUtils;
 
+import javax.swing.*;
+
 public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseListener, ShellListener {
 	final static Logger logger = Logger.getLogger(MainFrame.class);
 	public static Display display = new Display();
@@ -85,12 +90,15 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private Text pathItem, dictText;
 	private Button win2UnixButton, unix2WinButton, openPathButton, dictButton;
 
-	public MainFrame(ProgressBar bar) {
-		bar.setSelection(1);
+	public MainFrame(SplashScreen splash, Graphics2D g) {
+
+		Splash.renderSplashFrame(g, "Creating registery");
+		splash.update();
 		RegistryUtils.createPuttyKeys();
 
-		// Load configuration:
-		bar.setSelection(2);
+
+		Splash.renderSplashFrame(g, "Loading config");
+		splash.update();
 		loadConfiguration();
 
 		shell.setLayout(new BorderLayout());
@@ -99,35 +107,55 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		shell.setBounds(configuration.getWindowPositionSize());
 		shell.addShellListener(this);
 
+        Splash.renderSplashFrame(g, "Loading database");
+        splash.update();
 		// Get dbmanager instance:
 		dbm = DBManager.getDBManagerInstance();
-		bar.setSelection(3);
+//		bar.setSelection(3);
 		// Main menu:
+        Splash.renderSplashFrame(g, "Create menus");
+        splash.update();
 		createMainMenu(shell);
-		bar.setSelection(4);
+//		bar.setSelection(4);
 
+        Splash.renderSplashFrame(g, "Create toolbar");
+        splash.update();
 		// Create upper connection toolbar:
 		createConnectionBar(shell);
 
 		// Create upper utilities toolbar:
 		createUtilitiesToolbar(shell);
 
+
+        Splash.renderSplashFrame(g, "Create utilities toolbar");
+        splash.update();
 		// Create bottom utilities toolbar:
 		createBottomUtilitiesToolBar(shell);
 
+        Splash.renderSplashFrame(g, "Create tabs");
+        splash.update();
 		// Create lower tabs zone:
 		createTabs(shell);
 		createTabPopupMenu(shell); // Right button menu
 
+        Splash.renderSplashFrame(g, "Init features");
+        splash.update();
 		// Show/Hide toolbars based on configuration file values:
 		setVisibleComponents();
 		if (configuration.getWelcomePageVisible())
 			showWelcomeTab(ConstantValue.HOME_URL);
 		applyFeatureToggle();
-		bar.setSelection(5);
-		shell.open();
+        Splash.renderSplashFrame(g, "Init complete");
+        splash.update();
 
 	}
+
+	public void open(){
+		shell.open();
+	}
+//	public void setVisible(boolean b){
+//		shell.setVisible(b);
+//	}
 
 	/**
 	 * Main menu.
@@ -671,37 +699,22 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	}
 
 	public static void main(String[] args) {
-		final Shell splash = new Shell(SWT.ON_TOP);
-		final ProgressBar bar = new ProgressBar(splash, SWT.NONE);
-		bar.setMaximum(5);
-		Label label = new Label(splash, SWT.NONE);
-		label.setImage(MImage.splashImage);
-		FormLayout layout = new FormLayout();
-		splash.setLayout(layout);
-		FormData labelData = new FormData();
-		labelData.right = new FormAttachment(100, 0);
-		labelData.bottom = new FormAttachment(100, 0);
-		label.setLayoutData(labelData);
-		FormData progressData = new FormData();
-		progressData.left = new FormAttachment(0, 5);
-		progressData.right = new FormAttachment(100, -5);
-		progressData.bottom = new FormAttachment(100, -5);
-		bar.setLayoutData(progressData);
-		splash.pack();
-		Rectangle splashRect = splash.getBounds();
-		Rectangle displayRect = display.getBounds();
-		int x = (displayRect.width - splashRect.width) / 2;
-		int y = (displayRect.height - splashRect.height) / 2;
-		splash.setLocation(x, y);
-		splash.open();
-		display.asyncExec(new Runnable() {
-			public void run() {
-				new MainFrame(bar);
-				splash.close();
-				MImage.splashImage.dispose();
+        ;
+		final SplashScreen splash = SplashScreen.getSplashScreen();
 
-			}
-		});
+        if (splash == null) {
+			System.out.println("Splash.getSplashScreen() returned null");
+			return;
+		}
+		Graphics2D g = splash.createGraphics();
+		if (g == null) {
+			System.out.println("g is null");
+			return;
+		}
+		MainFrame main = new MainFrame(splash, g);
+		splash.close();
+		main.open();
+
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch())
 				display.sleep();

@@ -2202,3 +2202,341 @@ Caused by: java.io.IOException: CreateProcess error=2, 系统找不到指定的�
 	... 11 more
 
 2017-04-16 21:38:16 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 21:55:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 21:55:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 21:55:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 21:55:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 21:55:56 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 21:55:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 21:55:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 21:55:56 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 21:55:56 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 21:55:56 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 21:55:56 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 21:55:56 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 21:55:56 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 21:55:56 DEBUG DBManager:45 - Connect to Database
+2017-04-16 21:55:56 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 21:55:56 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 21:58:10 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:14:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:14:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:14:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:14:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:14:34 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:14:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:14:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:14:34 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:14:34 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:14:34 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:14:34 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:14:34 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:14:34 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:14:35 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:14:35 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:14:35 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:14:37 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:14:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:14:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:14:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:14:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:14:57 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:14:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:14:57 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:14:57 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:14:57 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:14:57 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:14:57 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:14:57 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:14:57 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:14:57 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:14:57 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:14:57 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:14:59 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:15:27 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:15:27 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:15:27 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:15:27 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:15:27 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:15:27 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:15:27 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:15:27 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:15:27 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:15:27 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:15:27 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:15:27 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:15:27 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:15:28 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:15:28 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:15:28 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:15:29 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:18:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:19:00 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:19:00 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:19:00 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:19:00 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:19:00 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:19:00 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:19:00 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:19:00 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:19:00 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:19:00 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:19:00 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:19:00 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:19:00 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:19:00 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:19:00 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:19:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:19:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:19:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:19:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:19:31 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:19:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:19:31 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:19:31 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:19:31 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:19:31 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:19:31 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:19:31 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:19:31 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:19:31 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:19:31 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:19:31 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:20:26 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:20:26 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:20:26 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:20:26 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:20:27 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:20:27 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:20:27 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:20:27 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:20:27 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:20:27 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:20:27 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:20:27 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:20:27 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:20:27 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:20:27 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:20:27 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:20:30 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:26:33 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:26:33 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:26:33 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:26:33 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:26:33 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:26:33 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:26:33 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:26:33 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:26:33 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:26:33 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:26:33 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:26:33 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:26:33 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:26:34 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:26:34 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:26:34 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:26:35 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:27:02 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:27:02 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:27:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:27:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:27:03 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:27:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:27:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:27:03 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:27:03 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:27:03 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:27:03 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:27:03 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:27:03 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:27:03 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:27:03 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:27:03 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:27:05 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:36:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:36:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:36:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:36:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:36:03 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:36:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:36:03 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:36:03 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:36:03 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:36:03 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:36:03 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:36:03 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:36:03 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:36:04 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:36:04 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:36:04 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:36:06 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:43:22 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:43:22 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:43:22 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:43:22 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:43:22 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:43:22 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:43:22 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:43:22 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:43:22 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:43:22 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:43:22 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:43:22 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:43:22 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:43:22 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:43:22 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:43:22 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:43:24 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:44:40 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:44:40 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:44:40 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:44:40 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:44:40 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:44:40 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:44:40 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:44:40 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:44:40 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:44:40 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:44:40 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:44:40 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:44:40 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:44:41 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:44:41 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:44:41 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:45:53 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:45:58 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:45:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:45:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:45:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:45:59 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:45:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:45:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:45:59 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:45:59 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:45:59 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:45:59 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:45:59 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:45:59 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:45:59 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:45:59 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:45:59 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:46:01 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:46:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:46:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:46:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:46:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:46:05 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:46:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:46:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:46:05 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:46:05 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:46:05 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:46:05 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:46:05 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:46:05 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:46:05 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:46:06 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:46:06 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:46:07 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:47:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:47:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:47:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:47:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:47:51 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:47:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:47:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:47:51 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:47:51 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:47:51 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:47:51 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:47:51 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:47:51 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:47:52 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:47:52 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:47:52 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:47:55 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:47:58 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:47:58 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:47:58 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:47:58 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:47:58 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:47:58 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:47:58 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:47:59 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:47:59 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:47:59 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:47:59 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:47:59 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:47:59 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:47:59 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:47:59 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:47:59 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:48:01 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:55:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:55:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:55:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:55:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:55:28 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:55:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:55:29 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:55:29 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:55:29 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:55:29 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:55:29 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:55:29 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:55:29 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:55:29 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:55:29 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:55:29 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:55:31 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:55:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:55:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:55:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:55:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:55:34 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:55:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:55:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:55:34 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:55:34 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:55:34 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:55:34 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:55:34 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:55:34 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:55:35 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:55:35 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:55:35 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:55:36 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:55:39 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:55:39 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:55:39 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:55:40 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:55:40 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:55:40 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:55:40 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:55:40 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:55:40 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:55:40 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:55:40 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:55:40 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:55:40 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:55:40 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:55:40 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:55:40 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:55:41 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 22:56:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 22:56:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 22:56:54 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 22:56:54 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 22:56:54 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 22:56:54 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 22:56:54 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 22:56:54 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 22:56:54 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 22:56:54 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 22:56:54 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 22:56:54 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 22:56:54 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 22:56:54 DEBUG DBManager:45 - Connect to Database
+2017-04-16 22:56:54 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 22:56:54 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 22:56:56 DEBUG DBManager:310 - Committed transaction and closed connection
