@@ -2165,3 +2165,40 @@ Caused by: java.io.IOException: CreateProcess error=2, ϵͳ�Ҳ���ָ�����ļ���
 2016-09-24 20:27:46 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
 2016-09-24 20:27:46 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
 2016-09-24 20:27:47 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-04-16 21:37:48 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-04-16 21:37:48 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-04-16 21:37:48 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-04-16 21:37:48 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-04-16 21:37:48 DEBUG RegistryUtils:140 - query result: []
+2017-04-16 21:37:48 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-04-16 21:37:49 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-04-16 21:37:49 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-04-16 21:37:49 DEBUG RegistryUtils:56 - WinTitle : null
+2017-04-16 21:37:49 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-04-16 21:37:49 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-04-16 21:37:49 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-04-16 21:37:49 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-04-16 21:37:49 DEBUG DBManager:45 - Connect to Database
+2017-04-16 21:37:49 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-04-16 21:37:49 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-04-16 21:37:57 ERROR InvokeProgram:261 - java.io.IOException: Cannot run program "yong1": CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at java.lang.Runtime.exec(Runtime.java:450)
+	at java.lang.Runtime.exec(Runtime.java:347)
+	at Control.InvokeProgram.runCMD(InvokeProgram.java:259)
+	at UI.MainFrame.widgetSelected(MainFrame.java:785)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
+	at UI.MainFrame.main(MainFrame.java:706)
+Caused by: java.io.IOException: CreateProcess error=2, 系统找不到指定的文件。
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 11 more
+
+2017-04-16 21:38:16 DEBUG DBManager:310 - Committed transaction and closed connection

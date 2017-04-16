@@ -2,6 +2,8 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'java-library-distribution'
 
+apply plugin: 'idea'
+
 repositories {
 	maven { url "http://maven.springframework.org/release" }
   	maven { url "http://maven.restlet.org" }
