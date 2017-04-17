@@ -1,12 +1,11 @@
 package UI;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Properties;
-
+import Control.Configuration;
+import Control.InvokeProgram;
+import Dao.DBManager;
+import Model.*;
+import Model.BorderLayout;
+import Utils.RegistryUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -18,50 +17,24 @@ import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabFolder2Listener;
 import org.eclipse.swt.custom.CTabFolderEvent;
 import org.eclipse.swt.custom.CTabItem;
-import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseListener;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.events.ShellEvent;
-import org.eclipse.swt.events.ShellListener;
+import org.eclipse.swt.events.*;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.FormData;
-import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.*;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.swt.widgets.MessageBox;
-import org.eclipse.swt.widgets.ProgressBar;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.widgets.ToolBar;
-import org.eclipse.swt.widgets.ToolItem;
 
-import Control.Configuration;
-import Control.InvokeProgram;
-import Dao.DBManager;
-import Model.BorderData;
-import Model.BorderLayout;
-import Model.ConfigSession;
-import Model.ConstantValue;
-import Model.Program;
-import Utils.RegistryUtils;
-
-import javax.swing.*;
+import java.awt.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Properties;
+import java.util.List;
 
 public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseListener, ShellListener {
 	final static Logger logger = Logger.getLogger(MainFrame.class);
@@ -376,13 +349,10 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		new Label(quickBottomGroup, SWT.RIGHT).setText("Dictionary");
 		dictText = new Text(quickBottomGroup, SWT.BORDER);
 		dictText.setLayoutData(new RowData(100, 20));
-		dictText.addListener(SWT.Traverse, new Listener() {
-			@Override
-			public void handleEvent(Event event) {
-				if (event.detail == SWT.TRAVERSE_RETURN) {
-					String keyword = dictText.getText().trim();
-					OpenDictTab(keyword);
-				}
+		dictText.addListener(SWT.Traverse, (event) -> {
+			if (event.detail == SWT.TRAVERSE_RETURN) {
+				String keyword = dictText.getText().trim();
+				OpenDictTab(keyword);
 			}
 		});
 
@@ -699,7 +669,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	}
 
 	public static void main(String[] args) {
-        ;
 		final SplashScreen splash = SplashScreen.getSplashScreen();
 
         if (splash == null) {
@@ -846,7 +815,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	@Override
 	public void close(CTabFolderEvent e) {
 		if (e.item == folder.getSelection()) {
-			if ((ConfigSession) e.item.getData("session") != null) {
+			if ( e.item.getData("session") != null) {
 				MessageBox messagebox = new MessageBox(shell, SWT.ICON_QUESTION | SWT.YES | SWT.NO);
 				messagebox.setText("Confirm Exit");
 				messagebox.setMessage(
