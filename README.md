@@ -7,7 +7,7 @@ SmartPutty for windows platform provides rock-solid terminal emulation for compu
 </p>
 HomeScreen:
 
-![](https://github.com/ericmore/SmartPutty/blob/master/doc/image/homescreen.jpg)
+![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/homescreen.jpg)
 
 User Guide (Demo):
 https://github.com/ericmore/SmartPutty/wiki
@@ -15,16 +15,16 @@ https://github.com/ericmore/SmartPutty/wiki
 
 Develope Guide (Intellij IDEA)
 1. import SmartPutty project
-![](https://drive.google.com/open?id=0B3PnrCMe61gGb0E3M3kyWVJFWVU)
-![](https://drive.google.com/open?id=0B3PnrCMe61gGTGN0WlQxVl9Eemc)
+![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/1.jpg)
+![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/3.jpg)
 
 make sure the gradle dependency resolved
 
-![](https://drive.google.com/open?id=0B3PnrCMe61gGWk5KZk9lZzdTOXc)
+![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/5.jpg)
 
 2. Config launch paramters
-![](https://drive.google.com/open?id=0B3PnrCMe61gGR0xwMWxjNG1zMkE)
-![](https://drive.google.com/open?id=0B3PnrCMe61gGdWJaV3dFWTI2TVk)
+![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/4.jpg)
+![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/2.jpg)
 
 
 Development
