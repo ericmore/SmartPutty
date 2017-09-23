@@ -227,7 +227,7 @@ public class InvokeProgram extends Thread {
 			String cmd;
 
 			if (arg != null) {
-				cmd = program.getPath() + arg;
+				cmd = program.getPath() + " " + arg;
 			} else {
 				cmd = program.getPath();
 			}

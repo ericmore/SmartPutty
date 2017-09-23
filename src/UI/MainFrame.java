@@ -452,17 +452,22 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		reloadPopItem.setImage(MImage.reloadImage);
 		reloadPopItem.addSelectionListener(this);
 
-		// openPuttyItem = new MenuItem(popupmenu, SWT.PUSH);
-		// openPuttyItem.setText("open in putty");
-		// openPuttyItem.setImage(MImage.puttyImage);
-		// // openPuttyItem.setToolTipText("Opens connection on a single
-		// window");
-		// openPuttyItem.addSelectionListener(this);
+//		 openPuttyItem = new MenuItem(popupmenu, SWT.PUSH);
+//		 openPuttyItem.setText("open in putty");
+//		 openPuttyItem.setImage(MImage.puttyImage);
+//		 // openPuttyItem.setToolTipText("Opens connection on a single
+//		 window");
+//		 openPuttyItem.addSelectionListener(this);
 
 		clonePopItem = new MenuItem(popupmenu, SWT.PUSH);
 		clonePopItem.setText("clone session");
 		clonePopItem.setImage(MImage.cloneImage);
 		clonePopItem.addSelectionListener(this);
+
+		vncPopItem = new MenuItem(popupmenu, SWT.PUSH);
+		vncPopItem.setText("VNC");
+		vncPopItem.setImage(MImage.vncImage);
+		vncPopItem.addSelectionListener(this);
 
 		transferPopItem = new MenuItem(popupmenu, SWT.CASCADE);
 		transferPopItem.setText("transfer file");
@@ -486,10 +491,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		transferPopItem.setMenu(subMenu);
 
-		vncPopItem = new MenuItem(popupmenu, SWT.PUSH);
-		vncPopItem.setText("VNC");
-		vncPopItem.setImage(MImage.vncImage);
-		vncPopItem.addSelectionListener(this);
+
 	}
 
 	private void loadConfiguration() {
