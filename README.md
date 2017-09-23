@@ -23,6 +23,7 @@ Development
 Develope Guide (Intellij IDEA)
 
 1. import SmartPutty project
+
 ![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/1.jpg)
 
 ![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/3.jpg)
