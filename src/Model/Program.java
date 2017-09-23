@@ -11,7 +11,7 @@ public enum Program {
 	APP_WINSCP ("app\\winscp\\winscp.exe"),
 	APP_VNC ("app\\vnc\\vnc.exe"),
 	APP_NOTEPAD ("notepad.exe"),
-	APP_CAPTURE ("snippingtool.exe"),
+	APP_CAPTURE ("app\\capture\\FSCapture.exe"),
 	APP_CALCULATOR ("calc.exe"),
 	APP_REMOTE_DESK ("mstsc.exe");
 
