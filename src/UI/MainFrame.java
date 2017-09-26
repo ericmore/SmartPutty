@@ -32,7 +32,6 @@ import org.eclipse.swt.widgets.MenuItem;
 
 import java.awt.*;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Properties;
 import java.util.List;
 
@@ -63,12 +62,50 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private Text pathItem, dictText;
 	private Button win2UnixButton, unix2WinButton, openPathButton, dictButton;
 
-	public MainFrame(SplashScreen splash, Graphics2D g) {
+	// Empty constructor to no use splash screen.
+	public MainFrame(){
+		RegistryUtils.createPuttyKeys();
 
+		loadConfiguration();
+
+		shell.setLayout(new BorderLayout());
+		shell.setImage(MImage.mainImage);
+		shell.setText(ConstantValue.mainWindowTitle + " [" + ConstantValue.mainWindowVersion + "]");
+		shell.setBounds(configuration.getWindowPositionSize());
+		shell.addShellListener(this);
+
+		// Get dbmanager instance:
+		dbm = DBManager.getDBManagerInstance();
+//		bar.setSelection(3);
+
+		// Main menu:
+		createMainMenu(shell);
+//		bar.setSelection(4);
+
+		// Create upper connection toolbar:
+		createConnectionBar(shell);
+
+		// Create upper utilities toolbar:
+		createUtilitiesToolbar(shell);
+
+		// Create bottom utilities toolbar:
+		createBottomUtilitiesToolBar(shell);
+
+		// Create lower tabs zone:
+		createTabs(shell);
+		createTabPopupMenu(shell); // Right button menu
+
+		// Show/Hide toolbars based on configuration file values:
+		setVisibleComponents();
+		if (configuration.getWelcomePageVisible())
+			showWelcomeTab(ConstantValue.HOME_URL);
+		applyFeatureToggle();
+	}
+
+	public MainFrame(SplashScreen splash, Graphics2D g){
 		Splash.renderSplashFrame(g, "Creating registery");
 		splash.update();
 		RegistryUtils.createPuttyKeys();
-
 
 		Splash.renderSplashFrame(g, "Loading config");
 		splash.update();
@@ -99,7 +136,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// Create upper utilities toolbar:
 		createUtilitiesToolbar(shell);
 
-
         Splash.renderSplashFrame(g, "Create utilities toolbar");
         splash.update();
 		// Create bottom utilities toolbar:
@@ -120,7 +156,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		applyFeatureToggle();
         Splash.renderSplashFrame(g, "Init complete");
         splash.update();
-
 	}
 
 	public void open(){
@@ -670,21 +705,35 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		}
 	}
 
-	public static void main(String[] args) {
+	/**
+	 * Prepare the global variables for the other splash functions.
+	 * Use with this VM option: -splash:icon/splash.jpg
+	 */
+	private static void splashInit(){
+		final MainFrame main;
 		final SplashScreen splash = SplashScreen.getSplashScreen();
 
-        if (splash == null) {
-			System.out.println("Splash.getSplashScreen() returned null");
-			return;
+		// If no splash image has been defined in VM options...
+        if (splash == null){
+			logger.info("No splash image defined!");
+			main = new MainFrame();
+		} else {
+			Graphics2D g = splash.createGraphics();
+			if (g == null){
+				logger.info("Graphics for splash image can't be created!");
+				main = new MainFrame();
+			} else {
+				main = new MainFrame(splash, g);
+				splash.close();
+			}
 		}
-		Graphics2D g = splash.createGraphics();
-		if (g == null) {
-			System.out.println("g is null");
-			return;
-		}
-		MainFrame main = new MainFrame(splash, g);
-		splash.close();
+
 		main.open();
+	}
+
+	public static void main(String[] args){
+		// Initialize splash image:
+		splashInit();
 
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch())

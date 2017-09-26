@@ -1,11 +1,8 @@
 package UI;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 
 public class MImage {
-	public final static Image splashImage = new Image(MainFrame.display, "icon\\splash.jpg");
 	public final static Image mainImage = new Image(MainFrame.display, "icon\\main.png");
 	public final static Image newImage = new Image(MainFrame.display, "icon\\new.png");
 	public final static Image openImage = new Image(MainFrame.display, "icon\\open.png");
