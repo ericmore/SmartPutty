@@ -773,7 +773,14 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		} else if (e.getSource() == itemHelp || e.getSource() == webcomeMenuItem) {
 			showWelcomeTab(ConstantValue.HOME_URL);
 		} else if (e.getSource() == updateItem) {
-			MessageDialog.openInformation(shell, "Update tool", "remaining function");
+			// This doesn't work, but I don't know why!
+			// MessageDialog.openInformation(shell, "Update tool", "remaining function");
+			MessageBox messagebox = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+			messagebox.setText("Update tool");
+			messagebox.setMessage("Remaining function.\nPlease, check-it manually for a newer version.");
+				if (messagebox.open() == SWT.OK){
+					shell.setFocus();
+				}
 		} else if (e.getSource() == utilitiesBarMenuItem) {
 			Boolean visible = utilitiesBarMenuItem.getSelection();
 			setCompositeVisible(utilitiesToolbar, shell, visible);
