@@ -70,7 +70,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
-		shell.setText(ConstantValue.mainWindowTitle + " [" + ConstantValue.mainWindowVersion + "]");
+		shell.setText(ConstantValue.MAIN_WINDOW_TITLE + " [" + ConstantValue.MAIN_WINDOW_VERSION + "]");
 		shell.setBounds(configuration.getWindowPositionSize());
 		shell.addShellListener(this);
 
@@ -113,7 +113,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
-		shell.setText(ConstantValue.mainWindowTitle + " [" + ConstantValue.mainWindowVersion + "]");
+		shell.setText(ConstantValue.MAIN_WINDOW_TITLE + " [" + ConstantValue.MAIN_WINDOW_VERSION + "]");
 		shell.setBounds(configuration.getWindowPositionSize());
 		shell.addShellListener(this);
 

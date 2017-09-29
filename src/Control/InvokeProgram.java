@@ -55,7 +55,7 @@ public class InvokeProgram extends Thread {
 	}
 
 	public static int isMainWindowRunning() {
-		return (int) OS.FindWindow(null, new TCHAR(0, ConstantValue.mainWindowTitle, true));
+		return (int) OS.FindWindow(null, new TCHAR(0, ConstantValue.MAIN_WINDOW_TITLE, true));
 	}
 
 	/**

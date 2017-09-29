@@ -220,10 +220,10 @@ public class Configuration {
 			array = new String[4];
 
 			// Set default safety values:
-			array[0] = String.valueOf(ConstantValue.screenWidth / 6);
-			array[1] = String.valueOf(ConstantValue.screenHeight / 6);
-			array[2] = String.valueOf(2 * ConstantValue.screenWidth / 3);
-			array[3] = String.valueOf(2 * ConstantValue.screenHeight / 3);
+			array[0] = String.valueOf(ConstantValue.SCREEN_WIDTH / 6);
+			array[1] = String.valueOf(ConstantValue.SCREEN_HEIGHT / 6);
+			array[2] = String.valueOf(2 * ConstantValue.SCREEN_WIDTH / 3);
+			array[3] = String.valueOf(2 * ConstantValue.SCREEN_HEIGHT / 3);
 		}
 
 		return new Rectangle(Integer.parseInt(array[0]), Integer.parseInt(array[1]), Integer.parseInt(array[2]),
