@@ -18,8 +18,11 @@ import Model.ConstantValue;
 import Model.Program;
 import UI.MainFrame;
 import Utils.ReadXMLFile;
+import org.apache.log4j.Logger;
+
 
 public class Configuration {
+	final static Logger logger = Logger.getLogger(Configuration.class);
 	private final Properties prop;
 	private final Properties featureToggleProps;
 	
@@ -37,19 +40,18 @@ public class Configuration {
 
 	}
 
-	public void loadFeatureToggle() {
+	public void loadFeatureToggle(){
 		try {
 			featureToggleProps.load(new FileInputStream(ConstantValue.CONFIG_FEATURE_TOGGLE_FILE));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException ex){
+			logger.error(ex.getMessage());
 		}
 	}
 
 	/**
 	 * Save program configuration.
 	 */
-	public void saveConfiguration() {
+	public void saveConfiguration(){
 		try {
 			FileOutputStream fos = new FileOutputStream(ConstantValue.CONFIG_FILE);
 
@@ -66,28 +68,24 @@ public class Configuration {
 
 			prop.storeToXML(fos, "SmartPutty configuration file");
 			fos.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (FileNotFoundException fex){
+			logger.error(fex.getMessage());
+		} catch (IOException iex){
+			logger.error(iex.getMessage());
 		}
 	}
 
 	/**
 	 * Load program configuration.
 	 */
-	private void loadConfiguration() {
+	private void loadConfiguration(){
 		try {
 			FileInputStream fis = new FileInputStream(ConstantValue.CONFIG_FILE);
 			prop.loadFromXML(fis);
-		} catch (InvalidPropertiesFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (InvalidPropertiesFormatException ipfe){
+			logger.error(ipfe.getMessage());
+		} catch (IOException ioex){
+			logger.error(ioex.getMessage());
 		}
 
 		// prop.list(System.out); //DEBUG
@@ -301,8 +299,4 @@ public class Configuration {
 	public void setWelcomePageVisible(String visible) {
 		prop.setProperty("ShowWelcomePage", visible);
 	}
-	
-	
-	
-	
 }
