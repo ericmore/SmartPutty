@@ -55,7 +55,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 	// connect bar components
 	private Button connectButton;
-	private Text usernameItem, passwordItem, portItem;
+	private Text usernameItem;
+	private Text passwordItem;
+	private Combo protocolCombo;
+	private Text hostnameItem;
+	private Text portItem;
 	private Combo sessionCombo;
 
 	// bottom util bar components
@@ -302,6 +306,29 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		connectGroup.setLayout(layout);
 		connectGroup.setLayoutData(new BorderData(SWT.TOP));
 		connectGroup.setText("Quick Connect");
+
+
+		// Protocol:
+		new Label(connectGroup, SWT.RIGHT).setText("Protocol");
+		protocolCombo = new Combo(connectGroup, SWT.LEFT | SWT.READ_ONLY);
+		// Get all protocols and add:
+		for (Protocol protocol : Protocol.values()){
+			protocolCombo.add(protocol.getName());
+		}
+		protocolCombo.select(0); // Set default value.
+		protocolCombo.setToolTipText("Protocol to use");
+		protocolCombo.setLayoutData(new RowData(30, 14));
+
+		// Hostname:
+		new Label(connectGroup, SWT.RIGHT).setText("Hostname");
+		hostnameItem = new Text(connectGroup, SWT.BORDER);
+		hostnameItem.setLayoutData(new RowData(80, 14));
+
+		// Port:
+		new Label(connectGroup, SWT.RIGHT).setText("Port");
+		portItem = new Text(connectGroup, SWT.BORDER);
+		portItem.setText("22");
+		portItem.setLayoutData(new RowData(30, 14));
 
 		// Username:
 		new Label(connectGroup, SWT.RIGHT).setText("Username");
@@ -826,15 +853,19 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		} else if (e.getSource() == connectButton) {
 			// String protocol = protocolCombo.getText().toLowerCase(); //
 			// Putty wants lower case!
+			Protocol protocol = Protocol.values()[protocolCombo.getSelectionIndex()];
+			String host = hostnameItem.getText();
 			String port = portItem.getText();
 			String user = usernameItem.getText();
 			String password = passwordItem.getText();
 			String session = sessionCombo.getText();
+			 System.out.println("protocol: " + protocol + ", host: " + host + ", port: " + port + ", user: " + user + ", password: " + password + ", session: " + session); //DEBUG
+			ConfigSession configSession = null;
 			if (session.trim().isEmpty()) {
-				MessageDialog.openInformation(MainFrame.shell, "Infomation", "please select a putty sesion first!");
-				return;
+				configSession = new ConfigSession(host, port, user, protocol, "", password);
+			}else{
+				configSession = new ConfigSession(user, password, port, session);
 			}
-			ConfigSession configSession = new ConfigSession(user, password, port, session);
 			addSession(null, configSession);
 		} else if (e.getSource() == win2UnixButton) {
 			String path = pathItem.getText().trim();
