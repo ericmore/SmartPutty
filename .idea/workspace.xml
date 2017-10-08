@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d5e05d3-196c-4a9b-bb72-624fdc7e8c20" name="Default" comment="readme">
+    <list default="true" id="8d5e05d3-196c-4a9b-bb72-624fdc7e8c20" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmartPutty.log" afterPath="$PROJECT_DIR$/SmartPutty.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/winscp/WinSCP.ini" afterPath="$PROJECT_DIR$/app/winscp/WinSCP.ini" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/Configuration.xml" afterPath="$PROJECT_DIR$/config/Configuration.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/sessiondb.properties" afterPath="$PROJECT_DIR$/database/sessiondb.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UI/MainFrame.java" afterPath="$PROJECT_DIR$/src/UI/MainFrame.java" />
@@ -60,8 +59,8 @@
       <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="866" column="16" lean-forward="false" selection-start-line="866" selection-start-column="16" selection-end-line="866" selection-end-column="16" />
+            <state relative-caret-position="273">
+              <caret line="345" column="101" lean-forward="false" selection-start-line="345" selection-start-column="101" selection-end-line="345" selection-end-column="101" />
               <folding>
                 <element signature="e#5402#5403#0" expanded="true" />
                 <element signature="e#5421#5422#0" expanded="true" />
@@ -96,18 +95,6 @@
             <state relative-caret-position="520">
               <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuickConnectBar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UI/Component/QuickConnectBar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -202,8 +189,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="eric gu &lt;eric5310@gmail.com&gt;" />
         <option value="Eric Gu &lt;eric5310@gmail.com&gt;" />
+        <option value="eric gu &lt;eric5310@gmail.com&gt;" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -625,13 +612,6 @@
               <item name="SmartPutty" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartPutty" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartPutty" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="Component" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1135,7 +1115,7 @@
       <workItem from="1492908836866" duration="1252000" />
       <workItem from="1493599448314" duration="616000" />
       <workItem from="1506128328539" duration="7778000" />
-      <workItem from="1507456282396" duration="2061000" />
+      <workItem from="1507456282396" duration="2737000" />
     </task>
     <task id="LOCAL-00001" summary="Support Intellij IDEA for this project">
       <created>1492350338831</created>
@@ -1200,11 +1180,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506134777762</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix the connection bar add back protocal, port fields">
+      <created>1507458419913</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1507458419913</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25425000" />
+    <option name="totallyTimeSpent" value="26101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -1290,7 +1277,8 @@
     <MESSAGE value="readme enrichment" />
     <MESSAGE value="img update" />
     <MESSAGE value="readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme" />
+    <MESSAGE value="fix the connection bar add back protocal, port fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix the connection bar add back protocal, port fields" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1349,6 +1337,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1476,6 +1465,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1661,9 +1651,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1677,8 +1665,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="866" column="16" lean-forward="false" selection-start-line="866" selection-start-column="16" selection-end-line="866" selection-end-column="16" />
+        <state relative-caret-position="273">
+          <caret line="345" column="101" lean-forward="false" selection-start-line="345" selection-start-column="101" selection-end-line="345" selection-end-column="101" />
           <folding>
             <element signature="e#5402#5403#0" expanded="true" />
             <element signature="e#5421#5422#0" expanded="true" />

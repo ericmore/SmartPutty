@@ -317,18 +317,20 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		}
 		protocolCombo.select(0); // Set default value.
 		protocolCombo.setToolTipText("Protocol to use");
-		protocolCombo.setLayoutData(new RowData(30, 14));
+		protocolCombo.setLayoutData(new RowData(40, 20));
 
 		// Hostname:
 		new Label(connectGroup, SWT.RIGHT).setText("Hostname");
 		hostnameItem = new Text(connectGroup, SWT.BORDER);
-		hostnameItem.setLayoutData(new RowData(80, 14));
+		hostnameItem.setLayoutData(new RowData(160, 20));
+		hostnameItem.setMessage("hostname/session");
+		hostnameItem.setToolTipText("either Hostname or Session must be set, session goes first then hostname");
 
 		// Port:
 		new Label(connectGroup, SWT.RIGHT).setText("Port");
 		portItem = new Text(connectGroup, SWT.BORDER);
 		portItem.setText("22");
-		portItem.setLayoutData(new RowData(30, 14));
+		portItem.setLayoutData(new RowData(30, 20));
 
 		// Username:
 		new Label(connectGroup, SWT.RIGHT).setText("Username");
@@ -340,12 +342,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		new Label(connectGroup, SWT.RIGHT).setText("Password");
 		passwordItem = new Text(connectGroup, SWT.PASSWORD | SWT.BORDER);
 		passwordItem.setLayoutData(new RowData(80, 20));
-
-		// Port:
-		new Label(connectGroup, SWT.RIGHT).setText("Port");
-		portItem = new Text(connectGroup, SWT.BORDER);
-		portItem.setText("22");
-		portItem.setLayoutData(new RowData(20, 20));
+		passwordItem.setMessage("Optional");
+		passwordItem.setToolTipText("Depend on your authentication method to see if password required");
 
 		// Session:
 		new Label(connectGroup, SWT.RIGHT).setText("Session");
