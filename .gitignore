@@ -4,3 +4,4 @@ database/sessiondb.properties
 SmartPutty.log
 .gradle/
 build/
+/dist/
