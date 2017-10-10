@@ -16,8 +16,9 @@ import org.eclipse.swt.widgets.Composite;
 import Model.ConfigSession;
 import Model.ConstantValue;
 import Model.Program;
-import UI.MImage;
 import UI.MainFrame;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.MessageBox;
 
 public class InvokeProgram extends Thread {
 	final static Logger logger = Logger.getLogger(InvokeProgram.class);
@@ -145,7 +146,7 @@ public class InvokeProgram extends Thread {
 
 		if (result == false) {
 			MessageDialog.openInformation(MainFrame.shell, "OPEN PUTTY ERROR",
-					String.format("Failed cmd: %s %s", MainFrame.configuration.getPuttyExecutable(), args));
+				String.format("Failed cmd: %s %s", MainFrame.configuration.getPuttyExecutable(), args));
 			return;
 		}
 
@@ -161,26 +162,33 @@ public class InvokeProgram extends Thread {
 
 					Thread.sleep(500);
 					waitingForOperation -= 500;
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+				} catch (InterruptedException e){
+					logger.error(ExceptionUtils.getStackTrace(e));
 				}
 			}
 		}
 
 		int count = 15;
 		int hwnd = 0;
-		while (count > 0 && (hwnd = (int) OS.FindWindow(new TCHAR(0, "PuTTY", true), null)) == 0) {
+		while (count > 0 && (hwnd = (int) OS.FindWindow(new TCHAR(0, "PuTTY", true), null)) == 0){
 			int waitingTime = Integer.parseInt(MainFrame.configuration.getWaitForInitTime());
 			try {
 				Thread.sleep(waitingTime);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			} catch (InterruptedException e){
+				logger.error(ExceptionUtils.getStackTrace(e));
 			}
 			count--;
 		}
-		if (count == 0) {
-			MessageDialog.openError(MainFrame.shell, "OPEN PUTTY ERROR",
-					String.format("Failed cmd: %s %s", MainFrame.configuration.getPuttyExecutable(), args));
+		if (count == 0){
+			// This doesn't work, but I don't know why!
+			// MessageDialog.openError(MainFrame.shell, "OPEN PUTTY ERROR",
+			//	String.format("Failed cmd: %s %s", MainFrame.configuration.getPuttyExecutable(), args));
+			MessageBox messagebox = new MessageBox(MainFrame.shell, SWT.ICON_INFORMATION | SWT.OK);
+			messagebox.setText("OPEN PUTTY ERROR");
+			messagebox.setMessage(MainFrame.configuration.getPuttyExecutable() + args);
+				if (messagebox.open() == SWT.OK){
+					MainFrame.shell.setFocus();
+				}
 		}
 		int oldStyle = OS.GetWindowLong(hwnd, OS.GWL_STYLE);
 		OS.SetWindowLong(hwnd, OS.GWL_STYLE, oldStyle & ~OS.WS_BORDER);
@@ -231,10 +239,11 @@ public class InvokeProgram extends Thread {
 			} else {
 				cmd = program.getPath();
 			}
+
 			logger.debug("Command line: " + cmd);
 
 			Runtime.getRuntime().exec(cmd);
-		} catch (IOException ex) {
+		} catch (IOException ex){
 			logger.error(ExceptionUtils.getStackTrace(ex));
 		}
 	}
@@ -254,6 +263,7 @@ public class InvokeProgram extends Thread {
 			cmd = program;
 		}
 
+		logger.debug("Command line: " + cmd);
 
 		try {
 			Runtime.getRuntime().exec(cmd);
@@ -264,27 +274,30 @@ public class InvokeProgram extends Thread {
 
 	public static void invokeProxy(String host, String user, String password, String port) {
 		String cmd = "cmd /c start " + MainFrame.configuration.getPlinkExecutable() + " -D " + port + " -pw " + password
-				+ " -N " + user + "@" + host;
+			+ " -N " + user + "@" + host;
+
+		logger.debug("Command line: " + cmd);
+
 		try {
 			Runtime.getRuntime().exec(cmd);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e){
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 	}
 
 	/**
 	 * open path in windows explorer
 	 * @param path
+	 * @return 
 	 */
 	public static boolean openFolder(String path) {
 		Desktop desktop = Desktop.getDesktop();
-		File dirToOpen = null;
+		File dirToOpen;
+
 		try {
 			dirToOpen = new File(path);
 			desktop.open(dirToOpen);
-		}  catch (Exception e) {
-			// TODO Auto-generated catch block
+		}  catch (Exception e){
 			logger.error(ExceptionUtils.getStackTrace(e));
 			return false;
 		}
@@ -296,17 +309,17 @@ public class InvokeProgram extends Thread {
 	 * 
 	 * @param session
 	 */
-	public static void invokeSinglePutty(ConfigSession session) {
+	public static void invokeSinglePutty(ConfigSession session){
 		// Mount command-line Putty parameters:
 		String args = setPuttyParameters(session);
 		String cmd = MainFrame.configuration.getPuttyExecutable() + args;
 
+		logger.debug("Command line: " + cmd);
 
 		try {
 			Runtime.getRuntime().exec(cmd);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 	}
 
