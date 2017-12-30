@@ -10,7 +10,7 @@ public class ConstantValue {
 	public final static String MAIN_WINDOW_TITLE = "Smart Putty";
 	public final static String MAIN_WINDOW_VERSION = SmartPuttyVersion.getSmartPuttyVersion();
 	
-	public final static String HOME_URL = System.getProperty("user.dir")+File.separator+"doc"+File.separator+"index.htm";
+	public final static String HOME_URL = System.getProperty("user.dir")+File.separator+"doc"+File.separator+"index.mht";
 	public final static String DEFAULT_PROTOCOL = "ssh";
 //	public final static String DICT_URL_BASE = "http://m.iciba.com/";
 	// Screen sizes:
