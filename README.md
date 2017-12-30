@@ -43,21 +43,5 @@ Development
 
 Develope Guide (Intellij IDEA)
 
-1. import SmartPutty project
-
-![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/1.jpg)
-
-![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/3.jpg)
-
-make sure the gradle dependency resolved
-
-![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/5.jpg)
-
-2. Config launch paramters
-
-![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/4.jpg)
-
-![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/2.jpg)
-
-
+refer to 'Guide.docx' in root repository
 
