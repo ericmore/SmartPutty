@@ -3169,3 +3169,108 @@ Caused by: java.io.IOException: CreateProcess error=2, 系统找不到指定的�
 2017-09-29 12:59:06 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
 2017-09-29 12:59:06 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
 2017-09-29 12:59:21 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-12-30 19:09:46 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-12-30 19:09:46 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-12-30 19:09:46 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-12-30 19:09:46 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-12-30 19:09:46 DEBUG RegistryUtils:140 - query result: []
+2017-12-30 19:09:46 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-12-30 19:09:46 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-12-30 19:09:46 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-12-30 19:09:46 DEBUG RegistryUtils:56 - WinTitle : null
+2017-12-30 19:09:46 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-12-30 19:09:46 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-12-30 19:09:46 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-12-30 19:09:46 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-12-30 19:09:47 DEBUG DBManager:45 - Connect to Database
+2017-12-30 19:09:47 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-12-30 19:09:47 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-12-30 19:09:52 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-12-30 19:40:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-12-30 19:40:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-12-30 19:40:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-12-30 19:40:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-12-30 19:40:51 DEBUG RegistryUtils:140 - query result: []
+2017-12-30 19:40:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-12-30 19:40:51 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-12-30 19:40:51 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-12-30 19:40:51 DEBUG RegistryUtils:56 - WinTitle : null
+2017-12-30 19:40:51 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-12-30 19:40:51 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-12-30 19:40:51 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-12-30 19:40:51 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-12-30 19:40:51 DEBUG DBManager:45 - Connect to Database
+2017-12-30 19:40:51 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-12-30 19:40:51 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-12-30 19:41:26 DEBUG InvokeProgram:100 - Putty parameters:  -ssh -2 ec2-54-64-43-62.ap-northeast-1.compute.amazonaws.com -l ubuntu  -P 22 
+2017-12-30 19:41:58 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-12-30 19:42:11 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-12-30 19:42:11 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-12-30 19:42:11 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-12-30 19:42:11 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-12-30 19:42:11 DEBUG RegistryUtils:140 - query result: []
+2017-12-30 19:42:11 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-12-30 19:42:11 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-12-30 19:42:12 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-12-30 19:42:12 DEBUG RegistryUtils:56 - WinTitle : null
+2017-12-30 19:42:12 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-12-30 19:42:12 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-12-30 19:42:12 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-12-30 19:42:12 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-12-30 19:42:12 DEBUG DBManager:45 - Connect to Database
+2017-12-30 19:42:12 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-12-30 19:42:12 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-12-30 19:42:26 DEBUG InvokeProgram:100 - Putty parameters:  -ssh -2 ec2-54-64-43-62.ap-northeast-1.compute.amazonaws.com -l ubuntu  -P 22 
+2017-12-30 19:45:04 DEBUG DBManager:310 - Committed transaction and closed connection
+2017-12-30 19:45:10 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-12-30 19:45:10 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-12-30 19:45:10 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-12-30 19:45:10 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-12-30 19:45:10 DEBUG RegistryUtils:140 - query result: []
+2017-12-30 19:45:10 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-12-30 19:45:10 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-12-30 19:45:10 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-12-30 19:45:10 DEBUG RegistryUtils:56 - WinTitle : null
+2017-12-30 19:45:10 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-12-30 19:45:10 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-12-30 19:45:10 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-12-30 19:45:10 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-12-30 19:45:11 DEBUG DBManager:45 - Connect to Database
+2017-12-30 19:45:11 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-12-30 19:45:11 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-12-30 19:45:17 DEBUG InvokeProgram:100 - Putty parameters:  -ssh -2 ec2-54-64-43-62.ap-northeast-1.compute.amazonaws.com -l ubuntu  -P 22 
+2017-12-30 19:45:21 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-12-30 19:45:21 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-12-30 19:45:21 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-12-30 19:45:22 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-12-30 19:45:22 DEBUG RegistryUtils:140 - query result: []
+2017-12-30 19:45:22 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-12-30 19:45:22 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-12-30 19:45:22 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-12-30 19:45:22 DEBUG RegistryUtils:56 - WinTitle : null
+2017-12-30 19:45:22 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-12-30 19:45:22 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-12-30 19:45:22 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-12-30 19:45:22 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-12-30 19:45:22 DEBUG DBManager:45 - Connect to Database
+2017-12-30 19:45:22 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-12-30 19:45:22 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-12-30 19:47:56 DEBUG InvokeProgram:100 - Putty parameters:  -ssh -2 ec2-54-64-43-62.ap-northeast-1.compute.amazonaws.com -l ubuntu  -P 22 
+2017-12-30 19:49:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2017-12-30 19:49:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2017-12-30 19:49:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2017-12-30 19:49:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2017-12-30 19:49:05 DEBUG RegistryUtils:140 - query result: []
+2017-12-30 19:49:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2017-12-30 19:49:05 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2017-12-30 19:49:05 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2017-12-30 19:49:05 DEBUG RegistryUtils:56 - WinTitle : null
+2017-12-30 19:49:05 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2017-12-30 19:49:05 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2017-12-30 19:49:05 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2017-12-30 19:49:05 DEBUG RegistryUtils:56 - BlinkCur : 1
+2017-12-30 19:49:06 DEBUG DBManager:45 - Connect to Database
+2017-12-30 19:49:06 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, CSESSION, TABLE, null
+2017-12-30 19:49:06 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
+2017-12-30 19:49:09 DEBUG InvokeProgram:100 - Putty parameters:  -ssh -2 ec2-54-64-43-62.ap-northeast-1.compute.amazonaws.com -l ubuntu  -i "D:\360安全浏览器下载\key.ppk" -P 22 
+2017-12-30 19:49:19 DEBUG InvokeProgram:266 - Command line: app\putty\puttygen.exe

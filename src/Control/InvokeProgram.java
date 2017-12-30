@@ -92,7 +92,7 @@ public class InvokeProgram extends Thread {
 			}
 			// private key
 			if (!file.isEmpty())
-				String.format(" -i \"%s\"", file);
+				args += String.format(" -i \"%s\"", file);
 			if (!port.isEmpty())
 				args += String.format(" -P %s ", port);
 

@@ -4,14 +4,14 @@
 <comment>SmartPutty configuration file</comment>
 <entry key="KeyGeneratorExecutable">app\putty\puttygen.exe</entry>
 <entry key="WaitForInitTime">200</entry>
-<entry key="WindowPositionSize">731,403,1189,629</entry>
+<entry key="WindowPositionSize">188,203,1522,629</entry>
 <entry key="ViewConnectionBar">true</entry>
 <entry key="ViewBottomQuickBar">false</entry>
 <entry key="ShowWelcomePage">false</entry>
 <entry key="Dictionary">http://dict.youdao.com/w/eng/</entry>
 <entry key="WindowsBaseDrive">C:</entry>
-<entry key="ViewUtilitiesBar">false</entry>
-<entry key="DefaultPuttyUsername">cstoverock</entry>
-<entry key="PlinkExecutable">app\putty\plink.exe</entry>
+<entry key="ViewUtilitiesBar">true</entry>
 <entry key="PuttyExecutable">app\putty\putty.exe</entry>
+<entry key="PlinkExecutable">app\putty\plink.exe</entry>
+<entry key="DefaultPuttyUsername">cstoverock</entry>
 </properties>
