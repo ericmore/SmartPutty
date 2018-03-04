@@ -7,11 +7,11 @@ import Model.ConstantValue.ConfigSessionTypeEnum;
  * @author SS
  */
 public class ConfigSession {
-	private ConfigSessionTypeEnum ConfigSessionType = ConfigSessionTypeEnum.SMART_PUTTY_SESSION;
+	private String ConfigSessionType = ConstantValue.ConfigSessionTypeEnum.SMART_PUTTY_SESSION;
 	private String host = "";
 	private String port = ""; // Can be a number or a device name (COM1, COM2, ...).
 	private String user = "";
-	private Protocol protocol;
+	private String protocol;
 	private String file = "";
 	private String password = "";
 	private String puttySession = "";
@@ -33,7 +33,7 @@ public class ConfigSession {
 	 * @param file
 	 * @param password
 	 */
-	public ConfigSession(String host, String port, String user, Protocol protocol, String file, String password){
+	public ConfigSession(String host, String port, String user, String protocol, String file, String password){
 		this.host = host;
 		this.port = port;
 		this.user = user;
@@ -44,7 +44,7 @@ public class ConfigSession {
 	}
 	
 	
-	public ConfigSessionTypeEnum getConfigSessionType() {
+	public String getConfigSessionType() {
 		return ConfigSessionType;
 	}
 
@@ -72,11 +72,11 @@ public class ConfigSession {
 		this.user = user;
 	}
 
-	public Protocol getProtocol(){
+	public String getProtocol(){
 		return protocol;
 	}
 
-	public void setProtocol(Protocol protocol){
+	public void setProtocol(String protocol){
 		this.protocol = protocol;
 	}
 	

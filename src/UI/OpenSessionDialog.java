@@ -4,6 +4,8 @@ import Control.InvokeProgram;
 import Dao.DBManager;
 import Model.ConfigSession;
 import java.util.ArrayList;
+
+import Model.SmartSession;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
@@ -124,9 +126,9 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		dialog.open();
 	}
 
-	public ConfigSession getCurrentSelectSession(){
+	public SmartSession getCurrentSelectSession(){
 		if(table.getSelection().length > 0){
-			return (ConfigSession)(table.getSelection()[0].getData("session"));
+			return (SmartSession)(table.getSelection()[0].getData("session"));
 		}else{
 			return null;
 		}
@@ -134,11 +136,11 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 
 	public void loadTable(){
 		table.removeAll();
-		ArrayList<ConfigSession> sessions = (ArrayList<ConfigSession>) dbm.getAllCSessions();		
-		for(ConfigSession session : sessions){
+		ArrayList<SmartSession> sessions = (ArrayList<SmartSession>) dbm.findAllSmartSession();
+		for(SmartSession session : sessions){
 			TableItem tableItem = new TableItem(table, SWT.NONE);
 			tableItem.setData("session",session);
-			tableItem.setText(new String[] {session.getHost(), session.getPort(), session.getUser(), session.getProtocol().getName()});
+			tableItem.setText(new String[] {session.getHost(), session.getPort(), session.getUser(), session.getProtocol()});
 		}
 	}
 
@@ -147,15 +149,15 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 	 */
 	private void OpenSelectedSessions(){
 		TableItem[] tableItems = table.getSelection();
-		ArrayList<ConfigSession> sessions = new ArrayList<ConfigSession>();
+		ArrayList<SmartSession> sessions = new ArrayList<SmartSession>();
 		for (TableItem tableItem:tableItems){
-			ConfigSession csession = dbm.queryCSessionBySession((ConfigSession) tableItem.getData("session"));
-			sessions.add(csession);
+			SmartSession smartSession = (SmartSession) tableItem.getData("session");
+			sessions.add(smartSession);
 			// System.out.println("OpenSelectedSessions() " + csession); //DEBUG
 		}
 		dialog.dispose();
 
-		for (ConfigSession session : sessions){
+		for (SmartSession session : sessions){
 			this.mainFrame.addSession(null, session);
 		}
 	}
@@ -166,7 +168,7 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 	private void OpenPutty(){
 		TableItem[] tableItems = table.getSelection();
 		if(tableItems!=null){
-			ConfigSession csession = dbm.queryCSessionBySession((ConfigSession) tableItems[0].getData("session"));
+			SmartSession csession = (SmartSession) tableItems[0].getData("session");
 			InvokeProgram.invokeSinglePutty(csession);
 			dialog.dispose();
 		}
@@ -194,8 +196,8 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 			}
 			TableItem[] tableItems = table.getSelection();
 			for(TableItem item:tableItems){
-				ConfigSession session = (ConfigSession) item.getData("session");
-				dbm.deleteCSession(session);
+				SmartSession session = (SmartSession) item.getData("session");
+				dbm.deleteSmartSession(session);
 			}
 			loadTable();
 		}else if(e.getSource() == puttyWindow){

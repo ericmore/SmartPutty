@@ -9,6 +9,7 @@ import Utils.RegistryUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -31,6 +32,9 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.List;
@@ -107,7 +111,10 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	}
 
 	public MainFrame(SplashScreen splash, Graphics2D g){
-		Splash.renderSplashFrame(g, "Creating registery");
+
+
+
+		Splash.renderSplashFrame(g, "Creating registry");
 		splash.update();
 		RegistryUtils.createPuttyKeys();
 
@@ -312,8 +319,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		new Label(connectGroup, SWT.RIGHT).setText("Protocol");
 		protocolCombo = new Combo(connectGroup, SWT.LEFT | SWT.READ_ONLY);
 		// Get all protocols and add:
-		for (Protocol protocol : Protocol.values()){
-			protocolCombo.add(protocol.getName());
+		List<String> list = new ArrayList<String>(ConstantValue.protocalKV.keySet());
+		for (String protocol : list){
+			protocolCombo.add(protocol);
 		}
 		protocolCombo.select(0); // Set default value.
 		protocolCombo.setToolTipText("Protocol to use");
@@ -609,7 +617,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	 * @param item
 	 * @param session
 	 */
-	public void addSession(CTabItem item, ConfigSession session) {
+	public void addSession(CTabItem item, SmartSession session) {
 		if (item == null) {
 			item = new CTabItem(folder, SWT.CLOSE);
 		}
@@ -632,7 +640,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			return;
 		int hwnd = Integer.parseInt(String.valueOf(tabItem.getData("hwnd")));
 		InvokeProgram.killProcess(hwnd);
-		addSession(tabItem, (ConfigSession) tabItem.getData("session"));
+//		addSession(tabItem, (ConfigSession) tabItem.getData("session"));
 	}
 
 	private void cloneSession() {
@@ -640,7 +648,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		if (tabItem.getData("session") == null)
 			return;
 		ConfigSession session = (ConfigSession) tabItem.getData("session");
-		addSession(null, session);
+//		addSession(null, session);
 	}
 
 	private void openWinscp(String protocol) {
@@ -657,8 +665,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		CTabItem tabItem = folder.getSelection();
 		if (tabItem.getData("session") == null)
 			return;
-		ConfigSession session = (ConfigSession) tabItem.getData("session");
-		InvokeProgram.invokeSinglePutty(session);
+		SmartSession smartSession = (SmartSession) tabItem.getData("session");
+		InvokeProgram.invokeSinglePutty(smartSession);
 	}
 
 	private void openVNCSession() {
@@ -685,8 +693,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			}
 		}
 
-		// Close in-memory database:
-		dbm.closeDB();
+
 
 		// Save configuration:
 		configuration.saveConfiguration();
@@ -759,6 +766,12 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	public static void main(String[] args){
 		// Initialize splash image:
 		splashInit();
+		// Init log
+		try {
+			PropertyConfigurator.configure(new FileInputStream("src\\main\\resources\\log4j."+ConstantValue.MODE+".properties"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch())
@@ -851,19 +864,15 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		} else if (e.getSource() == connectButton) {
 			// String protocol = protocolCombo.getText().toLowerCase(); //
 			// Putty wants lower case!
-			Protocol protocol = Protocol.values()[protocolCombo.getSelectionIndex()];
+			String protocol = ConstantValue.protocalKV.get(protocolCombo.getText());
 			String host = hostnameItem.getText();
 			String port = portItem.getText();
 			String user = usernameItem.getText();
 			String password = passwordItem.getText();
 			String session = sessionCombo.getText();
-			 System.out.println("protocol: " + protocol + ", host: " + host + ", port: " + port + ", user: " + user + ", password: " + password + ", session: " + session); //DEBUG
-			ConfigSession configSession = null;
-			if (session.trim().isEmpty()) {
-				configSession = new ConfigSession(host, port, user, protocol, "", password);
-			}else{
-				configSession = new ConfigSession(user, password, port, session);
-			}
+			logger.debug("protocol: " + protocol + ", host: " + host + ", port: " + port + ", user: " + user + ", password: " + password + ", session: " + session); //DEBUG
+			SmartSession configSession = new SmartSession(host, port, user, password, protocol, "", "", "", ConstantValue.ConfigSessionTypeEnum.DIRECT_CONNECTION_SESSION, session);
+
 			addSession(null, configSession);
 		} else if (e.getSource() == win2UnixButton) {
 			String path = pathItem.getText().trim();

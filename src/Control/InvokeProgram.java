@@ -4,6 +4,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 
+import Model.SmartSession;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -23,11 +24,11 @@ import org.eclipse.swt.widgets.MessageBox;
 public class InvokeProgram extends Thread {
 	final static Logger logger = Logger.getLogger(InvokeProgram.class);
 	private Composite composite = null;
-	private ConfigSession session = null;
+	private SmartSession session = null;
 	private CTabItem tabItem = null;
 
 	// Constructor:
-	public InvokeProgram(Composite composite, CTabItem tabItem, ConfigSession session) {
+	public InvokeProgram(Composite composite, CTabItem tabItem, SmartSession session) {
 		this.composite = composite;
 		this.tabItem = tabItem;
 		this.session = session;
@@ -64,7 +65,7 @@ public class InvokeProgram extends Thread {
 	 * 
 	 * @return
 	 */
-	private static String setPuttyParameters(ConfigSession session) {
+	private static String setPuttyParameters(SmartSession session) {
 		String args = "";
 
 		String host = session.getHost();
@@ -72,11 +73,12 @@ public class InvokeProgram extends Thread {
 		String user = session.getUser();
 		String password = session.getPassword();
 		String file = session.getKey();
-		String protocol = session.getProtocol() == null ? "-ssh -2" : session.getProtocol().getParameter();
-		String puttySession = session.getSession();
+		String protocol = session.getProtocol() == null ? "-ssh -2" : ConstantValue.protocalKV.get(session.getProtocol());
+		String puttySession = session.getDescription();
 
-		if (session.getConfigSessionType() == ConstantValue.ConfigSessionTypeEnum.PURE_PUTTY_SESSION) {
+		if (session.getType().equals(ConstantValue.ConfigSessionTypeEnum.PURE_PUTTY_SESSION)) {
 			// Putty session must the very first parameter to work well.
+			logger.debug("Putty Session");
 			args = " -load \"" + puttySession + "\"";
 			if (!user.isEmpty())
 				args += String.format(" -l \"%s\"", user);
@@ -85,6 +87,7 @@ public class InvokeProgram extends Thread {
 			if (!port.isEmpty())
 				args += String.format(" -P %s ", port);
 		} else {
+			logger.debug("SmartPutty Session");
 			args = String.format(" %s %s -l %s ", protocol, host, user);
 
 			if (!password.isEmpty()) {
@@ -107,11 +110,11 @@ public class InvokeProgram extends Thread {
 	 * 
 	 * @param session
 	 */
-	public void invokePutty(ConfigSession session) {
+	public void invokePutty(SmartSession session) {
 		// Mount command-line Putty parameters:
 		String tabDisplayName = "session";
-		if (session.getConfigSessionType() == ConstantValue.ConfigSessionTypeEnum.PURE_PUTTY_SESSION) {
-			tabDisplayName = session.getSession();
+		if (session.getType().equals(ConstantValue.ConfigSessionTypeEnum.PURE_PUTTY_SESSION)) {
+			tabDisplayName = session.getDescription();
 		} else {
 			tabDisplayName = session.getHost();
 		}
@@ -309,7 +312,7 @@ public class InvokeProgram extends Thread {
 	 * 
 	 * @param session
 	 */
-	public static void invokeSinglePutty(ConfigSession session){
+	public static void invokeSinglePutty(SmartSession session){
 		// Mount command-line Putty parameters:
 		String args = setPuttyParameters(session);
 		String cmd = MainFrame.configuration.getPuttyExecutable() + args;
@@ -323,7 +326,5 @@ public class InvokeProgram extends Thread {
 		}
 	}
 
-	public static void startProxy(String arg) {
 
-	}
 }
