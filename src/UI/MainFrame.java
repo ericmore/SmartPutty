@@ -323,7 +323,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		for (String protocol : list){
 			protocolCombo.add(protocol);
 		}
-		protocolCombo.select(0); // Set default value.
+		protocolCombo.select(3); // Set default value.
 		protocolCombo.setToolTipText("Protocol to use");
 		protocolCombo.setLayoutData(new RowData(40, 20));
 
@@ -640,21 +640,21 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			return;
 		int hwnd = Integer.parseInt(String.valueOf(tabItem.getData("hwnd")));
 		InvokeProgram.killProcess(hwnd);
-//		addSession(tabItem, (ConfigSession) tabItem.getData("session"));
+		addSession(tabItem, (SmartSession) tabItem.getData("session"));
 	}
 
 	private void cloneSession() {
 		CTabItem tabItem = folder.getSelection();
 		if (tabItem.getData("session") == null)
 			return;
-		ConfigSession session = (ConfigSession) tabItem.getData("session");
-//		addSession(null, session);
+		SmartSession session = (SmartSession) tabItem.getData("session");
+		addSession(null, session);
 	}
 
 	private void openWinscp(String protocol) {
 		if (folder.getSelection().getData("session") == null)
 			return;
-		ConfigSession session = (ConfigSession) folder.getSelection().getData("session");
+		SmartSession session = (SmartSession) folder.getSelection().getData("session");
 		String arg = protocol + "://" + session.getUser() + ":" + session.getPassword() + "@" + session.getHost() + ":"
 				+ session.getPort();
 
@@ -673,7 +673,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		CTabItem item = folder.getSelection();
 		if (item.getData("session") == null)
 			return;
-		ConfigSession session = (ConfigSession) item.getData("session");
+		SmartSession session = (SmartSession) item.getData("session");
 		if (session != null) {
 			String host = session.getHost();
 			InputDialog inputDialog = new InputDialog(shell, "Input VNC Server Host",
@@ -871,7 +871,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			String password = passwordItem.getText();
 			String session = sessionCombo.getText();
 			logger.debug("protocol: " + protocol + ", host: " + host + ", port: " + port + ", user: " + user + ", password: " + password + ", session: " + session); //DEBUG
-			SmartSession configSession = new SmartSession(host, port, user, password, protocol, "", "", "", ConstantValue.ConfigSessionTypeEnum.DIRECT_CONNECTION_SESSION, session);
+			SmartSession configSession = new SmartSession(host, port, user, password, protocol, "", "", "", ConstantValue.ConfigSessionTypeEnum.PURE_PUTTY_SESSION, session);
 
 			addSession(null, configSession);
 		} else if (e.getSource() == win2UnixButton) {

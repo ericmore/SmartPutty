@@ -45,7 +45,7 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 	private void init(){
 		dialog.setImage(MImage.openImage);
 		dialog.setText("Open Session Dialog");
-		dialog.setSize(350,300);
+//		dialog.setSize(350,300);
 		
 		table = new Table(dialog, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
 		table.setBounds(0, 0, 396, 257);
@@ -65,9 +65,13 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		tableUserColumn.setWidth(74);
 		tableUserColumn.setText("User");
 		
-		TableColumn tableTimeColumn = new TableColumn(table, SWT.NONE);
-		tableTimeColumn.setWidth(102);
-		tableTimeColumn.setText("Protocol");
+		TableColumn tableProtocalColumn = new TableColumn(table, SWT.NONE);
+		tableProtocalColumn.setWidth(102);
+		tableProtocalColumn.setText("Protocol");
+
+		TableColumn tableDescriptionColumn = new TableColumn(table, SWT.NONE);
+		tableDescriptionColumn.setWidth(102);
+		tableDescriptionColumn.setText("Description");
 
 		loadTable();
 		
@@ -140,7 +144,7 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		for(SmartSession session : sessions){
 			TableItem tableItem = new TableItem(table, SWT.NONE);
 			tableItem.setData("session",session);
-			tableItem.setText(new String[] {session.getHost(), session.getPort(), session.getUser(), session.getProtocol()});
+			tableItem.setText(new String[] {session.getHost(), session.getPort(), session.getUser(), session.getProtocol(), session.getDescription()});
 		}
 	}
 

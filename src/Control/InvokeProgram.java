@@ -74,7 +74,7 @@ public class InvokeProgram extends Thread {
 		String password = session.getPassword();
 		String file = session.getKey();
 		String protocol = session.getProtocol() == null ? "-ssh -2" : ConstantValue.protocalKV.get(session.getProtocol());
-		String puttySession = session.getDescription();
+		String puttySession = session.getPuttySession();
 
 		if (session.getType().equals(ConstantValue.ConfigSessionTypeEnum.PURE_PUTTY_SESSION)) {
 			// Putty session must the very first parameter to work well.
@@ -114,9 +114,9 @@ public class InvokeProgram extends Thread {
 		// Mount command-line Putty parameters:
 		String tabDisplayName = "session";
 		if (session.getType().equals(ConstantValue.ConfigSessionTypeEnum.PURE_PUTTY_SESSION)) {
-			tabDisplayName = session.getDescription();
+			tabDisplayName = session.getPuttySession();
 		} else {
-			tabDisplayName = session.getHost();
+			tabDisplayName = session.getDescription() == null ? session.getHost():session.getDescription();
 		}
 
 		String args = setPuttyParameters(session);

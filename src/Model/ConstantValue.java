@@ -27,7 +27,6 @@ public class ConstantValue {
 	public static class ConfigSessionTypeEnum {
 		public static String SMART_PUTTY_SESSION = "SMART_PUTTY_SESSION";
 		public static String PURE_PUTTY_SESSION = "PURE_PUTTY_SESSION";
-		public static String DIRECT_CONNECTION_SESSION = "DIRECT_CONNECTION_SESSION"; //for directly connection purpose, not from DB query, like connection bar for temp connection.
 	}
 
     public static String MODE=System.getenv("MODE");
