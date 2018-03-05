@@ -34,12 +34,12 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
   public NewSessionDialog(MainFrame mainFrame, OpenSessionDialog sessionDialog, String type) {
     this.mainFrame = mainFrame;
     this.sessionDialog = sessionDialog;
-    dialog = new Shell(MainFrame.shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+    dialog = new Shell(MainFrame.display, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
     dialog.setImage(MImage.newImage);
-    dialog.setSize(800, 160);
+    dialog.setSize(500, 300);
     dialog.setText("New Session Dialog");
-    GridLayout gridLayout = new GridLayout();
-    gridLayout.numColumns = 3;
+    GridLayout gridLayout = new GridLayout(3, true);
+//    gridLayout.numColumns = 3;
     dialog.setLayout(gridLayout);
 
     GridData gridData = new GridData();
@@ -116,10 +116,12 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
         comboProtocol.setText(session.getProtocol());
         textkey.setText(session.getKey());
         textPassword.setText(session.getPassword());
+        textDescription.setText(session.getDescription());
+
       }
     }
 
-    dialog.pack();
+    dialog.pack(true);
     dialog.open();
 
   }
@@ -138,7 +140,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
 
       SmartSession smartSession = new SmartSession(host, "22", user, password, protocol, file, description, "alias", ConstantValue.ConfigSessionTypeEnum.SMART_PUTTY_SESSION, "");
       if (!host.trim().equals("") && !user.trim().equals("") && !protocol.equals("")) {
-
+        MainFrame.dbm.deleteSmartSession(smartSession);
         MainFrame.dbm.insertSmartSession(smartSession);
         if (sessionDialog != null)
           sessionDialog.loadTable();

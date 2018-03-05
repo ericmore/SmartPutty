@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d5e05d3-196c-4a9b-bb72-624fdc7e8c20" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SmartPutty_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/SmartPutty_main.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SmartPutty_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/SmartPutty_test.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/SmartPutty.log" afterPath="$PROJECT_DIR$/SmartPutty.log" />
       <change beforePath="$PROJECT_DIR$/app/winscp/WinSCP.ini" afterPath="$PROJECT_DIR$/app/winscp/WinSCP.ini" />
       <change beforePath="$PROJECT_DIR$/config/Configuration.xml" afterPath="$PROJECT_DIR$/config/Configuration.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Control/InvokeProgram.java" afterPath="$PROJECT_DIR$/src/Control/InvokeProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ConstantValue.java" afterPath="$PROJECT_DIR$/src/Model/ConstantValue.java" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/DBManager.java" afterPath="$PROJECT_DIR$/src/Dao/DBManager.java" />
       <change beforePath="$PROJECT_DIR$/src/UI/MainFrame.java" afterPath="$PROJECT_DIR$/src/UI/MainFrame.java" />
+      <change beforePath="$PROJECT_DIR$/src/UI/NewSessionDialog.java" afterPath="$PROJECT_DIR$/src/UI/NewSessionDialog.java" />
       <change beforePath="$PROJECT_DIR$/src/UI/OpenSessionDialog.java" afterPath="$PROJECT_DIR$/src/UI/OpenSessionDialog.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -78,11 +76,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UI/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="683" column="9" lean-forward="false" selection-start-line="683" selection-start-column="9" selection-end-line="683" selection-end-column="9" />
+            <state relative-caret-position="197">
+              <caret line="814" column="24" lean-forward="false" selection-start-line="814" selection-start-column="21" selection-end-line="814" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewSessionDialog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UI/NewSessionDialog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="142" column="31" lean-forward="false" selection-start-line="142" selection-start-column="31" selection-end-line="142" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -91,8 +99,8 @@
       <file leaf-file-name="Configuration.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Control/Configuration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="175" column="50" lean-forward="false" selection-start-line="175" selection-start-column="50" selection-end-line="175" selection-end-column="50" />
+            <state relative-caret-position="198">
+              <caret line="236" column="44" lean-forward="false" selection-start-line="236" selection-start-column="44" selection-end-line="236" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -101,8 +109,20 @@
       <file leaf-file-name="DBManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Dao/DBManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-329">
-              <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+            <state relative-caret-position="227">
+              <caret line="79" column="18" lean-forward="false" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Session.java" pinned="false" current-in-tab="true">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/5.2.14.Final/4dcca86922d897874faf14a10c83b385000364b4/hibernate-core-5.2.14.Final-sources.jar!/org/hibernate/Session.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="533" column="9" lean-forward="false" selection-start-line="533" selection-start-column="9" selection-end-line="533" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -121,38 +141,18 @@
       <file leaf-file-name="OpenSessionDialog.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UI/OpenSessionDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="50" column="25" lean-forward="false" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
+            <state relative-caret-position="208">
+              <caret line="194" column="29" lean-forward="false" selection-start-line="194" selection-start-column="29" selection-end-line="194" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="Control.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.swt/org.eclipse.swt.win32.win32.x86_64/4.3/eaa75b95f18a7dabb8fc1986ab980973ce50c007/org.eclipse.swt.win32.win32.x86_64-4.3-sources.jar!/org/eclipse/swt/widgets/Control.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BatchConfig.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/BatchConfig.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Configuration.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/Configuration.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="1" column="34" lean-forward="false" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+            <state relative-caret-position="252">
+              <caret line="3629" column="2" lean-forward="false" selection-start-line="3629" selection-start-column="2" selection-end-line="3629" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -191,13 +191,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>reloads</find>
-      <find>popupmenu</find>
-      <find>winscp.exe</find>
-      <find>popup</find>
-      <find>Hostname</find>
-      <find>Quick Conn</find>
-      <find>quick</find>
       <find>hostnameItem</find>
       <find>connectGroupconnectGroup</find>
       <find>createConnectionBar</find>
@@ -207,7 +200,6 @@
       <find>protocolCombo</find>
       <find>help</find>
       <find>splash</find>
-      <find>open</find>
       <find>main</find>
       <find>main(</find>
       <find>hsql</find>
@@ -221,6 +213,14 @@
       <find>cst</find>
       <find>username</find>
       <find>reloadPopItem</find>
+      <find>open</find>
+      <find>close</find>
+      <find>disposeApp</find>
+      <find>exit</find>
+      <find>shellClosed</find>
+      <find>editButton</find>
+      <find>edit</find>
+      <find>buttonOk</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -542,14 +542,14 @@
         <option value="$PROJECT_DIR$/src/Control/ApplicationConfig.java" />
         <option value="$PROJECT_DIR$/src/Model/ConfigSession.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/Dao/DBManager.java" />
         <option value="$PROJECT_DIR$/src/Model/SmartSession.java" />
-        <option value="$PROJECT_DIR$/src/UI/NewSessionDialog.java" />
-        <option value="$PROJECT_DIR$/src/UI/OpenSessionDialog.java" />
         <option value="$PROJECT_DIR$/src/Model/ConstantValue.java" />
         <option value="$PROJECT_DIR$/src/Control/InvokeProgram.java" />
         <option value="$PROJECT_DIR$/config/Configuration.xml" />
+        <option value="$PROJECT_DIR$/src/Dao/DBManager.java" />
+        <option value="$PROJECT_DIR$/src/UI/OpenSessionDialog.java" />
         <option value="$PROJECT_DIR$/src/UI/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/UI/NewSessionDialog.java" />
       </list>
     </option>
   </component>
@@ -617,6 +617,18 @@
               <item name="SmartPutty" type="b2602c69:ProjectViewProjectNode" />
               <item name="SmartPutty" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartPutty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartPutty" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartPutty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartPutty" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SmartPutty" type="b2602c69:ProjectViewProjectNode" />
@@ -1187,7 +1199,7 @@
       <workItem from="1520140084636" duration="9684000" />
       <workItem from="1520163341073" duration="6646000" />
       <workItem from="1520236692777" duration="844000" />
-      <workItem from="1520238029850" duration="3948000" />
+      <workItem from="1520238029850" duration="7960000" />
     </task>
     <task id="LOCAL-00001" summary="Support Intellij IDEA for this project">
       <created>1492350338831</created>
@@ -1287,11 +1299,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514637263416</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="make connection bar work">
+      <created>1520242379205</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1520242379205</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73476000" />
+    <option name="totallyTimeSpent" value="77488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
@@ -1320,7 +1339,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30683625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29685807" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26669317" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26669317" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1388,14 +1407,15 @@
     <MESSAGE value="Fix the ssh arguments missing private key file when login, Add document file" />
     <MESSAGE value="Remove the old html guide with resource folder and replace with single mht file" />
     <MESSAGE value="Add homescreen image so that readme.md can preview it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add homescreen image so that readme.md can preview it" />
+    <MESSAGE value="make connection bar work" />
+    <option name="LAST_COMMIT_MESSAGE" value="make connection bar work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UI/OpenSessionDialog.java</url>
-          <line>154</line>
+          <line>156</line>
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1426,21 +1446,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/awt/SplashScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1640">
-          <caret line="113" column="32" lean-forward="false" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/start.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="91" lean-forward="false" selection-start-line="0" selection-start-column="91" selection-end-line="0" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/BorderData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1589,24 +1594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/NewSessionDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="71" column="19" lean-forward="false" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="19" />
-          <folding>
-            <element signature="e#1989#1997#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dao/DBManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-329">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -1619,14 +1606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/OpenSessionDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="50" column="25" lean-forward="false" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1647,22 +1626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Control/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="175" column="50" lean-forward="false" selection-start-line="175" selection-start-column="50" selection-end-line="175" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/Configuration.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="34" lean-forward="false" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Control/InvokeProgram.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-48">
@@ -1671,10 +1634,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Control/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="236" column="44" lean-forward="false" selection-start-line="236" selection-start-column="44" selection-end-line="236" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/Configuration.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.swt/org.eclipse.swt.win32.win32.x86_64/4.3/eaa75b95f18a7dabb8fc1986ab980973ce50c007/org.eclipse.swt.win32.win32.x86_64-4.3-sources.jar!/org/eclipse/swt/widgets/Control.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="3629" column="2" lean-forward="false" selection-start-line="3629" selection-start-column="2" selection-end-line="3629" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="683" column="9" lean-forward="false" selection-start-line="683" selection-start-column="9" selection-end-line="683" selection-end-column="9" />
+        <state relative-caret-position="197">
+          <caret line="814" column="24" lean-forward="false" selection-start-line="814" selection-start-column="21" selection-end-line="814" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/OpenSessionDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="194" column="29" lean-forward="false" selection-start-line="194" selection-start-column="29" selection-end-line="194" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/NewSessionDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="142" column="31" lean-forward="false" selection-start-line="142" selection-start-column="31" selection-end-line="142" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dao/DBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="79" column="18" lean-forward="false" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/5.2.14.Final/4dcca86922d897874faf14a10c83b385000364b4/hibernate-core-5.2.14.Final-sources.jar!/org/hibernate/Session.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="533" column="9" lean-forward="false" selection-start-line="533" selection-start-column="9" selection-end-line="533" selection-end-column="9" />
           <folding />
         </state>
       </provider>

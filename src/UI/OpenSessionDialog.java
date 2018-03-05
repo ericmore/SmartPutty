@@ -28,7 +28,7 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 	private DBManager dbm;
 	private Button addButton,editButton,deleteButton,connectButton,puttyWindow;
 	// Helper to deal with positions until a new layout can be made:
-	private static final int X_POS = 404;
+	private int X_POS ;
 	
 	public OpenSessionDialog(MainFrame mainFrame, Shell parent){
 		this.dialog = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
@@ -40,18 +40,20 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 
 	/**
 	 * Initialize window in a safer way.
-	 * Usefull to avoid "Leaking This In Constructor" warnings.
+	 * Useful to avoid "Leaking This In Constructor" warnings.
 	 */
 	private void init(){
 		dialog.setImage(MImage.openImage);
 		dialog.setText("Open Session Dialog");
-//		dialog.setSize(350,300);
+		dialog.setSize(600,300);
 		
-		table = new Table(dialog, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
-		table.setBounds(0, 0, 396, 257);
+		table = new Table(dialog, SWT.BORDER | SWT.FULL_SELECTION |SWT.MIN | SWT.MAX);
+		table.setBounds(10,10,dialog.getBounds().width - 120, dialog.getBounds().height - 50);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		table.addMouseListener(this);
+
+		X_POS = table.getBounds().width + 15;
 
 		TableColumn tableHostColumn = new TableColumn(table, SWT.NONE);
 		tableHostColumn.setWidth(166);
@@ -126,7 +128,7 @@ public class OpenSessionDialog  implements SelectionListener, MouseListener{
 		connectButton.setToolTipText("Open selected connection/s in a tab");
 		connectButton.addSelectionListener(this);
 		
-		dialog.pack();
+//		dialog.pack();
 		dialog.open();
 	}
 

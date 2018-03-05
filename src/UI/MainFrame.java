@@ -994,6 +994,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// TODO Auto-generated method stub
 		// disableProxy();
 		disposeApp();
+		System.exit(0);
 	}
 
 	@Override

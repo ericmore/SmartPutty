@@ -30,7 +30,7 @@ public class DBManager {
 			// (4a)
 //			Server server = Server.createTcpServer("-tcpAllowOthers","-tcpPort","9092").start();    // (4b)
 			if(ConstantValue.MODE.equals("DEV")){
-				this.enableWebServer();
+//				this.enableWebServer();
 			}
 
 
