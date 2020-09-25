@@ -1,14 +1,18 @@
+// build.gradle
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'java-library-distribution'
-
 apply plugin: 'idea'
+apply plugin: 'application'
+
 
 repositories {
 	maven { url "http://maven.springframework.org/release" }
   	maven { url "http://maven.restlet.org" }
     mavenCentral()
 }
+
 
 dependencies {
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
@@ -17,10 +21,29 @@ dependencies {
     compile group: 'org.hsqldb', name: 'hsqldb', version: '1.8.0.10'
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'org.mod4j.org.eclipse', name: 'jface', version: '3.5.0'
-    compile group: 'org.eclipse.swt', name: 'org.eclipse.swt.win32.win32.x86_64', version: '4.3'
-    compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
 
+	// Detect architecture to use one 32 or 64 bits SWT library:
+	final String osArch = System.getProperty("os.arch");
+	if ("x86".equals(osArch)) {
+		compile group: 'org.eclipse.swt', name: 'org.eclipse.swt.win32.win32.x86', version: '4.3'
+	} else if ("x86_64".equals(osArch)) {
+		compile group: 'org.eclipse.swt', name: 'org.eclipse.swt.win32.win32.x86_64', version: '4.3'
+	}
 
+	// // Detect operating system (for later uses):
+	// final String osName = System.getProperty("os.name").toLowerCase();
+	// if (osName.contains("linux")) {
+	// 	println 'linux'
+	// } else if (osName.contains("mac os x") || osName.contains("darwin") || osName.contains("osx")) {
+	// 	println 'macos'
+	// } else if (osName.contains("windows")) {
+	// 	println 'windows'
+	// } else if (osName.contains("sunos") || osName.contains("solaris")) {
+	// 	println 'solaris'
+	// } else if (osName.contains("freebsd")) {
+	// 	println 'freebsd'
+	// }
 }
 
 distributions {
@@ -39,6 +62,7 @@ distributions {
     }
 }
 
+distTar.enabled = false
 distZip.shouldRunAfter('copyImage')
 
 sourceSets {
@@ -59,6 +83,7 @@ sourceSets {
    //    }
    // }
 }
+
 task compile(type: JavaCompile) {
 	source = fileTree(dir: 'src', includes: ['**/*.java', '*.properties'])
 	destinationDir = file('build/classes/main')
@@ -78,9 +103,8 @@ task copyImage(type: Copy) {
 	println 'copy images'
 	from 'icon'
 	into 'build/libs/icon'
-
-
 }
+
 
 jar {
     manifest {
@@ -91,3 +115,4 @@ jar {
     }
 }
 
+mainClassName = 'UI.MainFrame'
