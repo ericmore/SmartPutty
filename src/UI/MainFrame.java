@@ -322,7 +322,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// Hostname:
 		new Label(connectGroup, SWT.RIGHT).setText("Hostname");
 		hostnameItem = new Text(connectGroup, SWT.BORDER);
-		hostnameItem.setLayoutData(new RowData(160, 20));
+		hostnameItem.setLayoutData(new RowData(160, 14));
 		hostnameItem.setMessage("hostname/session");
 		hostnameItem.setToolTipText("either Hostname or Session must be set, session goes first then hostname");
 
@@ -330,18 +330,18 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		new Label(connectGroup, SWT.RIGHT).setText("Port");
 		portItem = new Text(connectGroup, SWT.BORDER);
 		portItem.setText("22");
-		portItem.setLayoutData(new RowData(30, 20));
+		portItem.setLayoutData(new RowData(30, 14));
 
 		// Username:
 		new Label(connectGroup, SWT.RIGHT).setText("Username");
 		usernameItem = new Text(connectGroup, SWT.BORDER);
 		usernameItem.setText(configuration.getDefaultPuttyUsername());
-		usernameItem.setLayoutData(new RowData(100, 20));
+		usernameItem.setLayoutData(new RowData(100, 14));
 
 		// Password
 		new Label(connectGroup, SWT.RIGHT).setText("Password");
 		passwordItem = new Text(connectGroup, SWT.PASSWORD | SWT.BORDER);
-		passwordItem.setLayoutData(new RowData(80, 20));
+		passwordItem.setLayoutData(new RowData(160, 14));
 		passwordItem.setMessage("Optional");
 		passwordItem.setToolTipText("Depend on your authentication method to see if password required");
 
