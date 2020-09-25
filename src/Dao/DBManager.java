@@ -1,7 +1,6 @@
 package Dao;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,10 +17,14 @@ import Model.ConfigSession;
 import Model.Intranet;
 import Model.Protocol;
 import UI.MainFrame;
+import java.io.File;
+import java.io.FileInputStream;
+
 
 public class DBManager {
 	private final static Logger logger = Logger.getLogger(DBManager.class);
-	private final static String DATABASE_PATH = "database\\sessiondb";
+	private final static String DATABASE_PATH = "database\\";
+	private final static String DATABASE_NAME = "sessiondb";
 	private static DBManager manager = null;
 	private Connection conn = null;
 	private Base64 base64 = new Base64();
@@ -29,57 +32,101 @@ public class DBManager {
 	public boolean existCSessionTable = false, existIntranetTable = false;
 
 	private DBManager(){
+		String driver = "org.hsqldb.jdbcDriver";
+		String protocol = "jdbc:hsqldb:";
+		String user = "sa";
+		String password = "";
+		String sql = "";
+		Statement stmt = null;
+		ResultSet rs = null;
+
 		try {
-			String driver = "org.hsqldb.jdbcDriver";
-			String protocol = "jdbc:hsqldb:";
+			// Load JDBC driver:
 			Class.forName(driver).newInstance();
-			String user = "sa";
-			String password = "";
+
 			Properties props = new Properties();
 			props.put("user", user);
 			props.put("password", password);
 			props.put("jdbc.strict_md", "false");
 			props.put("jdbc.get_column_name", "false");
 			props.put("shutdown", "true");
-			conn = DriverManager.getConnection(protocol + DATABASE_PATH, props);
-			logger.debug("Connect to Database");
-			Statement state = conn.createStatement();
-			String[] str = {"TABLE"};
-			DatabaseMetaData meta = conn.getMetaData();
-			ResultSet result = meta.getTables("", null, null, str);
-			while (result.next()){
-				 logger.debug(
-					        "Database Meta:   "+result.getString("TABLE_CAT") 
-					       + ", "+result.getString("TABLE_SCHEM")
-					       + ", "+result.getString("TABLE_NAME")
-					       + ", "+result.getString("TABLE_TYPE")
-					       + ", "+result.getString("REMARKS")); 
-				if (result.getString("TABLE_NAME").equals("CSESSION")){
-					existCSessionTable = true;
-				} else if (result.getString("TABLE_NAME").equals("INTRANET")){
-					existIntranetTable = true;
+
+			conn = DriverManager.getConnection(protocol + DATABASE_PATH + DATABASE_NAME, props);
+			logger.info("Connected to database");
+
+			stmt = conn.createStatement();
+
+			try {
+				sql = "SELECT count(*) FROM INFORMATION_SCHEMA.SYSTEM_TABLES WHERE table_schem='PUBLIC' AND table_name='CSESSION'";
+				rs = stmt.executeQuery(sql);
+				while (rs.next()){
+					if (rs.getInt(1) == 1){ // If one row is returned, table exists
+						existCSessionTable = true;
+						logger.debug("OK: CSESSION table exists");
+					}
 				}
 
+				sql = "SELECT count(*) FROM INFORMATION_SCHEMA.SYSTEM_TABLES WHERE table_schem='PUBLIC' AND table_name='INTRANET'";
+				rs = stmt.executeQuery(sql);
+				while (rs.next()){
+					if (rs.getInt(1) == 1){ // If one row is returned, table exists
+						existIntranetTable = true;
+						logger.debug("OK: INTRANET table exists");
+					}
+				}
+			} catch (SQLException e){
+				logger.error(ExceptionUtils.getStackTrace(e));
+			} finally {
+				rs.close();
 			}
-			result.close();
+
+			// Check if needed tables exist:
 			if (!existCSessionTable){
-				String sql = "CREATE TABLE CSession(Host varchar(50), Port varchar(10), User varchar(50), Protocol varchar(10), Key varchar(100), Password varchar(50), PRIMARY KEY (Host,Port,User,Protocol))";
-				state.execute(sql);
+				ExecuteScript(stmt, "csession.sql");
 			}
 			if (!existIntranetTable){
-				String sql = "CREATE TABLE Intranet(ID varchar(50),Password varchar(50), Desthost varchar(50), PRIMARY KEY (ID,Desthost))";
-				state.execute(sql);
-
+				ExecuteScript(stmt, "intranet.sql");
 			}
-
-			state.close();
-
 		} catch (Exception e){
 			logger.error(ExceptionUtils.getStackTrace(e));
 //			System.exit(-1);
 		}
+
+		// Release database resources:
+		try {
+			stmt.close();
+		} catch (SQLException e){
+			logger.error(ExceptionUtils.getStackTrace(e));
+		}
 	}
 
+	/**
+	 * To execute a single SQL script.
+	 * @param stmt Statement.
+	 * @param script SQL script to execute.
+	 */
+	private void ExecuteScript(Statement stmt, String script){
+		try {
+			File objBatch=new File(DATABASE_PATH + script);
+			if (objBatch.exists()){
+				FileInputStream objStream=new FileInputStream(objBatch);
+				String strFileContent=new java.util.Scanner(objStream,"UTF-8").useDelimiter("\\A").next();
+				String[] arrCommands=strFileContent.split(";");
+
+				for(String strCommand : arrCommands){
+					stmt.addBatch(strCommand);
+				}
+				stmt.executeBatch();
+				logger.debug("OK: SQL script " + DATABASE_PATH + script + " executed");
+			} else {
+				logger.error("Cannot find database SQL script: " + DATABASE_PATH + script);
+			}
+		} catch (SQLException e){
+			logger.error(ExceptionUtils.getStackTrace(e));
+		} catch (Exception e){
+			logger.error(ExceptionUtils.getStackTrace(e));
+		}
+	}
 
 	public static DBManager getDBManagerInstance(){
 		if (manager == null){
