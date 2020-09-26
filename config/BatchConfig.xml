@@ -6,9 +6,4 @@
 		<desciption>notepad</desciption>
 	</batch>
 	<batch type="seperator"></batch>
-	<batch type="menu">
-		<path>yong1</path>
-		<argument>mkyong1</argument>
-		<desciption>mook kim1</desciption>
-	</batch>
 </batches>

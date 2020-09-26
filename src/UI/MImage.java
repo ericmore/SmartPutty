@@ -1,7 +1,5 @@
 package UI;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 
 public class MImage {

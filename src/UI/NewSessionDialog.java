@@ -76,7 +76,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
 	}
 	comboProtocol.select(0);
     comboProtocol.setBounds(x / 3, 2 * y / 6, 2 * x / 3, y / 6);
-    comboProtocol.setText(ConstantValue.defaultProtocol);
+    comboProtocol.setText(ConstantValue.DEFAULT_PROTOCOL);
     comboProtocol.addSelectionListener(this);
 
     lable = new Label(dialog, SWT.NONE);
@@ -142,7 +142,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
           textPassword.setText(sessions.get(0).getPassword());
         } else {
           comboUser.setText("");
-          comboProtocol.setText(ConstantValue.defaultProtocol);
+          comboProtocol.setText(ConstantValue.DEFAULT_PROTOCOL);
           textPassword.setText("");
         }
 
@@ -157,7 +157,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
           comboProtocol.setText(sessions.get(0).getProtocol().getName());
           textPassword.setText(sessions.get(0).getPassword());
         } else {
-          comboProtocol.setText(ConstantValue.defaultProtocol);
+          comboProtocol.setText(ConstantValue.DEFAULT_PROTOCOL);
           textPassword.setText("");
         }
       }

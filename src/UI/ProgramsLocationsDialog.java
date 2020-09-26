@@ -19,8 +19,8 @@ import org.eclipse.swt.widgets.Text;
  */
 public class ProgramsLocationsDialog implements SelectionListener, MouseListener {
 	final private Shell dialog;
-	private Button puttyButton, plinkButton, keygeneratorButton, saveButton, cancelButton;
-	private Text puttyPathItem, plinkPathItem, keygeneratorPathItem;
+	private Button puttyButton, plinkButton, keygenButton, saveButton, cancelButton;
+	private Text puttyPathItem, plinkPathItem, keygenPathItem;
 
 	// Constructor:
 	public ProgramsLocationsDialog(Shell parent){
@@ -31,7 +31,7 @@ public class ProgramsLocationsDialog implements SelectionListener, MouseListener
 
 	/**
 	 * Initialize window in a safer way.
-	 * Usefull to avoid "Leaking This In Constructor" warnings.
+	 * Useful to avoid "Leaking This In Constructor" warnings.
 	 */
 	private void init(){
 		// Setup a layout:
@@ -107,18 +107,18 @@ public class ProgramsLocationsDialog implements SelectionListener, MouseListener
 
 		GridData gd8 = new GridData(SWT.FILL, SWT.FILL, true, true);
 		gd8.widthHint = 300;
-		keygeneratorPathItem = new Text(dialog, SWT.BORDER);
-		keygeneratorPathItem.setText(MainFrame.configuration.getKeyGeneratorExecutable()); // Get current value.
-		keygeneratorPathItem.setLayoutData(gd8);
+		keygenPathItem = new Text(dialog, SWT.BORDER);
+		keygenPathItem.setText(MainFrame.configuration.getKeyGeneratorExecutable()); // Get current value.
+		keygenPathItem.setLayoutData(gd8);
 
 		GridData gd9 = new GridData(SWT.FILL, SWT.FILL, true, true);
 		gd9.widthHint = 50;
 		gd9.heightHint = 20;
-		keygeneratorButton = new Button(dialog, SWT.CENTER);
-		keygeneratorButton.setText("Browse");
-		keygeneratorButton.setToolTipText("Search for a key generator executable");
-		keygeneratorButton.addSelectionListener(this);
-		keygeneratorButton.setLayoutData(gd9);
+		keygenButton = new Button(dialog, SWT.CENTER);
+		keygenButton.setText("Browse");
+		keygenButton.setToolTipText("Search for a key generator executable");
+		keygenButton.addSelectionListener(this);
+		keygenButton.setLayoutData(gd9);
 
 		// Blank space:
 		GridData gd98 = new GridData(SWT.FILL, SWT.FILL, true, true);
@@ -149,61 +149,68 @@ public class ProgramsLocationsDialog implements SelectionListener, MouseListener
 
 		dialog.pack();
 		dialog.open();
+		dialog.setLocation(MainFrame.shell.getLocation());
 	}
 
 	/**
-	 * Search for a executable path.
+	 * Search for a executable path to be used as an app.
 	 */
-	private void searchPuttyDialog(String type){
-		FileDialog puttyFileDialog = new FileDialog(dialog, SWT.OPEN);
-		String[] filterExtensions = null;
-		String[] filterNames = null;
+	private void searchExecutableDialog(String type){
+		String path;
+		String[] filterExtensions;
+		String[] filterNames;
+		FileDialog executableDialog = new FileDialog(dialog, SWT.OPEN);
+		executableDialog.setFilterPath(System.getProperty("user.dir") + "/app");
 
 		switch (type){
 			case "putty":
 				filterExtensions = new String[] {"putty.exe", "kitty*.exe"};
 				filterNames = new String[] {"Putty (putty.exe)", "KiTTY (kitty*.exe)"};
+				// Set file dialog filters:
+				executableDialog.setFilterExtensions(filterExtensions);
+				executableDialog.setFilterNames(filterNames);
+
+				path = executableDialog.open();
+				if (path != null){
+					puttyPathItem.setText(path);
+				}
 				break;
 
 			case "plink":
 				filterExtensions = new String[] {"plink.exe", "klink.exe"};
 				filterNames = new String[] {"Plink (plink.exe)", "Klink (klink.exe)"};
-		}
+				// Set file dialog filters:
+				executableDialog.setFilterExtensions(filterExtensions);
+				executableDialog.setFilterNames(filterNames);
 
-		puttyFileDialog.setFilterExtensions(filterExtensions);
-		puttyFileDialog.setFilterNames(filterNames);
+				path = executableDialog.open();
+				if (path != null){
+					plinkPathItem.setText(path);
+				}
+				break;
 
-		String path = puttyFileDialog.open();
-		if (path != null){
-			puttyPathItem.setText(path);
-		}
-	}
+			case "keygen":
+				filterExtensions = new String[] {"*.exe", "*"};
+				filterNames = new String[] {"Key generator (*.exe)", "All Files (*)"};
+				// Set file dialog filters:
+				executableDialog.setFilterExtensions(filterExtensions);
+				executableDialog.setFilterNames(filterNames);
 
-	/**
-	 * Search for a key generator executable path.
-	 */
-	private void searchKeygenDialog(){
-		FileDialog puttyFileDialog = new FileDialog(dialog, SWT.OPEN);
-		String[] filterExtensions = new String[] {"*.exe", "*"};
-		String[] filterNames = new String[] {"Key generator (*.exe)", "All Files (*)"};
-
-		puttyFileDialog.setFilterExtensions(filterExtensions);
-		puttyFileDialog.setFilterNames(filterNames);
-
-		String path = puttyFileDialog.open();
-		if (path != null){
-			keygeneratorPathItem.setText(path);
+				path = executableDialog.open();
+				if (path != null){
+					keygenPathItem.setText(path);
+				}
 		}
 	}
 
 	@Override
 	public void widgetSelected(SelectionEvent e){
 		if (e.getSource() == puttyButton){
-			searchPuttyDialog("putty");
+			searchExecutableDialog("putty");
 		} else if (e.getSource() == plinkButton){
-			searchPuttyDialog("plink");
-		} else if (e.getSource() == keygeneratorButton){
-			searchKeygenDialog();
+			searchExecutableDialog("plink");
+		} else if (e.getSource() == keygenButton){
+			searchExecutableDialog("keygen");
 		} else if (e.getSource() == saveButton){
 			// Save changes to configuration:
 			MainFrame.configuration.setPuttyExecutable(puttyPathItem.getText());

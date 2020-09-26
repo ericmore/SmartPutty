@@ -1,7 +1,6 @@
 package Dao;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.net.util.Base64;
 import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.MessageDialog;
 
@@ -17,61 +17,116 @@ import Model.ConfigSession;
 import Model.Intranet;
 import Model.Protocol;
 import UI.MainFrame;
+import java.io.File;
+import java.io.FileInputStream;
+
 
 public class DBManager {
 	private final static Logger logger = Logger.getLogger(DBManager.class);
-	private final static String DATABASE_PATH = "database\\sessiondb";
+	private final static String DATABASE_PATH = "database\\";
+	private final static String DATABASE_NAME = "sessiondb";
 	private static DBManager manager = null;
 	private Connection conn = null;
+	private Base64 base64 = new Base64();
 
 	public boolean existCSessionTable = false, existIntranetTable = false;
 
 	private DBManager(){
+		String driver = "org.hsqldb.jdbcDriver";
+		String protocol = "jdbc:hsqldb:";
+		String user = "sa";
+		String password = "";
+		String sql = "";
+		Statement stmt = null;
+		ResultSet rs = null;
+
 		try {
-			String driver = "org.hsqldb.jdbcDriver";
-			String protocol = "jdbc:hsqldb:";
+			// Load JDBC driver:
 			Class.forName(driver).newInstance();
-			String user = "sa";
-			String password = "";
+
 			Properties props = new Properties();
 			props.put("user", user);
 			props.put("password", password);
 			props.put("jdbc.strict_md", "false");
 			props.put("jdbc.get_column_name", "false");
 			props.put("shutdown", "true");
-			conn = DriverManager.getConnection(protocol + DATABASE_PATH, props);
 
-			Statement state = conn.createStatement();
-			String[] str = {"TABLE"};
-			DatabaseMetaData meta = conn.getMetaData();
-			ResultSet result = meta.getTables("", null, null, str);
-			while (result.next()){
-				if (result.getString("TABLE_NAME").equals("CSESSION")){
-					existCSessionTable = true;
-				} else if (result.getString("TABLE_NAME").equals("INTRANET")){
-					existIntranetTable = true;
+			conn = DriverManager.getConnection(protocol + DATABASE_PATH + DATABASE_NAME, props);
+			logger.info("Connected to database");
+
+			stmt = conn.createStatement();
+
+			try {
+				sql = "SELECT count(*) FROM INFORMATION_SCHEMA.SYSTEM_TABLES WHERE table_schem='PUBLIC' AND table_name='CSESSION'";
+				rs = stmt.executeQuery(sql);
+				while (rs.next()){
+					if (rs.getInt(1) == 1){ // If one row is returned, table exists
+						existCSessionTable = true;
+						logger.debug("OK: CSESSION table exists");
+					}
 				}
 
+				sql = "SELECT count(*) FROM INFORMATION_SCHEMA.SYSTEM_TABLES WHERE table_schem='PUBLIC' AND table_name='INTRANET'";
+				rs = stmt.executeQuery(sql);
+				while (rs.next()){
+					if (rs.getInt(1) == 1){ // If one row is returned, table exists
+						existIntranetTable = true;
+						logger.debug("OK: INTRANET table exists");
+					}
+				}
+			} catch (SQLException e){
+				logger.error(ExceptionUtils.getStackTrace(e));
+			} finally {
+				rs.close();
 			}
-			result.close();
+
+			// Check if needed tables exist:
 			if (!existCSessionTable){
-				String sql = "CREATE TABLE CSession(Host varchar(50), Port varchar(10), User varchar(50), Protocol varchar(10), Key varchar(100), Password varchar(50), PRIMARY KEY (Host,Port,User,Protocol))";
-				state.execute(sql);
+				ExecuteScript(stmt, "csession.sql");
 			}
 			if (!existIntranetTable){
-				String sql = "CREATE TABLE Intranet(ID varchar(50),Password varchar(50), Desthost varchar(50), PRIMARY KEY (ID,Desthost))";
-				state.execute(sql);
-
+				ExecuteScript(stmt, "intranet.sql");
 			}
-
-			state.close();
-
 		} catch (Exception e){
 			logger.error(ExceptionUtils.getStackTrace(e));
-			System.exit(-1);
+//			System.exit(-1);
+		}
+
+		// Release database resources:
+		try {
+			stmt.close();
+		} catch (SQLException e){
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 	}
 
+	/**
+	 * To execute a single SQL script.
+	 * @param stmt Statement.
+	 * @param script SQL script to execute.
+	 */
+	private void ExecuteScript(Statement stmt, String script){
+		try {
+			File objBatch=new File(DATABASE_PATH + script);
+			if (objBatch.exists()){
+				FileInputStream objStream=new FileInputStream(objBatch);
+				String strFileContent=new java.util.Scanner(objStream,"UTF-8").useDelimiter("\\A").next();
+				String[] arrCommands=strFileContent.split(";");
+
+				for(String strCommand : arrCommands){
+					stmt.addBatch(strCommand);
+				}
+				stmt.executeBatch();
+				logger.debug("OK: SQL script " + DATABASE_PATH + script + " executed");
+			} else {
+				logger.error("Cannot find database SQL script: " + DATABASE_PATH + script);
+			}
+		} catch (SQLException e){
+			logger.error(ExceptionUtils.getStackTrace(e));
+		} catch (Exception e){
+			logger.error(ExceptionUtils.getStackTrace(e));
+		}
+	}
 
 	public static DBManager getDBManagerInstance(){
 		if (manager == null){
@@ -86,7 +141,7 @@ public class DBManager {
 		String user = csession.getUser();
 		String protocol = csession.getProtocol().name();
 		String key = csession.getKey();
-		String password = Base64Util.encodeBASE64(csession.getPassword());
+		String password = new String(base64.encode((csession.getPassword()).getBytes()));
 		if (host.isEmpty() || port.isEmpty() || user.isEmpty() || protocol.isEmpty()){
 			MessageDialog.openWarning(MainFrame.shell, "Warning", "host,port,user,protocol should not be set to null");
 			return;
@@ -145,7 +200,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result.add(confSession);
 			}
 
@@ -172,7 +227,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result.add(confSession);
 			}
 			rs.close();
@@ -198,7 +253,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result.add(confSession);
 			}
 			rs.close();
@@ -226,7 +281,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result = confSession;
 			}
 			rs.close();
@@ -256,7 +311,7 @@ public class DBManager {
 					rs.getString("User"),
 					Protocol.valueOf(rs.getString("Protocol")),
 					rs.getString("Key"),
-					Base64Util.decodeBASE64(rs.getString("Password")));
+					new String(base64.decode(rs.getString("Password"))));
 				result = confSession;
 			}
 			rs.close();
@@ -291,104 +346,10 @@ public class DBManager {
 		return isExist;
 	}
 
-	public ArrayList<Intranet> getAllIntranets(){
-		ArrayList<Intranet> result = new ArrayList<Intranet>();
-		String sql = "SELECT *  FROM Intranet";
+	
 
-		try {
-			Statement state = conn.createStatement();
-			ResultSet rs = state.executeQuery(sql);
-			while (rs.next()){
-				result.add(new Intranet(
-					rs.getString("ID"),
-					Base64Util.decodeBASE64(rs.getString("Password")),
-					rs.getString("Desthost")));
-			}
-			rs.close();
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-		return result;
-	}
-
-	public Intranet queryIntranet(Intranet intranet){
-		try {
-			String sql = "SELECT *  FROM Intranet WHERE ID='" + intranet.getIntranetID() + "' AND DestHost='" + intranet.getDesthost() + "'";
-			Statement state = conn.createStatement();
-			ResultSet rs = state.executeQuery(sql);
-			while (rs.next()){
-				return new Intranet(
-					rs.getString("ID"),
-					Base64Util.decodeBASE64(rs.getString("Password")),
-					rs.getString("DestHost"));
-			}
-			rs.close();
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public void insertIntranet(Intranet intranet){
-		String intranetID = intranet.getIntranetID();
-		String intranetPassword = Base64Util.encodeBASE64(intranet.getIntranetPassword());
-		String desthost = intranet.getDesthost();
-		if (intranetID.equals("") || desthost.equals("")){
-			MessageDialog.openWarning(MainFrame.shell, "warning", "intranetID,DestHost can not be set to null");
-			return;
-		}
-		if (isIntranetExist(intranet)){
-			deleteIntranet(intranet);
-		}
-
-		String sql = "INSERT INTO Intranet VALUES('" + intranetID + "','"
-			+ intranetPassword + "','"
-			+ desthost + "')";
-
-		try {
-			Statement state = conn.createStatement();
-			state.execute(sql);
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-	}
-
-	public void deleteIntranet(Intranet intranet){
-		if (!isIntranetExist(intranet)){
-			return;
-		}
-		try {
-			Statement state = conn.createStatement();
-			String sql = "DELETE FROM Intranet WHERE ID='"
-				+ intranet.getIntranetID() + "' AND Desthost='"
-				+ intranet.getDesthost() + "'";
-			state.execute(sql);
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-	}
-
-	private boolean isIntranetExist(Intranet intranet){
-		boolean ret = false;
-		try {
-			String sql = "SELECT *  FROM Intranet WHERE ID='" + intranet.getIntranetID() + "' AND Desthost='" + intranet.getDesthost() + "'";
-			Statement state = conn.createStatement();
-			ResultSet rs = state.executeQuery(sql);
-			while (rs.next()){
-				ret = true;
-				break;
-			}
-			rs.close();
-			state.close();
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-		return ret;
-	}
+	
+	
 
 	public void closeDB(){
 		try {

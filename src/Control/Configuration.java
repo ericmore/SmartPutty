@@ -18,8 +18,11 @@ import Model.ConstantValue;
 import Model.Program;
 import UI.MainFrame;
 import Utils.ReadXMLFile;
+import org.apache.log4j.Logger;
+
 
 public class Configuration {
+	final static Logger logger = Logger.getLogger(Configuration.class);
 	private final Properties prop;
 	private final Properties featureToggleProps;
 	
@@ -37,19 +40,18 @@ public class Configuration {
 
 	}
 
-	public void loadFeatureToggle() {
+	public void loadFeatureToggle(){
 		try {
 			featureToggleProps.load(new FileInputStream(ConstantValue.CONFIG_FEATURE_TOGGLE_FILE));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException ex){
+			logger.error(ex.getMessage());
 		}
 	}
 
 	/**
 	 * Save program configuration.
 	 */
-	public void saveConfiguration() {
+	public void saveConfiguration(){
 		try {
 			FileOutputStream fos = new FileOutputStream(ConstantValue.CONFIG_FILE);
 
@@ -66,28 +68,24 @@ public class Configuration {
 
 			prop.storeToXML(fos, "SmartPutty configuration file");
 			fos.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (FileNotFoundException fex){
+			logger.error(fex.getMessage());
+		} catch (IOException iex){
+			logger.error(iex.getMessage());
 		}
 	}
 
 	/**
 	 * Load program configuration.
 	 */
-	private void loadConfiguration() {
+	private void loadConfiguration(){
 		try {
 			FileInputStream fis = new FileInputStream(ConstantValue.CONFIG_FILE);
 			prop.loadFromXML(fis);
-		} catch (InvalidPropertiesFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (InvalidPropertiesFormatException ipfe){
+			logger.error(ipfe.getMessage());
+		} catch (IOException ioex){
+			logger.error(ioex.getMessage());
 		}
 
 		// prop.list(System.out); //DEBUG
@@ -121,6 +119,15 @@ public class Configuration {
 		String value = (String) prop.get("ViewConnectionBar");
 		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
 	}
+	
+	/**
+	 * Bottom Quick Bar be Visible  ?
+	 * @return
+	 */
+	public Boolean getBottomQuickBarVisible() {
+		String value = (String) prop.get("ViewBottomQuickBar");
+		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
+	}
 
 	/**
 	 * Get Putty/KiTTY executable path.
@@ -151,6 +158,51 @@ public class Configuration {
 		String value = (String) prop.get("KeyGeneratorExecutable");
 		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_KEYGEN.getPath() : value;
 	}
+	
+	/**
+	 * Get dictionary baseUrl, I put dict.youdao.com as a chines-english dictionary. User can customize it as to his own dict url
+	 * @return
+	 */
+	public String getDictionaryBaseUrl(){
+		String value = (String) prop.get("Dictionary");
+		return StringUtils.isEmpty(value) ? "http://dict.youdao.com/w/eng/" : value;
+	}
+	
+	/**
+	 * user can customize his username, in most case user may using his own username to login multiple linux, so provide a centralized username entry for user
+	 * @return
+	 */
+	public String getDefaultPuttyUsername(){
+		String value = (String) prop.get("DefaultPuttyUsername");
+		return StringUtils.isEmpty(value) ? "" : value;
+	}
+	
+
+	/**
+	 * get feature toggle config, we can config to enable/disable features by editing config/FeatureToggle.properties
+	 * @return
+	 */
+	public Properties getFeatureToggleProps() {
+		return featureToggleProps;
+	}
+	
+	/**
+	 * customize win path base prefix when converting path from linux and windows
+	 * @return
+	 */
+	public String getWinPathBaseDrive(){
+		String value = (String) prop.get("WindowsBaseDrive");
+		return StringUtils.isEmpty(value) ? "C:/" : value;
+	}
+	
+	/**
+	 * get welcome visible config
+	 * @return
+	 */
+	public Boolean getWelcomePageVisible(){
+		String value = (String) prop.get("ShowWelcomePage");
+		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
+	}
 
 	/**
 	 * Get main mindow position and size.
@@ -166,10 +218,10 @@ public class Configuration {
 			array = new String[4];
 
 			// Set default safety values:
-			array[0] = String.valueOf(ConstantValue.screenWidth / 6);
-			array[1] = String.valueOf(ConstantValue.screenHeight / 6);
-			array[2] = String.valueOf(2 * ConstantValue.screenWidth / 3);
-			array[3] = String.valueOf(2 * ConstantValue.screenHeight / 3);
+			array[0] = String.valueOf(ConstantValue.SCREEN_WIDTH / 6);
+			array[1] = String.valueOf(ConstantValue.SCREEN_HEIGHT / 6);
+			array[2] = String.valueOf(2 * ConstantValue.SCREEN_WIDTH / 3);
+			array[3] = String.valueOf(2 * ConstantValue.SCREEN_HEIGHT / 3);
 		}
 
 		return new Rectangle(Integer.parseInt(array[0]), Integer.parseInt(array[1]), Integer.parseInt(array[2]),
@@ -207,6 +259,10 @@ public class Configuration {
 	public void setConnectionBarVisible(String visible) {
 		prop.setProperty("ViewConnectionBar", visible);
 	}
+	
+	public void setBottomQuickBarVisible(String visible){
+		prop.setProperty("ViewBottomQuickBar", visible);
+	}
 
 	/**
 	 * Set Putty/KiTTY executable path.
@@ -242,13 +298,5 @@ public class Configuration {
 	 */
 	public void setWelcomePageVisible(String visible) {
 		prop.setProperty("ShowWelcomePage", visible);
-	}
-	
-	/**
-	 * get feature toggle config, we can config to enable/disable features by editing config/FeatureToggle.properties
-	 * @return
-	 */
-	public Properties getFeatureToggleProps() {
-		return featureToggleProps;
 	}
 }
