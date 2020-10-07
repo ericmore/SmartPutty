@@ -1,4 +1,5 @@
 #SmartPutty
+![homescreen](https://user-images.githubusercontent.com/5425276/95345562-7057b680-08ed-11eb-870f-b72e2c504d0a.jpg)
 <p>
 SSH,SCP,SFTP,VNC remote to Linux Machine from Windows.
 
