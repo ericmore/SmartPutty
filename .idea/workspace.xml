@@ -22,48 +22,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d5e05d3-196c-4a9b-bb72-624fdc7e8c20" name="Default" comment="restruct and move 32 / 64 lib to libArch">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e2dd301c-5367-4f4c-b934-71b9139bdbe0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e2dd301c-5367-4f4c-b934-71b9139bdbe0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e2dd301c-5367-4f4c-b934-71b9139bdbe0/storage_v2/_src_/database/SMARTPUTTY.DB.oYvl8w/schema/PUBLIC.aaZQjQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e2dd301c-5367-4f4c-b934-71b9139bdbe0/storage_v2/_src_/database/SMARTPUTTY.DB.oYvl8w/schema/PUBLIC.aaZQjQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e2dd301c-5367-4f4c-b934-71b9139bdbe0/storage_v2/_src_/database/SMARTPUTTY.DB.oYvl8w/schema/PUBLIC.aaZQjQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e2dd301c-5367-4f4c-b934-71b9139bdbe0/storage_v2/_src_/database/SMARTPUTTY.DB.oYvl8w/schema/PUBLIC.aaZQjQ.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__antlr_antlr_2_7_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_h2database_h2_1_4_200.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_istack_istack_commons_runtime_3_0_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_persistence_javax_persistence_api_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_bytebuddy_byte_buddy_1_10_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_dom4j_dom4j_2_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_jaxb_txw2_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_hibernate_core_5_4_22_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_javassist_javassist_3_24_0_GA.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_jandex_2_1_3_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_logging_jboss_logging_3_3_2_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jvnet_staxex_stax_ex_1_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_projectlombok_lombok_1_16_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_core_4_3_29_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SmartPutty.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SmartPutty.main.iml" afterDir="false" />
+    <list default="true" id="8d5e05d3-196c-4a9b-bb72-624fdc7e8c20" name="Default" comment="replace config file with DB systemConfig">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartPutty.log" beforeDir="false" afterPath="$PROJECT_DIR$/SmartPutty.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartPutty.DB.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartPutty.DB.script" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartPutty.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-x86.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build-x86.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid15944.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sessiondb.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sessiondb.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sessiondb.script" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Control/InvokeProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Control/InvokeProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Control/SmartConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Control/SmartConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Dao/SmartSessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Dao/SmartSessionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/ConstantValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Model/ConstantValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/UI/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/ProgramsLocationsDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/UI/ProgramsLocationsDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/MImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/UI/MImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/NewSessionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/UI/NewSessionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/disableProxy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon/disableproxy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/enableProxy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon/enableproxy.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +154,7 @@
     <property name="SearchEverywhereHistoryKey" value="add.png&#9;FILE&#9;file://D:/IdeaProjects/SmartPutty/icon/add.png" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/buildx86.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -187,20 +163,20 @@
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Code\SmartPutty" />
-      <recent name="E:\Code\SmartPutty\libArch" />
-      <recent name="D:\code\SmartPutty\lib" />
-      <recent name="D:\IdeaProjects\SmartPutty\doc\image" />
-      <recent name="D:\IdeaProjects\SmartPutty\app\putty" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Code\SmartPutty\src\main\resources" />
       <recent name="E:\Code\SmartPutty\src\main" />
       <recent name="E:\Code\SmartPutty\src\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\SmartPutty" />
+      <recent name="E:\Code\SmartPutty" />
+      <recent name="E:\Code\SmartPutty\libArch" />
+      <recent name="D:\code\SmartPutty\lib" />
+      <recent name="D:\IdeaProjects\SmartPutty\doc\image" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -208,7 +184,7 @@
       <command value="gradle build" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainFrame">
+  <component name="RunManager" selected="Gradle.SmartPutty [build]">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -354,6 +330,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SmartPutty [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="SmartPutty [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -373,6 +368,25 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="SmartPutty [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="classes" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="SmartPutty [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -385,25 +399,6 @@
         <option name="taskNames">
           <list>
             <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="SmartPutty [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -492,15 +487,17 @@
     <list>
       <item itemvalue="Application.MainFrame" />
       <item itemvalue="Gradle.SmartPutty [build]" />
-      <item itemvalue="Gradle.SmartPutty [jar]" />
       <item itemvalue="Gradle.SmartPutty [clean]" />
+      <item itemvalue="Gradle.SmartPutty [assemble]" />
+      <item itemvalue="Gradle.SmartPutty [classes]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainFrame" />
+        <item itemvalue="Gradle.SmartPutty [classes]" />
         <item itemvalue="Gradle.SmartPutty [build]" />
+        <item itemvalue="Gradle.SmartPutty [assemble]" />
         <item itemvalue="Gradle.SmartPutty [clean]" />
-        <item itemvalue="Gradle.SmartPutty [jar]" />
       </list>
     </recent_temporary>
   </component>
@@ -617,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602150451248</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="replace config file with DB systemConfig">
+      <created>1602166657958</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602166657958</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +659,8 @@
     <MESSAGE value="fix the connection bar add back protocal, port fields" />
     <MESSAGE value="remove duplicate port item and refine message for hostname/password" />
     <MESSAGE value="restruct and move 32 / 64 lib to libArch" />
-    <option name="LAST_COMMIT_MESSAGE" value="restruct and move 32 / 64 lib to libArch" />
+    <MESSAGE value="replace config file with DB systemConfig" />
+    <option name="LAST_COMMIT_MESSAGE" value="replace config file with DB systemConfig" />
   </component>
   <component name="WindowStateProjectService">
     <state x="569" y="193" key="#Gradle" timestamp="1602133548917">
@@ -684,62 +689,64 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="199" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150682792" />
-    <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602149277895">
+    <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602170008905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602170008905" />
     <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602149277895" />
     <state x="775" y="446" width="778" height="594" key="#xdebugger.evaluate" timestamp="1602150016271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="775" y="446" width="778" height="594" key="#xdebugger.evaluate/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150016271" />
-    <state width="461" height="466" key="DebuggerActiveHint" timestamp="1602150248835">
+    <state width="461" height="466" key="DebuggerActiveHint" timestamp="1602168813588">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="461" height="466" key="DebuggerActiveHint/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602168813588" />
     <state width="461" height="466" key="DebuggerActiveHint/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150248835" />
     <state x="688" y="212" key="FileChooserDialogImpl" timestamp="1602140059973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824/3840.0.1536.824@0.0.1536.824" timestamp="1602127390043" />
     <state x="688" y="212" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602140059973" />
-    <state width="1878" height="348" key="GridCell.Tab.0.bottom" timestamp="1602166501221">
+    <state width="1878" height="364" key="GridCell.Tab.0.bottom" timestamp="1602169996843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166501221" />
+    <state width="1878" height="364" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169996843" />
     <state width="1878" height="343" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150342096" />
-    <state width="1878" height="348" key="GridCell.Tab.0.center" timestamp="1602166501221">
+    <state width="1878" height="364" key="GridCell.Tab.0.center" timestamp="1602169996843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166501221" />
+    <state width="1878" height="364" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169996843" />
     <state width="1878" height="343" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150342096" />
-    <state width="1878" height="348" key="GridCell.Tab.0.left" timestamp="1602166501221">
+    <state width="1878" height="364" key="GridCell.Tab.0.left" timestamp="1602169996843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166501221" />
+    <state width="1878" height="364" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169996843" />
     <state width="1878" height="343" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150342095" />
-    <state width="1878" height="348" key="GridCell.Tab.0.right" timestamp="1602166501221">
+    <state width="1878" height="364" key="GridCell.Tab.0.right" timestamp="1602169996843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166501221" />
+    <state width="1878" height="364" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169996843" />
     <state width="1878" height="343" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150342096" />
-    <state width="1878" height="348" key="GridCell.Tab.1.bottom" timestamp="1602166494163">
+    <state width="1878" height="348" key="GridCell.Tab.1.bottom" timestamp="1602169084011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166494163" />
+    <state width="1878" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169084011" />
     <state width="1878" height="343" key="GridCell.Tab.1.bottom/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150338290" />
-    <state width="1878" height="348" key="GridCell.Tab.1.center" timestamp="1602166494163">
+    <state width="1878" height="348" key="GridCell.Tab.1.center" timestamp="1602169084011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166494163" />
+    <state width="1878" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169084011" />
     <state width="1878" height="343" key="GridCell.Tab.1.center/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150338290" />
-    <state width="1878" height="348" key="GridCell.Tab.1.left" timestamp="1602166494163">
+    <state width="1878" height="348" key="GridCell.Tab.1.left" timestamp="1602169084010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166494163" />
+    <state width="1878" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169084010" />
     <state width="1878" height="343" key="GridCell.Tab.1.left/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150338290" />
-    <state width="1878" height="348" key="GridCell.Tab.1.right" timestamp="1602166494163">
+    <state width="1878" height="348" key="GridCell.Tab.1.right" timestamp="1602169084011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166494163" />
+    <state width="1878" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169084011" />
     <state width="1878" height="343" key="GridCell.Tab.1.right/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150338290" />
     <state x="589" y="115" key="RollbackChangesDialog" timestamp="1602081580207">
       <screen x="0" y="0" width="1536" height="824" />
@@ -751,9 +758,10 @@
     <state x="271" y="0" key="SettingsEditor/0.0.1536.824/3840.0.1536.824@0.0.1536.824" timestamp="1602127065724" />
     <state x="485" y="191" key="SettingsEditor/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602163959406" />
     <state x="712" y="208" key="SettingsEditor/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602148711126" />
-    <state x="553" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602150494849">
+    <state x="553" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602166682957">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="553" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166682957" />
     <state x="553" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150494849" />
     <state x="489" y="256" width="940" height="639" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1602166447181">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -763,10 +771,10 @@
       <screen x="3840" y="0" width="1536" height="824" />
     </state>
     <state x="3995" y="161" width="967" height="716" maximized="true" key="dock-window-1/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602164720376" />
-    <state x="955" y="172" width="594" height="804" key="find.popup" timestamp="1602163326303">
+    <state x="955" y="172" width="594" height="804" key="find.popup" timestamp="1602168142622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="955" y="172" width="594" height="804" key="find.popup/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602163326303" />
+    <state x="955" y="172" width="594" height="804" key="find.popup/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602168142622" />
     <state x="955" y="172" width="594" height="804" key="find.popup/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602149236014" />
     <state x="151" y="96" key="new project wizard" timestamp="1602072854037">
       <screen x="0" y="0" width="1536" height="824" />
@@ -785,15 +793,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/UI/OpenSessionDialog.java</url>
-          <line>147</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/Control/InvokeProgram.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sp/Model/ConstantValue.java</url>
           <line>28</line>
@@ -821,18 +820,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sp/UI/NewSessionDialog.java</url>
-          <line>197</line>
+          <line>196</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sp/Control/InvokeProgram.java</url>
-          <line>35</line>
+          <line>34</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/Dao/ConfigService.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NumberFormatException" package="java.lang" />

@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Objects;
 
 import com.sp.Dao.SmartSessionManager;
-import com.sun.xml.internal.ws.util.StringUtils;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseListener;

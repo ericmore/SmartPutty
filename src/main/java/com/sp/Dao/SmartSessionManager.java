@@ -1,6 +1,5 @@
 package com.sp.Dao;
 
-import com.sp.Control.SmartConfiguration;
 import com.sp.Model.ConfigSession;
 import com.sp.Model.Protocol;
 import com.sp.Model.SystemConfig;
@@ -10,11 +9,10 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@SuppressWarnings({"deprecation","unchecked"})
 public class SmartSessionManager {
 
 
@@ -22,11 +20,8 @@ public class SmartSessionManager {
 
     public SmartSessionManager() {
         if (sessionFactory == null) {
-            try {
-                sessionFactory = new Configuration().configure(new ClassPathResource("hibernate.cfg.xml").getFile()).buildSessionFactory();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+
         }
     }
 
@@ -44,12 +39,10 @@ public class SmartSessionManager {
             tx = session.beginTransaction();
             session.save(entity);
             tx.commit(); // Flush happens automatically
-        }
-        catch (RuntimeException e) {
+        } catch (RuntimeException e) {
             tx.rollback();
             throw e; // or display error message
-        }
-        finally {
+        } finally {
             session.close();
         }
 
@@ -59,7 +52,7 @@ public class SmartSessionManager {
         sessionFactory.openSession().delete(entity);
     }
 
-    public List<SystemConfig> getAllSystemConfigs(){
+    public List<SystemConfig> getAllSystemConfigs() {
         return sessionFactory.openSession().createCriteria(SystemConfig.class).list();
     }
 
@@ -88,8 +81,6 @@ public class SmartSessionManager {
     public ConfigSession queryCSessionBySession(ConfigSession csession) {
         return getAllCSessions().stream().filter(e -> e.getId() == csession.getId()).findAny().orElse(null);
     }
-
-
 
 
     public void shutdown() {

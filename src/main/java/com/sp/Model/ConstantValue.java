@@ -22,8 +22,8 @@ public class ConstantValue {
 //    public static File CONFIG_BATCH_FILE;
 //    public static File CONFIG_FEATURE_TOGGLE_FILE;
 
-    public static int SMART_PUTTY_SESSION = 1;
-    public static int PURE_PUTTY_SESSION = 2;
+    public static int PURE_PUTTY_SESSION = 1;
+    public static int SMART_PUTTY_SESSION = 2;
 
     static {
 //        try {

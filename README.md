@@ -1,5 +1,5 @@
 #SmartPutty
-![homescreen](https://user-images.githubusercontent.com/5425276/95345562-7057b680-08ed-11eb-870f-b72e2c504d0a.jpg)
+
 <p>
 SSH,SCP,SFTP,VNC remote to Linux Machine from Windows.
 
@@ -21,17 +21,22 @@ SmartPutty for windows platform provides rock-solid terminal emulation for compu
 
 `gradle build` for win-64 bit jar
 
-windows 32 bit OS -  SmartPutty\build\libs\SmartPutty-x64.jar 
+windows 64 bit OS -  SmartPutty\build\distributions\SmartPutty-x64.zip 
 
 `gradle -b build-x86.gradle build` for win-32 bit jar
 
-windows 64 bit OS -  SmartPutty\build\libs\SmartPutty-x64.jar
+windows 32 bit OS -  SmartPutty\build\distributions\SmartPutty-x32.zip
 
+**Run it**
 
+unzip the distribution cd into root folder(must root folder) from cmd
+
+`cd SmartPutty\build\distributions\SmartPutty-x64`
+`java -jar SmartPutty-x64.jar`
 
 HomeScreen:
 
-![](https://github.com/ericmore/SmartPutty/blob/dev/doc/image/homescreen.jpg)
+![homescreen](https://user-images.githubusercontent.com/5425276/95345562-7057b680-08ed-11eb-870f-b72e2c504d0a.jpg)
 
 User Guide (Demo):
 https://github.com/ericmore/SmartPutty/wiki

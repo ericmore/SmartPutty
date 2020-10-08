@@ -8,89 +8,72 @@ apply plugin: 'application'
 
 
 repositories {
+	maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
 	maven { url "http://maven.springframework.org/release" }
-  	maven { url "http://maven.restlet.org" }
-    mavenCentral()
+	maven { url "http://maven.restlet.org" }
+	mavenCentral()
 }
 
 
 dependencies {
 	compile fileTree(dir: 'lib', include: '*.jar')
 	compile fileTree(dir: 'libArch', include: 'swt.x86_3.105.3.v20170228-0512.jar')
-    compile group: 'commons-io', name: 'commons-io', version: '2.5'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
-    compile group: 'commons-net', name: 'commons-net', version: '3.5'
-    compile group: 'org.hsqldb', name: 'hsqldb', version: '1.8.0.10'
-    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+	compile group: 'org.springframework', name: 'spring-core', version: '4.3.29.RELEASE'
+	compile group: 'commons-io', name: 'commons-io', version: '2.5'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+	compile group: 'commons-net', name: 'commons-net', version: '3.5'
+	compile group: 'com.h2database', name: 'h2', version: '1.4.200'
+	compile group: 'log4j', name: 'log4j', version: '1.2.17'
 	compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.22.Final'
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
 
 
 }
 
-distributions {
-    main {
-        contents {
-        	 into ('icon') {
-			        from 'icon'
-			      }
-
-			  from 'VERSION'
-			  into ('config') {from 'config'}
-			  into ('database') {from 'database'}
-			  into ('app') {from 'app'}
-			  into ('doc') {from 'doc'}
-        }
-    }
-}
 
 distTar.enabled = false
-distZip.shouldRunAfter('copyImage')
+//distZip.shouldRunAfter('copyImage')
 
 sourceSets {
-   main {
-      java {
-         srcDir 'src'
-      }
-      resources {
-	      srcDir 'src'
-	      include '*.properties'
-	      output.resourcesDir = 'build/resources/main'
-	    }
-   }
-	
-   // test {
-   //    java {
-   //       srcDir 'test'
-   //    }
-   // }
+	main {
+		java {
+			srcDir 'src/main/java'
+		}
+		resources {
+			srcDir 'src/main/resources'
+		}
+	}
 }
 
 task compile(type: JavaCompile) {
 	source = fileTree(dir: 'src', includes: ['**/*.java', '*.properties'])
 	destinationDir = file('build/classes/main')
-	// sourceCompatibility = '1.7'
-	// targetCompatibility = '1.7'
-	// dependencyCacheDir = ???
-	// from('icon') {
- //        include '*'
- //        into('build/classes/main')
- //    }
-	// from 'icon'
-	// into 'build/classes/main'
 }
 
 
-task copyImage(type: Copy) {
-	println 'copy images'
-	from 'icon'
-	into 'build/libs/icon'
+distributions {
+	main {
+		contents {
+			into('icon') {
+				from 'icon'
+			}
+
+			from 'VERSION'
+			into('config') { from 'config' }
+			into('database') { from 'database' }
+			into('app') { from 'src/main/resources/app' }
+			into('doc') { from 'doc' }
+		}
+	}
 }
-
-
+distZip {
+	archiveName "SmartPutty-x86.zip"
+}
 
 jar {
 	manifest {
-		attributes (
+		attributes(
 				'Main-Class': 'com.sp.UI.MainFrame',
 		)
 	}
@@ -100,10 +83,8 @@ jar {
 		exclude 'META-INF/*.DSA'
 		exclude 'META-INF/*.RSA'
 	}
-
 	baseName 'SmartPutty-x86'
 }
-
 
 
 mainClassName = 'com.sp.UI.MainFrame'

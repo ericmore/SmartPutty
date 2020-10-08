@@ -20,7 +20,6 @@ import com.sp.Model.Program;
 import com.sp.UI.MainFrame;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
-import sun.security.krb5.Config;
 
 public class InvokeProgram extends Thread {
     final static Logger logger = Logger.getLogger(InvokeProgram.class);
@@ -49,8 +48,8 @@ public class InvokeProgram extends Thread {
     public static void setWindowFocus(int hwnd) {
         // OS.SendMessage(hwnd, OS.WM_SETFOCUS, 0, 0);
         // OS.SetCapture(hwnd);
-        OS.SetForegroundWindow(hwnd);
-        OS.SetCursor(hwnd);
+//        OS.SetForegroundWindow(hwnd);
+//        OS.SetCursor(hwnd);
     }
 
     public static void setMainWinowFous() {

@@ -33,7 +33,7 @@ dependencies {
 
 
 distTar.enabled = false
-distZip.shouldRunAfter('copyImage')
+//distZip.shouldRunAfter('copyImage')
 
 sourceSets {
     main {
@@ -52,12 +52,24 @@ task compile(type: JavaCompile) {
 }
 
 
-task copyImage(type: Copy) {
-    println 'copy images'
-    from 'icon'
-    into 'build/libs/icon'
-}
+distributions {
+    main {
+        contents {
+            into('icon') {
+                from 'icon'
+            }
 
+            from 'VERSION'
+            into('config') { from 'config' }
+            into('database') { from 'database' }
+            into('app') { from 'src/main/resources/app' }
+            into('doc') { from 'doc' }
+        }
+    }
+}
+distZip {
+    archiveName "SmartPutty-x64.zip"
+}
 
 jar {
     manifest {
