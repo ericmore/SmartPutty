@@ -4,6 +4,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 
+import com.sp.Dao.ConfigService;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -19,6 +20,7 @@ import com.sp.Model.Program;
 import com.sp.UI.MainFrame;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
+import sun.security.krb5.Config;
 
 public class InvokeProgram extends Thread {
     final static Logger logger = Logger.getLogger(InvokeProgram.class);
@@ -31,6 +33,7 @@ public class InvokeProgram extends Thread {
         this.composite = composite;
         this.tabItem = tabItem;
         this.session = session;
+
     }
 
     @Override
@@ -108,6 +111,7 @@ public class InvokeProgram extends Thread {
      * @param session
      */
     public void invokePutty(ConfigSession session) {
+        ConfigService configService = new ConfigService();
         // Mount command-line Putty parameters:
         String tabDisplayName = "session";
         if (session.getSessionType() == ConstantValue.PURE_PUTTY_SESSION) {
@@ -170,7 +174,7 @@ public class InvokeProgram extends Thread {
         int count = 15;
         int hwnd = 0;
         while (count > 0 && (hwnd = (int) OS.FindWindow(new TCHAR(0, "PuTTY", true), null)) == 0) {
-            int waitingTime = Integer.parseInt(MainFrame.configuration.getWaitForInitTime());
+            int waitingTime = Integer.parseInt(configService.getSystemValue("WaitForInitTime"));
             try {
                 Thread.sleep(waitingTime);
             } catch (InterruptedException e) {

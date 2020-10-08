@@ -2,6 +2,7 @@ package com.sp.UI;
 
 import com.sp.Control.SmartConfiguration;
 import com.sp.Control.InvokeProgram;
+import com.sp.Dao.ConfigService;
 import com.sp.Dao.SmartSessionManager;
 import com.sp.Model.*;
 import com.sp.Model.BorderLayout;
@@ -41,6 +42,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	public static SmartSessionManager smartSessionManager;
 	final public static Shell shell = new Shell(display);
 	public static SmartConfiguration configuration;
+	private ConfigService configService;
 	private MenuItem openItem, newItem, captureItem, remoteDesktopItem, exitItem, updateItem, webcomeMenuItem,
 			reloadPopItem, clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem,
 			openPuttyItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem,
@@ -80,6 +82,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Get dbmanager instance:
 		smartSessionManager = new SmartSessionManager();
+
+
 //		bar.setSelection(3);
 
 		// Main menu:
@@ -253,25 +257,25 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		application.setText("Application");
 		Menu applicationMenu = new Menu(shell, SWT.DROP_DOWN);
 		application.setMenu(applicationMenu);
-		List<HashMap<String, String>> listMenuItems = configuration.getBatchConfig();
-		for (HashMap<String, String> menuHashMap : listMenuItems) {
-			String type = menuHashMap.get("type");
-			if (type == null || type.equals("seperator")) {
-				new MenuItem(applicationMenu, SWT.SEPARATOR);
-				continue;
-			}
-			String path = menuHashMap.get("path") == null ? "N/A" : menuHashMap.get("path");
-			String argument = menuHashMap.get("argument") == null ? "N/A" : menuHashMap.get("argument");
-			String description = menuHashMap.get("description") == null ? "N/A" : menuHashMap.get("description");
-			MenuItem menuItem = new MenuItem(applicationMenu, SWT.PUSH);
-			menuItem.setText(description);
-			// menuItem.setToolTipText(path + " " + argument);
-			menuItem.setData("path", path);
-			menuItem.setData("argument", argument);
-			menuItem.setData("description", description);
-			menuItem.setData("type", "dynamicApplication");
-			menuItem.addSelectionListener(this);
-		}
+//		List<HashMap<String, String>> listMenuItems = configuration.getBatchConfig();
+//		for (HashMap<String, String> menuHashMap : listMenuItems) {
+//			String type = menuHashMap.get("type");
+//			if (type == null || type.equals("seperator")) {
+//				new MenuItem(applicationMenu, SWT.SEPARATOR);
+//				continue;
+//			}
+//			String path = menuHashMap.get("path") == null ? "N/A" : menuHashMap.get("path");
+//			String argument = menuHashMap.get("argument") == null ? "N/A" : menuHashMap.get("argument");
+//			String description = menuHashMap.get("description") == null ? "N/A" : menuHashMap.get("description");
+//			MenuItem menuItem = new MenuItem(applicationMenu, SWT.PUSH);
+//			menuItem.setText(description);
+//			// menuItem.setToolTipText(path + " " + argument);
+//			menuItem.setData("path", path);
+//			menuItem.setData("argument", argument);
+//			menuItem.setData("description", description);
+//			menuItem.setData("type", "dynamicApplication");
+//			menuItem.addSelectionListener(this);
+//		}
 
 		// Menu: About
 		MenuItem about = new MenuItem(menu, SWT.CASCADE);
@@ -557,6 +561,9 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private void loadConfiguration() {
 		InvokeProgram.killPuttyWarningsAndErrs();
 		configuration = new SmartConfiguration();
+		// Load config service
+		configService = new ConfigService();
+		configService.initSystemConfig();
 	}
 
 	private void showWelcomeTab(String url) {
@@ -689,7 +696,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		smartSessionManager.shutdown();
 
 		// Save configuration:
-		configuration.saveConfiguration();
+//		configuration.saveConfiguration();
 	}
 
 	/**
@@ -717,17 +724,17 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	 * check the feature toggle, dispose the features who equals to "false"
 	 */
 	private void applyFeatureToggle() {
-		Properties props = configuration.getFeatureToggleProps();
-		boolean bVnc = "true".equalsIgnoreCase(props.getProperty("vnc", "true"));
-		if (!bVnc) {
-			this.vncPopItem.dispose();
-			this.itemVNC.dispose();
-		}
-
-		boolean bTransfer = "true".equalsIgnoreCase(props.getProperty("transfer", "true"));
-		if (!bTransfer) {
-			this.transferPopItem.dispose();
-		}
+//		Properties props = configuration.getFeatureToggleProps();
+//		boolean bVnc = "true".equalsIgnoreCase(props.getProperty("vnc", "true"));
+//		if (!bVnc) {
+//			this.vncPopItem.dispose();
+//			this.itemVNC.dispose();
+//		}
+//
+//		boolean bTransfer = "true".equalsIgnoreCase(props.getProperty("transfer", "true"));
+//		if (!bTransfer) {
+//			this.transferPopItem.dispose();
+//		}
 	}
 
 	/**
@@ -809,15 +816,16 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		} else if (e.getSource() == utilitiesBarMenuItem) {
 			Boolean visible = utilitiesBarMenuItem.getSelection();
 			setCompositeVisible(utilitiesToolbar, shell, visible);
-			configuration.setUtilitiesBarVisible(String.valueOf(visible));
+			//TODO: hide/show function not implemented, comment for convient
+//			configuration.setUtilitiesBarVisible(String.valueOf(visible));
 		} else if (e.getSource() == connectionBarMenuItem) {
 			Boolean visible = connectionBarMenuItem.getSelection();
 			setCompositeVisible(connectGroup, shell, visible);
-			configuration.setConnectionBarVisible(String.valueOf(visible));
+//			configuration.setConnectionBarVisible(String.valueOf(visible));
 		} else if (e.getSource() == bottomQuickBarMenuItem) {
 			Boolean visible = bottomQuickBarMenuItem.getSelection();
 			setCompositeVisible(quickBottomGroup, shell, visible);
-			configuration.setBottomQuickBarVisible(String.valueOf(visible));
+//			configuration.setBottomQuickBarVisible(String.valueOf(visible));
 		}
 
 		else if (e.getSource() == configProgramsLocationsItem) {

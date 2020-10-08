@@ -3,6 +3,7 @@ package com.sp.Dao;
 import com.sp.Control.SmartConfiguration;
 import com.sp.Model.ConfigSession;
 import com.sp.Model.Protocol;
+import com.sp.Model.SystemConfig;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -58,6 +59,10 @@ public class SmartSessionManager {
         sessionFactory.openSession().delete(entity);
     }
 
+    public List<SystemConfig> getAllSystemConfigs(){
+        return sessionFactory.openSession().createCriteria(SystemConfig.class).list();
+    }
+
     public List<ConfigSession> getAllCSessions() {
         return sessionFactory.openSession().createCriteria(ConfigSession.class).list();
     }
@@ -83,6 +88,8 @@ public class SmartSessionManager {
     public ConfigSession queryCSessionBySession(ConfigSession csession) {
         return getAllCSessions().stream().filter(e -> e.getId() == csession.getId()).findAny().orElse(null);
     }
+
+
 
 
     public void shutdown() {

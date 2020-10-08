@@ -212,10 +212,11 @@ public class ProgramsLocationsDialog implements SelectionListener, MouseListener
 		} else if (e.getSource() == keygenButton){
 			searchExecutableDialog("keygen");
 		} else if (e.getSource() == saveButton){
+			//TODO: not implement update
 			// Save changes to configuration:
-			MainFrame.configuration.setPuttyExecutable(puttyPathItem.getText());
-			MainFrame.configuration.setPlinkExecutable(plinkPathItem.getText());
-			MainFrame.configuration.saveConfiguration();
+//			MainFrame.configuration.setPuttyExecutable(puttyPathItem.getText());
+//			MainFrame.configuration.setPlinkExecutable(plinkPathItem.getText());
+//			MainFrame.configuration.saveConfiguration();
 
 			dialog.dispose();
 		} else if (e.getSource() == cancelButton){

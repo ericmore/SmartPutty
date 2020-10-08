@@ -8,6 +8,7 @@ apply plugin: 'application'
 
 
 repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     maven { url "http://maven.springframework.org/release" }
     maven { url "http://maven.restlet.org" }
     mavenCentral()
@@ -25,7 +26,7 @@ dependencies {
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.22.Final'
-    compile group: 'org.projectlombok', name:'lombok', version:'1.16.10'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
 
 
 }

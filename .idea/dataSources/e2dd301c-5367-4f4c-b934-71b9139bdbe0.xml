@@ -183,45 +183,48 @@
     <table id="165" parent="4" name="CONFIGSESSION">
       <ObjectId>3</ObjectId>
     </table>
-    <column id="166" parent="165" name="ID">
+    <table id="166" parent="4" name="SYSTEMCONFIG">
+      <ObjectId>7</ObjectId>
+    </table>
+    <column id="167" parent="165" name="ID">
       <Position>1</Position>
       <DataType>BIGINT|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="167" parent="165" name="FILE">
+    <column id="168" parent="165" name="FILE">
       <Position>2</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="168" parent="165" name="HOST">
+    <column id="169" parent="165" name="HOST">
       <Position>3</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="169" parent="165" name="PASSWORD">
+    <column id="170" parent="165" name="PASSWORD">
       <Position>4</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="170" parent="165" name="PORT">
+    <column id="171" parent="165" name="PORT">
       <Position>5</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="171" parent="165" name="PROTOCOL">
+    <column id="172" parent="165" name="PROTOCOL">
       <Position>6</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="172" parent="165" name="PUTTYSESSION">
+    <column id="173" parent="165" name="PUTTYSESSION">
       <Position>7</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <column id="173" parent="165" name="SESSIONTYPE">
+    <column id="174" parent="165" name="SESSIONTYPE">
       <Position>8</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="174" parent="165" name="USER">
+    <column id="175" parent="165" name="USER">
       <Position>9</Position>
       <DataType>VARCHAR(255)|0s</DataType>
     </column>
-    <index id="175" parent="165" name="PRIMARY_KEY_A">
+    <index id="176" parent="165" name="PRIMARY_KEY_A">
       <ObjectId>4</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <SourceTextLength>77</SourceTextLength>
@@ -229,10 +232,45 @@
       <Unique>1</Unique>
       <AutoCreated>1</AutoCreated>
     </index>
-    <key id="176" parent="165" name="CONSTRAINT_A">
+    <key id="177" parent="165" name="CONSTRAINT_A">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
+    <column id="178" parent="166" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="179" parent="166" name="KEY">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+    </column>
+    <column id="180" parent="166" name="VALUE">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+    </column>
+    <index id="181" parent="166" name="PRIMARY_KEY_7">
+      <ObjectId>8</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>76</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="182" parent="166" name="UK_JHOQLLBMYRG5G9LKVJ72PE875_INDEX_7">
+      <ObjectId>10</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>101</SourceTextLength>
+      <ColNames>KEY</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="183" parent="166" name="CONSTRAINT_7">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="184" parent="166" name="UK_JHOQLLBMYRG5G9LKVJ72PE875"/>
   </database-model>
 </dataSource>

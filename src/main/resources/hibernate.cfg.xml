@@ -33,6 +33,7 @@
         <property name="hbm2ddl.auto">update</property>
 
         <mapping class="com.sp.Model.ConfigSession"/>
+        <mapping class="com.sp.Model.SystemConfig"/>
 
     </session-factory>
 

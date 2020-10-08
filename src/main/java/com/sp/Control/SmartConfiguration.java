@@ -9,6 +9,8 @@ import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 import java.util.Properties;
 
+import com.sp.Dao.ConfigService;
+import com.sp.Model.SystemConfig;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.swt.graphics.Rectangle;
@@ -22,82 +24,74 @@ import org.apache.log4j.Logger;
 
 public class SmartConfiguration {
 	final static Logger logger = Logger.getLogger(SmartConfiguration.class);
-	private final Properties prop;
-	private final Properties featureToggleProps;
-	
+//	private final Properties prop;
+//	private final Properties featureToggleProps;
 
-	private final List<HashMap<String, String>> batchConfigListMap;
+	ConfigService configService;
+//	private final List<HashMap<String, String>> batchConfigListMap;
 
 	// Constructor:
 	public SmartConfiguration() {
-
-		this.prop = new Properties();
-		this.featureToggleProps = new Properties();
+		configService = new ConfigService();
+//		this.prop = new Properties();
+//		this.featureToggleProps = new Properties();
 		loadConfiguration();
-		loadFeatureToggle();
-		this.batchConfigListMap = ReadXMLFile.parse(ConstantValue.CONFIG_BATCH_FILE);
+//		loadFeatureToggle();
+//		this.batchConfigListMap = ReadXMLFile.parse(ConstantValue.CONFIG_BATCH_FILE);
 
 	}
 
-	public void loadFeatureToggle(){
-		try {
-			featureToggleProps.load(new FileInputStream(ConstantValue.CONFIG_FEATURE_TOGGLE_FILE));
-		} catch (IOException ex){
-			logger.error(ex.getMessage());
-		}
-	}
+//	public void loadFeatureToggle(){
+//		try {
+//			featureToggleProps.load(new FileInputStream(ConstantValue.CONFIG_FEATURE_TOGGLE_FILE));
+//		} catch (IOException ex){
+//			logger.error(ex.getMessage());
+//		}
+//	}
 
 	/**
 	 * Save program configuration.
 	 */
-	public void saveConfiguration(){
-		try {
-			FileOutputStream fos = new FileOutputStream(ConstantValue.CONFIG_FILE);
-
-			prop.setProperty("WaitForInitTime", prop.getProperty("WaitForInitTime"));
-			// Main window viewable toolbars:
-			prop.setProperty("ViewUtilitiesBar", String.valueOf(getUtilitiesBarVisible()));
-			prop.setProperty("ViewConnectionBar", String.valueOf(getConnectionBarVisible()));
-			// Putty and Plink paths:
-			prop.setProperty("PuttyExecutable", getPuttyExecutable());
-			prop.setProperty("PlinkExecutable", getPlinkExecutable());
-			prop.setProperty("KeyGeneratorExecutable", getKeyGeneratorExecutable());
-			// Main windows position and size:
-			prop.setProperty("WindowPositionSize", getWindowPositionSizeString());
-
-			prop.storeToXML(fos, "SmartPutty configuration file");
-			fos.close();
-		} catch (FileNotFoundException fex){
-			logger.error(fex.getMessage());
-		} catch (IOException iex){
-			logger.error(iex.getMessage());
-		}
-	}
+//	public void saveConfiguration(){
+//		try {
+//			FileOutputStream fos = new FileOutputStream(ConstantValue.CONFIG_FILE);
+//
+//			prop.setProperty("WaitForInitTime", prop.getProperty("WaitForInitTime"));
+//			// Main window viewable toolbars:
+//			prop.setProperty("ViewUtilitiesBar", String.valueOf(getUtilitiesBarVisible()));
+//			prop.setProperty("ViewConnectionBar", String.valueOf(getConnectionBarVisible()));
+//			// Putty and Plink paths:
+//			prop.setProperty("PuttyExecutable", getPuttyExecutable());
+//			prop.setProperty("PlinkExecutable", getPlinkExecutable());
+//			prop.setProperty("KeyGeneratorExecutable", getKeyGeneratorExecutable());
+//			// Main windows position and size:
+//			prop.setProperty("WindowPositionSize", getWindowPositionSizeString());
+//
+//			prop.storeToXML(fos, "SmartPutty configuration file");
+//			fos.close();
+//		} catch (FileNotFoundException fex){
+//			logger.error(fex.getMessage());
+//		} catch (IOException iex){
+//			logger.error(iex.getMessage());
+//		}
+//	}
 
 	/**
 	 * Load program configuration.
 	 */
 	private void loadConfiguration(){
-		try {
-			FileInputStream fis = new FileInputStream(ConstantValue.CONFIG_FILE);
-			prop.loadFromXML(fis);
-		} catch (InvalidPropertiesFormatException ipfe){
-			logger.error(ipfe.getMessage());
-		} catch (IOException ioex){
-			logger.error(ioex.getMessage());
-		}
+		List<SystemConfig> systemConfigs = configService.loadAllConfig();
 
-		// prop.list(System.out); //DEBUG
 	}
 
 	// Get methods:
-	public List<HashMap<String, String>> getBatchConfig() {
-		return this.batchConfigListMap;
-	}
+//	public List<HashMap<String, String>> getBatchConfig() {
+//		return this.batchConfigListMap;
+//	}
 
-	public String getWaitForInitTime() {
-		return (String) prop.get("WaitForInitTime");
-	}
+//	public String getWaitForInitTime() {
+//		return (String) prop.get("WaitForInitTime");
+//	}
 
 	/**
 	 * Utilities bar must be visible?
@@ -105,8 +99,7 @@ public class SmartConfiguration {
 	 * @return
 	 */
 	public Boolean getUtilitiesBarVisible() {
-		String value = (String) prop.get("ViewUtilitiesBar");
-		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
+		return configService.getSystemValueBoolean("ViewUtilitiesBar");
 	}
 
 	/**
@@ -115,8 +108,7 @@ public class SmartConfiguration {
 	 * @return
 	 */
 	public Boolean getConnectionBarVisible() {
-		String value = (String) prop.get("ViewConnectionBar");
-		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
+		return configService.getSystemValueBoolean("ViewConnectionBar");
 	}
 	
 	/**
@@ -124,8 +116,7 @@ public class SmartConfiguration {
 	 * @return
 	 */
 	public Boolean getBottomQuickBarVisible() {
-		String value = (String) prop.get("ViewBottomQuickBar");
-		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
+		return configService.getSystemValueBoolean("ViewBottomQuickBar");
 	}
 
 	/**
@@ -134,8 +125,8 @@ public class SmartConfiguration {
 	 * @return
 	 */
 	public String getPuttyExecutable() {
-		String value = (String) prop.get("PuttyExecutable");
-		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_PUTTY.getPath() : value;
+		return configService.getSystemValue("PuttyExecutable");
+//		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_PUTTY.getPath() : value;
 	}
 
 	/**
@@ -144,8 +135,8 @@ public class SmartConfiguration {
 	 * @return
 	 */
 	public String getPlinkExecutable() {
-		String value = (String) prop.get("PlinkExecutable");
-		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_PLINK.getPath() : value;
+		return configService.getSystemValue("PlinkExecutable");
+//		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_PLINK.getPath() : value;
 	}
 
 	/**
@@ -154,8 +145,8 @@ public class SmartConfiguration {
 	 * @return
 	 */
 	public String getKeyGeneratorExecutable() {
-		String value = (String) prop.get("KeyGeneratorExecutable");
-		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_KEYGEN.getPath() : value;
+		return configService.getSystemValue("KeyGeneratorExecutable");
+//		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_KEYGEN.getPath() : value;
 	}
 	
 	/**
@@ -163,8 +154,9 @@ public class SmartConfiguration {
 	 * @return
 	 */
 	public String getDictionaryBaseUrl(){
-		String value = (String) prop.get("Dictionary");
-		return StringUtils.isEmpty(value) ? "http://dict.youdao.com/w/eng/" : value;
+		return configService.getSystemValue("Dictionary");
+//		String value = (String) prop.get("Dictionary");
+//		return StringUtils.isEmpty(value) ? "http://dict.youdao.com/w/eng/" : value;
 	}
 	
 	/**
@@ -172,8 +164,9 @@ public class SmartConfiguration {
 	 * @return
 	 */
 	public String getDefaultPuttyUsername(){
-		String value = (String) prop.get("DefaultPuttyUsername");
-		return StringUtils.isEmpty(value) ? "" : value;
+		return configService.getSystemValue("DefaultPuttyUsername");
+//		String value = (String) prop.get("DefaultPuttyUsername");
+//		return StringUtils.isEmpty(value) ? "" : value;
 	}
 	
 
@@ -181,17 +174,18 @@ public class SmartConfiguration {
 	 * get feature toggle config, we can config to enable/disable features by editing config/FeatureToggle.properties
 	 * @return
 	 */
-	public Properties getFeatureToggleProps() {
-		return featureToggleProps;
-	}
+//	public Properties getFeatureToggleProps() {
+//		return featureToggleProps;
+//	}
 	
 	/**
 	 * customize win path base prefix when converting path from linux and windows
 	 * @return
 	 */
 	public String getWinPathBaseDrive(){
-		String value = (String) prop.get("WindowsBaseDrive");
-		return StringUtils.isEmpty(value) ? "C:/" : value;
+		return configService.getSystemValue("WindowsBaseDrive");
+//		String value = (String) prop.get("WindowsBaseDrive");
+//		return StringUtils.isEmpty(value) ? "C:/" : value;
 	}
 	
 	/**
@@ -199,8 +193,9 @@ public class SmartConfiguration {
 	 * @return
 	 */
 	public Boolean getWelcomePageVisible(){
-		String value = (String) prop.get("ShowWelcomePage");
-		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
+		return configService.getSystemValueBoolean("ShowWelcomePage");
+//		String value = (String) prop.get("ShowWelcomePage");
+//		return StringUtils.isEmpty(value) ? true : BooleanUtils.toBoolean(value);
 	}
 
 	/**
@@ -210,7 +205,8 @@ public class SmartConfiguration {
 	 */
 	public Rectangle getWindowPositionSize() {
 		// Split comma-separated values by x, y, width, height:
-		String[] array = ((String) prop.get("WindowPositionSize")).split(",");
+		String[] array = configService.getSystemValue("WindowPositionSize").split(",");
+//		String[] array = ((String) prop.get("WindowPositionSize")).split(",");
 
 		// If there aren't enough pieces of information...
 		if (array.length < 4) {
@@ -246,56 +242,56 @@ public class SmartConfiguration {
 	 * 
 	 * @param visible
 	 */
-	public void setUtilitiesBarVisible(String visible) {
-		prop.setProperty("ViewUtilitiesBar", visible);
-	}
+//	public void setUtilitiesBarVisible(String visible) {
+//		prop.setProperty("ViewUtilitiesBar", visible);
+//	}
 
 	/**
 	 * Set connection bar visible status.
 	 * 
 	 * @param visible
 	 */
-	public void setConnectionBarVisible(String visible) {
-		prop.setProperty("ViewConnectionBar", visible);
-	}
+//	public void setConnectionBarVisible(String visible) {
+//		prop.setProperty("ViewConnectionBar", visible);
+//	}
 	
-	public void setBottomQuickBarVisible(String visible){
-		prop.setProperty("ViewBottomQuickBar", visible);
-	}
+//	public void setBottomQuickBarVisible(String visible){
+//		prop.setProperty("ViewBottomQuickBar", visible);
+//	}
 
 	/**
 	 * Set Putty/KiTTY executable path.
 	 * 
 	 * @param path
 	 */
-	public void setPuttyExecutable(String path) {
-		prop.setProperty("PuttyExecutable", path);
-	}
+//	public void setPuttyExecutable(String path) {
+//		prop.setProperty("PuttyExecutable", path);
+//	}
 
 	/**
 	 * Set Plink/Klink executable path.
 	 * 
 	 * @param path
 	 */
-	public void setPlinkExecutable(String path) {
-		prop.setProperty("PlinkExecutable", path);
-	}
+//	public void setPlinkExecutable(String path) {
+//		prop.setProperty("PlinkExecutable", path);
+//	}
 
 	/**
 	 * Set key generator executable path.
 	 * 
 	 * @param path
 	 */
-	public void setKeyGeneratorExecutable(String path) {
-		prop.setProperty("KeyGeneratorExecutable", path);
-	}
+//	public void setKeyGeneratorExecutable(String path) {
+//		prop.setProperty("KeyGeneratorExecutable", path);
+//	}
 
 	/**
 	 * Set if "Welcome Page" should must be visible on program startup.
 	 * 
 	 * @param visible
 	 */
-	public void setWelcomePageVisible(String visible) {
-		prop.setProperty("ShowWelcomePage", visible);
-	}
+//	public void setWelcomePageVisible(String visible) {
+//		prop.setProperty("ShowWelcomePage", visible);
+//	}
 }
