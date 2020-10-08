@@ -21,28 +21,15 @@ dependencies {
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
     compile group: 'commons-net', name: 'commons-net', version: '3.5'
-    compile group: 'org.hsqldb', name: 'hsqldb', version: '1.8.0.10'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.200'
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.22.Final'
+    compile group: 'org.projectlombok', name:'lombok', version:'1.16.10'
 
 
 }
 
-//distributions {
-//    main {
-//        contents {
-//            into('icon') {
-//                from 'icon'
-//            }
-//
-//            from 'VERSION'
-//            into('config') { from 'config' }
-//            into('database') { from 'database' }
-//            into('app') { from 'app' }
-//            into('doc') { from 'doc' }
-//        }
-//    }
-//}
 
 distTar.enabled = false
 distZip.shouldRunAfter('copyImage')

@@ -1,8 +1,8 @@
 package com.sp.UI;
 
-import com.sp.Control.Configuration;
+import com.sp.Control.SmartConfiguration;
 import com.sp.Control.InvokeProgram;
-import com.sp.Dao.DBManager;
+import com.sp.Dao.SmartSessionManager;
 import com.sp.Model.*;
 import com.sp.Model.BorderLayout;
 import com.sp.Utils.RegistryUtils;
@@ -38,9 +38,9 @@ import java.util.List;
 public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseListener, ShellListener {
 	final static Logger logger = Logger.getLogger(MainFrame.class);
 	public static Display display = new Display();
-	public static DBManager dbm;
+	public static SmartSessionManager smartSessionManager;
 	final public static Shell shell = new Shell(display);
-	public static Configuration configuration;
+	public static SmartConfiguration configuration;
 	private MenuItem openItem, newItem, captureItem, remoteDesktopItem, exitItem, updateItem, webcomeMenuItem,
 			reloadPopItem, clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem,
 			openPuttyItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem,
@@ -79,7 +79,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		shell.addShellListener(this);
 
 		// Get dbmanager instance:
-		dbm = DBManager.getDBManagerInstance();
+		smartSessionManager = new SmartSessionManager();
 //		bar.setSelection(3);
 
 		// Main menu:
@@ -124,7 +124,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
         Splash.renderSplashFrame(g, "Loading database");
         splash.update();
 		// Get dbmanager instance:
-		dbm = DBManager.getDBManagerInstance();
+		smartSessionManager = new SmartSessionManager();
 //		bar.setSelection(3);
 		// Main menu:
         Splash.renderSplashFrame(g, "Create menus");
@@ -556,7 +556,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 	private void loadConfiguration() {
 		InvokeProgram.killPuttyWarningsAndErrs();
-		configuration = new Configuration();
+		configuration = new SmartConfiguration();
 	}
 
 	private void showWelcomeTab(String url) {
@@ -686,7 +686,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		}
 
 		// Close in-memory database:
-		dbm.closeDB();
+		smartSessionManager.shutdown();
 
 		// Save configuration:
 		configuration.saveConfiguration();

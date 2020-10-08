@@ -2,7 +2,10 @@ package com.sp.UI;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Objects;
 
+import com.sp.Dao.SmartSessionManager;
+import com.sun.xml.internal.ws.util.StringUtils;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseListener;
@@ -16,7 +19,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-import com.sp.Dao.DBManager;
 import com.sp.Model.ConfigSession;
 import com.sp.Model.ConstantValue;
 import com.sp.Model.Protocol;
@@ -29,6 +31,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
   private Combo comboHost, comboUser, comboProtocol;
   private Text textPassword, textkey;
   private Button buttonFile, buttonOk, buttonCancel;
+  private SmartSessionManager smartSessionManager;
 
   public NewSessionDialog(MainFrame mainFrame, OpenSessionDialog sessionDialog, String type) {
     this.mainFrame = mainFrame;
@@ -37,11 +40,11 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
     dialog.setImage(MImage.newImage);
     dialog.setSize(400, 160);
     dialog.setText("New Session Dialog");
-    MainFrame.dbm = DBManager.getDBManagerInstance();
+    smartSessionManager = new SmartSessionManager();
     Rectangle rect = dialog.getBounds();
     int x = rect.width;
     int y = rect.height;
-    ArrayList<ConfigSession> sessions = (ArrayList<ConfigSession>) MainFrame.dbm.getAllCSessions();
+    ArrayList<ConfigSession> sessions = (ArrayList<ConfigSession>) MainFrame.smartSessionManager.getAllCSessions();
 
     Label lable = new Label(dialog, SWT.NONE);
     lable.setText("Host");
@@ -111,7 +114,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
         comboHost.setText(session.getHost());
         comboUser.setText(session.getUser());
         comboProtocol.setText(session.getProtocol().getName());
-        textkey.setText(session.getKey());
+        textkey.setText(Objects.toString(session.getFile(),""));
         textPassword.setText(session.getPassword());
       }
     }
@@ -132,7 +135,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
       String host = comboHost.getText();
       if (!host.trim().equals("")) {
         comboUser.removeAll();
-        ArrayList<ConfigSession> sessions = (ArrayList<ConfigSession>) MainFrame.dbm.queryCSessionByHost(host);
+        ArrayList<ConfigSession> sessions = (ArrayList<ConfigSession>) smartSessionManager.queryCSessionByHost(host);
         for (ConfigSession item : sessions) {
           comboUser.add(item.getUser());
         }
@@ -152,7 +155,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
       String host = comboHost.getText();
       String user = comboUser.getText();
       if (!host.trim().equals("") && !user.trim().equals("")) {
-        ArrayList<ConfigSession> sessions = (ArrayList<ConfigSession>) MainFrame.dbm.queryCSessionByHostUser(host, user);
+        ArrayList<ConfigSession> sessions = (ArrayList<ConfigSession>) smartSessionManager.queryCSessionByHostUser(host, user);
         if (sessions.size() == 1) {
           comboProtocol.setText(sessions.get(0).getProtocol().getName());
           textPassword.setText(sessions.get(0).getPassword());
@@ -165,7 +168,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
       String host = comboHost.getText();
       String user = comboUser.getText();
       String protocol = comboProtocol.getText();
-      ConfigSession session = MainFrame.dbm.queryCSessionByHostUserProtocol(host, user, protocol);
+      ConfigSession session = smartSessionManager.queryCSessionByHostUserProtocol(host, user, Protocol.valueOf(protocol));
       if (session != null)
         textPassword.setText(session.getPassword());
       else
@@ -192,7 +195,7 @@ public class NewSessionDialog implements SelectionListener, MouseListener {
 
       if (!host.trim().equals("") && !user.trim().equals("") && !protocol.equals("")) {
         dialog.dispose();
-        MainFrame.dbm.insertCSession(session);
+        smartSessionManager.save(session);
         if (sessionDialog != null)
           sessionDialog.loadTable();
         if (mainFrame != null)

@@ -41,10 +41,9 @@ Development
 * Import as git repository to eclipse.
 * [Optional] Import as gradle project from Intellij IDEA, if you prefer using IDEA.
 * Set compile JDK and compile level to be Java 8 (project use Java 8 new features)
-* Run Application with com.sp.UI/MainFrame.java with [VM Options]:-splash:icon/splash.jpg
+* java -jar SmartPutty-x64/x86.jar
 
-
-Develope Guide (Intellij IDEA)VERSION
+Developer Guide (Intellij IDEA)VERSION
 1. Mark lib and libArch as Library(swt.x64 for 64bit dev machine, swt.x86 for 32bit dev machine)
-
+2. Database is using H2 file base, so the schema will be created first time in your local disk ~/smartputty.db
 

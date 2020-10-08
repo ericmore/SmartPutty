@@ -22,6 +22,10 @@ public class ConstantValue {
     public static File CONFIG_FILE;
     public static File CONFIG_BATCH_FILE;
     public static File CONFIG_FEATURE_TOGGLE_FILE;
+
+    public static int SMART_PUTTY_SESSION = 1;
+    public static int PURE_PUTTY_SESSION = 2;
+
     static {
         try {
             CONFIG_FILE = new ClassPathResource("config/Configuration.xml").getFile();
@@ -31,11 +35,6 @@ public class ConstantValue {
             e.printStackTrace();
         }
 
-    }
-
-    public static enum ConfigSessionTypeEnum {
-        SMART_PUTTY_SESSION,
-        PURE_PUTTY_SESSION
     }
 
     public ConstantValue() {

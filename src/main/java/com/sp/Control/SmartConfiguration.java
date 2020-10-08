@@ -1,6 +1,5 @@
 package com.sp.Control;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,8 +20,8 @@ import com.sp.Utils.ReadXMLFile;
 import org.apache.log4j.Logger;
 
 
-public class Configuration {
-	final static Logger logger = Logger.getLogger(Configuration.class);
+public class SmartConfiguration {
+	final static Logger logger = Logger.getLogger(SmartConfiguration.class);
 	private final Properties prop;
 	private final Properties featureToggleProps;
 	
@@ -30,7 +29,7 @@ public class Configuration {
 	private final List<HashMap<String, String>> batchConfigListMap;
 
 	// Constructor:
-	public Configuration() {
+	public SmartConfiguration() {
 
 		this.prop = new Properties();
 		this.featureToggleProps = new Properties();
