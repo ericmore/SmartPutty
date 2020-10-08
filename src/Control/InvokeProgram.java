@@ -151,7 +151,6 @@ public class InvokeProgram extends Thread {
 		}
 
 		int hwndalert = (int) OS.FindWindow(null, new TCHAR(0, "PuTTY Security Alert", true));
-
 		if (hwndalert != 0) {
 			int waitingForOperation = 10000;
 			while (waitingForOperation > 0) {
