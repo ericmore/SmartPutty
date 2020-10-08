@@ -1,7 +1,8 @@
 bin/
 sessiondb.lck
-database/sessiondb.properties
+src/main/resources/database/sessiondb.properties
 SmartPutty.log
 .gradle/
 build/
 /dist/
+out/

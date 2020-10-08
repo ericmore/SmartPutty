@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<batches>
+	<batch type="menu">
+		<path>notepad.exe</path>
+		<argument></argument>
+		<desciption>notepad</desciption>
+	</batch>
+	<batch type="seperator"></batch>
+</batches>

@@ -1,103 +1,103 @@
 2016-09-03 19:55:47 DEBUG MainFrame:83 - +++++++++++debug-
 2016-09-04 14:52:25 ERROR DBManager:71 - [Ljava.lang.StackTraceElement;@3cb5cdba
 2016-09-04 14:52:39 ERROR DBManager:71 - [Ljava.lang.StackTraceElement;@3cb5cdba
-2016-09-04 14:54:29 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-04 14:54:29 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:87)
-	at UI.MainFrame.<init>(MainFrame.java:83)
-	at UI.MainFrame.main(MainFrame.java:678)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:87)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:83)
+	at com.sp.UI.MainFrame.main(MainFrame.java:678)
 
-2016-09-04 14:55:15 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-04 14:55:15 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:87)
-	at UI.MainFrame.<init>(MainFrame.java:83)
-	at UI.MainFrame.main(MainFrame.java:678)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:87)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:83)
+	at com.sp.UI.MainFrame.main(MainFrame.java:678)
 
-2016-09-04 14:55:22 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-04 14:55:22 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:87)
-	at UI.MainFrame.<init>(MainFrame.java:83)
-	at UI.MainFrame.main(MainFrame.java:678)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:87)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:83)
+	at com.sp.UI.MainFrame.main(MainFrame.java:678)
 
-2016-09-04 14:57:06 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-04 14:57:06 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:87)
-	at UI.MainFrame.<init>(MainFrame.java:83)
-	at UI.MainFrame.main(MainFrame.java:678)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:87)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:83)
+	at com.sp.UI.MainFrame.main(MainFrame.java:678)
 
-2016-09-04 14:58:28 ERROR DBManager:73 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-04 14:58:28 ERROR DBManager:73 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:88)
-	at UI.MainFrame.<init>(MainFrame.java:83)
-	at UI.MainFrame.main(MainFrame.java:678)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:88)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:83)
+	at com.sp.UI.MainFrame.main(MainFrame.java:678)
 
-2016-09-04 15:01:07 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-04 15:01:07 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:81)
-	at UI.MainFrame.<init>(MainFrame.java:83)
-	at UI.MainFrame.main(MainFrame.java:675)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:81)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:83)
+	at com.sp.UI.MainFrame.main(MainFrame.java:675)
 
 2016-09-04 15:42:55 ERROR InvokeProgram:295 - java.lang.IllegalArgumentException: The file: \\fe doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:292)
-	at UI.MainFrame$4.widgetSelected(MainFrame.java:371)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:292)
+	at com.sp.UI.MainFrame$4.widgetSelected(MainFrame.java:371)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.<init>(MainFrame.java:106)
-	at UI.MainFrame.main(MainFrame.java:655)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:106)
+	at com.sp.UI.MainFrame.main(MainFrame.java:655)
 
-2016-09-04 15:45:48 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-04 15:45:48 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:655)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:655)
 
 2016-09-11 10:55:08 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -106,22 +106,22 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:662)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:662)
 
-2016-09-11 11:01:15 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-11 11:01:15 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:679)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:679)
 
 2016-09-11 11:18:15 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -130,10 +130,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:695)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:695)
 
 2016-09-11 11:18:19 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -142,10 +142,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:695)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:695)
 
 2016-09-11 11:21:29 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -154,10 +154,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:696)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:696)
 
 2016-09-11 11:21:32 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -166,10 +166,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:696)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:696)
 
 2016-09-11 11:26:28 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -178,10 +178,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:695)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:695)
 
 2016-09-11 11:26:31 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -190,22 +190,22 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:695)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:695)
 
-2016-09-11 11:30:48 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-11 11:30:48 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:708)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:708)
 
 2016-09-11 11:36:01 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -214,10 +214,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:706)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:706)
 
 2016-09-11 11:36:03 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -226,24 +226,24 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:85)
-	at UI.MainFrame.main(MainFrame.java:706)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:85)
+	at com.sp.UI.MainFrame.main(MainFrame.java:706)
 
 2016-09-11 11:43:33 ERROR InvokeProgram:295 - java.lang.IllegalArgumentException: The file: \\root doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:292)
-	at UI.MainFrame$4.widgetSelected(MainFrame.java:384)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:292)
+	at com.sp.UI.MainFrame$4.widgetSelected(MainFrame.java:384)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.<init>(MainFrame.java:107)
-	at UI.MainFrame.main(MainFrame.java:707)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:107)
+	at com.sp.UI.MainFrame.main(MainFrame.java:707)
 
 2016-09-11 11:45:10 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -252,10 +252,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:86)
-	at UI.MainFrame.main(MainFrame.java:708)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:86)
+	at com.sp.UI.MainFrame.main(MainFrame.java:708)
 
 2016-09-11 11:45:32 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -264,10 +264,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:86)
-	at UI.MainFrame.main(MainFrame.java:707)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:86)
+	at com.sp.UI.MainFrame.main(MainFrame.java:707)
 
 2016-09-11 12:13:20 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -276,10 +276,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:86)
-	at UI.MainFrame.main(MainFrame.java:703)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:86)
+	at com.sp.UI.MainFrame.main(MainFrame.java:703)
 
 2016-09-11 12:19:23 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -288,10 +288,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:86)
-	at UI.MainFrame.main(MainFrame.java:714)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:86)
+	at com.sp.UI.MainFrame.main(MainFrame.java:714)
 
 2016-09-11 12:19:27 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -300,10 +300,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:86)
-	at UI.MainFrame.main(MainFrame.java:714)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:86)
+	at com.sp.UI.MainFrame.main(MainFrame.java:714)
 
 2016-09-11 12:21:04 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -312,10 +312,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:86)
-	at UI.MainFrame.main(MainFrame.java:716)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:86)
+	at com.sp.UI.MainFrame.main(MainFrame.java:716)
 
 2016-09-11 15:19:02 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -324,10 +324,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:89)
-	at UI.MainFrame.main(MainFrame.java:739)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:89)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
 
 2016-09-11 15:19:05 ERROR DBManager:72 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception: checkHeartbeat(): lock file [D:\code\SmartPutty\database\sessiondb.lck] is presumably locked by another process.
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
@@ -336,10 +336,10 @@
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:80)
-	at UI.MainFrame.<init>(MainFrame.java:89)
-	at UI.MainFrame.main(MainFrame.java:739)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:80)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:89)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
 
 2016-09-11 15:28:08 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
 2016-09-11 15:28:08 DEBUG RegistryUtils:56 - WinTitle : null
@@ -347,17 +347,17 @@
 2016-09-11 15:28:08 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
 2016-09-11 15:28:08 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
 2016-09-11 15:28:08 DEBUG RegistryUtils:56 - BlinkCur : 1
-2016-09-11 15:28:08 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-11 15:28:08 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:89)
-	at UI.MainFrame.main(MainFrame.java:739)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:89)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
 
 2016-09-11 15:30:32 ERROR RegistryUtils:140 - Error occur parsing registry: reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
 2016-09-11 15:30:32 DEBUG RegistryUtils:141 - []
@@ -367,17 +367,17 @@
 2016-09-11 15:30:32 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
 2016-09-11 15:30:32 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
 2016-09-11 15:30:32 DEBUG RegistryUtils:56 - BlinkCur : 1
-2016-09-11 15:30:32 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-11 15:30:32 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:89)
-	at UI.MainFrame.main(MainFrame.java:739)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:89)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
 
 2016-09-11 15:35:04 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-11 15:35:04 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -392,17 +392,17 @@
 2016-09-11 15:35:04 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
 2016-09-11 15:35:04 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
 2016-09-11 15:35:04 DEBUG RegistryUtils:56 - BlinkCur : 1
-2016-09-11 15:35:04 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-11 15:35:04 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:89)
-	at UI.MainFrame.main(MainFrame.java:739)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:89)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
 
 2016-09-11 15:36:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-11 15:36:23 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -417,17 +417,17 @@
 2016-09-11 15:36:24 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
 2016-09-11 15:36:24 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
 2016-09-11 15:36:24 DEBUG RegistryUtils:56 - BlinkCur : 1
-2016-09-11 15:36:24 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-11 15:36:24 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:89)
-	at UI.MainFrame.main(MainFrame.java:739)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:89)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
 
 2016-09-11 15:36:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-11 15:36:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -442,22 +442,22 @@
 2016-09-11 15:36:34 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
 2016-09-11 15:36:34 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
 2016-09-11 15:36:34 DEBUG RegistryUtils:56 - BlinkCur : 1
-2016-09-11 15:36:36 ERROR InvokeProgram:261 - java.io.IOException: Cannot run program "app\putty\puttygen.exe": CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
+2016-09-11 15:36:36 ERROR InvokeProgram:261 - java.io.IOException: Cannot run program "app\putty\puttygen.exe": CreateProcess error=2, œµÕ≥ÔøΩ“≤ÔøΩÔøΩÔøΩ÷∏ÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ
 	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
 	at java.lang.Runtime.exec(Runtime.java:620)
 	at java.lang.Runtime.exec(Runtime.java:450)
 	at java.lang.Runtime.exec(Runtime.java:347)
-	at Control.InvokeProgram.runCMD(InvokeProgram.java:259)
-	at UI.MainFrame.widgetSelected(MainFrame.java:769)
+	at com.sp.Control.InvokeProgram.runCMD(InvokeProgram.java:259)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:769)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.<init>(MainFrame.java:111)
-	at UI.MainFrame.main(MainFrame.java:739)
-Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:111)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
+Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥ÔøΩ“≤ÔøΩÔøΩÔøΩ÷∏ÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ
 	at java.lang.ProcessImpl.create(Native Method)
 	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
 	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
@@ -484,10 +484,10 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:89)
-	at UI.MainFrame.main(MainFrame.java:739)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:89)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
 
 2016-09-11 15:36:52 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-11 15:36:52 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -509,10 +509,10 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:89)
-	at UI.MainFrame.main(MainFrame.java:739)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:89)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
 
 2016-09-11 15:37:12 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-11 15:37:12 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -528,22 +528,22 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 2016-09-11 15:37:12 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
 2016-09-11 15:37:12 DEBUG RegistryUtils:56 - BlinkCur : 1
 2016-09-11 15:37:18 DEBUG InvokeProgram:234 - Command line: app\vnc\vnc.exe
-2016-09-11 15:37:18 ERROR InvokeProgram:238 - java.io.IOException: Cannot run program "app\vnc\vnc.exe": CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
+2016-09-11 15:37:18 ERROR InvokeProgram:238 - java.io.IOException: Cannot run program "app\vnc\vnc.exe": CreateProcess error=2, œµÕ≥ÔøΩ“≤ÔøΩÔøΩÔøΩ÷∏ÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ
 	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
 	at java.lang.Runtime.exec(Runtime.java:620)
 	at java.lang.Runtime.exec(Runtime.java:450)
 	at java.lang.Runtime.exec(Runtime.java:347)
-	at Control.InvokeProgram.runProgram(InvokeProgram.java:236)
-	at UI.MainFrame.widgetSelected(MainFrame.java:765)
+	at com.sp.Control.InvokeProgram.runProgram(InvokeProgram.java:236)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:765)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.<init>(MainFrame.java:111)
-	at UI.MainFrame.main(MainFrame.java:739)
-Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:111)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
+Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥ÔøΩ“≤ÔøΩÔøΩÔøΩ÷∏ÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ
 	at java.lang.ProcessImpl.create(Native Method)
 	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
 	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
@@ -551,22 +551,22 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	... 13 more
 
 2016-09-11 15:37:19 DEBUG InvokeProgram:234 - Command line: app\vnc\vnc.exe
-2016-09-11 15:37:19 ERROR InvokeProgram:238 - java.io.IOException: Cannot run program "app\vnc\vnc.exe": CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
+2016-09-11 15:37:19 ERROR InvokeProgram:238 - java.io.IOException: Cannot run program "app\vnc\vnc.exe": CreateProcess error=2, œµÕ≥ÔøΩ“≤ÔøΩÔøΩÔøΩ÷∏ÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ
 	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
 	at java.lang.Runtime.exec(Runtime.java:620)
 	at java.lang.Runtime.exec(Runtime.java:450)
 	at java.lang.Runtime.exec(Runtime.java:347)
-	at Control.InvokeProgram.runProgram(InvokeProgram.java:236)
-	at UI.MainFrame.widgetSelected(MainFrame.java:765)
+	at com.sp.Control.InvokeProgram.runProgram(InvokeProgram.java:236)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:765)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.<init>(MainFrame.java:111)
-	at UI.MainFrame.main(MainFrame.java:739)
-Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:111)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
+Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥ÔøΩ“≤ÔøΩÔøΩÔøΩ÷∏ÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ
 	at java.lang.ProcessImpl.create(Native Method)
 	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
 	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
@@ -678,10 +678,10 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:571)
 	at java.sql.DriverManager.getConnection(DriverManager.java:187)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:89)
-	at UI.MainFrame.main(MainFrame.java:739)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:89)
+	at com.sp.UI.MainFrame.main(MainFrame.java:739)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1191,22 +1191,22 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 2016-09-15 10:22:48 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
 2016-09-15 10:22:48 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
 2016-09-15 10:22:48 DEBUG RegistryUtils:56 - BlinkCur : 1
-2016-09-15 10:22:48 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ¡Ì“ª∏ˆ≥Ã–Ú“—À¯∂®Œƒº˛µƒ“ª≤ø∑÷£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£ : D:\code\SmartPutty\database\sessiondb.lck
+2016-09-15 10:22:48 ERROR DBManager:70 - java.sql.SQLException: The database is already in use by another process: org.hsqldb.persist.NIOLockFile@96a932d0[file =D:\code\SmartPutty\database\sessiondb.lck, exists=true, locked=false, valid=false, fl =null]: java.lang.Exception:  java.io.IOException: ÔøΩÔøΩ“ªÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ“ªÔøΩÔøΩÔøΩ÷£ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩﬁ∑ÔøΩÔøΩÔøΩÔøΩ °ÔøΩ : D:\code\SmartPutty\database\sessiondb.lck
 	at org.hsqldb.jdbc.Util.sqlException(Unknown Source)
 	at org.hsqldb.jdbc.jdbcConnection.<init>(Unknown Source)
 	at org.hsqldb.jdbcDriver.getConnection(Unknown Source)
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:93)
-	at UI.MainFrame$7.run(MainFrame.java:767)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:93)
+	at com.sp.UI.MainFrame$7.run(MainFrame.java:767)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:774)
+	at com.sp.UI.MainFrame.main(MainFrame.java:774)
 
 2016-09-15 10:22:52 DEBUG DBManager:396 - Committed transaction and closed connection
 2016-09-15 10:22:54 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
@@ -1284,15 +1284,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:93)
-	at UI.MainFrame$7.run(MainFrame.java:767)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:93)
+	at com.sp.UI.MainFrame$7.run(MainFrame.java:767)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:774)
+	at com.sp.UI.MainFrame.main(MainFrame.java:774)
 
 2016-09-15 10:33:17 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 10:33:17 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1328,15 +1328,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:93)
-	at UI.MainFrame$7.run(MainFrame.java:768)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:93)
+	at com.sp.UI.MainFrame$7.run(MainFrame.java:768)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:775)
+	at com.sp.UI.MainFrame.main(MainFrame.java:775)
 
 2016-09-15 10:38:20 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 10:38:20 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1400,15 +1400,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:93)
-	at UI.MainFrame$7.run(MainFrame.java:768)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:93)
+	at com.sp.UI.MainFrame$7.run(MainFrame.java:768)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:775)
+	at com.sp.UI.MainFrame.main(MainFrame.java:775)
 
 2016-09-15 10:42:08 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 10:42:08 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1472,15 +1472,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:93)
-	at UI.MainFrame$7.run(MainFrame.java:768)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:93)
+	at com.sp.UI.MainFrame$7.run(MainFrame.java:768)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:775)
+	at com.sp.UI.MainFrame.main(MainFrame.java:775)
 
 2016-09-15 10:47:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 10:47:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1502,15 +1502,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:93)
-	at UI.MainFrame$7.run(MainFrame.java:768)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:93)
+	at com.sp.UI.MainFrame$7.run(MainFrame.java:768)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:775)
+	at com.sp.UI.MainFrame.main(MainFrame.java:775)
 
 2016-09-15 10:47:37 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 10:47:37 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1595,15 +1595,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 2016-09-15 11:10:09 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\C:\C:\C:\C:\C:\C:\sdfsdf doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:808)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:808)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:697)
+	at com.sp.UI.MainFrame.main(MainFrame.java:697)
 
 2016-09-15 11:11:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 11:11:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1621,41 +1621,41 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 2016-09-15 11:11:44 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\C:\C:\C:\C:\C:\C:\C:\d doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:811)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:11:48 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\d doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:811)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:11:53 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\C:\windows doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:811)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:13:13 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 11:13:13 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1677,15 +1677,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:105)
-	at UI.MainFrame$2.run(MainFrame.java:692)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:105)
+	at com.sp.UI.MainFrame$2.run(MainFrame.java:692)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:13:16 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 11:13:16 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1703,15 +1703,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 2016-09-15 11:13:19 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\d doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:811)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:14:50 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 11:14:50 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1733,15 +1733,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:105)
-	at UI.MainFrame$2.run(MainFrame.java:692)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:105)
+	at com.sp.UI.MainFrame$2.run(MainFrame.java:692)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:14:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 11:14:53 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1763,15 +1763,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:105)
-	at UI.MainFrame$2.run(MainFrame.java:692)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:105)
+	at com.sp.UI.MainFrame$2.run(MainFrame.java:692)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:14:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 11:14:56 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1793,15 +1793,15 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at org.hsqldb.jdbcDriver.connect(Unknown Source)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:208)
-	at Dao.DBManager.<init>(DBManager.java:42)
-	at Dao.DBManager.getDBManagerInstance(DBManager.java:78)
-	at UI.MainFrame.<init>(MainFrame.java:105)
-	at UI.MainFrame$2.run(MainFrame.java:692)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:42)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:78)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:105)
+	at com.sp.UI.MainFrame$2.run(MainFrame.java:692)
 	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:15:01 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
 2016-09-15 11:15:01 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
@@ -1819,68 +1819,68 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 2016-09-15 11:15:13 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:811)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:15:16 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:811)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:15:26 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:811)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:15:31 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:811)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:15:37 DEBUG InvokeProgram:99 - Putty parameters:  -load "121.40.73.82" -P 22 
 2016-09-15 11:15:41 ERROR InvokeProgram:288 - java.lang.IllegalArgumentException: The file: C:\ggh doesn't exist.
 	at java.awt.Desktop.checkFileValidation(Desktop.java:210)
 	at java.awt.Desktop.open(Desktop.java:270)
-	at Control.InvokeProgram.openFolder(InvokeProgram.java:285)
-	at UI.MainFrame.widgetSelected(MainFrame.java:811)
+	at com.sp.Control.InvokeProgram.openFolder(InvokeProgram.java:285)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:811)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
 
 2016-09-15 11:15:44 DEBUG DBManager:396 - Committed transaction and closed connection
 2016-09-23 21:44:19 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
@@ -1896,21 +1896,21 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 2016-09-23 21:44:19 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
 2016-09-23 21:44:19 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
 2016-09-23 21:44:19 DEBUG RegistryUtils:56 - BlinkCur : 1
-2016-09-23 21:44:26 ERROR InvokeProgram:261 - java.io.IOException: Cannot run program "yong1": CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
+2016-09-23 21:44:26 ERROR InvokeProgram:261 - java.io.IOException: Cannot run program "yong1": CreateProcess error=2, œµÕ≥ÔøΩ“≤ÔøΩÔøΩÔøΩ÷∏ÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ
 	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
 	at java.lang.Runtime.exec(Runtime.java:620)
 	at java.lang.Runtime.exec(Runtime.java:450)
 	at java.lang.Runtime.exec(Runtime.java:347)
-	at Control.InvokeProgram.runCMD(InvokeProgram.java:259)
-	at UI.MainFrame.widgetSelected(MainFrame.java:772)
+	at com.sp.Control.InvokeProgram.runCMD(InvokeProgram.java:259)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:772)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:699)
-Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
+	at com.sp.UI.MainFrame.main(MainFrame.java:699)
+Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥ÔøΩ“≤ÔøΩÔøΩÔøΩ÷∏ÔøΩÔøΩÔøΩÔøΩÔøΩƒºÔøΩÔøΩÔøΩ
 	at java.lang.ProcessImpl.create(Native Method)
 	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
 	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
@@ -2186,14 +2186,14 @@ Caused by: java.io.IOException: CreateProcess error=2, œµÕ≥’“≤ªµΩ÷∏∂®µƒŒƒº˛°£
 	at java.lang.Runtime.exec(Runtime.java:620)
 	at java.lang.Runtime.exec(Runtime.java:450)
 	at java.lang.Runtime.exec(Runtime.java:347)
-	at Control.InvokeProgram.runCMD(InvokeProgram.java:259)
-	at UI.MainFrame.widgetSelected(MainFrame.java:785)
+	at com.sp.Control.InvokeProgram.runCMD(InvokeProgram.java:259)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:785)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:706)
+	at com.sp.UI.MainFrame.main(MainFrame.java:706)
 Caused by: java.io.IOException: CreateProcess error=2, Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑÊñá‰ª∂„ÄÇ
 	at java.lang.ProcessImpl.create(Native Method)
 	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
@@ -2647,14 +2647,14 @@ Caused by: java.io.IOException: CreateProcess error=2, Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑÊ
 	at java.lang.Runtime.exec(Runtime.java:620)
 	at java.lang.Runtime.exec(Runtime.java:450)
 	at java.lang.Runtime.exec(Runtime.java:347)
-	at Control.InvokeProgram.runCMD(InvokeProgram.java:259)
-	at UI.MainFrame.widgetSelected(MainFrame.java:794)
+	at com.sp.Control.InvokeProgram.runCMD(InvokeProgram.java:259)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:794)
 	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at UI.MainFrame.main(MainFrame.java:715)
+	at com.sp.UI.MainFrame.main(MainFrame.java:715)
 Caused by: java.io.IOException: CreateProcess error=2, Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑÊñá‰ª∂„ÄÇ
 	at java.lang.ProcessImpl.create(Native Method)
 	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
@@ -3274,3 +3274,431 @@ Caused by: java.io.IOException: CreateProcess error=2, Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑÊ
 2017-12-30 19:49:06 DEBUG DBManager:51 - Database Meta:   null, PUBLIC, INTRANET, TABLE, null
 2017-12-30 19:49:09 DEBUG InvokeProgram:100 - Putty parameters:  -ssh -2 ec2-54-64-43-62.ap-northeast-1.compute.amazonaws.com -l ubuntu  -i "D:\360ÂÆâÂÖ®ÊµèËßàÂô®‰∏ãËΩΩ\key.ppk" -P 22 
 2017-12-30 19:49:19 DEBUG InvokeProgram:266 - Command line: app\putty\puttygen.exe
+2020-10-08 13:08:35 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 13:08:35 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 13:08:35 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 13:08:35 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 13:08:35 DEBUG RegistryUtils:140 - query result: []
+2020-10-08 13:08:35 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 13:08:35 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 13:08:35 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2020-10-08 13:08:35 DEBUG RegistryUtils:56 - WinTitle : null
+2020-10-08 13:08:35 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2020-10-08 13:08:35 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2020-10-08 13:08:35 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2020-10-08 13:08:35 DEBUG RegistryUtils:56 - BlinkCur : 1
+2020-10-08 13:08:35 INFO  DBManager:55 - Connected to database
+2020-10-08 13:08:35 DEBUG DBManager:65 - OK: CSESSION table exists
+2020-10-08 13:08:35 DEBUG DBManager:74 - OK: INTRANET table exists
+2020-10-08 14:51:45 DEBUG InvokeProgram:100 - Putty parameters:  -ssh -2 192.168.229.128 -l eric  -pw "a" -P 22 
+2020-10-08 14:51:52 DEBUG InvokeProgram:100 - Putty parameters:  -ssh -2 192.168.229.128 -l eric  -pw "a" -P 22 
+2020-10-08 14:56:05 DEBUG DBManager:357 - Committed transaction and closed connection
+2020-10-08 14:59:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 14:59:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 14:59:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 14:59:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 14:59:34 DEBUG RegistryUtils:140 - query result: []
+2020-10-08 14:59:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 14:59:34 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 14:59:34 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2020-10-08 14:59:34 DEBUG RegistryUtils:56 - WinTitle : null
+2020-10-08 14:59:34 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2020-10-08 14:59:34 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2020-10-08 14:59:34 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2020-10-08 14:59:34 DEBUG RegistryUtils:56 - BlinkCur : 1
+2020-10-08 14:59:35 INFO  DBManager:55 - Connected to database
+2020-10-08 14:59:35 DEBUG DBManager:65 - OK: CSESSION table exists
+2020-10-08 14:59:35 DEBUG DBManager:74 - OK: INTRANET table exists
+2020-10-08 14:59:39 DEBUG DBManager:357 - Committed transaction and closed connection
+2020-10-08 15:00:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:00:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:00:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:00:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:00:28 DEBUG RegistryUtils:140 - query result: []
+2020-10-08 15:00:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:00:28 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:00:28 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2020-10-08 15:00:28 DEBUG RegistryUtils:56 - WinTitle : null
+2020-10-08 15:00:28 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2020-10-08 15:00:28 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2020-10-08 15:00:28 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2020-10-08 15:00:28 DEBUG RegistryUtils:56 - BlinkCur : 1
+2020-10-08 15:00:28 INFO  DBManager:55 - Connected to database
+2020-10-08 15:00:28 DEBUG DBManager:65 - OK: CSESSION table exists
+2020-10-08 15:00:28 DEBUG DBManager:74 - OK: INTRANET table exists
+2020-10-08 15:13:24 DEBUG DBManager:357 - Committed transaction and closed connection
+2020-10-08 15:17:45 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:17:45 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:17:45 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:17:45 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:17:45 DEBUG RegistryUtils:140 - query result: []
+2020-10-08 15:17:45 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:17:45 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:17:45 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2020-10-08 15:17:45 DEBUG RegistryUtils:56 - WinTitle : null
+2020-10-08 15:17:45 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2020-10-08 15:17:45 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2020-10-08 15:17:45 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2020-10-08 15:17:45 DEBUG RegistryUtils:56 - BlinkCur : 1
+2020-10-08 15:17:45 INFO  DBManager:55 - Connected to database
+2020-10-08 15:17:45 DEBUG DBManager:65 - OK: CSESSION table exists
+2020-10-08 15:17:45 DEBUG DBManager:74 - OK: INTRANET table exists
+2020-10-08 15:02:58 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:02:58 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:02:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:02:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:02:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:02:59 DEBUG RegistryUtils:140 - query result: []
+2020-10-08 15:02:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:02:59 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:02:59 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2020-10-08 15:02:59 DEBUG RegistryUtils:56 - WinTitle : null
+2020-10-08 15:02:59 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2020-10-08 15:02:59 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2020-10-08 15:02:59 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2020-10-08 15:02:59 DEBUG RegistryUtils:56 - BlinkCur : 1
+2020-10-08 15:03:00 ERROR Configuration:88 - class path resource [config\Configuration.xml] (Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑË∑ØÂæÑ„ÄÇ)
+2020-10-08 15:03:00 ERROR Configuration:47 - class path resource [config\FeatureToggle.properties] (Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑË∑ØÂæÑ„ÄÇ)
+2020-10-08 15:03:40 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:03:41 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:03:41 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:03:41 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:03:41 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:03:42 DEBUG RegistryUtils:140 - query result: []
+2020-10-08 15:03:42 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:03:42 DEBUG RegistryUtils:118 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:03:42 DEBUG RegistryUtils:56 - LineCodePage : UTF-8
+2020-10-08 15:03:42 DEBUG RegistryUtils:56 - WinTitle : null
+2020-10-08 15:03:42 DEBUG RegistryUtils:56 - WarnOnClose : 0
+2020-10-08 15:03:42 DEBUG RegistryUtils:56 - ScrollbackLines : 5000
+2020-10-08 15:03:42 DEBUG RegistryUtils:56 - NoRemoteWinTitle : 1
+2020-10-08 15:03:42 DEBUG RegistryUtils:56 - BlinkCur : 1
+2020-10-08 15:05:20 ERROR Configuration:88 - class path resource [config\Configuration.xml] (Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑË∑ØÂæÑ„ÄÇ)
+2020-10-08 15:05:20 ERROR Configuration:47 - class path resource [config\FeatureToggle.properties] (Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑË∑ØÂæÑ„ÄÇ)
+2020-10-08 15:09:07 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:09:07 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:09:07 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:09:07 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:09:07 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:09:07 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:09:07 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:09:07 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:09:07 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:09:07 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:09:07 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:09:07 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:09:07 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:09:07 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:09:22 ERROR Configuration:88 - class path resource [config\Configuration.xml] (Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑË∑ØÂæÑ„ÄÇ)
+2020-10-08 15:09:22 ERROR Configuration:47 - class path resource [config\FeatureToggle.properties] (Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑË∑ØÂæÑ„ÄÇ)
+2020-10-08 15:11:19 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:11:19 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:11:19 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:11:19 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:11:19 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:11:19 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:11:19 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:11:19 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:11:19 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:11:19 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:11:19 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:11:19 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:11:19 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:11:19 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:11:23 ERROR Configuration:88 - class path resource [config\Configuration.xml] (Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑË∑ØÂæÑ„ÄÇ)
+2020-10-08 15:11:23 ERROR Configuration:47 - class path resource [config\FeatureToggle.properties] (Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑË∑ØÂæÑ„ÄÇ)
+2020-10-08 15:13:35 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:13:35 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:13:35 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:13:35 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:13:35 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:13:35 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:13:35 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:13:36 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:13:36 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:13:36 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:13:36 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:13:36 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:13:36 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:13:36 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:13:36 INFO  DBManager:54 - Connected to database
+2020-10-08 15:13:36 ERROR DBManager:121 - Cannot find database SQL script: database\csession.sql
+2020-10-08 15:13:36 ERROR DBManager:121 - Cannot find database SQL script: database\intranet.sql
+2020-10-08 15:14:30 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:14:30 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:14:30 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:14:30 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:14:30 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:14:30 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:14:30 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:14:30 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:14:30 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:14:30 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:14:30 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:14:30 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:14:30 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:14:30 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:14:30 INFO  DBManager:54 - Connected to database
+2020-10-08 15:14:30 ERROR DBManager:121 - Cannot find database SQL script: database\csession.sql
+2020-10-08 15:14:30 ERROR DBManager:121 - Cannot find database SQL script: database\intranet.sql
+2020-10-08 15:15:12 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:15:12 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:15:12 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:15:12 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:15:12 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:15:12 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:15:12 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:15:12 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:15:13 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:15:13 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:15:13 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:15:13 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:15:13 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:15:13 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:15:13 INFO  DBManager:54 - Connected to database
+2020-10-08 15:15:13 ERROR DBManager:121 - Cannot find database SQL script: database\csession.sql
+2020-10-08 15:15:13 ERROR DBManager:121 - Cannot find database SQL script: database\intranet.sql
+2020-10-08 15:15:34 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:15:34 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:15:34 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:15:34 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:15:34 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:15:34 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:15:34 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:15:34 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:15:34 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:15:34 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:15:34 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:15:34 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:15:34 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:15:34 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:15:34 INFO  DBManager:54 - Connected to database
+2020-10-08 15:15:34 ERROR DBManager:121 - Cannot find database SQL script: database\csession.sql
+2020-10-08 15:15:34 ERROR DBManager:121 - Cannot find database SQL script: database\intranet.sql
+2020-10-08 15:19:04 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:19:04 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:19:05 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:19:05 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:19:05 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:19:05 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:19:05 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:19:05 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:19:05 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:19:05 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:19:05 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:19:05 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:19:05 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:19:05 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:19:05 ERROR DBManager:94 - java.io.FileNotFoundException: class path resource [database/sessiondb] cannot be resolved to URL because it does not exist
+	at org.springframework.core.io.ClassPathResource.getURL(ClassPathResource.java:187)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:56)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:136)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:82)
+	at com.sp.UI.MainFrame.splashInit(MainFrame.java:744)
+	at com.sp.UI.MainFrame.main(MainFrame.java:761)
+
+2020-10-08 15:19:21 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:19:21 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:19:21 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:19:21 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:19:21 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:19:21 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:19:21 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:19:21 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:19:21 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:19:21 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:19:21 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:19:21 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:19:21 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:19:21 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:20:40 ERROR DBManager:94 - java.io.FileNotFoundException: class path resource [database/sessiondb] cannot be resolved to URL because it does not exist
+	at org.springframework.core.io.ClassPathResource.getURL(ClassPathResource.java:187)
+	at com.sp.Dao.DBManager.<init>(DBManager.java:56)
+	at com.sp.Dao.DBManager.getDBManagerInstance(DBManager.java:136)
+	at com.sp.UI.MainFrame.<init>(MainFrame.java:82)
+	at com.sp.UI.MainFrame.splashInit(MainFrame.java:744)
+	at com.sp.UI.MainFrame.main(MainFrame.java:761)
+
+2020-10-08 15:20:43 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:20:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:20:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:20:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:20:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:20:43 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:20:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:20:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:20:43 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:20:43 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:20:43 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:20:43 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:20:43 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:20:43 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:20:51 INFO  DBManager:58 - Connected to database
+2020-10-08 15:20:51 ERROR DBManager:125 - Cannot find database SQL script: database\csession.sql
+2020-10-08 15:20:51 ERROR DBManager:125 - Cannot find database SQL script: database\intranet.sql
+2020-10-08 15:22:52 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:22:52 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:22:52 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:22:52 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:22:52 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:22:52 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:22:52 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:22:52 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:22:52 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:22:52 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:22:52 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:22:52 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:22:52 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:22:52 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:22:58 INFO  DBManager:58 - Connected to database
+2020-10-08 15:24:46 ERROR DBManager:126 - Cannot find database SQL script: database\database/csession.sql
+2020-10-08 15:24:46 ERROR DBManager:126 - Cannot find database SQL script: database\intranet.sql
+2020-10-08 15:24:50 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 15:24:50 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 15:24:51 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 15:24:51 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 15:24:51 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 15:24:51 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 15:24:51 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 15:24:51 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 15:24:51 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 15:24:51 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 15:24:51 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 15:24:51 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 15:24:51 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 15:24:51 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 15:24:58 INFO  DBManager:58 - Connected to database
+2020-10-08 15:24:59 DEBUG DBManager:126 - OK: SQL script database\E:\Code\SmartPutty\out\production\resources\database\csession.sql executed
+2020-10-08 15:24:59 DEBUG DBManager:126 - OK: SQL script database\E:\Code\SmartPutty\out\production\resources\database\intranet.sql executed
+2020-10-08 15:25:22 DEBUG InvokeProgram:242 - Command line: mstsc.exe
+2020-10-08 15:25:27 DEBUG InvokeProgram:242 - Command line: app\vnc\vnc.exe
+2020-10-08 15:25:27 ERROR InvokeProgram:246 - java.io.IOException: Cannot run program "app\vnc\vnc.exe": CreateProcess error=2, Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑÊñá‰ª∂„ÄÇ
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:621)
+	at java.lang.Runtime.exec(Runtime.java:451)
+	at java.lang.Runtime.exec(Runtime.java:348)
+	at com.sp.Control.InvokeProgram.runProgram(InvokeProgram.java:244)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:793)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:249)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4418)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4236)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3824)
+	at com.sp.UI.MainFrame.main(MainFrame.java:764)
+Caused by: java.io.IOException: CreateProcess error=2, Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑÊñá‰ª∂„ÄÇ
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:444)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:140)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 12 more
+
+2020-10-08 15:25:29 DEBUG InvokeProgram:242 - Command line: app\vnc\vnc.exe
+2020-10-08 15:25:29 ERROR InvokeProgram:246 - java.io.IOException: Cannot run program "app\vnc\vnc.exe": CreateProcess error=2, Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑÊñá‰ª∂„ÄÇ
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:621)
+	at java.lang.Runtime.exec(Runtime.java:451)
+	at java.lang.Runtime.exec(Runtime.java:348)
+	at com.sp.Control.InvokeProgram.runProgram(InvokeProgram.java:244)
+	at com.sp.UI.MainFrame.widgetSelected(MainFrame.java:793)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:249)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4418)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4236)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3824)
+	at com.sp.UI.MainFrame.main(MainFrame.java:764)
+Caused by: java.io.IOException: CreateProcess error=2, Á≥ªÁªüÊâæ‰∏çÂà∞ÊåáÂÆöÁöÑÊñá‰ª∂„ÄÇ
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:444)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:140)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 12 more
+
+2020-10-08 15:25:29 DEBUG InvokeProgram:242 - Command line: notepad.exe
+2020-10-08 15:25:45 DEBUG InvokeProgram:265 - Command line: notepad.exe 
+2020-10-08 17:30:44 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 17:30:44 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 17:30:44 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 17:30:44 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 17:30:44 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 17:30:44 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 17:30:44 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 17:30:44 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 17:30:44 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 17:30:44 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 17:30:44 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 17:30:44 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 17:30:44 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 17:30:44 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 17:30:45 INFO  DBManager:58 - Connected to database
+2020-10-08 17:30:45 DEBUG DBManager:68 - OK: CSESSION table exists
+2020-10-08 17:30:45 DEBUG DBManager:77 - OK: INTRANET table exists
+2020-10-08 17:35:57 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 17:35:57 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 17:35:57 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 17:35:57 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 17:35:57 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 17:35:57 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 17:35:57 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 17:35:57 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 17:35:57 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 17:35:57 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 17:35:57 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 17:35:57 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 17:35:57 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 17:35:57 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 17:35:57 INFO  DBManager:58 - Connected to database
+2020-10-08 17:35:57 DEBUG DBManager:68 - OK: CSESSION table exists
+2020-10-08 17:35:57 DEBUG DBManager:77 - OK: INTRANET table exists
+2020-10-08 17:36:04 DEBUG DBManager:359 - Committed transaction and closed connection
+2020-10-08 17:39:32 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 17:39:32 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 17:39:32 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 17:39:32 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 17:39:32 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 17:39:32 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 17:39:32 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 17:39:32 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 17:39:32 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 17:39:32 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 17:39:32 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 17:39:32 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 17:39:32 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 17:39:32 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 17:39:33 INFO  DBManager:58 - Connected to database
+2020-10-08 17:39:33 DEBUG DBManager:68 - OK: CSESSION table exists
+2020-10-08 17:39:33 DEBUG DBManager:77 - OK: INTRANET table exists
+2020-10-08 17:39:36 DEBUG DBManager:359 - Committed transaction and closed connection
+2020-10-08 17:39:42 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 17:39:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 17:39:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 17:39:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 17:39:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 17:39:43 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 17:39:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 17:39:43 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 17:39:43 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 17:39:43 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 17:39:43 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 17:39:43 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 17:39:43 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 17:39:43 DEBUG RegistryUtils:54 - BlinkCur : 1
+2020-10-08 17:39:43 INFO  DBManager:58 - Connected to database
+2020-10-08 17:39:43 DEBUG DBManager:68 - OK: CSESSION table exists
+2020-10-08 17:39:43 DEBUG DBManager:77 - OK: INTRANET table exists
+2020-10-08 17:39:45 DEBUG DBManager:359 - Committed transaction and closed connection
+2020-10-08 17:39:50 INFO  MainFrame:743 - No splash image defined!
+2020-10-08 17:39:50 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WarnOnClose
+2020-10-08 17:39:50 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v LineCodePage
+2020-10-08 17:39:50 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v ScrollbackLines
+2020-10-08 17:39:50 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v WinTitle
+2020-10-08 17:39:50 DEBUG RegistryUtils:138 - query result: []
+2020-10-08 17:39:50 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v NoRemoteWinTitle
+2020-10-08 17:39:50 DEBUG RegistryUtils:116 - reg query HKCU\Software\SimonTatham\PuTTY\Sessions\Default%20Settings /v BlinkCur
+2020-10-08 17:39:50 DEBUG RegistryUtils:54 - LineCodePage : UTF-8
+2020-10-08 17:39:50 DEBUG RegistryUtils:54 - WinTitle : null
+2020-10-08 17:39:50 DEBUG RegistryUtils:54 - WarnOnClose : 0
+2020-10-08 17:39:50 DEBUG RegistryUtils:54 - ScrollbackLines : 5000
+2020-10-08 17:39:50 DEBUG RegistryUtils:54 - NoRemoteWinTitle : 1
+2020-10-08 17:39:50 DEBUG RegistryUtils:54 - BlinkCur : 1

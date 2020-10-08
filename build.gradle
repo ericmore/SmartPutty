@@ -8,91 +8,83 @@ apply plugin: 'application'
 
 
 repositories {
-	maven { url "http://maven.springframework.org/release" }
-  	maven { url "http://maven.restlet.org" }
+    maven { url "http://maven.springframework.org/release" }
+    maven { url "http://maven.restlet.org" }
     mavenCentral()
 }
 
 
 dependencies {
-	compile fileTree(dir: 'lib', include: '*.jar')
+    compile fileTree(dir: 'lib', include: '*.jar')
+    compile fileTree(dir: 'libArch', include: 'swt.x64_3.105.3.v20170228-0512.jar')
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.29.RELEASE'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
     compile group: 'commons-net', name: 'commons-net', version: '3.5'
     compile group: 'org.hsqldb', name: 'hsqldb', version: '1.8.0.10'
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
-	compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
 
 
 }
 
-distributions {
-    main {
-        contents {
-        	 into ('icon') {
-			        from 'icon'
-			      }
-
-			  from 'VERSION'
-			  into ('config') {from 'config'}
-			  into ('database') {from 'database'}
-			  into ('app') {from 'app'}
-			  into ('doc') {from 'doc'}
-        }
-    }
-}
+//distributions {
+//    main {
+//        contents {
+//            into('icon') {
+//                from 'icon'
+//            }
+//
+//            from 'VERSION'
+//            into('config') { from 'config' }
+//            into('database') { from 'database' }
+//            into('app') { from 'app' }
+//            into('doc') { from 'doc' }
+//        }
+//    }
+//}
 
 distTar.enabled = false
 distZip.shouldRunAfter('copyImage')
 
 sourceSets {
-   main {
-      java {
-         srcDir 'src'
-      }
-      resources {
-	      srcDir 'src'
-	      include '*.properties'
-	      output.resourcesDir = 'build/resources/main'
-	    }
-   }
-	
-   // test {
-   //    java {
-   //       srcDir 'test'
-   //    }
-   // }
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
 }
 
 task compile(type: JavaCompile) {
-	source = fileTree(dir: 'src', includes: ['**/*.java', '*.properties'])
-	destinationDir = file('build/classes/main')
-	// sourceCompatibility = '1.7'
-	// targetCompatibility = '1.7'
-	// dependencyCacheDir = ???
-	// from('icon') {
- //        include '*'
- //        into('build/classes/main')
- //    }
-	// from 'icon'
-	// into 'build/classes/main'
+    source = fileTree(dir: 'src', includes: ['**/*.java', '*.properties'])
+    destinationDir = file('build/classes/main')
 }
 
 
 task copyImage(type: Copy) {
-	println 'copy images'
-	from 'icon'
-	into 'build/libs/icon'
+    println 'copy images'
+    from 'icon'
+    into 'build/libs/icon'
 }
 
 
-//jar {
-//    manifest {
-//        attributes (
-//        	'Main-Class': 'UI.MainFrame',
-//        	'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
-//        	)
-//    }
-//}
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.sp.UI.MainFrame',
+        )
+    }
+    from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+        exclude 'META-INF/*.RSA'
+    }
+    baseName 'SmartPutty-x64'
+}
 
-mainClassName = 'UI.MainFrame'
+
+mainClassName = 'com.sp.UI.MainFrame'

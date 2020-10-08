@@ -19,12 +19,14 @@ SmartPutty for windows platform provides rock-solid terminal emulation for compu
 
 **Build it**
 
-`gradle build`
+`gradle build` for win-64 bit jar
 
-output is under SmartPutty\build\distributions\SmartPutty.zip
+windows 32 bit OS -  SmartPutty\build\libs\SmartPutty-x64.jar 
 
-cd to the unzipped build, "SmartPutty" folder and run the following cmd, will launch the application as following.
-`java -jar SmartPutty`
+`gradle -b build-x86.gradle build` for win-32 bit jar
+
+windows 64 bit OS -  SmartPutty\build\libs\SmartPutty-x64.jar
+
 
 
 HomeScreen:
@@ -39,10 +41,10 @@ Development
 * Import as git repository to eclipse.
 * [Optional] Import as gradle project from Intellij IDEA, if you prefer using IDEA.
 * Set compile JDK and compile level to be Java 8 (project use Java 8 new features)
-* Run Application with UI/MainFrame.java with [VM Options]:-splash:icon/splash.jpg
+* Run Application with com.sp.UI/MainFrame.java with [VM Options]:-splash:icon/splash.jpg
 
 
-Develope Guide (Intellij IDEA)
+Develope Guide (Intellij IDEA)VERSION
+1. Mark lib and libArch as Library(swt.x64 for 64bit dev machine, swt.x86 for 32bit dev machine)
 
-refer to 'Guide.docx' in root repository
 
