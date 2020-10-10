@@ -8,25 +8,28 @@ apply plugin: 'application'
 
 
 repositories {
-	maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-	maven { url "http://maven.springframework.org/release" }
-	maven { url "http://maven.restlet.org" }
-	mavenCentral()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url "http://maven.springframework.org/release" }
+    maven { url "http://maven.restlet.org" }
+    mavenCentral()
 }
 
 
 dependencies {
-	compile fileTree(dir: 'lib', include: '*.jar')
-	compile fileTree(dir: 'libArch', include: 'swt.x86_3.105.3.v20170228-0512.jar')
-	compile group: 'org.springframework', name: 'spring-core', version: '4.3.29.RELEASE'
-	compile group: 'commons-io', name: 'commons-io', version: '2.5'
-	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
-	compile group: 'commons-net', name: 'commons-net', version: '3.5'
-	compile group: 'com.h2database', name: 'h2', version: '1.4.200'
-	compile group: 'log4j', name: 'log4j', version: '1.2.17'
-	compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
-	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.22.Final'
-	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
+    compile fileTree(dir: 'lib', include: '*.jar')
+    compile fileTree(dir: 'libArch', include: 'swt.x86_3.105.3.v20170228-0512.jar')
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.29.RELEASE'
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+    compile group: 'commons-net', name: 'commons-net', version: '3.5'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.200'
+//    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.22.Final'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
 
 
 }
@@ -36,54 +39,54 @@ distTar.enabled = false
 //distZip.shouldRunAfter('copyImage')
 
 sourceSets {
-	main {
-		java {
-			srcDir 'src/main/java'
-		}
-		resources {
-			srcDir 'src/main/resources'
-		}
-	}
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
 }
 
 task compile(type: JavaCompile) {
-	source = fileTree(dir: 'src', includes: ['**/*.java', '*.properties'])
-	destinationDir = file('build/classes/main')
+    source = fileTree(dir: 'src', includes: ['**/*.java', '*.properties'])
+    destinationDir = file('build/classes/main')
 }
 
 
 distributions {
-	main {
-		contents {
-			into('icon') {
-				from 'icon'
-			}
+    main {
+        contents {
+            into('icon') {
+                from 'icon'
+            }
 
-			from 'VERSION'
-			into('config') { from 'config' }
-			into('database') { from 'database' }
-			into('app') { from 'src/main/resources/app' }
-			into('doc') { from 'doc' }
-		}
-	}
+            from 'VERSION'
+            into('config') { from 'config' }
+            into('database') { from 'database' }
+            into('app') { from 'src/main/resources/app' }
+            into('doc') { from 'doc' }
+        }
+    }
 }
 distZip {
 	archiveName "SmartPutty-x86.zip"
 }
 
 jar {
-	manifest {
-		attributes(
-				'Main-Class': 'com.sp.UI.MainFrame',
-		)
-	}
-	from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
-		exclude 'META-INF/MANIFEST.MF'
-		exclude 'META-INF/*.SF'
-		exclude 'META-INF/*.DSA'
-		exclude 'META-INF/*.RSA'
-	}
-	baseName 'SmartPutty-x86'
+    manifest {
+        attributes(
+                'Main-Class': 'com.sp.ui.MainFrame',
+        )
+    }
+    from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+        exclude 'META-INF/*.RSA'
+    }
+    baseName 'SmartPutty'
 }
 
 

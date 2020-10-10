@@ -53,7 +53,7 @@ public class ConfigService {
         }
         if (!hasKey(allSystemConfigs, WINDOWPOSITIONSIZE)) {
             logger.debug("create system config " + WINDOWPOSITIONSIZE);
-            smartSessionManager.save(new SystemConfig(WINDOWPOSITIONSIZE, "1914,-6,1933,1053"));
+            smartSessionManager.save(new SystemConfig(WINDOWPOSITIONSIZE, "100,100,1200,900"));
         }
         if (!hasKey(allSystemConfigs, VIEWCONNECTIONBAR)) {
             logger.debug("create system config " + VIEWCONNECTIONBAR);
