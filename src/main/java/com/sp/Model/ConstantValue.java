@@ -17,6 +17,8 @@ public class ConstantValue {
     // Screen sizes:
     public static int SCREEN_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
     public static int SCREEN_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
+
+
     // XML configuration file to use:
 //    public static File CONFIG_FILE;
 //    public static File CONFIG_BATCH_FILE;

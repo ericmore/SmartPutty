@@ -1,29 +1,19 @@
 package com.sp.Control;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.InvalidPropertiesFormatException;
-import java.util.List;
-import java.util.Properties;
-
 import com.sp.Dao.ConfigService;
-import com.sp.Model.SystemConfig;
-import org.apache.commons.lang3.BooleanUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.eclipse.swt.graphics.Rectangle;
-
 import com.sp.Model.ConstantValue;
-import com.sp.Model.Program;
+import com.sp.Model.SystemConfig;
 import com.sp.UI.MainFrame;
-import com.sp.Utils.ReadXMLFile;
-import org.apache.log4j.Logger;
+import org.eclipse.swt.graphics.Rectangle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 
 public class SmartConfiguration {
-	final static Logger logger = Logger.getLogger(SmartConfiguration.class);
+	private static final Logger logger
+			= LoggerFactory.getLogger(SmartConfiguration.class);
 //	private final Properties prop;
 //	private final Properties featureToggleProps;
 

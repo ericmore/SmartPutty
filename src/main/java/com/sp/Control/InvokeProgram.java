@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import com.sp.Dao.ConfigService;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.internal.win32.OS;
@@ -20,9 +19,11 @@ import com.sp.Model.Program;
 import com.sp.UI.MainFrame;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class InvokeProgram extends Thread {
-    final static Logger logger = Logger.getLogger(InvokeProgram.class);
+    private static final Logger logger = LoggerFactory.getLogger(InvokeProgram.class);
     private Composite composite = null;
     private ConfigSession session = null;
     private CTabItem tabItem = null;

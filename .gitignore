@@ -9,3 +9,4 @@ SmartPutty.DB.script
 build/
 /dist/
 out/
+logs/

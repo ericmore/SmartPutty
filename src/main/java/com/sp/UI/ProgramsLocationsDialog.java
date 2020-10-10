@@ -1,5 +1,8 @@
 package com.sp.UI;
 
+import com.sp.Dao.ConfigService;
+import com.sp.Dao.SmartSessionManager;
+import com.sp.Model.SystemConfig;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
@@ -18,12 +21,14 @@ import org.eclipse.swt.widgets.Text;
  * @author Carlos SS
  */
 public class ProgramsLocationsDialog implements SelectionListener, MouseListener {
+	private SmartSessionManager smartSessionManager;
 	final private Shell dialog;
 	private Button puttyButton, plinkButton, keygenButton, saveButton, cancelButton;
 	private Text puttyPathItem, plinkPathItem, keygenPathItem;
 
 	// Constructor:
 	public ProgramsLocationsDialog(Shell parent){
+		this.smartSessionManager = new SmartSessionManager();
 		this.dialog = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 
 		init();
@@ -152,6 +157,8 @@ public class ProgramsLocationsDialog implements SelectionListener, MouseListener
 		dialog.setLocation(MainFrame.shell.getLocation());
 	}
 
+
+
 	/**
 	 * Search for a executable path to be used as an app.
 	 */
@@ -212,11 +219,9 @@ public class ProgramsLocationsDialog implements SelectionListener, MouseListener
 		} else if (e.getSource() == keygenButton){
 			searchExecutableDialog("keygen");
 		} else if (e.getSource() == saveButton){
-			//TODO: not implement update
-			// Save changes to configuration:
-//			MainFrame.configuration.setPuttyExecutable(puttyPathItem.getText());
-//			MainFrame.configuration.setPlinkExecutable(plinkPathItem.getText());
-//			MainFrame.configuration.saveConfiguration();
+			smartSessionManager.update(new SystemConfig(ConfigService.PUTTYEXECUTABLE, puttyPathItem.getText()));
+			smartSessionManager.update(new SystemConfig(ConfigService.PLINKEXECUTABLE, plinkPathItem.getText()));
+			smartSessionManager.update(new SystemConfig(ConfigService.KEYGENERATOREXECUTABLE, keygenPathItem.getText()));
 
 			dialog.dispose();
 		} else if (e.getSource() == cancelButton){

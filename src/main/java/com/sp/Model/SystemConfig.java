@@ -12,6 +12,11 @@ public class SystemConfig {
     private String key;
     private String value;
 
+    public SystemConfig(Long id, String key, String value) {
+        this.id = id;
+        this.key = key;
+        this.value = value;
+    }
 
     public SystemConfig(String key, String value) {
         this.key = key;

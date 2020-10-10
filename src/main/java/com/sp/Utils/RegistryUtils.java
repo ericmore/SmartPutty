@@ -1,5 +1,8 @@
 package com.sp.Utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
@@ -9,7 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 
 /**
  * Utilities to deal with Windows registry.
@@ -17,7 +19,7 @@ import org.apache.log4j.Logger;
  * @author Carlos SS
  */
 public class RegistryUtils {
-	final static Logger logger = Logger.getLogger(RegistryUtils.class);
+	private static final Logger logger= LoggerFactory.getLogger(RegistryUtils.class);
 	// Putty session to be used on SmartPutty:
 	public static String SMARTPUTTY_SESSION = "SmartPutty_Session";
 

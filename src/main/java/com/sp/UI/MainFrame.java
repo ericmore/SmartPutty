@@ -1,15 +1,14 @@
 package com.sp.UI;
 
-import com.sp.Control.SmartConfiguration;
 import com.sp.Control.InvokeProgram;
+import com.sp.Control.SmartConfiguration;
 import com.sp.Dao.ConfigService;
 import com.sp.Dao.SmartSessionManager;
-import com.sp.Model.*;
 import com.sp.Model.BorderLayout;
+import com.sp.Model.*;
 import com.sp.Utils.RegistryUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -24,20 +23,20 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.*;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Properties;
 import java.util.List;
 
 public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseListener, ShellListener {
-	final static Logger logger = Logger.getLogger(MainFrame.class);
+	private static final Logger logger = LoggerFactory.getLogger(MainFrame.class);
 	public static Display display = new Display();
 	public static SmartSessionManager smartSessionManager;
 	final public static Shell shell = new Shell(display);
@@ -247,7 +246,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		configProgramsLocationsItem = new MenuItem(optionsMenu, SWT.PUSH);
 		configProgramsLocationsItem.setText("Programs locations");
-		configProgramsLocationsItem.setImage(MImage.RemoteDeskImage);
+		configProgramsLocationsItem.setImage(MImage.configImage);
 		// configProgramsItem.setAccelerator(SWT.CTRL + 'R'); // TODO: setup a
 		// key and enable!
 		configProgramsLocationsItem.addSelectionListener(this);
@@ -829,7 +828,8 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		}
 
 		else if (e.getSource() == configProgramsLocationsItem) {
-			new ProgramsLocationsDialog(shell);
+			new SystemConfigDialog(shell);
+//			new ProgramsLocationsDialog(shell);
 			// menuItem
 		} else if (e.getSource() == reloadPopItem) {
 			reloadSession();
