@@ -55,3 +55,9 @@ Developer Guide (Intellij IDEA)VERSION
 H2 Intellij Database Configuration
 ![h2](https://user-images.githubusercontent.com/5425276/95461537-ea994100-09a8-11eb-9e5d-5be10ca94a1a.PNG)
 
+Issues
+1.  if you mean below crash error when open putty, that is newer JDK bug, lower down the jdk minor version can fix it. I've tested jdk1.8.0_111 works well, but jdk1.8.0_261 will crash.
+ 
+ `A fatal error has been detected by the Java Runtime Environment:
+ EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffbeb286ca0, pid=5956, tid=0x0000000000003734
+ JRE version: Java(TM) SE Runtime Environment (8.0_261-b12) (build 1.8.0_261-b12)`

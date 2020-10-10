@@ -66,7 +66,18 @@ public class SmartSessionManager {
     }
 
     public void delete(Object entity) {
-        sessionFactory.openSession().delete(entity);
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(entity);
+            tx.commit(); // Flush happens automatically
+        } catch (RuntimeException e) {
+            tx.rollback();
+            throw e; // or display error message
+        } finally {
+            session.close();
+        }
     }
 
 

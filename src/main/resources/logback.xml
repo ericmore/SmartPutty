@@ -8,6 +8,7 @@
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
+
     </appender>
 
     <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -32,6 +33,9 @@
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE-ROLLING"/>
     </root>
+
+    <!--    disable hibernate logs-->
+    <logger name="org.hibernate.engine.jdbc.spi.SqlExceptionHelper" level="OFF"/>
 
 
 </configuration>

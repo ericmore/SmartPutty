@@ -27,13 +27,14 @@ public class InvokeProgram extends Thread {
     private Composite composite = null;
     private ConfigSession session = null;
     private CTabItem tabItem = null;
-
+    ConfigService configService;
 
     // Constructor:
-    public InvokeProgram(Composite composite, CTabItem tabItem, ConfigSession session) {
+    public InvokeProgram(Composite composite, CTabItem tabItem, ConfigSession session, ConfigService configService) {
         this.composite = composite;
         this.tabItem = tabItem;
         this.session = session;
+        this.configService = configService;
 
     }
 
@@ -112,7 +113,6 @@ public class InvokeProgram extends Thread {
      * @param session
      */
     public void invokePutty(ConfigSession session) {
-        ConfigService configService = new ConfigService();
         // Mount command-line Putty parameters:
         String tabDisplayName = "session";
         if (session.getSessionType() == ConstantValue.PURE_PUTTY_SESSION) {
@@ -130,7 +130,7 @@ public class InvokeProgram extends Thread {
         TCHAR buffer1 = new TCHAR(0, args, true);
         int byteCount1 = buffer1.length() * TCHAR.sizeof;
         int lpParameters = (int) OS.HeapAlloc(hHeap, OS.HEAP_ZERO_MEMORY, byteCount1);
-
+        logger.debug("Putty:{}, args:{}",configService.getPuttyExecutable(),args);
         OS.MoveMemory(lpFile, buffer, byteCount);
         OS.MoveMemory(lpParameters, buffer1, byteCount1);
 

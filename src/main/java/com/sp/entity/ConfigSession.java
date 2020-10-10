@@ -15,7 +15,7 @@ public class ConfigSession {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private int sessionType = ConstantValue.PURE_PUTTY_SESSION;
+	private int sessionType = ConstantValue.SMART_PUTTY_SESSION;
 	private String host;
 	private String port; // Can be a number or a device name (COM1, COM2, ...).
 	private String user;
@@ -48,7 +48,7 @@ public class ConfigSession {
 		this.protocol = protocol;
 		this.file = file;
 		this.password = password;
-		this.sessionType = ConstantValue.PURE_PUTTY_SESSION;
+		this.sessionType = ConstantValue.SMART_PUTTY_SESSION;
 	}
 
 	public ConfigSession() {

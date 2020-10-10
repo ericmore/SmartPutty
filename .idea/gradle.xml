@@ -5,11 +5,11 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="delegatedBuild" value="false" />
-        <option name="testRunner" value="GRADLE" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="C:/Software/gradle-6.6.1" />
-        <option name="gradleJvm" value="11" />
+        <option name="gradleJvm" value="1.8 - 111" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />

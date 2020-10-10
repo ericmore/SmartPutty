@@ -620,7 +620,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		folder.setSelection(item);
 		item.setText("connecting");
 		item.setImage(MImage.puttyImage);
-		Thread t = new InvokeProgram(composite, item, session);
+		Thread t = new InvokeProgram(composite, item, session, configService);
 		t.start();
 	}
 
