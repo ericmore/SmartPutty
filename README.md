@@ -34,6 +34,11 @@ unzip the distribution cd into root folder(must root folder) from cmd
 `cd SmartPutty\build\distributions\SmartPutty-x64`
 `java -jar SmartPutty-x64.jar`
 
+**Database**
+
+SmartPutty store configuration in H2 database inside your home directory C:\Users\username\smartputty.db.mv.db
+You can delete the db if you want to reset, SmartPutty start up time will load default confg values into fresh DB
+
 HomeScreen:
 
 ![homescreen](https://user-images.githubusercontent.com/5425276/95345562-7057b680-08ed-11eb-870f-b72e2c504d0a.jpg)
@@ -61,3 +66,4 @@ Issues
  `A fatal error has been detected by the Java Runtime Environment:
  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffbeb286ca0, pid=5956, tid=0x0000000000003734
  JRE version: Java(TM) SE Runtime Environment (8.0_261-b12) (build 1.8.0_261-b12)`
+ 
