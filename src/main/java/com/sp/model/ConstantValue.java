@@ -1,11 +1,9 @@
-package com.sp.Model;
+package com.sp.model;
 
-import com.sp.Control.SmartPuttyVersion;
+import com.sp.control.SmartPuttyVersion;
 
 import java.awt.Toolkit;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class ConstantValue {
     public static String MAIN_WINDOW_TITLE = "Smart Putty";
@@ -19,29 +17,10 @@ public class ConstantValue {
     public static int SCREEN_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 
 
-    // XML configuration file to use:
-//    public static File CONFIG_FILE;
-//    public static File CONFIG_BATCH_FILE;
-//    public static File CONFIG_FEATURE_TOGGLE_FILE;
-
     public static int PURE_PUTTY_SESSION = 1;
     public static int SMART_PUTTY_SESSION = 2;
 
-    static {
-//        try {
-//            CONFIG_FILE = new ClassPathResource("config/Configuration.xml").getFile();
-//            CONFIG_BATCH_FILE = new ClassPathResource("config/BatchConfig.xml").getFile();
-//            CONFIG_FEATURE_TOGGLE_FILE = new ClassPathResource("config/FeatureToggle.properties").getFile();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
-    }
-
-    public ConstantValue() {
-
-
-    }
 
 }
 

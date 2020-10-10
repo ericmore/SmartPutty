@@ -1,5 +1,8 @@
-package com.sp.Model;
+package com.sp.entity;
 
+
+import com.sp.model.ConstantValue;
+import com.sp.model.Protocol;
 
 import javax.persistence.*;
 

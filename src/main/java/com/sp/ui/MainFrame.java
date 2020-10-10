@@ -1,12 +1,12 @@
-package com.sp.UI;
+package com.sp.ui;
 
-import com.sp.Control.InvokeProgram;
-import com.sp.Control.SmartConfiguration;
-import com.sp.Dao.ConfigService;
-import com.sp.Dao.SmartSessionManager;
-import com.sp.Model.BorderLayout;
-import com.sp.Model.*;
-import com.sp.Utils.RegistryUtils;
+import com.sp.control.InvokeProgram;
+import com.sp.entity.ConfigSession;
+import com.sp.service.ConfigService;
+import com.sp.dao.SmartSessionManager;
+import com.sp.model.BorderLayout;
+import com.sp.model.*;
+import com.sp.utils.RegistryUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jface.dialogs.InputDialog;
@@ -39,16 +39,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private static final Logger logger = LoggerFactory.getLogger(MainFrame.class);
 	public static Display display = new Display();
 	public static SmartSessionManager smartSessionManager;
+	ConfigService configService;
 	final public static Shell shell = new Shell(display);
-	public static SmartConfiguration configuration;
-	private ConfigService configService;
-	private MenuItem openItem, newItem, captureItem, remoteDesktopItem, exitItem, updateItem, webcomeMenuItem,
-			reloadPopItem, clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem,
-			openPuttyItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem,
-			bottomQuickBarMenuItem;
+	private MenuItem openItem, newItem, captureItem, remoteDesktopItem, exitItem, updateItem, webcomeMenuItem, reloadPopItem, clonePopItem, transferPopItem, scpMenuItem, ftpMenuItem, sftpMenuItem, vncPopItem, configProgramsLocationsItem, utilitiesBarMenuItem, connectionBarMenuItem, bottomQuickBarMenuItem;
 	private Menu popupmenu;
-	private ToolItem itemNew, itemOpen, itemRemoteDesk, itemCapture, itemCalculator, itemVNC, itemNotePad, itemKenGen,
-			itemHelp;
+	private ToolItem itemNew, itemOpen, itemRemoteDesk, itemCapture, itemCalculator, itemVNC, itemNotePad, itemKenGen, itemHelp;
 	private CTabFolder folder;
 	private CTabItem welcomeItem, dictItem;
 	private ToolBar utilitiesToolbar;
@@ -76,7 +71,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
 		shell.setText(ConstantValue.MAIN_WINDOW_TITLE + " [" + ConstantValue.MAIN_WINDOW_VERSION + "]");
-		shell.setBounds(configuration.getWindowPositionSize());
+		shell.setBounds(configService.getWindowPositionSize());
 		shell.addShellListener(this);
 
 		// Get dbmanager instance:
@@ -104,7 +99,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 		// Show/Hide toolbars based on configuration file values:
 		setVisibleComponents();
-		if (configuration.getWelcomePageVisible())
+		if (configService.getWelcomePageVisible())
 			showWelcomeTab(ConstantValue.HOME_URL);
 		applyFeatureToggle();
 	}
@@ -121,7 +116,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		shell.setLayout(new BorderLayout());
 		shell.setImage(MImage.mainImage);
 		shell.setText(ConstantValue.MAIN_WINDOW_TITLE + " [" + ConstantValue.MAIN_WINDOW_VERSION + "]");
-		shell.setBounds(configuration.getWindowPositionSize());
+		shell.setBounds(configService.getWindowPositionSize());
 		shell.addShellListener(this);
 
         Splash.renderSplashFrame(g, "Loading database");
@@ -158,7 +153,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
         splash.update();
 		// Show/Hide toolbars based on configuration file values:
 		setVisibleComponents();
-		if (configuration.getWelcomePageVisible())
+		if (configService.getWelcomePageVisible())
 			showWelcomeTab(ConstantValue.HOME_URL);
 		applyFeatureToggle();
         Splash.renderSplashFrame(g, "Init complete");
@@ -338,7 +333,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// Username:
 		new Label(connectGroup, SWT.RIGHT).setText("Username");
 		usernameItem = new Text(connectGroup, SWT.BORDER);
-		usernameItem.setText(configuration.getDefaultPuttyUsername());
+		usernameItem.setText(configService.getDefaultPuttyUsername());
 		usernameItem.setLayoutData(new RowData(100, 14));
 
 		// Password
@@ -559,8 +554,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 
 	private void loadConfiguration() {
 		InvokeProgram.killPuttyWarningsAndErrs();
-		configuration = new SmartConfiguration();
-		// Load config service
 		configService = new ConfigService();
 		configService.initSystemConfig();
 	}
@@ -583,13 +576,13 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			dictItem = new CTabItem(folder, SWT.CLOSE);
 			dictItem.setImage(MImage.dictImage);
 			Browser browser = new Browser(folder, SWT.NONE);
-			browser.setUrl(configuration.getDictionaryBaseUrl() + keyword);
+			browser.setUrl(configService.getDictionaryBaseUrl() + keyword);
 			dictItem.setControl(browser);
 			folder.setSelection(dictItem);
 			dictItem.setText("Dictionary");
 		} else {
 			folder.setSelection(dictItem);
-			((Browser) dictItem.getControl()).setUrl(configuration.getDictionaryBaseUrl() + keyword);
+			((Browser) dictItem.getControl()).setUrl(configService.getDictionaryBaseUrl() + keyword);
 		}
 
 	}
@@ -600,11 +593,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	private void setVisibleComponents() {
 		Event event = new Event();
 
-		utilitiesBarMenuItem.setSelection(configuration.getUtilitiesBarVisible());
+		utilitiesBarMenuItem.setSelection(configService.getUtilitiesBarVisible());
 		utilitiesBarMenuItem.notifyListeners(SWT.Selection, event);
-		connectionBarMenuItem.setSelection(configuration.getConnectionBarVisible());
+		connectionBarMenuItem.setSelection(configService.getConnectionBarVisible());
 		connectionBarMenuItem.notifyListeners(SWT.Selection, event);
-		bottomQuickBarMenuItem.setSelection(configuration.getBottomQuickBarVisible());
+		bottomQuickBarMenuItem.setSelection(configService.getBottomQuickBarVisible());
 		bottomQuickBarMenuItem.notifyListeners(SWT.Selection, event);
 
 	}
@@ -660,11 +653,11 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 	}
 
 	private void OpenPutty() {
-		CTabItem tabItem = folder.getSelection();
-		if (tabItem.getData("session") == null)
-			return;
-		ConfigSession session = (ConfigSession) tabItem.getData("session");
-		InvokeProgram.invokeSinglePutty(session);
+//		CTabItem tabItem = folder.getSelection();
+//		if (tabItem.getData("session") == null)
+//			return;
+//		ConfigSession session = (ConfigSession) tabItem.getData("session");
+//		InvokeProgram.invokeSinglePutty(session);
 	}
 
 	private void openVNCSession() {
@@ -694,8 +687,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// Close in-memory database:
 		smartSessionManager.shutdown();
 
-		// Save configuration:
-//		configuration.saveConfiguration();
 	}
 
 	/**
@@ -717,6 +708,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		// Re-layout main screen to maximize tabs zone:
 		composite.layout(true, true);
 		shell.layout(true, true);
+
 	}
 
 	/**
@@ -800,7 +792,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		} else if (e.getSource() == itemNotePad) {
 			InvokeProgram.runProgram(Program.APP_NOTEPAD, null);
 		} else if (e.getSource() == itemKenGen) {
-			InvokeProgram.runCMD(configuration.getKeyGeneratorExecutable(), null);
+			InvokeProgram.runCMD(configService.getKeyGeneratorExecutable(), null);
 		} else if (e.getSource() == itemHelp || e.getSource() == webcomeMenuItem) {
 			showWelcomeTab(ConstantValue.HOME_URL);
 		} else if (e.getSource() == updateItem) {
@@ -815,16 +807,15 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 		} else if (e.getSource() == utilitiesBarMenuItem) {
 			Boolean visible = utilitiesBarMenuItem.getSelection();
 			setCompositeVisible(utilitiesToolbar, shell, visible);
-			//TODO: hide/show function not implemented, comment for convient
-//			configuration.setUtilitiesBarVisible(String.valueOf(visible));
+			smartSessionManager.updateSystemConfig(ConfigService.VIEWUTILITIESBAR, String.valueOf(visible));
 		} else if (e.getSource() == connectionBarMenuItem) {
 			Boolean visible = connectionBarMenuItem.getSelection();
 			setCompositeVisible(connectGroup, shell, visible);
-//			configuration.setConnectionBarVisible(String.valueOf(visible));
+			smartSessionManager.updateSystemConfig(ConfigService.VIEWCONNECTIONBAR, String.valueOf(visible));
 		} else if (e.getSource() == bottomQuickBarMenuItem) {
 			Boolean visible = bottomQuickBarMenuItem.getSelection();
 			setCompositeVisible(quickBottomGroup, shell, visible);
-//			configuration.setBottomQuickBarVisible(String.valueOf(visible));
+			smartSessionManager.updateSystemConfig(ConfigService.VIEWBOTTOMQUICKBAR, String.valueOf(visible));
 		}
 
 		else if (e.getSource() == configProgramsLocationsItem) {
@@ -833,8 +824,6 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 			// menuItem
 		} else if (e.getSource() == reloadPopItem) {
 			reloadSession();
-		} else if (e.getSource() == openPuttyItem) {
-			OpenPutty();
 		} else if (e.getSource() == clonePopItem) {
 			cloneSession();
 		} else if (e.getSource() == ftpMenuItem) {
@@ -879,7 +868,7 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 				MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 				return;
 			}
-			path = StringUtils.stripStart(path, "/\\" + configuration.getWinPathBaseDrive());
+			path = StringUtils.stripStart(path, "/\\" + configService.getWinPathBaseDrive());
 			pathItem.setText("/" + FilenameUtils.separatorsToUnix(path));
 		} else if (e.getSource() == unix2WinButton) {
 			String path = pathItem.getText().trim();
@@ -887,16 +876,16 @@ public class MainFrame implements SelectionListener, CTabFolder2Listener, MouseL
 				MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 				return;
 			}
-			path = StringUtils.stripStart(path, "/\\" + configuration.getWinPathBaseDrive());
-			pathItem.setText(configuration.getWinPathBaseDrive() + "\\" + FilenameUtils.separatorsToWindows(path));
+			path = StringUtils.stripStart(path, "/\\" + configService.getWinPathBaseDrive());
+			pathItem.setText(configService.getWinPathBaseDrive() + "\\" + FilenameUtils.separatorsToWindows(path));
 		} else if (e.getSource() == openPathButton) {
 			String path = pathItem.getText().trim();
 			if (StringUtils.isBlank(path)) {
 				MessageDialog.openInformation(shell, "Info", "Please input correct path!");
 				return;
 			}
-			path = StringUtils.stripStart(path, "/\\" + configuration.getWinPathBaseDrive());
-			path = configuration.getWinPathBaseDrive() + "\\" + FilenameUtils.separatorsToWindows(path);
+			path = StringUtils.stripStart(path, "/\\" + configService.getWinPathBaseDrive());
+			path = configService.getWinPathBaseDrive() + "\\" + FilenameUtils.separatorsToWindows(path);
 			pathItem.setText(path);
 			if (!InvokeProgram.openFolder(path)) {
 				MessageDialog.openError(shell, "Error", "Path not exist!");

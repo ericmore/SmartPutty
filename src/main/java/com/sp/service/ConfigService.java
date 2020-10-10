@@ -1,6 +1,10 @@
-package com.sp.Dao;
+package com.sp.service;
 
-import com.sp.Model.SystemConfig;
+import com.sp.dao.SmartSessionManager;
+import com.sp.model.ConstantValue;
+import com.sp.entity.SystemConfig;
+import com.sp.ui.MainFrame;
+import org.eclipse.swt.graphics.Rectangle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -104,5 +108,134 @@ public class ConfigService {
     public Boolean getSystemValueBoolean(String key) {
         String val = getSystemValue(key);
         return Boolean.valueOf(val);
+    }
+
+    /**
+     * Utilities bar must be visible?
+     *
+     * @return
+     */
+    public Boolean getUtilitiesBarVisible() {
+        return getSystemValueBoolean("ViewUtilitiesBar");
+    }
+
+    /**
+     * Connection bar must be visible?
+     *
+     * @return
+     */
+    public Boolean getConnectionBarVisible() {
+        return getSystemValueBoolean("ViewConnectionBar");
+    }
+
+    /**
+     * Bottom Quick Bar be Visible  ?
+     * @return
+     */
+    public Boolean getBottomQuickBarVisible() {
+        return getSystemValueBoolean("ViewBottomQuickBar");
+    }
+
+    /**
+     * Get Putty/KiTTY executable path.
+     *
+     * @return
+     */
+    public String getPuttyExecutable() {
+        return getSystemValue("PuttyExecutable");
+//		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_PUTTY.getPath() : value;
+    }
+
+    /**
+     * Get Plink/Klink executable path.
+     *
+     * @return
+     */
+    public String getPlinkExecutable() {
+        return getSystemValue("PlinkExecutable");
+//		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_PLINK.getPath() : value;
+    }
+
+    /**
+     * Get key generator executable path.
+     *
+     * @return
+     */
+    public String getKeyGeneratorExecutable() {
+        return getSystemValue("KeyGeneratorExecutable");
+//		return StringUtils.isEmpty(value) ? Program.DEFAULT_APP_KEYGEN.getPath() : value;
+    }
+
+    /**
+     * Get dictionary baseUrl, I put dict.youdao.com as a chines-english dictionary. User can customize it as to his own dict url
+     * @return
+     */
+    public String getDictionaryBaseUrl(){
+        return getSystemValue("Dictionary");
+    }
+
+    /**
+     * user can customize his username, in most case user may using his own username to login multiple linux, so provide a centralized username entry for user
+     * @return
+     */
+    public String getDefaultPuttyUsername(){
+        return getSystemValue("DefaultPuttyUsername");
+    }
+
+
+
+    /**
+     * customize win path base prefix when converting path from linux and windows
+     * @return
+     */
+    public String getWinPathBaseDrive(){
+        return getSystemValue("WindowsBaseDrive");
+    }
+
+    /**
+     * get welcome visible config
+     * @return
+     */
+    public Boolean getWelcomePageVisible(){
+        return getSystemValueBoolean("ShowWelcomePage");
+    }
+
+    /**
+     * Get main mindow position and size.
+     *
+     * @return
+     */
+    public Rectangle getWindowPositionSize() {
+        // Split comma-separated values by x, y, width, height:
+        String[] array = getSystemValue("WindowPositionSize").split(",");
+//		String[] array = ((String) prop.get("WindowPositionSize")).split(",");
+
+        // If there aren't enough pieces of information...
+        if (array.length < 4) {
+            array = new String[4];
+
+            // Set default safety values:
+            array[0] = String.valueOf(ConstantValue.SCREEN_WIDTH / 6);
+            array[1] = String.valueOf(ConstantValue.SCREEN_HEIGHT / 6);
+            array[2] = String.valueOf(2 * ConstantValue.SCREEN_WIDTH / 3);
+            array[3] = String.valueOf(2 * ConstantValue.SCREEN_HEIGHT / 3);
+        }
+
+        return new Rectangle(Integer.parseInt(array[0]), Integer.parseInt(array[1]), Integer.parseInt(array[2]),
+                Integer.parseInt(array[3]));
+    }
+
+    /**
+     * Get main mindow position and size in String format.
+     *
+     * @return
+     */
+    public String getWindowPositionSizeString() {
+        String x = String.valueOf(MainFrame.shell.getBounds().x);
+        String y = String.valueOf(MainFrame.shell.getBounds().y);
+        String width = String.valueOf(MainFrame.shell.getBounds().width);
+        String height = String.valueOf(MainFrame.shell.getBounds().height);
+
+        return x + "," + y + "," + width + "," + height;
     }
 }

@@ -1,4 +1,4 @@
-package com.sp.Control;
+package com.sp.control;
 
 import java.io.OutputStream;
 import java.io.PrintStream;

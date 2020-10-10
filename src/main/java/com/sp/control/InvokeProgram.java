@@ -1,10 +1,10 @@
-package com.sp.Control;
+package com.sp.control;
 
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 
-import com.sp.Dao.ConfigService;
+import com.sp.service.ConfigService;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.custom.CTabItem;
@@ -13,10 +13,10 @@ import org.eclipse.swt.internal.win32.SHELLEXECUTEINFO;
 import org.eclipse.swt.internal.win32.TCHAR;
 import org.eclipse.swt.widgets.Composite;
 
-import com.sp.Model.ConfigSession;
-import com.sp.Model.ConstantValue;
-import com.sp.Model.Program;
-import com.sp.UI.MainFrame;
+import com.sp.entity.ConfigSession;
+import com.sp.model.ConstantValue;
+import com.sp.model.Program;
+import com.sp.ui.MainFrame;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 import org.slf4j.Logger;
@@ -27,6 +27,7 @@ public class InvokeProgram extends Thread {
     private Composite composite = null;
     private ConfigSession session = null;
     private CTabItem tabItem = null;
+
 
     // Constructor:
     public InvokeProgram(Composite composite, CTabItem tabItem, ConfigSession session) {
@@ -123,7 +124,7 @@ public class InvokeProgram extends Thread {
         String args = setPuttyParameters(session);
 
         int hHeap = (int) OS.GetProcessHeap();
-        TCHAR buffer = new TCHAR(0, MainFrame.configuration.getPuttyExecutable(), true);
+        TCHAR buffer = new TCHAR(0, configService.getPuttyExecutable(), true);
         int byteCount = buffer.length() * TCHAR.sizeof;
         int lpFile = (int) OS.HeapAlloc(hHeap, OS.HEAP_ZERO_MEMORY, byteCount);
         TCHAR buffer1 = new TCHAR(0, args, true);
@@ -150,7 +151,7 @@ public class InvokeProgram extends Thread {
 
         if (result == false) {
             MessageDialog.openInformation(MainFrame.shell, "OPEN PUTTY ERROR",
-                    String.format("Failed cmd: %s %s", MainFrame.configuration.getPuttyExecutable(), args));
+                    String.format("Failed cmd: %s %s", configService.getPuttyExecutable(), args));
             return;
         }
 
@@ -188,7 +189,7 @@ public class InvokeProgram extends Thread {
             //	String.format("Failed cmd: %s %s", MainFrame.configuration.getPuttyExecutable(), args));
             MessageBox messagebox = new MessageBox(MainFrame.shell, SWT.ICON_INFORMATION | SWT.OK);
             messagebox.setText("OPEN PUTTY ERROR");
-            messagebox.setMessage(MainFrame.configuration.getPuttyExecutable() + args);
+            messagebox.setMessage(configService.getPuttyExecutable() + args);
             if (messagebox.open() == SWT.OK) {
                 MainFrame.shell.setFocus();
             }
@@ -275,18 +276,6 @@ public class InvokeProgram extends Thread {
         }
     }
 
-    public static void invokeProxy(String host, String user, String password, String port) {
-        String cmd = "cmd /c start " + MainFrame.configuration.getPlinkExecutable() + " -D " + port + " -pw " + password
-                + " -N " + user + "@" + host;
-
-        logger.debug("Command line: " + cmd);
-
-        try {
-            Runtime.getRuntime().exec(cmd);
-        } catch (Exception e) {
-            logger.error(ExceptionUtils.getStackTrace(e));
-        }
-    }
 
     /**
      * open path in windows explorer
@@ -308,26 +297,6 @@ public class InvokeProgram extends Thread {
         return true;
     }
 
-    /**
-     * Start Putty in a single window.
-     *
-     * @param session
-     */
-    public static void invokeSinglePutty(ConfigSession session) {
-        // Mount command-line Putty parameters:
-        String args = setPuttyParameters(session);
-        String cmd = MainFrame.configuration.getPuttyExecutable() + args;
 
-        logger.debug("Command line: " + cmd);
 
-        try {
-            Runtime.getRuntime().exec(cmd);
-        } catch (Exception e) {
-            logger.error(ExceptionUtils.getStackTrace(e));
-        }
-    }
-
-    public static void startProxy(String arg) {
-
-    }
 }

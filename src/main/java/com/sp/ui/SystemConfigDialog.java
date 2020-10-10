@@ -1,9 +1,8 @@
-package com.sp.UI;
+package com.sp.ui;
 
-import com.sp.Dao.SmartSessionManager;
-import com.sp.Model.SystemConfig;
+import com.sp.dao.SmartSessionManager;
+import com.sp.entity.SystemConfig;
 import org.apache.commons.lang3.StringUtils;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.*;
@@ -39,9 +38,13 @@ public class SystemConfigDialog implements SelectionListener, MouseListener {
     }
 
     private void init() {
+        Text text = new Text(dialog, SWT.LEFT);
+        text.setBounds(0,0,550,27);
+        text.setText("modify value by click value content in table, press Save to store configuration");
+
 
         saveButton = new Button(dialog, SWT.LEFT);
-        saveButton.setBounds(0, 5, 80, 27);
+        saveButton.setBounds(0, 30, 80, 27);
         saveButton.setText("Save");
         saveButton.setImage(MImage.saveImage);
         saveButton.addSelectionListener(this);
@@ -51,7 +54,7 @@ public class SystemConfigDialog implements SelectionListener, MouseListener {
         dialog.setSize(350, 300);
 
         table = new Table(dialog, SWT.BORDER | SWT.FULL_SELECTION | SWT.MULTI);
-        table.setBounds(0, 30, 550, 300);
+        table.setBounds(0, 60, 550, 300);
         table.setHeaderVisible(true);
         table.setLinesVisible(true);
         table.addMouseListener(this);

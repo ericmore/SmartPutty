@@ -8,57 +8,34 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d5e05d3-196c-4a9b-bb72-624fdc7e8c20" name="Default" comment="git ignore .idea folder">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__antlr_antlr_2_7_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_h2database_h2_1_4_200.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_istack_istack_commons_runtime_3_0_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_codec_commons_codec_1_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_io_commons_io_2_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_net_commons_net_3_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_persistence_javax_persistence_api_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__log4j_log4j_1_2_17.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_bytebuddy_byte_buddy_1_10_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_lang3_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_dom4j_dom4j_2_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_jaxb_txw2_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_hibernate_core_5_4_22_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_javassist_javassist_3_24_0_GA.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_jandex_2_1_3_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_logging_jboss_logging_3_3_2_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jvnet_staxex_stax_ex_1_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_projectlombok_lombok_1_16_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_core_4_3_29_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SmartPutty.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SmartPutty.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/SmartPutty.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/SmartPutty.test.iml" afterDir="false" />
+    <list default="true" id="8d5e05d3-196c-4a9b-bb72-624fdc7e8c20" name="Default" comment="1.use logback&#10;2.System configuration panel feature ready">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Control/InvokeProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Control/InvokeProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Control/SmartConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Control/SmartConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Dao/ConfigService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Dao/ConfigService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Dao/SmartSessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Dao/SmartSessionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/ConstantValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Model/ConstantValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Model/SystemConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/MImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/UI/MImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/UI/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/ProgramsLocationsDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/UI/ProgramsLocationsDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Utils/RegistryUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/Utils/RegistryUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/bso.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/bso_go.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/disableproxy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/enableproxy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/putty/PUTTY.CNT" beforeDir="false" afterPath="$PROJECT_DIR$/app/putty/PUTTY.CNT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Control/InvokeProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/control/InvokeProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Control/MyPrintStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/control/MyPrintStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Control/SmartConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Control/SmartPuttyVersion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/control/SmartPuttyVersion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Dao/ConfigService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/service/ConfigService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Dao/DBManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Dao/SmartSessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/dao/SmartSessionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/BorderData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/model/BorderData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/BorderLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/model/BorderLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/ConfigSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/entity/ConfigSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/ConstantValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/model/ConstantValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/model/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/model/Protocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Model/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/entity/SystemConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/MImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/ui/MImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/ui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/NewSessionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/ui/NewSessionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/OpenSessionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/ui/OpenSessionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/ProgramsLocationsDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/Splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/ui/Splash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/UI/SystemConfigDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/ui/SystemConfigDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Utils/ReadXMLFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/utils/ReadXMLFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sp/Utils/RegistryUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sp/utils/RegistryUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/putty/PUTTY.CNT" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/putty/PUTTY.CNT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,12 +275,12 @@
       <method />
     </configuration>
     <configuration name="MainFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sp.UI.MainFrame" />
+      <option name="MAIN_CLASS_NAME" value="com.sp.ui.MainFrame" />
       <module name="SmartPutty.main" />
       <option name="VM_PARAMETERS" value="-splash:icon/splash.jpg  -Dsun.java2d.d3d=false" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sp.UI.*" />
+          <option name="PATTERN" value="com.sp.ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -549,7 +526,7 @@
       <workItem from="1602122159595" duration="4599000" />
       <workItem from="1602134746102" duration="10477000" />
       <workItem from="1602149438503" duration="9908000" />
-      <workItem from="1602301744602" duration="9945000" />
+      <workItem from="1602301744602" duration="12077000" />
     </task>
     <task id="LOCAL-00001" summary="Support Intellij IDEA for this project">
       <created>1492350338831</created>
@@ -649,7 +626,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602299312000</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="1.use logback&#10;2.System configuration panel feature ready">
+      <created>1602313316481</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1602313316481</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,7 +678,8 @@
     <MESSAGE value="restruct and move 32 / 64 lib to libArch" />
     <MESSAGE value="replace config file with DB systemConfig" />
     <MESSAGE value="git ignore .idea folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="git ignore .idea folder" />
+    <MESSAGE value="1.use logback&#10;2.System configuration panel feature ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.use logback&#10;2.System configuration panel feature ready" />
   </component>
   <component name="WindowStateProjectService">
     <state x="569" y="193" key="#Gradle" timestamp="1602133548917">
@@ -729,10 +714,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="199" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150682792" />
-    <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602311095689">
+    <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602314354343">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602311095689" />
+    <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602314354343" />
     <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602170008905" />
     <state x="691" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602149277895" />
     <state x="690" y="266" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1602305409992">
@@ -756,31 +741,31 @@
     <state x="688" y="212" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602301607060" />
     <state x="688" y="212" key="FileChooserDialogImpl/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602140059973" />
     <state x="688" y="212" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602299579584" />
-    <state width="1877" height="393" key="GridCell.Tab.0.bottom" timestamp="1602313174860">
+    <state width="1877" height="393" key="GridCell.Tab.0.bottom" timestamp="1602315225066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602313174860" />
+    <state width="1877" height="393" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602315225066" />
     <state width="1878" height="364" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169996843" />
     <state width="1878" height="343" key="GridCell.Tab.0.bottom/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150342096" />
     <state width="1877" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602299883919" />
-    <state width="1877" height="393" key="GridCell.Tab.0.center" timestamp="1602313174860">
+    <state width="1877" height="393" key="GridCell.Tab.0.center" timestamp="1602315225066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602313174860" />
+    <state width="1877" height="393" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602315225066" />
     <state width="1878" height="364" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169996843" />
     <state width="1878" height="343" key="GridCell.Tab.0.center/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150342096" />
     <state width="1877" height="199" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602299883919" />
-    <state width="1877" height="393" key="GridCell.Tab.0.left" timestamp="1602313174860">
+    <state width="1877" height="393" key="GridCell.Tab.0.left" timestamp="1602315225066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602313174860" />
+    <state width="1877" height="393" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602315225066" />
     <state width="1878" height="364" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169996843" />
     <state width="1878" height="343" key="GridCell.Tab.0.left/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150342095" />
     <state width="1877" height="199" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602299883918" />
-    <state width="1877" height="393" key="GridCell.Tab.0.right" timestamp="1602313174860">
+    <state width="1877" height="393" key="GridCell.Tab.0.right" timestamp="1602315225066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602313174860" />
+    <state width="1877" height="393" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602315225066" />
     <state width="1878" height="364" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602169996843" />
     <state width="1878" height="343" key="GridCell.Tab.0.right/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150342096" />
     <state width="1877" height="199" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602299883919" />
@@ -820,9 +805,10 @@
     <state x="485" y="191" key="SettingsEditor/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602163959406" />
     <state x="712" y="208" key="SettingsEditor/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602148711126" />
     <state x="485" y="189" width="1138" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602299594421" />
-    <state x="553" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602166682957">
+    <state x="553" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602313318730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="553" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602313318730" />
     <state x="553" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1536.824@0.0.1920.1040" timestamp="1602166682957" />
     <state x="553" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/3840.0.1920.1040@0.0.1920.1040" timestamp="1602150494849" />
     <state x="489" y="256" width="940" height="639" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1602166447181">
@@ -857,53 +843,38 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/Model/ConstantValue.java</url>
-          <line>30</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/sp/model/ConstantValue.java</url>
+          <line>28</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/UI/MImage.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/sp/ui/MImage.java</url>
           <line>66</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/Dao/DBManager.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/Dao/DBManager.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/Dao/DBManager.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/UI/NewSessionDialog.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/sp/ui/NewSessionDialog.java</url>
           <line>196</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/Control/InvokeProgram.java</url>
-          <line>35</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/sp/control/InvokeProgram.java</url>
+          <line>36</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/Dao/SmartSessionManager.java</url>
-          <line>54</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/sp/dao/SmartSessionManager.java</url>
+          <line>59</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/UI/SystemConfigDialog.java</url>
-          <line>144</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/sp/ui/SystemConfigDialog.java</url>
+          <line>147</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sp/UI/SystemConfigDialog.java</url>
-          <line>118</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/sp/ui/SystemConfigDialog.java</url>
+          <line>121</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">

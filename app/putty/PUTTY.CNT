@@ -100,12 +100,12 @@
 3 Section 4.4.5: Controlling Application Keypad mode=keyboard.appkeypad
 3 Section 4.4.6: Using NetHack keypad mode=keyboard.nethack
 3 Section 4.4.7: Enabling a DEC-like Compose key=keyboard.compose
-3 Section 4.4.8: �com.sp.Control-Alt is different from AltGr�=keyboard.ctrlalt
+3 Section 4.4.8: �com.sp.control-Alt is different from AltGr�=keyboard.ctrlalt
 2 Section 4.5: The Bell panel
 3 Section 4.5: The Bell panel=t00000060
 3 Section 4.5.1: �Set the style of bell�=bell.style
 3 Section 4.5.2: �Taskbar/caption indication on bell�=bell.taskbar
-3 Section 4.5.3: �com.sp.Control the bell overload behaviour�=bell.overload
+3 Section 4.5.3: �com.sp.control the bell overload behaviour�=bell.overload
 2 Section 4.6: The Features panel
 3 Section 4.6: The Features panel=t00000061
 3 Section 4.6.1: Disabling application keypad and cursor keys=features.application

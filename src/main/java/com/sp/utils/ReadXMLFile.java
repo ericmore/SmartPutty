@@ -1,4 +1,4 @@
-package com.sp.Utils;
+package com.sp.utils;
 
 import java.io.File;
 import java.util.ArrayList;

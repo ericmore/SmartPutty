@@ -1,4 +1,4 @@
-package com.sp.UI;
+package com.sp.ui;
 
 import java.awt.*;
 

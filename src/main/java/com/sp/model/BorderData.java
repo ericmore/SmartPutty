@@ -1,4 +1,4 @@
-package com.sp.Model;
+package com.sp.model;
 
 import org.eclipse.swt.SWT;
 

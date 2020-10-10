@@ -1,7 +1,7 @@
-package com.sp.UI;
+package com.sp.ui;
 
-import com.sp.Dao.SmartSessionManager;
-import com.sp.Model.ConfigSession;
+import com.sp.dao.SmartSessionManager;
+import com.sp.entity.ConfigSession;
 import java.util.ArrayList;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;

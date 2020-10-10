@@ -1,4 +1,4 @@
-package com.sp.Model;
+package com.sp.model;
 
 /**
  * Protocols allowed by "Putty" or "KiTTY".

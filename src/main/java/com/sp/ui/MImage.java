@@ -1,4 +1,4 @@
-package com.sp.UI;
+package com.sp.ui;
 
 import org.eclipse.swt.graphics.Image;
 import org.springframework.core.io.ClassPathResource;

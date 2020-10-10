@@ -1,15 +1,14 @@
-package com.sp.Dao;
+package com.sp.dao;
 
-import com.sp.Model.ConfigSession;
-import com.sp.Model.Protocol;
-import com.sp.Model.SystemConfig;
+import com.sp.entity.ConfigSession;
+import com.sp.model.Protocol;
+import com.sp.entity.SystemConfig;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.springframework.core.io.ClassPathResource;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 @SuppressWarnings({"deprecation","unchecked"})
@@ -32,6 +31,10 @@ public class SmartSessionManager {
     /*
     DB Actions
      */
+    public List<Object> getAll(Class clazz) {
+        return sessionFactory.openSession().createCriteria(clazz).list();
+    }
+
     public void save(Object entity) {
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -66,6 +69,14 @@ public class SmartSessionManager {
         sessionFactory.openSession().delete(entity);
     }
 
+
+
+
+
+
+    /*
+    API service
+     */
     public List<SystemConfig> getAllSystemConfigs() {
         return sessionFactory.openSession().createCriteria(SystemConfig.class).list();
     }
@@ -74,10 +85,13 @@ public class SmartSessionManager {
         return sessionFactory.openSession().createCriteria(ConfigSession.class).list();
     }
 
+    public void updateSystemConfig(String key, String newValue){
+        List<SystemConfig> list = getAllSystemConfigs();
+        SystemConfig config = list.stream().filter(e-> StringUtils.equals(e.getKey(), key)).findAny().orElse(null);
+        config.setValue(newValue);
+        update(config);
+    }
 
-    /*
-    API service
-     */
     public List<ConfigSession> queryCSessionByHost(String host) {
         return getAllCSessions().stream().filter(e -> e.getHost().equals(host)).collect(Collectors.toList());
     }

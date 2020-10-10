@@ -1,10 +1,10 @@
-package com.sp.UI;
+package com.sp.ui;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
-import com.sp.Dao.SmartSessionManager;
+import com.sp.dao.SmartSessionManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseListener;
@@ -18,9 +18,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-import com.sp.Model.ConfigSession;
-import com.sp.Model.ConstantValue;
-import com.sp.Model.Protocol;
+import com.sp.entity.ConfigSession;
+import com.sp.model.ConstantValue;
+import com.sp.model.Protocol;
 
 public class NewSessionDialog implements SelectionListener, MouseListener {
 
