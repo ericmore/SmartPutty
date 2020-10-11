@@ -8,6 +8,7 @@ SmartPutty for windows platform provides rock-solid terminal emulation for compu
 </p>
 
 **Installing**
+**JDK version must be 8 and JDK version must lower than 1.8_202, latest JDK has bug when operation native OS call**
 
 **Clone a copy of the repo:**
 
@@ -61,7 +62,7 @@ H2 Intellij Database Configuration
 ![h2](https://user-images.githubusercontent.com/5425276/95461537-ea994100-09a8-11eb-9e5d-5be10ca94a1a.PNG)
 
 Issues
-1.  if you mean below crash error when open putty, that is newer JDK bug, lower down the jdk minor version can fix it. I've tested jdk1.8.0_111 works well, but jdk1.8.0_261 will crash.
+1.  if you confront below crash error when open putty, that is newer JDK bug, lower down the jdk minor version 1.8_202 earlier can fix it. I've tested jdk1.8.0_111 works well, but jdk1.8.0_261 will crash.
  
  `A fatal error has been detected by the Java Runtime Environment:
  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffbeb286ca0, pid=5956, tid=0x0000000000003734
